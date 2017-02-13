@@ -67,6 +67,7 @@
 .shop-info .shop-info-text{
     font-size:28rpx;
     margin-left:20rpx;
+    color:#4f4f4f;
 }
 .shop-info .right-arrow{
     width:16rpx;
