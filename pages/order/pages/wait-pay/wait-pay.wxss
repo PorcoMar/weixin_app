@@ -37,7 +37,7 @@
 }
 .shopName {
     height:80rpx;
-    border-bottom:1rpx solid lightgrey;
+    border-bottom:1rpx solid #f5f5f5;
     font-size: 28rpx;
     color: #4f4f4f;
     padding-left: 24rpx;
@@ -76,6 +76,9 @@
     color: #4f4f4f;
     margin-bottom: 20rpx;
 }
+.price {
+    text-decoration: line-through;
+}
 
 .priceDetail {
     height: 310rpx;
@@ -91,28 +94,41 @@
     color:#4f4f4f;
 }
 .vip {
-    width: 30rpx;
-    height: 24rpx;
+    width: 36rpx;
+    height: 30rpx;
     margin-left: 24rpx;  
 }
 .memberDiscount text {
     font-size: 28rpx;
     color: #4f4f4f;
+    line-height: 100rpx;
+    margin-left:10rpx;
 }
-.realpay{
+.memberDiscount .font {
+    font-size: 28rpx;
+    color:#fe67b8;
+    line-height: 100rpx;
+}
+.realPay{
     height:110rpx;
     font-size: 30rpx;
     color:#8f8f8f;
     border:none;
+    padding-left:24rpx;
+    line-height: 110rpx;
 }
-.realpay .real {
+.realPay .real {
     font-size: 34rpx;
     color: #fc5a5f;
+    float:right;
+    margin-right: 24rpx;
 }
 .font{
+    font-size: 34rpx;
     color:#fe6b78;
     float:right;
     margin-right: 24rpx;
+    line-height: 100rpx;
 }
 
 .infoDetail {

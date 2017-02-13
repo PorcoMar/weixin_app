@@ -27,16 +27,16 @@
     <view class="priceDetail">
         <view>
             <text class="orderTotal">订单总额</text>
-            <text calss="font">￥{{priceDetail.orderTotal}}</text>
+            <text class="font">￥{{priceDetail.orderTotal}}</text>
         </view>
-        <view calss="memberDiscount">
+        <view class="memberDiscount">
             <image src="../../../../images/order/vip@2x.png" class="vip"></image>
             <text>商户会员折扣</text>
-            <text calss="font">-￥{{priceDetail.amount}}</text>
+            <text class="font">-￥{{priceDetail.amount}}</text>
         </view>
         <view class="realPay">
             <text>实付款</text>
-            <text calss="font real">￥{{priceDetail.realPay}}</text>
+            <text class="real">￥{{priceDetail.realPay}}</text>
         </view>
     </view>
     <!--联系信息-->

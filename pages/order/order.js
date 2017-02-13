@@ -61,6 +61,13 @@ Page({
       orderTotal:3,
       combind:10338,
       operate:["需支付￥5,1669"]
-  }]
- }
+    }]
+  },
+  // 订单跳转到订单详情
+  orderDetail:function(){
+    console.log("跳转到订单详情");
+    wx.navigateTo({
+      url: './pages/wait-pay/wait-pay'
+    })
+  }
 })

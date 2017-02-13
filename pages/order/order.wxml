@@ -4,7 +4,7 @@
   <!--循环创立订单列表-->
   <view class="flex-wrp bac" style="flex-direction:column;margin: 20rpx 0;" wx:for="{{array}}" wx-key="id">
   <!--订单和门店详情-->
-    <view class="flex-item shopList">
+    <view class="flex-item shopList" bindtap="orderDetail">
         <!--门店logo-->
         <view class="logo">
           <image src="{{item.logo}}" class="image" mode="scaleToFill"></image>
