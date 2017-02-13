@@ -90,6 +90,10 @@ page{
     color:#ffffff;
     display:flex;
     justify-content: center;
+    align-items: center;
+}
+.item-quantity .unit{
+    font-size:28rpx;
 }
 .item-name{
     margin-top:22rpx;
