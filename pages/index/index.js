@@ -3,7 +3,8 @@
 var app = getApp()
 Page({
   data: {
-  
+    shopName:"Cocodemer港汇店",
+    shopImage:"../../images/homePage/shop_image.jpg"
   },
   onLoad: function () {
     console.log("---index onload---")

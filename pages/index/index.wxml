@@ -1,4 +1,135 @@
 <!--index.wxml-->
 <view class="container">
-  
+    <!--头部开始-->
+    <view class="header">
+        <image class="logo" src="../../images/homePage/park@2x.png"></image>
+        <text class="shopName">{{shopName}}</text>
+        <text class="changeShop">切换门店</text>
+    </view>
+    <!--头部结束-->
+
+    <!--门店图片展示开始-->
+    <view class="shop-photo">
+        <image src="{{shopImage}}"></image>
+    </view>
+    <!--门店图片展示结束-->
+
+    <!--门店详情开始-->
+    <view class="shop-info">
+        <view class="section">
+            <image class="left-icon" src="../../images/homePage/time@2x.png" ></image>
+            <text class="shop-info-text">营业时间周一至周五，10:00-21:00</text>
+        </view>
+        <view class="section">
+            <image class="left-icon" src="../../images/homePage/address@2x.png" ></image>
+            <text class="shop-info-text">[徐汇区]虹桥路1港汇中心一座</text>
+            <image class="right-arrow" src="../../images/homePage/arrow@2x.png"></image>
+        </view>
+        <view class="section">
+            <image class="left-icon" src="../../images/homePage/mendian_tel_nor@2x.png" ></image>
+            <text class="shop-info-text">0574-55845004</text>
+            <image class="right-arrow" src="../../images/homePage/arrow@2x.png"></image>
+        </view>
+        <view class="section">
+            <image class="left-icon" src="../../images/homePage/wifi@2x.png"></image>
+            <text class="extra-service">免费WIFI</text>
+
+            <image class="left-icon right2" src="../../images/homePage/park@2x.png"></image>
+            <text class="extra-service">免费停车</text>
+
+            <image class="left-icon right2" src="../../images/homePage/wifi@2x.png"></image>
+            <text class="extra-service">可刷卡</text>
+
+            <image class="left-icon right2" src="../../images/homePage/wifi@2x.png"></image>
+            <text class="extra-service">免费喝茶</text>
+        </view>
+    </view>
+    <!--门店详情结束-->
+
+    <!--热门服务列表开始-->
+    <view class="service-content">
+        <view class="title">
+            <text>热门服务</text>
+        </view>
+        <view class="service-list">
+            <view class="service-item">
+                <view class="service-image">
+                    <image src="../../images/homePage/serviceImage.png"></image>
+                </view>
+                <view class="service-name">
+                    <text>Cocodemeter产后修复套餐</text>
+                </view>
+                <view class="service-type">
+                    <text class="shop">到店服务</text>
+                    <text class="door">到家服务</text>
+                    <text class="saled">已售：213</text>
+                </view>
+                <view class="service-price">
+                    <text class="discountPrice">¥ 666</text>
+                    <text class="originalPrice">¥ 1333</text>
+                </view>
+            </view>
+
+            <view class="service-item">
+                <view class="service-image">
+                    <image src="../../images/homePage/serviceImage.png"></image>
+                </view>
+                <view class="service-name">
+                    <text>Cocodemeter产后修复套餐</text>
+                </view>
+                <view class="service-type">
+                    <text class="shop">到店服务</text>
+                    <text class="door">到家服务</text>
+                    <text class="saled">已售：213</text>
+                </view>
+                <view class="service-price">
+                    <text class="discountPrice">¥ 666</text>
+                    <text class="originalPrice">¥ 1333</text>
+                </view>
+            </view>
+
+            <view class="service-item">
+                <view class="service-image">
+                    <image src="../../images/homePage/serviceImage.png"></image>
+                </view>
+                <view class="service-name">
+                    <text>Cocodemeter产后修复套餐</text>
+                </view>
+                <view class="service-type">
+                    <text class="shop">到店服务</text>
+                    <text class="door">到家服务</text>
+                    <text class="saled">已售：213</text>
+                </view>
+                <view class="service-price">
+                    <text class="discountPrice">¥ 666</text>
+                    <text class="originalPrice">¥ 1333</text>
+                </view>
+            </view>
+
+            <view class="service-item">
+                <view class="service-image">
+                    <image src="../../images/homePage/serviceImage.png"></image>
+                </view>
+                <view class="service-name">
+                    <text>Cocodemeter产后修复套餐</text>
+                </view>
+                <view class="service-type">
+                    <text class="shop">到店服务</text>
+                    <text class="door">到家服务</text>
+                    <text class="saled">已售：213</text>
+                </view>
+                <view class="service-price">
+                    <text class="discountPrice">¥ 666</text>
+                    <text class="originalPrice">¥ 1333</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--热门服务列表结束-->
+
+    <!--底部样式开始-->
+    <view class="footer">
+        <text>已经到底了哦~</text>
+    </view>
+    <!--底部样式结束-->
 </view>
