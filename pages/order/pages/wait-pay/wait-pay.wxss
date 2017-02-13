@@ -1,7 +1,7 @@
 /* pages/order/pages/wait-pay/wait-pay.wxss */
 .section{
     padding-top: 0rpx;
-    background-color:lightgray;
+    background-color:#f5f5f5;
 }
 .section>view {
     background: white;

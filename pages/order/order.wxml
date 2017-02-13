@@ -4,28 +4,32 @@
   <!--循环创立订单列表-->
   <view class="flex-wrp bac" style="flex-direction:column;margin: 20rpx 0;" wx:for="{{array}}" wx-key="id">
   <!--订单和门店详情-->
-    <view class="flex-item shopList" style="">
+    <view class="flex-item shopList">
         <!--门店logo-->
-        <view class="flex-item logo">
+        <view class="logo">
           <image src="{{item.logo}}" class="image" mode="scaleToFill"></image>
         </view>
         <!--详情-->
-        <view class="flex-item shopOrder">
+        <view class="shopOrder">
           <!--门店-->
-          <view class="flex-item flex-wrp shop" style="flex-direction:row;">
-            <view class="flex-item shopDetail">
+          <view class="shop" style="">
+            <view class="shopDetail">
               <view class="shopName">{{item.shopName}}</view>
               <view class="orderTime">{{item.orderTime}}</view>
             </view>
-            <view class="flex-item status">{{item.payStatus}}</view>
+            <view class="status">{{item.payStatus}}</view>
           </view>
           <!--订单-->
-          <view class="flex-item order" wx-for="{{item.orderDetail}}" wx-key="id">
-            <text class="orderName">1</text>
-            <text class="note">2</text>
+          <view class="order">
+            <text class="orderName">Cocodomer面部护理1</text>
+            <text class="note">￥5000</text>
+          </view>
+          <view class="order">
+            <text class="orderName">Cocodomer面部护理2</text>
+            <text class="note">￥5000</text>
           </view>
           <!--总额-->
-          <view class="flex-item total">
+          <view class="total">
             <text class="service">共{{item.orderTotal}}项服务</text>
             <text>合计</text>
             <text class="price">￥{{item.combind}}</text>
