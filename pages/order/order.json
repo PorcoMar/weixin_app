@@ -1,7 +1,3 @@
 {
-    "window":{
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "订单",
-        "backgroundColor": "#eeeeee"
-    }
+    "navigationBarTitleText":"订单"
 }

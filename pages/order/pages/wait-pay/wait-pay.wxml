@@ -30,7 +30,7 @@
             <text class="font">￥{{priceDetail.orderTotal}}</text>
         </view>
         <view class="memberDiscount">
-            <image src="../../../../images/order/vip@2x.png" class="vip"></image>
+            <image src="../../../../images/order/vip@2x.png" class="vip" mode="scaleToFill"></image>
             <text>商户会员折扣</text>
             <text class="font">-￥{{priceDetail.amount}}</text>
         </view>
