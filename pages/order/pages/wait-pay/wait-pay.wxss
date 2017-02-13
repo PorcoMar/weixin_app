@@ -1,1 +1,154 @@
 /* pages/order/pages/wait-pay/wait-pay.wxss */
+.section{
+    padding-top: 0rpx;
+    background-color:lightgray;
+}
+.section>view {
+    background: white;
+    margin-top:20rpx;
+    
+}
+
+.orderStatus {
+    height: 190rpx;
+}
+.image {
+    width: 60rpx;
+    height: 60rpx;
+    background: pink;
+    margin-left:80rpx;
+    margin-top:80rpx;
+}
+.statusInfo {
+    display: inline-block;
+    margin-left:30rpx;
+}
+.waitPay{
+    font-size: 36rpx;
+    color:#fe67b8;
+}
+.statusInfo text{
+    font-size: 28rpx;
+    color: #4f4f4f;
+}
+
+.serviceDetail {
+    height: 260rpx;
+}
+.shopName {
+    height:80rpx;
+    border-bottom:1rpx solid lightgrey;
+    font-size: 28rpx;
+    color: #4f4f4f;
+    padding-left: 24rpx;
+    line-height: 80rpx;
+}
+.service{
+    height: 180rpx;
+}
+.shopImg {
+    width: 120rpx;
+    height: 120rpx;
+    margin-left: 24rpx;
+    margin-right:26rpx;
+    margin-top:25rpx;
+}
+.serviceInfo {
+    display: inline-block;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    color:#4f4f4f;
+}
+.serviceNum {
+    font-size: 24rpx;
+    color:#999999;
+}
+.priceInfo{
+    display: inline-block;
+    float: right;
+    margin-top:36rpx;
+    margin-right: 24rpx;
+    font-size: 24rpx;
+    color:#999999;
+}
+.discount{
+    font-size: 28rpx;
+    color: #4f4f4f;
+    margin-bottom: 20rpx;
+}
+
+.priceDetail {
+    height: 310rpx;
+}
+.priceDetail>view{
+    height: 100rpx;
+    border-bottom: 1rpx solid #999999;
+}
+.orderTotal {
+    line-height: 100rpx;
+    margin-left:24rpx;
+    font-size: 34rpx;
+    color:#4f4f4f;
+}
+.vip {
+    width: 30rpx;
+    height: 24rpx;
+    margin-left: 24rpx;  
+}
+.memberDiscount text {
+    font-size: 28rpx;
+    color: #4f4f4f;
+}
+.realpay{
+    height:110rpx;
+    font-size: 30rpx;
+    color:#8f8f8f;
+    border:none;
+}
+.realpay .real {
+    font-size: 34rpx;
+    color: #fc5a5f;
+}
+.font{
+    color:#fe6b78;
+    float:right;
+    margin-right: 24rpx;
+}
+
+.infoDetail {
+    height: 210rpx;
+}
+.infoDetail view {
+    padding-top: 30rpx;
+    font-size: 30rpx;
+    color: #8f8f8f;
+}
+
+.orderDetail{
+    height: 120rpx;
+}
+button {
+    font-size:30rpx;
+	text-align:center;
+	line-height:80rpx;
+    border-radius:8rpx;
+    margin-top:20rpx;
+}
+.cancel{
+    width:210rpx;
+    background: #fff;
+    border:1rpx solid #4f4f4f;
+	color:#4f4f4f;
+    float:left;
+    margin-left: 20rpx;
+}
+.immediate {
+    width: 464rpx;
+    background: #fc5a5f;
+    color:#fffefe;
+    float:right;
+    margin-right: 20rpx;
+}
+
+
+

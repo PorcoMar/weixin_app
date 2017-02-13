@@ -1,6 +1,30 @@
 // pages/order/pages/wait-pay/wait-pay.js
 Page({
-  data:{},
+  data:{
+    serviceDetail:{
+      shopName:"Cocodemer杭州大厦店",
+      picture:"",
+      serviceName:"孕后修身补水护肤服务",
+      num:2,
+      price:5152,
+      discount:3888
+    },
+    priceDetail:{
+      orderTotal:10304.00,
+      amount:2528.00,
+      realPay:7756.00
+    },
+    infoDetail:{
+      single:"某某某",
+      phone:18025632563,
+      note:"卡萨丁放假啊"
+    },
+    orderDetail:{
+      orderNo:123456789,
+      payment:"微信零钱",
+      orderTime:"2016-10-10 21:22:22"
+    }
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
   },

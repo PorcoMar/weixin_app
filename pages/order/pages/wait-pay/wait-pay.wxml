@@ -1,2 +1,53 @@
 <!--pages/order/pages/wait-pay/wait-pay.wxml-->
-<text>pages/order/pages/wait-pay/wait-pay.wxml</text>
+<view class="section">
+<!--订单状态-->
+    <view class="orderStatus">
+        <image src="../../../../images/order/￥@2x.png" mode="scaleToFill" class="image"></image>
+        <view class="statusInfo">
+            <view class="waitPay">等待支付</view>
+            <text>逾期未支付订单将自动取消</text>
+        </view>
+    </view>
+    <!--服务信息-->
+    <view class="serviceDetail">
+      <view class="shopName">{{serviceDetail.shopName}}</view>
+      <view class="service">
+        <image src="../../../../images/order/none-order@2x.png" mode="scaleToFill" class="shopImg"></image>
+        <view class="serviceInfo">
+            <view>{{serviceDetail.serviceName}}</view>
+            <view class="serviceNum">数量X{{serviceDetail.num}}</view>
+        </view>
+        <view class="priceInfo">
+            <view class="discount">￥{{serviceDetail.discount}}</view>
+            <view class="price">￥{{serviceDetail.price}}</view>
+        </view>
+      </view>
+    </view>
+    <!--价格明细-->
+    <view class="priceDetail">
+        <view>
+            <text class="orderTotal">订单总额</text>
+            <text calss="font">￥{{priceDetail.orderTotal}}</text>
+        </view>
+        <view calss="memberDiscount">
+            <image src="../../../../images/order/vip@2x.png" class="vip"></image>
+            <text>商户会员折扣</text>
+            <text calss="font">-￥{{priceDetail.amount}}</text>
+        </view>
+        <view class="realPay">
+            <text>实付款</text>
+            <text calss="font real">￥{{priceDetail.realPay}}</text>
+        </view>
+    </view>
+    <!--联系信息-->
+    <view class="infoDetail">
+        <view>下单人：{{infoDetail.single}}</view>
+        <view>联系电话：{{infoDetail.phone}}</view>
+        <view>备注：{{infoDetail.note}}</view>
+    </view>
+    <!--订单编号-->
+    <view class="orderDetail">
+        <button plain="" class="cancel">取消订单</button>
+        <button class="immediate">立即支付(还剩23小时56分)</button>
+    </view>
+</view>

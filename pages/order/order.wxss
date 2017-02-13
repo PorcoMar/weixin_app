@@ -1,1 +1,97 @@
 /* pages/order/order.wxss */
+.section{
+    padding-top: 0rpx;
+    background-color:lightgray;
+}
+.bac {
+    background-color: white;
+}
+.flex-wrp {
+    display: flex;
+}
+.shopList {
+ border-bottom: 1rpx solid #c6c6c6;  
+}
+.operate{
+    height: 54rpx;
+    padding:25rpx;
+}
+.btn {
+    height: 54rpx;
+    margin-right: 20rpx;
+    background: white;
+}
+.logo{
+    margin:44rpx 20rpx 42rpx 24rpx;
+    float:left;
+}
+.image {
+    width: 80rpx;
+    height: 80rpx;
+}
+.shopOrder {    
+    float:right;
+}
+.shop {
+    height: 166rpx;
+    border-bottom: 1px solid #c6c6c6;
+    padding-right: 24rpx;
+}
+
+.shopDetail{
+    margin-top:48rpx;
+}
+.shopName {
+    font-family: "黑体";
+    font-size:30rpx;
+    color:#4f4f4f; 
+    margin-bottom: 24rpx;
+}
+.orderTime {
+    font-family: "楷体";
+    font-size:24rpx;
+    color:#8f8f8f; 
+}
+.status {
+    font-size:24rpx;
+    color:#8f8f8f;
+    margin-top: 52rpx;
+}
+
+.order {
+    margin:30rpx 0;
+    padding-right: 24rpx;
+}
+.orderName {
+    font-size: 27rpx;
+    color:red;
+}
+.note {
+    float:right;
+}
+
+.total {
+    padding-top: 40rpx;
+    padding-right:24rpx;
+    border-top: 1rpx solid #c6c6c6;
+    height: 46rpx;   
+    font-size: 24rpx;
+    color: #8f8f8f;
+}
+.price{
+    float:right;
+    font-size: 28rpx;
+    color:#fc5a5f;
+}
+/*按钮样式*/
+.orderOperate{
+    border: 1rpx solid #c6c6c6;
+    border-radius: 15rpx;
+    float:right;
+    width: 158rpx;
+    height: 54rpx;
+    font-size: 26rpx;
+    line-height: 54rpx;
+    text-align: center;
+    color:#333333;
+}

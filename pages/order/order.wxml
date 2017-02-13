@@ -1,0 +1,44 @@
+<!--<view>这是订单页面</view>-->
+<view class="section">
+  <!--<view class="section__title">订单</view>-->
+  <!--循环创立订单列表-->
+  <view class="flex-wrp bac" style="flex-direction:column;margin: 20rpx 0;" wx:for="{{array}}" wx-key="id">
+  <!--订单和门店详情-->
+    <view class="flex-item shopList" style="">
+        <!--门店logo-->
+        <view class="flex-item logo">
+          <image src="{{item.logo}}" class="image" mode="scaleToFill"></image>
+        </view>
+        <!--详情-->
+        <view class="flex-item shopOrder">
+          <!--门店-->
+          <view class="flex-item flex-wrp shop" style="flex-direction:row;">
+            <view class="flex-item shopDetail">
+              <view class="shopName">{{item.shopName}}</view>
+              <view class="orderTime">{{item.orderTime}}</view>
+            </view>
+            <view class="flex-item status">{{item.payStatus}}</view>
+          </view>
+          <!--订单-->
+          <view class="flex-item order" wx-for="{{item.orderDetail}}" wx-key="id">
+            <text class="orderName">1</text>
+            <text class="note">2</text>
+          </view>
+          <!--总额-->
+          <view class="flex-item total">
+            <text class="service">共{{item.orderTotal}}项服务</text>
+            <text>合计</text>
+            <text class="price">￥{{item.combind}}</text>
+          </view>
+        </view>
+    </view>
+  <!--订单操作-->
+    <view class="flex-item operate" >
+      <!--<button class="btn" type="default" size="mini" hover-class="button-hover">取消订单</button>
+      <button class="btn" type="default" size="mini" hover-class="button-hover" style="color:red;border-color:red;">立即支付</button>-->
+      <block wx-for="{{item.operate}}">
+        <view class="orderOperate">取消订单</view>
+      </block>
+    </view>
+  </view>
+</view>
