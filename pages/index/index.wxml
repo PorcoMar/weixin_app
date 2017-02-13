@@ -4,7 +4,7 @@
     <view class="header">
         <image class="logo" src="../../images/homePage/park@2x.png"></image>
         <text class="shopName">{{shopName}}</text>
-        <text class="changeShop">切换门店</text>
+        <text class="changeShop" bindtap="changeShop">切换门店</text>
     </view>
     <!--头部结束-->
 

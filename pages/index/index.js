@@ -20,5 +20,10 @@ Page({
   },
   onUnload:function(){
     console.log("----index onUnload----")
+  },
+  changeShop:function(){
+    wx.navigateTo({
+      url: './selectShop/selectShop'
+    })
   }
 })

@@ -1,0 +1,52 @@
+/* pages/index/selectShop/selectShop.wxss */
+
+.shop-list{
+   border-top:20rpx solid #f5f5f5;
+}
+.shop-list .shop-item:nth-child(1){
+    border-top:1px solid #dedede;
+}
+.shop-list .shop-item{
+    padding:28rpx 24rpx;
+    border-bottom:1px solid #dedede;
+    display: flex;
+    flex-wrap: wrap;
+     position: relative;
+}
+.shop-list .shop-item image{
+    width:200rpx;
+    height:110rpx;
+}
+.shop-list .shop-item .shop-detail{
+    width:calc(100% - 228rpx);
+    height:110rpx;
+    margin-left:28rpx;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.shop-list .shop-item .shop-detail .shop-name{
+   font-size:30rpx;
+   color:#4f4f4f;
+}
+.shop-list .shop-item .shop-detail .shop-address{
+    font-size:24rpx;
+    color:#4f4f4f;
+    display:flex;
+    align-items: center;
+    position:relative;
+}
+.shop-list .shop-item .shop-detail .shop-distance{
+    font-size:24rpx;
+    color:#8f8f8f;
+    position: absolute;
+    right:0;
+}
+
+.shop-list .shop-item .selected{
+    position:absolute;
+    top:0;
+    right:0;
+    width:76rpx;
+    height:76rpx;
+}
