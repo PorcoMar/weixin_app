@@ -1,1 +1,71 @@
+<view class="container">
+    <!--头部开始-->
+    <view class="header">
+        <view class="user-info">
+            <image class="user-image" src="../../images/personal/photo.jpg"></image>
+            <view class="user-detail">
+                <view class="user-title">
+                    <text class="user-name">张筱雨</text>
+                    <text class="member-card">金卡</text>
+                </view>
+                <view class="user-phone">
+                    <image src="../../images/personal/phone@2x.png" class="phoneImage"></image>
+                    <text class="user-phoneNumber">18659523693</text>
+                </view>
+            </view>
+        </view>
+        <view class="user-consume">
+            <view class="user-consume-item">
+                <view class="item-quantity">500元</view>
+                <view class="item-name">余额</view>
+            </view>
+            <view class="user-consume-item">
+                <view class="item-quantity">15张</view>
+                <view class="item-name">余额</view>
+            </view>
+            <view class="user-consume-item">
+                <view class="item-quantity">1,400分</view>
+                <view class="item-name">
+                    <text>积分</text>
+                </view>
+            </view>
+        </view>
+        <view class="erweima">
+            <image src="../../images/personal/erweima@2x.png"></image>
+        </view>
+    </view>
+    <!--头部结束-->
 
+    <!--中间区域开始-->
+    <view class="content">
+        <view class="section">
+            <image class="left-icon" src="../../images/personal/yue@2x.png"></image>
+            <text class="section-text">我的余额</text>
+            <image class="more" src="../../../images/personal/more@2x.png"></image>
+        </view>
+        <view class="section">
+            <image class="left-icon" src="../../images/personal/gere@2x.png"></image>
+            <text class="section-text">个人信息</text>
+            <image class="more" src="../../../images/personal/more@2x.png"></image>
+        </view>
+    </view>
+    <!--中间区域结束-->
+    <!--底部开始-->
+    <view class="footer">
+        <view class="notice-title">
+            <text>会员说明：</text>
+        </view>
+        <view class="notice-content">
+            <view class="notice-item">
+                <text>1，说明说明说明说明说明说明说明说明说明说明</text>
+            </view>
+            <view class="notice-item">
+                <text>2，说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明</text>
+            </view>
+            <view class="notice-item">
+                <text>3，说明说明说明说明说明</text>
+            </view>
+        </view>
+    </view>
+    <!--底部结束-->
+</view>

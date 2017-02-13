@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/personal/personal",
+
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     
@@ -10,9 +12,7 @@
     "pages/order/pages/submit-order/submit-order",
     "pages/order/pages/wait-pay/wait-pay",
     "pages/order/pages/has-pay/has-pay",
-    "pages/order/pages/expired/expired",
-
-    "pages/personal/personal"
+    "pages/order/pages/expired/expired"
   ],
   "window":{
     "backgroundTextStyle":"light",
