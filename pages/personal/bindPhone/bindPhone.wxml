@@ -6,7 +6,7 @@
                 <text>手机号</text>
             </view>
             <view class="form-input">
-                <input placeholder="注册或绑定手机号" type="text" /> 
+                <input placeholder="注册或绑定手机号" type="text" bindinput="getPhone" /> 
             </view>
         </view>
         <view class="form-group">
@@ -14,11 +14,11 @@
                 <text>验证码</text>
             </view>
             <view class="form-input">
-                <input placeholder="短信验证码" type="text" /> 
+                <input placeholder="短信验证码" type="text" bindinput="getMessageCode" /> 
             </view>
-            <button class="identifyBtn">获取验证码</button>
+            <button class="identifyBtn" bindtap="identify" disabled="{{identifyBtn.disabled}}">{{identifyBtn.text}}</button>
         </view>
     </view>
 
-    <button class="loginBtn">登录</button>
+    <button class="loginBtn" bindtap="login">登录</button>
 </view>

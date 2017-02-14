@@ -49,6 +49,7 @@ page{
     color:#fc5a5f;
     background-color:#ffffff;
     border:1px solid #dedede;
+    z-index: 10;
 }
 
 .loginBtn{
