@@ -1,1 +1,156 @@
 <!--pages/service/service.wxml-->
+
+<!-- loading -->
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">分类一</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">分类二</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">分类三</view>
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">分类四</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+
+ <!-- classfy11111111 -->
+    <swiper-item>
+        
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+
+         <view wx:for="{{choiceItems}}" wx:for-item="item" wx:for-index="i">
+            <navigator url="detail/detail?id={{choiceItems[i].id}}">
+               <view bindtap="turn_btn" style="width:100%;height:100%;border:2px solid blue;background-color:#ccc;"> {{item.title}}\n </view>
+               <view style="width:100%;height:100%;border:1px solid orange;margin-bottom:5px;"> {{item.description}}\n </view>
+             </navigator>
+         </view>
+            <!-- 没有更多的时候 -->
+            <view hidden="{{hotshidden}}" class="hot-box-more">
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
+            </view>
+
+        </scroll-view>
+
+    </swiper-item>
+
+
+    <!-- classfy22222 -->
+    <view class="block_f"></view>
+    <swiper-item>
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+
+            <view class="hot-box-main">
+                <view wx:for="{{datalist}}" wx:for-item="item" wx:for-index="i">
+                    <!--//加载内容-->
+                    <view wx:for="{{datalist[i].stories}}" wx:for-item="items">
+                    <!--跳转到详情页-->
+                        <navigator id="{{datalist[i].stories[index].id}}" url="detail/detail?id={{datalist[i].stories[index].id}}">
+                            <view class="list-box">
+                                <image class="left_img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1486977383822&di=f49a6100250c71bea3e5de96ee1e0b66&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb90e7bec54e736d1dd9d340899504fc2d5626920.jpg"></image>
+                                <view class="right">
+                                    <view class="list-box-title">{{datalist[i].stories[index].title}}</view>
+                                    <view class="dian">到店服务</view>
+                                    <view class="home">到家服务</view>
+                                    <view class="blockn"> </view>
+                                    <view class="list-box-id">{{datalist[i].stories[index].id}}</view>
+                                    <view class="list-box-id2">{{datalist[i].stories[index].id}}</view>
+                                </view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+
+            <!-- 没有更多的时候 -->
+            <view hidden="{{hotshidden}}" class="hot-box-more">
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
+            </view>
+
+
+
+
+
+        </scroll-view>
+    </swiper-item>
+
+
+
+    <!-- 哈哈33333 -->
+    <swiper-item>
+        
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+
+
+
+
+
+            <!--<view class="hot-box-main">
+                <view wx:for="{{datalist}}" wx:for-item="item" wx:for-index="i">
+
+
+             
+                    <view wx:for="{{datalist[i].stories}}" wx:for-index="j" wx:for-item="items">
+                         
+                        <navigator id="{{datalist[i].stories[j].id}}" url="../detail/detail?id={{datalist[i].stories[j].id}}">
+
+                            <view class="list-box">
+                                <view class="list-box-title">{{datalist[i].stories[j].title}}</view>
+                                <view class="list-box-sub">知乎日报</view>
+                            </view>
+
+                        </navigator>
+                    </view>
+                </view>
+            </view>-->
+
+         <view wx:for="{{choiceItems}}" wx:for-item="item" wx:for-index="i">
+            <navigator url="../detail1/detail1?id={{choiceItems[i].id}}">
+               <view bindtap="turn_btn" style="width:100%;height:100%;border:2px solid blue;background-color:#ccc;"> {{item.title}}\n </view>
+               <view style="width:100%;height:100%;border:1px solid orange;margin-bottom:5px;"> {{item.description}}\n </view>
+             </navigator>
+         </view>
+
+
+        </scroll-view>
+    </swiper-item>
+
+    
+
+        <!--4444444444-->
+    <swiper-item>
+        
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+
+            <view>3333</view>
+
+         <view wx:for="{{choiceItems}}" wx:for-item="item" wx:for-index="i">
+            <navigator url="../detail1/detail1?id={{choiceItems[i].id}}">
+               <view bindtap="turn_btn" style="width:100%;height:100%;border:2px solid blue;background-color:#ccc;"> {{item.title}}\n </view>
+               <view style="width:100%;height:100%;border:1px solid orange;margin-bottom:5px;"> {{item.description}}\n </view>
+             </navigator>
+         </view>
+
+
+        </scroll-view>
+    </swiper-item>
+
+
+
+
+    
+</swiper>
