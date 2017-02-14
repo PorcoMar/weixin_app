@@ -82,7 +82,14 @@ page{
     height:54rpx;
 }
 
-
+.header .user-login{
+    height:262rpx;
+    width:calc(100% - 188rpx);
+    display: flex;
+    align-items: center;
+    font-size:46rpx;
+    color:#ffffff;
+}
 .item-quantity{
     padding-top:30rpx;
     width:100%;
