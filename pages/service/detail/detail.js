@@ -13,8 +13,11 @@ Page( {
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
     ],
+        show:false,
         img:null,
-        url:null
+        url:null,
+        pay:null,
+        confirm:true,
 
     },
     onLoad: function( options ) {
@@ -83,6 +86,19 @@ Page( {
     },
 
 
+    pay:function(){
+        this.setData({
+            show:true
+        })
+     console.log(222222222222222222222222222)
+
+    },
+    confirm:function(){
+        this.setData({
+            show:false
+        })       
+        console.log(33333333333333333333)
+    },
 
 
 

@@ -36,28 +36,28 @@
     <view class="time_cocodemer">营业时间：周一至周五，10:00-21:00</view>
   </view>
   <view class="kilm">1.8km</view>
-  <image class="coco_right" src="../../../images/service/loading.gif"></image>
+  <image class="coco_right" src="../../../images/service/www.png"></image>
 </view>
 <view class="map">
   <image class="map_tu" src="../../../images/service/c.png"></image>
   <view class="left_map">[徐汇区]虹桥路1港汇中心一座8层805～806 </view>
-  <image class="map_right" src="../../../images/service/a.png"></image>
+  <image class="map_right" src="../../../images/service/k.png"></image>
 </view>
 <view class="ul1">
   <li class="hot_point">
-    <image class="point_img" src="../../../images/service/a.png"></image>
+    <image class="point_img" src="../../../images/service/d.png"></image>
     <view class="point-text">免费wifi</view>
   </li>
   <li class="hot_point">
-    <image class="point_img" src="../../../images/service/a.png"></image>
+    <image class="point_img" src="../../../images/service/e.png"></image>
     <view class="point-text">免费停车</view>
   </li>
   <li class="hot_point">
-    <image class="point_img" src="../../../images/service/a.png"></image>
+    <image class="point_img" src="../../../images/service/f.png"></image>
     <view class="point-text">可刷卡</view>
   </li>
   <li class="hot_point">
-    <image class="point_img" src="../../../images/service/a.png"></image>
+    <image class="point_img" src="../../../images/service/g.png"></image>
     <view class="point-text">免费喝茶</view>
   </li>
 </view>
@@ -72,5 +72,15 @@
     <text class="txt1">¥</text>
     <text class="txt2">1350</text>
   </view>
-  <view class="pay_complay">立即购买</view>
+  <view class="pay_complay" bindtap="pay">立即购买</view>
 </view>
+
+<!--弹框-->
+<view class="zhezhao" wx:if="{{show}}"></view>
+<view class="floatn" wx:if="{{show}}">
+  <text class="p">如需购买服务，须前往xxxapp上购买。</text>
+  <view class="line"></view>
+  <text class="confirm">确定</text>
+  <view class="flo2" wx:if="{{confirm}}" bindtap="confirm"></view>
+</view>
+
