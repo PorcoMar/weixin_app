@@ -1,4 +1,4 @@
-// pages/personal/personal.js
+// pages/personal/balance/balance.js
 Page({
   data:{},
   onLoad:function(options){
@@ -15,12 +15,5 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
-  },
-
-  //点击个人余额
-  userBalance:function(){
-    wx.navigateTo({
-      url:"./balance/balance"
-    })
   }
 })

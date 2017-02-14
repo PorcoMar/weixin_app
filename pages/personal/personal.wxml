@@ -38,7 +38,7 @@
 
     <!--中间区域开始-->
     <view class="content">
-        <view class="section">
+        <view class="section" bindtap="userBalance">
             <image class="left-icon" src="../../images/personal/yue@2x.png"></image>
             <text class="section-text">我的余额</text>
             <image class="more" src="../../../images/personal/more@2x.png"></image>

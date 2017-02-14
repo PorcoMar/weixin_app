@@ -1,0 +1,90 @@
+/* pages/personal/balance/balance.wxss */
+page{
+    background-color:#f5f5f5;
+}
+/*-------头部样式------*/
+.header{
+    width:100%;
+    height:288rpx;
+    background-image:url("../../../images/personal/balance_bg.png");
+    position:relative;
+}
+.header .title{
+    padding-top:42rpx;
+    font-size:30rpx;
+    color:#ffffff;
+    display:flex;
+    justify-content: center;
+}
+.header .balance{
+    width:100%;
+    font-size:100rpx;
+    color:#ffffff;
+    display:flex;
+    justify-content: center;
+    position: absolute;
+    bottom:68rpx;
+}
+.header .balance .unit{
+    font-size:50rpx;
+    padding-top:40rpx;
+}
+/*-------主要内容区域样式------*/
+.content{
+    background-color:#ffffff;
+    padding:0 24rpx;
+}
+.content .content-title{
+    padding-top:60rpx;
+    position:relative;
+}
+.content-title-text{
+    font-size:26rpx;
+    color:#8f8f8f;
+    display: flex;
+    justify-content: center;
+}
+.content-title-text text{
+    padding:0 20rpx;
+    z-index: 10;
+    background-color:#ffffff;
+}
+.content-title-border{
+    border-top:1px solid #b8b8b8;
+    width:100%;
+    position:absolute;
+    top:72rpx;
+    left:0;
+    z-index: 0;
+}
+.consume-item{
+    width:100%;
+    height:150rpx;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.consume-item + .consume-item{
+    border-top:1px solid #dedede;
+}
+.consume-item-left{
+    width:60%;
+    display: inline-block;
+}
+.consume-item-name{
+    padding-bottom:30rpx;
+    font-size:28rpx;
+    color:#4f4f4f;
+}
+.consume-item-time{
+    font-size:24rpx;
+    color:#8f8f8f;
+}
+.consume-item-money{
+    font-size:30rpx;
+    color:#23ac38;
+}
+.consume-item-recharge{
+    font-size:30rpx;
+    color:#f64747;
+}

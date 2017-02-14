@@ -1,0 +1,94 @@
+<!--pages/personal/balance/balance.wxml-->
+<view class="container">
+    <!--头部开始-->
+    <view class="header">
+        <view class="title">余额</view>
+        <view class="balance"><text class="unit">¥</text> 1，550</view>
+    </view>
+    <!--头部结束-->
+
+    <!--主要内容开始-->
+    <view class="content">
+        <view  class="content-title">
+            <view class="content-title-text">
+                <text>消费明细</text>
+            </view>
+            <view class="content-title-border"></view>
+
+        </view>
+        <view class="consume-list">
+            <view class="consume-item">
+                <view class="consume-item-left">
+                    <view class="consume-item-name">
+                        <text>门店消费</text>
+                    </view>
+                    <view class="consume-item-time">
+                        <text>2016-11-11 18:15:30</text>
+                    </view>
+                </view>
+                <text class="consume-item-money">-500</text>
+            </view>
+
+            <view class="consume-item">
+                <view class="consume-item-left">
+                    <view class="consume-item-name">
+                        <text>充值</text>
+                    </view>
+                    <view class="consume-item-time">
+                        <text>2016-11-11 18:15:30</text>
+                    </view>
+                </view>
+                <text class="consume-item-recharge">+5000</text>
+            </view>
+
+            <view class="consume-item">
+                <view class="consume-item-left">
+                    <view class="consume-item-name">
+                        <text>门店消费</text>
+                    </view>
+                    <view class="consume-item-time">
+                        <text>2016-11-11 18:15:30</text>
+                    </view>
+                </view>
+                <text class="consume-item-money">-500</text>
+            </view>
+
+            <view class="consume-item">
+                <view class="consume-item-left">
+                    <view class="consume-item-name">
+                        <text>充值</text>
+                    </view>
+                    <view class="consume-item-time">
+                        <text>2016-11-11 18:15:30</text>
+                    </view>
+                </view>
+                <text class="consume-item-recharge">+5000</text>
+            </view>
+
+             <view class="consume-item">
+                <view class="consume-item-left">
+                    <view class="consume-item-name">
+                        <text>门店消费</text>
+                    </view>
+                    <view class="consume-item-time">
+                        <text>2016-11-11 18:15:30</text>
+                    </view>
+                </view>
+                <text class="consume-item-money">-500</text>
+            </view>
+
+            <view class="consume-item">
+                <view class="consume-item-left">
+                    <view class="consume-item-name">
+                        <text>充值</text>
+                    </view>
+                    <view class="consume-item-time">
+                        <text>2016-11-11 18:15:30</text>
+                    </view>
+                </view>
+                <text class="consume-item-recharge">+5000</text>
+            </view>
+        </view>
+    </view>
+    <!--主要内容结束-->
+</view>
