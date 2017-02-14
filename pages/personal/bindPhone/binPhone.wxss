@@ -1,0 +1,64 @@
+/* pages/personal/bindPhone/binPhone.wxss */
+page{
+    background-color:#f5f5f5;
+}
+
+.form{
+    margin-top:102rpx;
+    background-color:#ffffff;
+}
+.form-group{
+    padding:0 46rpx;
+    height:90rpx;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.form-group + .form-group{
+    border-top:1px solid #dedede;
+}
+.form-label{
+    font-size:30rpx;
+    color:#4f4f4f;
+    height:90rpx;
+    line-height: 90rpx;
+    width:90rpx;
+    display: inline-block;
+}
+.form-input{
+    width:calc(100% - 160rpx);
+    display: flex;
+    align-items: center;
+    font-size:30rpx;
+    color:#8f8f8f;
+    height:90rpx;
+    line-height: 90rpx;
+}
+.form-input input{
+    width:100%;
+}
+
+.identifyBtn{
+    position: absolute;
+    top:14rpx;
+    right:46rpx;
+    width:200rpx;
+    height:60rpx;
+    line-height:60rpx;
+    font-size:28rpx;
+    color:#fc5a5f;
+    background-color:#ffffff;
+    border:1px solid #dedede;
+}
+
+.loginBtn{
+    margin-top:100rpx;
+    margin-left:46rpx;
+    margin-right:46rpx;
+    height:100rpx;
+    font-size:36rpx;
+    color:#ffffff;
+    line-height:100rpx;
+    background-color:#fc5a5f;
+    border:1px solid #fc5a5f;
+}

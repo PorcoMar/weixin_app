@@ -1,0 +1,24 @@
+<!--pages/personal/bindPhone/binPhone.wxml-->
+<view class="container">
+    <view class="form">
+        <view class="form-group">
+            <view class="form-label">
+                <text>手机号</text>
+            </view>
+            <view class="form-input">
+                <input placeholder="注册或绑定手机号" type="text" /> 
+            </view>
+        </view>
+        <view class="form-group">
+            <view class="form-label">
+                <text>验证码</text>
+            </view>
+            <view class="form-input">
+                <input placeholder="短信验证码" type="text" /> 
+            </view>
+            <button class="identifyBtn">获取验证码</button>
+        </view>
+    </view>
+
+    <button class="loginBtn">登录</button>
+</view>
