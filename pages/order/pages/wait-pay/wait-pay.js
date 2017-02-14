@@ -1,4 +1,5 @@
 // pages/order/pages/wait-pay/wait-pay.js
+var app =getApp();
 Page({
   data:{
     serviceDetail:{
@@ -27,6 +28,11 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    var id = app.requestDetailid;
+    console.log(id);
+    this.setData({
+      orderStatus:id
+    })
   },
   onReady:function(){
     // 页面渲染完成

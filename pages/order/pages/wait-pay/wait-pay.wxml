@@ -1,11 +1,28 @@
 <!--pages/order/pages/wait-pay/wait-pay.wxml-->
 <view class="section">
 <!--订单状态-->
-    <view class="orderStatus">
+    <!--未付款-->
+    <view class="orderStatus" wx:if="{{orderStatus === '未付款'}}">
         <image src="../../../../images/order/￥@2x.png" mode="scaleToFill" class="image"></image>
         <view class="statusInfo">
             <view class="waitPay">等待支付</view>
             <text>逾期未支付订单将自动取消</text>
+        </view>
+    </view>
+    <!--已付款-->
+    <view class="orderStatus" wx:if="{{orderStatus === '已付款'}}">
+        <image src="../../../../images/order/gou@2x.png" mode="scaleToFill" class="image"></image>
+        <view class="statusInfo">
+            <view class="waitPay">支付成功</view>
+            <text>支付已完成</text>
+        </view>
+    </view>
+    <!--已过期-->
+    <view class="orderStatus" wx:if="{{orderStatus === '已过期'}}">
+        <image src="../../../../images/order/￥@2x-2.png" mode="scaleToFill" class="image"></image>
+        <view class="statusInfo">
+            <view class="waitPay">已过期</view>
+            <text>逾期未支付订单已自动取消</text>
         </view>
     </view>
     <!--服务信息-->
@@ -18,8 +35,8 @@
             <view class="serviceNum">数量X{{serviceDetail.num}}</view>
         </view>
         <view class="priceInfo">
-            <view class="discount">￥{{serviceDetail.discount}}</view>
-            <view class="price">￥{{serviceDetail.price}}</view>
+            <view class="discount">¥{{serviceDetail.discount}}</view>
+            <view class="price">¥{{serviceDetail.price}}</view>
         </view>
       </view>
     </view>
@@ -27,27 +44,38 @@
     <view class="priceDetail">
         <view>
             <text class="orderTotal">订单总额</text>
-            <text class="font">￥{{priceDetail.orderTotal}}</text>
+            <text class="font">¥{{priceDetail.orderTotal}}</text>
         </view>
         <view class="memberDiscount">
             <image src="../../../../images/order/vip@2x.png" class="vip" mode="scaleToFill"></image>
             <text>商户会员折扣</text>
-            <text class="font">-￥{{priceDetail.amount}}</text>
+            <text class="font">-¥{{priceDetail.amount}}</text>
         </view>
         <view class="realPay">
             <text>实付款</text>
-            <text class="real">￥{{priceDetail.realPay}}</text>
+            <text class="real">¥{{priceDetail.realPay}}</text>
         </view>
     </view>
     <!--联系信息-->
     <view class="infoDetail">
-        <view>下单人：{{infoDetail.single}}</view>
+        <view>下 单 人：{{infoDetail.single}}</view>
         <view>联系电话：{{infoDetail.phone}}</view>
-        <view>备注：{{infoDetail.note}}</view>
+        <view>备    注：{{infoDetail.note}}</view>
+    </view>
+    <!--订单详情-->
+    <view class="infoDetail" wx:if="{{orderStatus === '已付款'}}">
+        <view>订单编号：123456789</view>
+        <view>支付方式：微信零钱</view>
+        <view>下单时间：2016-10-10 21:22:22</view>
     </view>
     <!--订单编号-->
-    <view class="orderDetail">
+    <view class="orderDetail" style="margin-top:90rpx;" wx:if="{{orderStatus === '未付款'}}">
         <button plain="" class="cancel">取消订单</button>
         <button class="immediate">立即支付(还剩23小时56分)</button>
+    </view>
+    <view class="orderDetail" style="padding-top:90rpx;background:#f5f5f5;" wx:if="{{orderStatus === '已付款'}}">
+        <view style="width:100%;height:120rpx;background:white;">
+         <button plain="" class="cancel" style="float:right;margin-right:20rpx;">联系客服</button>
+        </view>
     </view>
 </view>

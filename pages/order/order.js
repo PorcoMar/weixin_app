@@ -25,7 +25,7 @@ Page({
       id:"2",
       logo:'../../../images/order/gou@2x.png',
       shopName:'Cocodemer杭州大厦店',
-      payStatus:"未付款",
+      payStatus:"已付款",
       orderTime:'2016-05-25 16:04',
       orderDetail:[
         {
@@ -46,7 +46,7 @@ Page({
       combind:10338,
       operate:["联系客服"]
     },{
-      id:"2",
+      id:"3",
       logo:'../../../images/order/gou@2x.png',
       shopName:'Cocodemer杭州大厦店',
       payStatus:"已过期",
@@ -64,8 +64,15 @@ Page({
     }]
   },
   // 订单跳转到订单详情
-  orderDetail:function(){
+  orderDetail:function(e){
     console.log("跳转到订单详情");
+    console.log(e.currentTarget.id);
+    // 获取当前下标的id
+    var id = e.currentTarget.id;
+    // 获取全局对象
+    var app = getApp();
+    // 设置全局请求访问传递的参数
+    app.requestDetailid = id;
     wx.navigateTo({
       url: './pages/wait-pay/wait-pay'
     })

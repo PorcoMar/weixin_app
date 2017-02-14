@@ -3,7 +3,7 @@
   <!--循环创立订单列表-->
   <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{array}}">
   <!--订单和门店详情-->
-    <view class="flex-item shopList" bindtap="orderDetail">
+    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.payStatus}}">
         <!--门店logo-->
         <view class="logo">
           <image src="{{item.logo}}" class="image" mode="scaleToFill"></image>
@@ -23,10 +23,6 @@
             <text class="orderName">Cocodomer面部护理</text>
             <text class="note">¥5000</text>
           </view>
-          <!--<view class="order">
-            <text class="orderName">Cocodomer面部护理2</text>
-            <text class="note">¥5000</text>
-          </view>-->
           <!--总额-->
           <view class="total">
             <text class="service">共{{item.orderTotal}}项服务</text>
