@@ -1,28 +1,34 @@
+<!-- loading -->
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+
+{{datan.title}}
+
 <!--header-->
   <view class="selection">
     <swiper class="swp" indicator-dots="true"
       autoplay="true" interval="3000" duration="1000">
       <block wx:for="{{imgUrls}}">
 				<swiper-item style="width:100%;height:400rpx;">
-          <image src="{{item}}" class="slide-image"/>
+          <image src="{{item.picurl}}" class="slide-image"/>  
         </swiper-item>
       </block>
     </swiper>
   </view>
-
 <scroll-view scroll-y="true"  style="height:{{winHeight-249}}px;">
   <view> 
 <!--content-->
 <view class="bloc"></view>
 <view class="coco_content">
-  <text class="titlen">收到反馈收到就发生了大空间发号施令健</text>
-  <text class="descrip">三闾大夫科技公司；里的风景；三闾大夫克赖斯基的反馈就是；里的风景是里的风景高速路口的</text>
+  <text class="titlen">{{title_header}}</text>
+  <text class="descrip">{{descript}}</text>
   <view class="bott">
     <view class="btn_dian">到店服务</view>
     <view class="btn_home">到家服务</view>
-    <view class="btn_count">已售：</view>
+    <view class="btn_count">已售：{{mount}}</view>
   </view>
-  <view class="sew_detail">查看详情</view>
+  <view class="sew_detail" bindtap="detail_info">查看详情</view>
 </view>
  
  <!--block-->
@@ -32,16 +38,16 @@
 <view class="information_dian">门店信息</view>
 <view class="coco">
   <view class="left_coco">
-    <view class="name_cocodemer">cocoderer港汇店</view>
-    <view class="time_cocodemer">营业时间：周一至周五，10:00-21:00</view>
+    <view class="name_cocodemer">{{title_dian}}</view>
+    <view class="time_cocodemer">{{work_time}}</view>
   </view>
-  <view class="kilm">1.8km</view>
-  <image class="coco_right" src="../../../images/service/www.png"></image>
+  <view class="kilm">{{distance}}km</view>
+  <image class="coco_right" src="../../../images/service/www.png" bindtap="calling"></image>
 </view>
 <view class="map">
   <image class="map_tu" src="../../../images/service/c.png"></image>
-  <view class="left_map">[徐汇区]虹桥路1港汇中心一座8层805～806 </view>
-  <image class="map_right" src="../../../images/service/k.png"></image>
+  <view class="left_map">{{address_detail}}</view>
+  <!--<image class="map_right" src="../../../images/service/k.png" bindtap="address"></image>-->
 </view>
 <view class="ul1">
   <li class="hot_point">
