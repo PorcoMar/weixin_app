@@ -1,17 +1,23 @@
 <view class="container">
     <!--头部开始-->
     <view class="header">
-        <view class="user-info">
-            <image class="user-image" src="../../images/personal/photo.jpg"></image>
-            <view class="user-detail">
+        <view class="user-info" >
+            <image class="user-image" src="../../../images/personal/touxiang@2x.png" wx:if="{{!userInfo}}"></image>
+            <image class="user-image" src="{{userInfo.avatarUrl}}" wx:if="{{userInfo}}"></image>
+            <view class="user-detail" wx:if="{{userInfo}}">
                 <view class="user-title">
-                    <text class="user-name">张筱雨</text>
+                    <text class="user-name">{{userInfo.nickName}}</text>
                     <text class="member-card">金卡</text>
                 </view>
                 <view class="user-phone">
                     <image src="../../images/personal/phone@2x.png" class="phoneImage"></image>
-                    <text class="user-phoneNumber">18659523693</text>
+                    <text class="user-phoneNumber" wx:if="{{!userInfo.phone}}" bindtap="bindPhone">绑定手机号</text>
+                    <text class="user-phoneNumber" wx:if="{{userInfo.phone}}">{{userInfo.phone}}</text>
                 </view>
+            </view>
+            
+            <view class="user-login" wx:if="{{!userInfo}}">
+                <text bindtap="login">登录</text>
             </view>
         </view>
         <view class="user-consume">
@@ -30,7 +36,7 @@
                 </view>
             </view>
         </view>
-        <view class="erweima">
+        <view class="erweima" wx:if="{{userInfo}}">
             <image src="../../images/personal/erweima@2x.png"></image>
         </view>
     </view>
@@ -43,7 +49,7 @@
             <text class="section-text">我的余额</text>
             <image class="more" src="../../../images/personal/more@2x.png"></image>
         </view>
-        <view class="section">
+        <view class="section" bindtap="userInfo">
             <image class="left-icon" src="../../images/personal/gere@2x.png"></image>
             <text class="section-text">个人信息</text>
             <image class="more" src="../../../images/personal/more@2x.png"></image>

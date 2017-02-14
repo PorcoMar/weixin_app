@@ -1,4 +1,5 @@
 // pages/personal/bindPhone/binPhone.js
+var app = getApp();
 Page({
   data:{
     identifyBtn:{
@@ -94,7 +95,10 @@ Page({
       data:{phone:phone,messageCode:messageCode},
       success:function(res){
         if(res.data.code == "0"){
-            
+            app.globalData.userInfo.phone = phone;
+            wx.navigateBack({
+              delta: 1 // 回退前 delta(默认为1) 页数
+            })
         }else{
             wx.showModal({
               title:"提示",

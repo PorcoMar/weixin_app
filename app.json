@@ -1,8 +1,7 @@
 {
   "pages":[
-     
     "pages/personal/userInfo/userInfo",
-
+  
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     
@@ -19,6 +18,7 @@
     "pages/personal/personal",
     "pages/personal/balance/balance",
     "pages/personal/bindPhone/bindPhone"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
