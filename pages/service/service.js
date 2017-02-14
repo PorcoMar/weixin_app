@@ -41,12 +41,31 @@ Page( {
         duration: 1500,     // 滑动动画时长
 
     },
+    onShareAppMessage: function () {
+        return {
+        title: '服务',
+        path: '/pages/service/service'
+        }
+    },
+    //下拉刷新
+  onPullDownRefresh: function(){
+    wx.PullDownRefresh()
+  },
+
+    // showNavigationBarLoading:function(){
+    //     wx:showNavigationBarLoading()
+    // },
+
+    // hideNavigationBarLoading:function(){
+    //     wx:hideNavigationBarLoading()
+    // },
 
     /** 
      * 页面初始化
      * options 为页面跳转所带来的参数
      */
     onLoad: function( options ) {
+       // wx:showNavigationBarLoading()
         var that = this;
 
         /**
@@ -114,6 +133,7 @@ Page( {
                 dataListDateCurrent: arr.date,    // 当前日期
                 dataListDateCount: 1
             });
+
         });
 
 
@@ -132,10 +152,11 @@ Page( {
        
     // },
     onReady: function() {
+       // wx:hideNavigationBarLoading()
         // 页面渲染完成
         var that = this;
 
-        // 数据加载完成后 延迟隐藏loading
+       // 数据加载完成后 延迟隐藏loading
         setTimeout( function() {
             that.setData( {
                 hidden: true

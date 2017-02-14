@@ -28,9 +28,9 @@
 .coco_right{float:right;width:40rpx;height:40rpx;margin-top:40rpx;margin-right:40rpx;}
 
 .map{width:725rpx;height:96rpx;border-bottom:1px solid #f5f5f5;margin-left:25rpx;}
-.map_tu{width:30rpx;height:30rpx;line-height:96rpx;margin-right:20rpx;float:left;margin-top:32rpx;}
+.map_tu{width:20rpx;height:30rpx;line-height:96rpx;margin-right:20rpx;float:left;margin-top:32rpx;}
 .left_map{height:96rpx;line-height:96rpx;color:#4f4f4f;font-size:26rpx;float:left;}
-.map_right{float:right;width:40rpx;height:40rpx;margin-top:33rpx;margin-right:40rpx;}
+.map_right{float:right;width:18rpx;height:40rpx;margin-top:33rpx;margin-right:50rpx;}
 .ul1{width:725rpx;height:68rpx;border-bottom:1px solid #f5f5f5;margin-left:25rpx;}
 .hot_point{height:68rpx;line-height:68rpx;}
 .point_img{width:30rpx;height:30rpx;float:left;margin-top:19rpx;margin-right:10rpx;}

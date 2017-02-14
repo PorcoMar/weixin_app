@@ -7,23 +7,42 @@ Page( {
         databody: null, 
 
         winHeight: 0,   // 设备高度
-        loadingHidden:false,
-        imgUrls:[
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+        hidden: false,
+        imgUrls:null,
         show:false,
         img:null,
         url:null,
         pay:null,
         confirm:true,
+        //数据
+        mount:656,
+        title_header:"我顶你个肺哦",
+        descript:"我同你港啊，类吧药房带弹落descript哈哈啊四大皆空粉红色空间的i苏俄放缓噶是抠脚大汉富士康蓝山咖啡应该是",
+        title_dian:"cocoderer港汇店",
+        work_time:"营业时间：周一至周五，10:00-21:00",
+        distance:"1.8",
+        address_detail:"[徐汇区]虹桥路1港汇中心一座8层805～806",
+        imgn:null,
+        titlen:null,
 
     },
+    //分享
+    onShareAppMessage: function () {
+        return {
+        title: '商品详情',
+        path: '/pages/service/detail/detail'
+        }
+    },
+    //下拉刷新
+  onPullDownRefresh: function(){
+    wx.PullDownRefresh()
+  },
     onLoad: function( options ) {
+       // wx:showNavigationBarLoading()
         // 页面初始化 options 为页面跳转所带来的参数
         var that = this
         var id = options.id;
+        console.log(id)
         // wx.getStorage({
         // key: 'pageID',
         // success: function(res) {
@@ -31,44 +50,35 @@ Page( {
         // } 
         // })       
 
+        //请求banner图数据
+        wx.request({
+            url: 'http://huanqiuxiaozhen.com/wemall/slider/list',
+            method: 'GET',
+            data: {},
+            header: {
+                'Accept': 'application/json'
+            },
+            success: function(res) {
+                console.log(res.data)
+                that.setData({
+                    imgUrls: res.data
+                })
+            }
+        })
+
+
 
         // 请求内容数据
         util.AJAX( "news/" + id, function( res ) {
-
             var arr = res.data;
             var body = arr.body;
             body = body.match( /<p>.*?<\/p>/g );
             console.log(arr)
-            // var ss = [];
-            // for( var i = 0, len = body.length; i < len;i++ ) {
-
-            //     ss[ i ] = /<img.*?>/.test( body[ i ] );
-
-            //     if( ss[ i ] ) {
-            //         body[ i ] = body[ i ].match( /(http:|https:).*?\.(jpg|jpeg|gif|png)/ );
-            //     } else {
-            //         body[ i ] = body[ i ].replace( /<p>/g, '' )
-            //             .replace( /<\/p>/g, '' )
-            //             .replace( /<strong>/g, '' )
-            //             .replace( /<\/strong>/g, '' )
-            //             .replace( /<a.*?\/a>/g, '' )
-            //             .replace( /&nbsp;/g, ' ' )
-            //             .replace( /&ldquo;/g, '"' )
-            //             .replace( /&rdquo;/g, '"' );
-            //     }
-            // }
-
-            // 重新写入数据
             that.setData( {
-                data: arr,
-                databody: body,
-                img:arr.image,
-                title:arr.title,
-                url:arr.share_url
+                datan: arr
             });
 
         });
-
 
 
         /**
@@ -85,24 +95,43 @@ Page( {
         });
     },
 
-
+    //月嫂弹框跳转
     pay:function(){
         this.setData({
             show:true
         })
-     console.log(222222222222222222222222222)
-
     },
     confirm:function(){
         this.setData({
             show:false
         })       
-        console.log(33333333333333333333)
     },
+    //查看详情
+    detail_info:function(){
 
-
-
+    },
+    calling:function(){
+        wx.makePhoneCall({
+        phoneNumber: '12345678900', 
+        success:function(){
+            console.log("拨打电话成功！")
+        },
+        fail:function(){
+            console.log("拨打电话失败！")
+        }
+        })
+    },
+    // address:function(){
+           
+    // },
     onReady: function() {
+        var that = this
+        setTimeout( function() {
+            that.setData( {
+                hidden: true
+            })
+        },500);
+       // wx:hideNavigationBarLoading()
         // 页面渲染完成
         // 修改页面标题
         // wx.setNavigationBarTitle( {

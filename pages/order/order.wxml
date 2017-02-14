@@ -1,8 +1,7 @@
 <!--<view>这是订单页面</view>-->
 <view class="section">
-  <!--<view class="section__title">订单</view>-->
   <!--循环创立订单列表-->
-  <view class="flex-wrp bac" style="flex-direction:column;margin: 20rpx 0;" wx:for="{{array}}" wx-key="id">
+  <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{array}}">
   <!--订单和门店详情-->
     <view class="flex-item shopList" bindtap="orderDetail">
         <!--门店logo-->
@@ -12,37 +11,38 @@
         <!--详情-->
         <view class="shopOrder">
           <!--门店-->
-          <view class="shop" style="">
+          <view class="shop">
             <view class="shopDetail">
               <view class="shopName">{{item.shopName}}</view>
               <view class="orderTime">{{item.orderTime}}</view>
             </view>
             <view class="status">{{item.payStatus}}</view>
           </view>
-          <!--订单-->
-          <view class="order">
-            <text class="orderName">Cocodomer面部护理1</text>
-            <text class="note">￥5000</text>
+          <!--订单-->        
+          <view class="order" wx:for="{{item.orderDetail}}">
+            <text class="orderName">Cocodomer面部护理</text>
+            <text class="note">¥5000</text>
           </view>
-          <view class="order">
+          <!--<view class="order">
             <text class="orderName">Cocodomer面部护理2</text>
-            <text class="note">￥5000</text>
-          </view>
+            <text class="note">¥5000</text>
+          </view>-->
           <!--总额-->
           <view class="total">
             <text class="service">共{{item.orderTotal}}项服务</text>
-            <text>合计</text>
-            <text class="price">￥{{item.combind}}</text>
+            <text class="combind">合计</text>
+            <text class="price"> ¥ {{item.combind}}</text>
           </view>
         </view>
     </view>
   <!--订单操作-->
-    <view class="flex-item operate" >
-      <!--<button class="btn" type="default" size="mini" hover-class="button-hover">取消订单</button>
-      <button class="btn" type="default" size="mini" hover-class="button-hover" style="color:red;border-color:red;">立即支付</button>-->
-      <block wx-for="{{item.operate}}">
-        <view class="orderOperate">取消订单</view>
+    <view class="flex-item operate" wx:if="{{item.payStatus !== '已过期'}}">
+      <block wx:for="{{item.operate}}">
+          <view class="orderOperate">{{item}}</view>
       </block>
+    </view>
+    <view class="flex-item operate" wx:if="{{item.payStatus === '已过期'}}">      
+          <text class="pay">需支付 ¥ 666</text>     
     </view>
   </view>
 </view>
