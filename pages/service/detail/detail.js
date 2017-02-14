@@ -22,8 +22,7 @@ Page( {
         work_time:"营业时间：周一至周五，10:00-21:00",
         distance:"1.8",
         address_detail:"[徐汇区]虹桥路1港汇中心一座8层805～806",
-        imgn:null,
-        titlen:null,
+        price:"1350"
 
     },
     //分享

@@ -2,7 +2,7 @@
 
 .swiper-tab{ height: 86rpx; line-height: 86rpx; background: #FFF; display: flex; position: relative; z-index: 2; flex-direction:row; justify-content:center; align-items:center;
 border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
-.swiper-tab-list{ margin: 0 20px;  padding: 0 4px; font-size: 28rpx; font-family: Helvetica, Arial, "Hiragino Sans GB", "Source Han Sans CN", "PingFang SC", Roboto, "微软雅黑", "Heiti SC", "Microsoft Yahei", sans-serif }
+.swiper-tab-list{ margin: 0 20px; font-size: 28rpx; font-family:PingFang;font-weight:bold;}
 .on{ border-bottom: 4rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;}
 
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden;}
@@ -12,26 +12,26 @@ border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
 .hot-box-main{ display: block; overflow: hidden; margin-bottom: 20px; background: #FFF; }
 
 .hot-main-box{ position: relative; z-index: 2; }
-.hot-main-title{ color: #FFF; font-size: 34rpx;  }
-.hot-main-subtitle{ color: #FFF; font-size: 26rpx; margin-top: 4px; }
+.hot-main-title{ color: #FFF; font-size: 34rpx;font-family:PingFang;  }
+.hot-main-subtitle{ color: #FFF; font-size: 26rpx; margin-top: 4px;font-family:PingFang; }
 
 .hot-box-top{ padding: 20px; border-bottom: 1px solid #F6F6F6; text-align: center; }
-.hot-box-title{ font-size: 32rpx; height: 30px; line-height: 32px; font-weight: 400; color: #444; padding: 5px 10px; border: 1px solid #444; }
+.hot-box-title{ font-size: 32rpx;font-family:PingFang; height: 30px; line-height: 32px; font-weight: 400; color: #444; padding: 5px 10px; border: 1px solid #444; }
 
-.list-box{width:100%;height:225rpx;display: block; font-size: 30rpx; border-bottom: 1px solid #dddddd;padding-top:25rpx;}
+.list-box{width:100%;height:225rpx;display: block; font-size: 30rpx;font-family:PingFang; border-bottom: 1px solid #dddddd;padding-top:25rpx;}
 .left_img{width:230rpx;height:200rpx;float:left;margin-right:24rpx;}
 .right{width:360rpx;height:200rpx;float:left;}
-.list-box-title{width:350rpx;height:44rpx;line-height:44rpx;font-size:32rpx;color:#4f4f4f;overflow:hidden;margin-bottom:16rpx;}
-.dian{width:112rpx;height:40rpx;border:1px solid #78a4ff;float:left;margin-right:20rpx;border-radius: 6px;font-size:20rpx;background:#fff;text-align:center;line-height:40rpx;}
-.home{width:112rpx;height:40rpx;border:1px solid #fcb95a;float:left;border-radius: 6px;font-size:20rpx;background:#fff;text-align:center;line-height:40rpx;}
+.list-box-title{width:350rpx;height:44rpx;line-height:44rpx;font-size:32rpx;font-family:PingFang;color:#4f4f4f;overflow:hidden;margin-bottom:16rpx;}
+.dian{width:112rpx;height:40rpx;border:1px solid #78a4ff;float:left;margin-right:20rpx;border-radius: 6px;font-size:20rpx;font-family:PingFang;background:#fff;text-align:center;line-height:40rpx;color:#78a4ff;}
+.home{width:112rpx;height:40rpx;border:1px solid #fcb95a;float:left;border-radius: 6px;font-size:20rpx;font-family:PingFang;background:#fff;text-align:center;line-height:40rpx;color:#fcb95a;}
 .blockn{width:100%;height:64rpx;float:left;}
-.list-box-id{color:#fc5a5f;width:110rpx;height:36rpx;float:left;font-size:36rpx;margin-right:12rpx;overflow:hidden;}
-.list-box-id2{width:70rpx;height:18rpx;font-size:18rpx;color:#969696;text-decoration:line-through;float:left;margin-top:18rpx;}
+.list-box-id{color:#fc5a5f;width:110rpx;height:36rpx;float:left;font-size:36rpx;margin-right:12rpx;overflow:hidden;font-family:PingFang;}
+.list-box-id2{width:70rpx;height:18rpx;font-size:18rpx;color:#969696;text-decoration:line-through;float:left;margin-top:18rpx;font-family:PingFang;}
 
 
 
 
-.hot-box-more{ text-align: center; font-size: 22rpx; color: #999; margin-bottom: 30px; }
+.hot-box-more{ text-align: center; font-size: 22rpx; color: #999; margin-bottom: 30px;font-family:PingFang; }
 .hot-box-more image{ width: 80px; height: 16px; display: block; margin: 0 auto;}
 
 
