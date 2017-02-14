@@ -1,2 +1,72 @@
 <!--pages/order/pages/submit-order/submit-order.wxml-->
-<text>pages/order/pages/submit-order/submit-order.wxml</text>
+<view class="section">
+    <!--会员详情-->
+    <view class="member">
+        <view class="on">
+            <text class="name">{{member.name}}</text>
+            <text class="phone">{{member.phone}}</text>
+        </view>
+        <view class="under">
+            <text class="level">会员级别：</text>
+            <text class="memberCard">{{member.level}}</text>
+        </view>
+    </view>
+    <!--门店服务详情-->
+    <view class="shopService">
+        <view class="shop">
+            <image src="../../../../images/order/gou@2x.png" class="logo"></image>
+            <text class="shopName">可可多米门店名称</text>
+        </view>
+        <view class="service">
+            <image src="../../../../images/order/none-order@2x.png" class="left"></image>
+            <view class="middle">
+                <view class="serviceName">护理服务名称</view>
+                <view class="price"> 
+                    ¥<text class="real">666</text>
+                    <text class="original">¥855</text>
+                </view>
+            </view>
+            <view class="right">
+                <text class="reduce">-</text>
+                <text class="num">1</text>
+                <text class="add">+</text>
+            </view>
+        </view>
+        <view class="message">
+            <textarea placeholder="请备注您的留言，最多100字" placeholder-style="color:#8f8f8f;font-size=28rpx;" maxlength="100" />
+        </view>
+    </view>
+    <!--订单明细-->
+    <view class="orderDetails">
+        <view class="title">订单明细</view>
+        <view class="serviceDetail">
+            <text class="serviceName">服务名称</text>
+            <text class="serviceNum">X1</text>
+            <text class="servicePrice">¥666</text>
+        </view>
+        <view class="memberDiscount">
+            <image src="../../../../images/order/vip@2x.png" class="vip" mode="scaleToFill"></image>
+            <text class="discount">商户会员折扣</text>
+            <text class="font">- ¥ 120.00</text>
+        </view>
+        <view class="summary">
+            <text class="order">订单 ¥ 1321</text>
+            <text class="preferential">优惠 ¥ 140</text>
+            <text class="pay">待支付 ¥ 1500.00</text>
+        </view>
+    </view>
+    <!--支付方式-->
+    <view class="payment">
+        <view class="title">支付方式</view>
+        <view class="weixin">
+            <image src="../../../../images/order/weixin@2x.png"></image>
+            <text>微信支付</text>
+        </view>
+    </view>
+    <!--支付按钮-->
+    <view class="submitPay">
+        <text class="price">价格：</text>
+        <text class="num">¥ 15000</text>
+        <text class="btn">确认支付</text>
+    </view>
+</view>

@@ -1,1 +1,258 @@
 /* pages/order/pages/submit-order/submit-order.wxss */
+.section {
+    background-color: #f5f5f5;
+    border-top: 1rpx solid #f5f5f5;
+    position: relative;
+}
+.section>view{
+    margin-bottom: 20rpx;
+    background-color: #fff;
+}
+/*会员详情*/
+.member {
+    padding-left: 24rpx;
+    height: 160rpx;
+}
+.member .on {
+    padding-top: 40rpx;
+}
+.member .name {
+    font-size: 30rpx;
+    color:#4f4f4f;
+    font-family: "粗体";
+    margin-right: 36rpx;
+}
+.member .phone {
+    font-size: 30rpx;
+    color:#4f4f4f;
+}
+.member .level {
+    font-size: 26rpx;
+    color:#4f4f4f;
+}
+.member .memberCard {
+    font-size: 26rpx;
+    color:#fc5a5f;
+}
+
+/*门店服务详情*/
+.shopService {
+}
+.shopService .shop {
+    height: 100rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+    padding-left: 24rpx;
+    position: relative;
+}
+.shop .logo {
+    width: 64rpx;
+    height: 64rpx;
+    margin-right: 16rpx;
+    margin-top: 18rpx;
+}
+.shop .shopName {
+    font-size: 32rpx;
+    color:#4f4f4f;
+    position: absolute;
+    top:34rpx;
+}
+.shopService .service{
+    border-bottom: 1rpx solid #f5f5f5;
+    height:238rpx;
+    padding-left: 24rpx;
+    position: relative;
+}
+.service .left{
+    width: 190rpx;
+    height: 190rpx;
+    margin-top: 24rpx;
+    margin-right: 24rpx;
+}
+.service .middle {
+    display: inline-block;
+    position: absolute;
+    top:32rpx;
+    bottom: 32rpx;
+}
+.middle .serviceName {
+    font-family: "粗体";
+    font-size: 34rpx;
+    color:#4f4f4f;
+}
+.middle .price {
+    position: absolute;
+    bottom:0;
+    font-size: 30rpx;
+    font-family: "特粗";
+    color: #fc5a5f;
+}
+.price .real {
+    font-size: 48rpx;
+    margin-right: 10rpx;
+}
+.price .original {
+    font-size: 24rpx;
+    font-family: "常规";
+    color: #8f8f8f;
+    text-decoration: line-through;
+}
+.service .right {
+    position: absolute;
+    right: 24rpx;
+    bottom: 32rpx;
+}
+.right>text {
+    padding: 25rpx 30rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color:#4f4f4f;
+    border: 1rpx solid #f5f5f5;
+}
+.right .reduce {
+    color:#8f8f8f;
+}
+.shopService .message{
+    height: 142rpx;
+    padding-left: 24rpx;
+}
+.message textarea {
+    width: 702rpx;
+    height: 118rpx;
+    border:1rpx solid #8f8f8f;
+    border-radius: 8rpx;
+    margin-top: 24rpx;
+}
+.message .note {
+    font-size: 30rpx;
+    color: #8f8f8f;
+    margin: 10rpx 0 0 10rpx;
+}
+
+/*订单明细*/
+.orderDetails {
+
+}
+.orderDetails>view {
+    padding-left: 24rpx;
+    height: 100rpx;
+    border-bottom: 1rpx solid #f5f5f5; 
+}
+.orderDetails .title {
+    font-size: 28rpx;
+    color: #8f8f8f;
+    line-height: 100rpx;
+}
+.orderDetails .serviceDetail {
+    font-size: 28rpx;
+    font-family: "中等";
+    position: relative;
+}
+.serviceDetail>text {
+    position: absolute;
+    top: 36rpx;
+}
+.serviceDetail .serviceName {
+    color: #4f4f4f;
+}
+.serviceDetail .serviceNum {
+    color: #8f8f8f;
+    right: 120rpx;
+}
+.serviceDetail .servicePrice {
+    color: #4f4f4f;
+    right: 24rpx;
+}
+.orderDetails .memberDiscount {
+    position: relative;
+    font-size: 28rpx;
+}
+.vip {
+    width: 36rpx;
+    height: 30rpx;
+    position: absolute;
+    top:35rpx; 
+}
+.memberDiscount .discount{ 
+    color: #4f4f4f;
+    position: absolute;
+    left: 80rpx;
+    top: 32rpx;
+}
+.memberDiscount .font {
+    position: absolute;
+    color:#fe67b8;
+    right: 24rpx;
+    top: 32rpx;
+}
+.orderDetails .summary {
+    font-size: 28rpx;
+    color: #4f4f4f;
+    font-family: "中等";
+    position: relative;
+}
+.summary text {
+    position: absolute;
+    top: 36rpx;
+}
+.summary .preferential {
+    left: 220rpx;
+}
+.summary .pay {
+    right: 24rpx;
+}
+
+/*支付方式*/
+.payment {
+    font-size: 28rpx;
+}
+.payment>view {
+    padding-left: 24rpx; 
+}
+.payment .title {
+    color: #8f8f8f;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #f5f5f5;   
+}
+.payment .weixin {
+    color: #4f4f4f;
+    height: 100rpx;
+    position: relative;
+    font-family: "中等";
+}
+.weixin image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 20rpx;
+    margin-top: 32rpx;
+}
+.weixin text{
+    position: absolute;
+    top: 36rpx;
+    left: 80rpx;
+}
+/*支付按钮*/
+.submitPay {
+    height: 80rpx;
+    margin-top: 250rpx;
+    color:#8f8f8f;
+    line-height: 100rpx;
+    margin-bottom: 0;
+}
+.submitPay .price {
+    font-size: 28rpx;
+    margin-left:24rpx;
+}
+.submitPay .num {
+    font-size: 34rpx;
+    color: #fc5a5f;
+}
+.submitPay .btn {
+    width: 200rpx;
+    height: 100rpx;
+    background: #fc5a5f;
+    font-size: 30rpx;
+    color:white;
+    float: right;
+    text-align: center;
+}
