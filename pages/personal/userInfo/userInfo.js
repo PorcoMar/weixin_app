@@ -102,7 +102,6 @@ Page({
     this.setData({dateSelection:false});
   },
   dateConfirm:function(){
-    
     var month = 1 + this.data.birthdayTemp.month;
     var date = 1 + this.data.birthdayTemp.date;
     month = (month < 10)?("0" + month):month;

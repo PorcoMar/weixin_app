@@ -5,8 +5,7 @@ page{
 }
 .header{
     height:394rpx;
-    /*background-color:#*/
-    background-image:url("../../images/personal/bg.png");
+    background-color:#fe726c;
     position:relative;
 }
 .header .user-info{

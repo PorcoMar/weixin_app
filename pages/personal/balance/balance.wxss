@@ -6,7 +6,7 @@ page{
 .header{
     width:100%;
     height:288rpx;
-    background-image:url("../../../images/personal/balance_bg.png");
+    background-color:#fe726c;
     position:relative;
 }
 .header .title{
