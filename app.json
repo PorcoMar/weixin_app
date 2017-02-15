@@ -1,10 +1,10 @@
 {
   "pages":[
-    "pages/personal/userInfo/userInfo",
+    
   
     "pages/index/index",
     "pages/index/selectShop/selectShop",
-    
+    "pages/personal/userInfo/userInfo",
 
     "pages/service/service",
     "pages/service/detail/detail",

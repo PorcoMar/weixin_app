@@ -5,7 +5,7 @@ Page({
       id:"1",
       logo:'../../../images/order/gou@2x.png',
       shopName:'Cocodemer杭州大厦店',
-      payStatus:"未付款",
+      payStatus:"待付款",
       orderTime:'2016-05-25 16:04',
       orderDetail:[
         {
@@ -16,12 +16,36 @@ Page({
           id:"12",
           orderName:'Cocodemer面部护理2',
           note:5100,
+        },{
+          id:"13",
+          orderName:'Cocodemer面部护理2',
+          note:5200,
+        },{
+          id:"14",
+          orderName:'Cocodemer面部护理2',
+          note:5300,
         }
       ],
       orderTotal:2,
       combind:10338,
-      operate:["取消订单","立即支付"]
-    }, {
+      operate:["立即支付","取消订单"]
+    },{
+      id:"2",
+      logo:'../../../images/order/gou@2x.png',
+      shopName:'Cocodemer杭州大厦店',
+      payStatus:"待付尾款",
+      orderTime:'2016-05-25 16:04',
+      orderDetail:[
+        {
+          id:"21",
+          orderName:'Cocodemer面部护理1',
+          note:5000,
+        }
+      ],
+      totalPrice:5169,
+      blance:5200,
+      operate:["立即支付","取消订单"]
+    },{
       id:"2",
       logo:'../../../images/order/gou@2x.png',
       shopName:'Cocodemer杭州大厦店',
@@ -65,8 +89,6 @@ Page({
   },
   // 订单跳转到订单详情
   orderDetail:function(e){
-    console.log("跳转到订单详情");
-    console.log(e.currentTarget.id);
     // 获取当前下标的id
     var id = e.currentTarget.id;
     // 获取全局对象

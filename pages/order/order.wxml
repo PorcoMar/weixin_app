@@ -18,13 +18,22 @@
             </view>
             <view class="status">{{item.payStatus}}</view>
           </view>
-          <!--订单-->        
-          <view class="order" wx:for="{{item.orderDetail}}">
-            <text class="orderName">Cocodomer面部护理</text>
-            <text class="note">¥5000</text>
+          <!--订单--> 
+          <view class="order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
+            <block wx:if="{{idx <= 2}}">
+              <text class="orderName">Cocodomer面部护理</text>
+              <text class="note">¥5000</text>
+              <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
+              <text class="redNote" wx:else>¥5000</text>-->
+            </block>
+            <block wx:elif="{{idx == 3}}">
+              <text>...</text>
+            </block>
+            <!--<block wx:else>
+            </block>-->
           </view>
           <!--总额-->
-          <view class="total">
+          <view class="total" wx:if="{{item.payStatus !== '已过期'}}">
             <text class="service">共{{item.orderTotal}}项服务</text>
             <text class="combind">合计</text>
             <text class="price"> ¥ {{item.combind}}</text>
@@ -33,11 +42,12 @@
     </view>
   <!--订单操作-->
     <view class="flex-item operate" wx:if="{{item.payStatus !== '已过期'}}">
-      <block wx:for="{{item.operate}}">
-          <view class="orderOperate">{{item}}</view>
+      <block wx:for="{{item.operate}}" wx:for-item="itm">
+          <view class="orderOperate red" wx:if="{{itm === '立即支付'}}">{{itm}}</view>
+          <view class="orderOperate" wx:else>{{itm}}</view>       
       </block>
     </view>
-    <view class="flex-item operate" wx:if="{{item.payStatus === '已过期'}}">      
+    <view class="flex-item operate" wx:else>      
           <text class="pay">需支付 ¥ 666</text>     
     </view>
   </view>

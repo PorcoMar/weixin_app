@@ -1,8 +1,8 @@
 <!--pages/order/pages/wait-pay/wait-pay.wxml-->
 <view class="section">
 <!--订单状态-->
-    <!--未付款-->
-    <view class="orderStatus" wx:if="{{orderStatus === '未付款'}}">
+    <!--待付款-->
+    <view class="orderStatus" wx:if="{{orderStatus === '待付款'}}">
         <image src="../../../../images/order/￥@2x.png" mode="scaleToFill" class="image"></image>
         <view class="statusInfo">
             <view class="waitPay">等待支付</view>
@@ -69,7 +69,7 @@
         <view>下单时间：2016-10-10 21:22:22</view>
     </view>
     <!--订单编号-->
-    <view class="orderDetail" style="margin-top:90rpx;" wx:if="{{orderStatus === '未付款'}}">
+    <view class="orderDetail" style="margin-top:90rpx;" wx:if="{{orderStatus === '待付款'}}">
         <button plain="" class="cancel">取消订单</button>
         <button class="immediate">立即支付(还剩23小时56分)</button>
     </view>
