@@ -16,8 +16,7 @@
       </block>
     </swiper>
   </view>
-<scroll-view scroll-y="true"  style="height:20.3rem;">
-  <view> 
+
 <!--content-->
 <view class="bloc"></view>
 <view class="coco_content">
@@ -69,8 +68,7 @@
 </view>
 
 <view class="blockk"></view>
-</view>
-</scroll-view>
+
 
 <!--购买-->
 <view class="pay_content">

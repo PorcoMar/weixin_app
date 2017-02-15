@@ -79,8 +79,8 @@
                                     <view class="dian">到店服务</view>
                                     <view class="home">到家服务</view>
                                     <view class="blockn"> </view>
-                                    <view class="list-box-id">{{datalist[i].stories[index].id}}</view>
-                                    <view class="list-box-id2">{{datalist[i].stories[index].id}}</view>
+                                    <view class="list-box-id"><text class="money0">￥</text>{{datalist[i].stories[index].id}}</view>
+                                    <view class="list-box-id2"><text class="money1">￥</text>{{datalist[i].stories[index].id}}</view>
                                 </view>
                             </view>
                         </navigator>
@@ -104,6 +104,7 @@
 
         </scroll-view>
     </swiper-item>
+
 
 
 
