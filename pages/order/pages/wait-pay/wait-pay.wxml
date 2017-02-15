@@ -26,13 +26,13 @@
         </view>
     </view>
     <!--服务信息-->
-    <view class="serviceDetail">
+    <view class="serviceDetail" bindtap="toSubmit">
       <view class="shopName">{{serviceDetail.shopName}}</view>
       <view class="service">
         <image src="../../../../images/order/none-order@2x.png" mode="scaleToFill" class="shopImg"></image>
         <view class="serviceInfo">
             <view>{{serviceDetail.serviceName}}</view>
-            <view class="serviceNum">数量X{{serviceDetail.num}}</view>
+            <view class="serviceNum">数量：X{{serviceDetail.num}}</view>
         </view>
         <view class="priceInfo">
             <view class="discount">¥{{serviceDetail.discount}}</view>
@@ -60,7 +60,7 @@
     <view class="infoDetail">
         <view>下 单 人：{{infoDetail.single}}</view>
         <view>联系电话：{{infoDetail.phone}}</view>
-        <view>备    注：{{infoDetail.note}}</view>
+        <view>  备 注：{{infoDetail.note}}</view>
     </view>
     <!--订单详情-->
     <view class="infoDetail" wx:if="{{orderStatus === '已付款'}}">
