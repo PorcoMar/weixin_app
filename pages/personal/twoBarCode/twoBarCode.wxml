@@ -1,0 +1,24 @@
+<!--pages/personal/twoBarCode/twoBarCode.wxml-->
+<view class="container">
+    <view class="content">
+        <view class="top">
+            <view class="user-info">
+                <image class="user-photo" src="{{userInfo.avatarUrl}}"></image>
+                <view class="user-detail">
+                    <view class="user-name">
+                        <text>{{userInfo.nickName}}</text>
+                    </view>
+                    <view class="user-card">
+                        <text>金卡</text>
+                    </view>
+                </view>
+            </view>
+            <view class="tiaoxing">
+                <image src="../../../images/personal/tiaoxing.png"></image>
+            </view>
+        </view>
+        <view class="bottom">
+            <image class="two-bar-code" src="../../../images/personal/erwei@2x.png"></image>
+        </view>
+    </view>
+</view>

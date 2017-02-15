@@ -37,7 +37,7 @@
             </view>
         </view>
         <view class="erweima" wx:if="{{userInfo}}">
-            <image src="../../images/personal/erweima@2x.png"></image>
+            <image src="../../images/personal/erweima@2x.png" bindtap="twoBarCode"></image>
         </view>
     </view>
     <!--头部结束-->

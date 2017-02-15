@@ -37,8 +37,9 @@ Page({
   login:function(){
     var that = this;
     wx.showModal({
-      title:"提示",
+      title:"微信授权",
       content:"是否允许微信号登录？",
+      cancelText:"拒绝",
       success:function(res){
         if(res.confirm){
             //获取微信账号信息
@@ -64,6 +65,12 @@ Page({
   bindPhone:function(){
     wx.navigateTo({
       url: './bindPhone/bindPhone'
+    })
+  },
+  //点击二维码
+  twoBarCode:function(){
+    wx.navigateTo({
+      url: './twoBarCode/twoBarCode'
     })
   }
 })

@@ -1,0 +1,64 @@
+/* pages/personal/twoBarCode/twoBarCode.wxss */
+page{
+    background-color:#fe6b78;
+}
+.container{
+    display:flex;
+    justify-content: center;
+}
+.content{
+    margin-top:168rpx;
+    width:590rpx;
+    height:750rpx;
+    background-color:#ffffff;
+}
+.top{
+    height:328rpx;
+    position:relative;
+}
+.user-info{
+    display: flex;
+}
+.user-photo{
+    margin-top:48rpx;
+    margin-left:54rpx;
+    width:120rpx;
+    height:120rpx;
+    border-radius:50%;
+}
+.user-detail{
+    margin-left:50rpx;
+    display: inline-block;
+}
+.user-name{
+    margin-top:70rpx;
+    font-size:36rpx;
+    color:#4f4f4f;
+}
+.user-card{
+    margin-top:26rpx;
+    font-size:28rpx;
+    color:#fe6e72;
+}
+.bottom{
+    height:422rpx;
+    background-color:#f2f2f2;
+    display:flex;
+    justify-content: center;
+}
+.tiaoxing{
+    width:100%;
+    position:absolute;
+    bottom:26rpx;
+    display:flex;
+    justify-content: center;
+}
+.tiaoxing image{
+    width:482rpx;
+    height:96rpx;
+}
+.two-bar-code{
+    margin-top:26rpx;
+    width:360rpx;
+    height:360rpx;
+}
