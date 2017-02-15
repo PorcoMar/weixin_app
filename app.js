@@ -3,6 +3,7 @@ App({
   onLaunch: function () {
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    HOST:"http://xcx.api-test.yizhenjia.com"
   }
 })

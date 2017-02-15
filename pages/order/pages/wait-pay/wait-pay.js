@@ -45,20 +45,5 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
-  },
-  // 跳转到提交订单页面
-  toSubmit:function(){
-    wx.navigateTo({
-      url: '../submit-order/submit-order',
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
   }
 })

@@ -1,5 +1,6 @@
 // pages/personal/bindPhone/binPhone.js
 var app = getApp();
+var HOST = app.globalData.HOST;
 Page({
   data:{
     identifyBtn:{
@@ -39,9 +40,14 @@ Page({
 
     //向后端提交电话后台，获取验证码
     wx.request({
-      url:"http://localhost:8080/",
+      url:HOST + "/user/getCode",
+      //url:"http://localhost:8080/",
       method:"POST",
-      data:{phone:this.data.phone}
+      data:{phone:this.data.phone,type:"LOGIN"},
+      success:function(res){
+        console.log("successed")
+        console.log(res);
+      }
     })
     //定时器
     var seconds = 60;

@@ -16,8 +16,8 @@ Page( {
         confirm:true,
         //数据
         mount:656,
-        title_header:"CocodemerCocodemer产后护理套餐",
-        descript:"仅售418元，价值680元单人颈肩腰部护理一次，节假日通用，免费wifi，男女通用。",
+        title_header:"我顶你个肺哦",
+        descript:"我同你港啊，类吧药房带弹落descript哈哈啊四大皆空粉红色空间的i苏俄放缓噶是抠脚大汉富士康蓝山咖啡应该是",
         title_dian:"cocoderer港汇店",
         work_time:"营业时间：周一至周五，10:00-21:00",
         distance:"1.8",

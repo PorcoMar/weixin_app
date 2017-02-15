@@ -1,5 +1,6 @@
 // pages/personal/personal.js
 var app = getApp();
+var HOST = app.globalData.HOST;
 Page({
   data:{
     userInfo:null
@@ -38,7 +39,7 @@ Page({
     var that = this;
     wx.showModal({
       title:"微信授权",
-      content:"是否允许微信号登录？",
+      content:"",
       cancelText:"拒绝",
       success:function(res){
         if(res.confirm){
@@ -59,7 +60,6 @@ Page({
         }
       }
     })
-    
   },
   //绑定手机号
   bindPhone:function(){

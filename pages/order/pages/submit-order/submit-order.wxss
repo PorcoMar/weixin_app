@@ -116,12 +116,11 @@
     padding-left: 24rpx;
 }
 .message textarea {
-    width: 678rpx;
-    height: 94rpx;
+    width: 702rpx;
+    height: 118rpx;
     border:1rpx solid #8f8f8f;
     border-radius: 8rpx;
     margin-top: 24rpx;
-    padding:12rpx;
 }
 .message .note {
     font-size: 30rpx;

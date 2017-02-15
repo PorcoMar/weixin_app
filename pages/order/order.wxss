@@ -75,22 +75,6 @@
     float: right;
     color: #fc5a5f;
 }
-.hasPay .orderName {
-    font-family: "PingFang-SC-Medium";
-    font-size: 26rpx;
-    color:#4f4f4f;
-}
-.hasPay .note {
-    font-family: "PingFang-SC-Regular";
-    font-size: 26rpx;
-    color:#c6c6c6;
-}
-.hasPay .green {
-    color:#8cc42d;
-}
-.hasPay .red {
-    color:#fc5a5f;
-}
 /*总额*/
 .shopOrder .total {
     padding-top: 36rpx;
@@ -102,17 +86,9 @@
 }
 .total .service {
     float: left;
-    margin-right:20rpx;
-
-}
-.total .cost {
-    color: #4f4f4f;
 }
 .total .combind {
     margin-left:300rpx;
-}
-.total .balance {
-    margin-left: 200rpx;
 }
 .total .price{
     float:right;

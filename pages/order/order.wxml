@@ -19,44 +19,21 @@
             <view class="status">{{item.payStatus}}</view>
           </view>
           <!--订单--> 
-            <block wx:if="{{item.payStatus === '已付款'}}">
-            <view class="hasPay order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
-              <block wx:if="{{idx == 0}}">
-                <text class="orderName">孕后修身保养服务</text>
-                <text class="note">已完成</text>
-              </block>
-              <block wx:if="{{idx == 1}}">
-                <text class="orderName">孕后修身保养服务</text>
-                <text class="note green">已完成</text>
-              </block>
-              <block wx:if="{{idx == 2}}">
-                <text class="orderName">孕后修身保养服务</text>
-                <text class="note red">已完成</text>
-              </block>
-              <block wx:elif="{{idx == 3}}">
-                <text>...</text>
-              </block>
-            </view>
+          <view class="order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
+            <block wx:if="{{idx <= 2}}">
+              <text class="orderName">Cocodomer面部护理</text>
+              <text class="note">¥5000</text>
+              <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
+              <text class="redNote" wx:else>¥5000</text>-->
             </block>
-            <block wx:else>
-            <view class="order"  wx:for="{{item.orderDetail}}" wx:for-index="idx" >
-              <block wx:if="{{idx <= 2}}">
-                <text class="orderName">Cocodomer面部护理1</text>
-                <text class="note">¥5000</text>
-              </block>
-              <block wx:elif="{{idx == 3}}">
-                <text>...</text>
-              </block>
-            </view>
+            <block wx:elif="{{idx == 3}}">
+              <text>...</text>
             </block>
-          <!--总额-->
-          <view class="total" wx:if="{{item.payStatus === '待付尾款'}}">
-            <text class="service">已支付  </text>
-            <text class="cost">¥ 5196</text>
-            <text class="balance">还需支付尾款</text>
-            <text class="price"> ¥ 5196</text>
+            <!--<block wx:else>
+            </block>-->
           </view>
-          <view class="total" wx:elif="{{item.payStatus !== '已过期'}}">
+          <!--总额-->
+          <view class="total" wx:if="{{item.payStatus !== '已过期'}}">
             <text class="service">共{{item.orderTotal}}项服务</text>
             <text class="combind">合计</text>
             <text class="price"> ¥ {{item.combind}}</text>

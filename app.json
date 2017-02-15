@@ -1,21 +1,17 @@
 {
   "pages":[
-   
     "pages/index/index",
     "pages/index/selectShop/selectShop",
-    
-  
-    "pages/index/index",
-    "pages/index/selectShop/selectShop",
-    "pages/personal/userInfo/userInfo",
 
     "pages/service/service",
     "pages/service/detail/detail",
-
+    
     "pages/order/order",
     "pages/order/pages/no-order/no-order",
     "pages/order/pages/submit-order/submit-order",
     "pages/order/pages/wait-pay/wait-pay",
+    "pages/order/pages/has-pay/has-pay",
+    "pages/order/pages/expired/expired",
 
     "pages/personal/personal",
     "pages/personal/balance/balance",

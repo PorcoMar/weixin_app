@@ -28,7 +28,7 @@ page {
 }
 .waitPay{
     font-size: 36rpx;
-    color:#fe6b78;
+    color:#fe67b8;
 }
 .statusInfo text{
     font-size: 28rpx;
@@ -112,7 +112,7 @@ page {
 }
 .memberDiscount .font {
     font-size: 28rpx;
-    color:#fe6b78;
+    color:#fe67b8;
     line-height: 100rpx;
 }
 .realPay{
