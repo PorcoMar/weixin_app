@@ -6,7 +6,7 @@
 .swp{width:100%;height:400rpx;}
 
 .bloc{width:100%;height:24rpx;}
-.coco_content{width:702rpx;height:296rpx;margin-left:25rpx;}
+.coco_content{width:702rpx;height:8.69rem;margin-left:25rpx;}
 .titlen{height:34rpx;line-height:34rpx;font-size:34rpx;font-family:PingFang;color:#333333;margin-bottom:14rpx;display:block;font-weight: bold}
 .descrip{height:60rpx;line-height:30rpx;font-size:24rpx;font-family:PingFang;color:#4f4f4f;}
 .bott{width:100%;height:40rpx;margin-top:24rpx;}
@@ -14,7 +14,7 @@
 .btn_home{width:112rpx;height:40rpx;border:1px solid #fcb95a;color:#fcb95a;float:left;margin-right:20rpx;border-radius: 5px;font-size:20rpx;font-family:PingFang;background:#fff;text-align:center;line-height:40rpx;}
 .btn_count{font-size:24rpx;font-family:PingFang;height:40rpx;line-height:40rpx;color:#8f8f8f;float:right;}
 .sew_detail{
-  width:248rpx;height:56rpx;border:1px solid #fc5a5f;border-radius: 8rpx;line-height:56rpx;text-align:center;float:left;margin:30rpx 0 0 -28rpx;
+  width:248rpx;height:56rpx;border:1px solid #fc5a5f;border-radius: 8rpx;line-height:56rpx;text-align:center;float:left;margin:48rpx 0 0 -28rpx;color:#fc5a5f;
 }
 
 
