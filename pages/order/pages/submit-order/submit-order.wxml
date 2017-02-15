@@ -33,7 +33,7 @@
             </view>
         </view>
         <view class="message">
-            <textarea placeholder="请备注您的留言，最多100字" placeholder-style="color:#8f8f8f;font-size=28rpx;" maxlength="100" />
+            <textarea placeholder="请备注您的留言，最多100字" placeholder-style="color:#8f8f8f;font-size:24rpx;" maxlength="100" />
         </view>
     </view>
     <!--订单明细-->

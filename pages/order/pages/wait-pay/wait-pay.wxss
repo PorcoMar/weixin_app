@@ -28,7 +28,7 @@ page {
 }
 .waitPay{
     font-size: 36rpx;
-    color:#fe67b8;
+    color:#fe6b78;
 }
 .statusInfo text{
     font-size: 28rpx;
@@ -94,6 +94,7 @@ page {
     margin-left:24rpx;
     font-size: 34rpx;
     color:#4f4f4f;
+    font-family: "PingFang-SC-Regular";
 }
 .vip {
     width: 36rpx;
@@ -112,7 +113,7 @@ page {
 }
 .memberDiscount .font {
     font-size: 28rpx;
-    color:#fe67b8;
+    color:#fe6b78;
     line-height: 100rpx;
 }
 .realPay{

@@ -116,11 +116,12 @@
     padding-left: 24rpx;
 }
 .message textarea {
-    width: 702rpx;
-    height: 118rpx;
+    width: 678rpx;
+    height: 94rpx;
     border:1rpx solid #8f8f8f;
     border-radius: 8rpx;
     margin-top: 24rpx;
+    padding: 12rpx;
 }
 .message .note {
     font-size: 30rpx;
@@ -180,7 +181,7 @@
 }
 .memberDiscount .font {
     position: absolute;
-    color:#fe67b8;
+    color:#fe6b78;
     right: 24rpx;
     top: 32rpx;
 }

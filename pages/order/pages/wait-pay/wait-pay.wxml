@@ -26,7 +26,7 @@
         </view>
     </view>
     <!--服务信息-->
-    <view class="serviceDetail">
+    <view class="serviceDetail" bindtap="toSubmit">
       <view class="shopName">{{serviceDetail.shopName}}</view>
       <view class="service">
         <image src="../../../../images/order/none-order@2x.png" mode="scaleToFill" class="shopImg"></image>

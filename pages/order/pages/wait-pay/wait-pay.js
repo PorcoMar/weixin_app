@@ -45,5 +45,19 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+  toSubmit:function(){
+    wx.navigateTo({
+      url: '../submit-order/submit-order',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })
