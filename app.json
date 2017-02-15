@@ -1,9 +1,18 @@
 {
   "pages":[
+<<<<<<< HEAD
    
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     
+=======
+    
+  
+    "pages/index/index",
+    "pages/index/selectShop/selectShop",
+    "pages/personal/userInfo/userInfo",
+
+>>>>>>> 8b153adb284725c91cf1875f02c47dd9594c8522
     "pages/service/service",
     "pages/service/detail/detail",
 
@@ -11,8 +20,11 @@
     "pages/order/pages/no-order/no-order",
     "pages/order/pages/submit-order/submit-order",
     "pages/order/pages/wait-pay/wait-pay",
+<<<<<<< HEAD
     "pages/order/pages/has-pay/has-pay",
     "pages/order/pages/expired/expired",
+=======
+>>>>>>> 8b153adb284725c91cf1875f02c47dd9594c8522
 
     "pages/personal/personal",
     "pages/personal/balance/balance",
