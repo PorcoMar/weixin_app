@@ -1,0 +1,12 @@
+<!--pages/personal/realName/realName.wxml-->
+<view class="container">
+    <view class="form">
+        <view class="form-group">
+            <input type="text" placeholder="请输入姓名" bindinput="realNameInput" value="{{realName}}" />
+            <view class="delete" wx:if="{{realName}}" bindtap="delete">
+                <image class="delete-image" src="../../../images/personal/delete@2x.png"></image>
+            </view>
+        </view>
+        <button class="save" bindtap="saveRealName">保存</button>
+    </view>
+</view>

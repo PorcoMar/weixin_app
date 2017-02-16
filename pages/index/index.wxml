@@ -5,7 +5,7 @@
         <image class="logo" src="../../images/homePage/park@2x.png"></image>
         <text class="shopName">{{shopName}}</text>
 
-        <view class="changeShop">
+        <view class="changeShop" bindtap="changeShop">
             <text class="changeShop-text">切换门店</text>
             <image src="../../images/homePage/Path@2x.png" class="more-arrow"></image>
         </view>

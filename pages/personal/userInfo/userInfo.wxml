@@ -4,7 +4,7 @@
     <view class="content">
         <view class="section">
             <text class="section-name">姓名</text>
-            <view class="section-button">
+            <view class="section-button" bindtap="editRealName">
                 <text class="section-text" wx:if="{{userInfo.realName}}">{{userInfo.realName}}</text>
                 <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
             </view>

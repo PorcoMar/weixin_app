@@ -53,6 +53,8 @@ Page({
     this.setData({birthDateTemp:birthDateTemp});
   },
   onReady:function(){
+    this.setData({userInfo:app.globalData.userInfo});
+    console.log(app.globalData.userInfo);
     // 页面渲染完成
   },
   onShow:function(){
@@ -121,7 +123,6 @@ Page({
             that.setData({userInfo:userInfo});
             app.globalData.userInfo = userInfo;
             that.setData({dateSelection:false});
-
             wx.setStorage({
               key: 'userInfo',
               data: userInfo
@@ -131,6 +132,11 @@ Page({
       fail: function() {
         // fail
       }
+    })
+  },
+  editRealName:function(){
+    wx.navigateTo({
+      url: '../realName/realName'
     })
   }
 })

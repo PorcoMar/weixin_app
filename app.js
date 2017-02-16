@@ -35,13 +35,30 @@ App({
     wx.getLocation({
       type:"wgs84",
       success:function(res){
-        console.log(res);
         var location = {
           latitude:res.latitude,
           longitude:res.longitude
         }
-        getApp().globalData.location = location;
-        console.log("-----getLocation successed------")
+        wx.request({
+          url: getApp().globalData.HOST + "/shop/detail",
+          data: {
+            lng:res.longitude,
+            lat:res.latitude
+          },
+          method: 'POST', 
+          header: getApp().globalData.HEADER, 
+          success: function(res){
+            // success
+            console.log("-------get shop successed-------")
+            console.log(res);
+          },
+          fail: function() {
+            // fail
+            console.log("-----get shop failed-----")
+          }
+        })
+        // getApp().globalData.location = location;
+        // console.log("-----getLocation successed------")
       },
       fail:function(){
         console.log("-----getLocation failed----")
