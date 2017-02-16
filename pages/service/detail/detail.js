@@ -1,6 +1,4 @@
 
-const util = require( '../utils/util.js' );
-
 Page( {
     data: {
         data: [],
@@ -16,14 +14,14 @@ Page( {
         confirm:true,
         //数据
         mount:656,
-        title_header:"我顶你个肺哦",
-        descript:"我同你港啊，类吧药房带弹落descript哈哈啊四大皆空粉红色空间的i苏俄放缓噶是抠脚大汉富士康蓝山咖啡应该是",
+        title_header:"CocodemerCocodemer产后护理套餐",
+        descript:"仅售418元，价值680元单人颈肩腰部护理一次，节假日通用，免费wifi，男女通用。",
         title_dian:"cocoderer港汇店",
-        work_time:"营业时间：周一至周五，10:00-21:00",
+        work_time:"10:00-21:00",
         distance:"1.8",
         address_detail:"[徐汇区]虹桥路1港汇中心一座8层805～806",
-        price:"1350"
-
+        price:"1350",
+        phoneNumber:"186XXXXXXXX"
     },
     //分享
     onShareAppMessage: function () {
@@ -37,52 +35,37 @@ Page( {
     wx.PullDownRefresh()
   },
     onLoad: function( options ) {
-       // wx:showNavigationBarLoading()
         // 页面初始化 options 为页面跳转所带来的参数
         var that = this
-        var id = options.id;
-        console.log(id)
-        // wx.getStorage({
-        // key: 'pageID',
-        // success: function(res) {
-        //     console.log(res.data)
-        // } 
-        // })       
-
-        //请求banner图数据
+        var id = options.id
+        var shopId=options.shopId
+        console.log(id,shopId)
         wx.request({
-            url: 'http://huanqiuxiaozhen.com/wemall/slider/list',
+            url: 'http://xcx.api-test.yizhenjia.com/service/detail',
             method: 'GET',
-            data: {},
+            data: {serviceId:id,shopId:shopId},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
-                console.log(res.data)
+                var result = res.data.result
+                var shop = res.data.result.shop
+                console.log(result.imgs)
                 that.setData({
-                    imgUrls: res.data
+                 imgUrls: result.imgs,
+                  title_header:result.name,
+                  descript:result.summary,
+                  mount:result.soldCount,
+                  title_dian:shop.name,
+                  work_time:shop.businessHours,
+                  distance:shop.distance,
+                  address_detail:shop.address,
+                  price:result.price,
+                  phoneNumber:shop.tel
                 })
             }
         })
 
-
-
-        // 请求内容数据
-        util.AJAX( "news/" + id, function( res ) {
-            var arr = res.data;
-            var body = arr.body;
-            body = body.match( /<p>.*?<\/p>/g );
-            console.log(arr)
-            that.setData( {
-                datan: arr
-            });
-
-        });
-
-
-        /**
-         * 获取系统信息
-         */
         wx.getSystemInfo( {
 
             success: function( res ) {
@@ -110,8 +93,9 @@ Page( {
 
     },
     calling:function(){
+        var num = this.data.phoneNumber
         wx.makePhoneCall({
-        phoneNumber: '12345678900', 
+        phoneNumber: num, 
         success:function(){
             console.log("拨打电话成功！")
         },
