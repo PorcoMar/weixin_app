@@ -4,16 +4,29 @@
     <view class="content">
         <view class="section">
             <text class="section-name">姓名</text>
-            <text class="section-content">张筱雨</text>
+            <view class="section-button">
+                <text class="section-text" wx:if="{{userInfo.realName}}">{{userInfo.realName}}</text>
+                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
+            </view>
+            
+
         </view>
         <view class="section">
             <text class="section-name">地址</text>
-            <text class="section-content" >浙江省-杭州市-西湖区</text>
+            <view class="section-button">
+                <text class="section-text">浙江省-杭州市-西湖区</text>
+                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
+            </view>
         </view>
         <view class="section">
             <text class="section-name">生日</text>
-            <text class="section-content" bindtap="dateSelection" wx:if="{{userInfo.birthday}}">{{userInfo.birthday}}</text>
-            <text class="section-content" bindtap="dateSelection" wx:if="{{!userInfo.birthday}}">01-01</text>
+            <view class="section-button" bindtap="dateSelection">
+                <text class="section-text"  wx:if="{{userInfo.birthDate}}">{{userInfo.birthDate}}</text>
+                <text class="section-text" wx:if="{{!userInfo.birthDate}}">01-01</text>
+                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
+            </view>
+
+           
         </view>
     </view>
     <!--主要内容开始-->

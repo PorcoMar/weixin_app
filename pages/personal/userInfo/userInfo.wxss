@@ -24,17 +24,22 @@ page{
     color:#4f4f4f;
 }
 
-.section-content{
+.section-button{
+    margin-right:24rpx;
+    min-width:28rpx;
+    height:90rpx;
+    display: flex;
+    align-items: center;
+}
+.section-text{
     font-size:24rpx;
     color:#8f8f8f;
-    background-image:url("../../../images/personal/more@2x.png");
-    background-size:28rpx 28rpx;
-    background-repeat: no-repeat;
-    background-position: right;
-    margin-right:24rpx;
-    padding-right:48rpx;
+    margin-right:48rpx;
 }
-
+.section-button .more-arrow{
+    width:28rpx;
+    height:28rpx;
+}
 .selection{
     position:fixed;
     top:0;
@@ -58,8 +63,12 @@ page{
     font-size:28rpx;
     color:#fc5a5f;
     justify-content: space-between;
-    align-items: center;
+}
+.operate-bar text{
+    display: inline-block;
     padding:0 24rpx;
+    height:90rpx;
+    line-height: 90rpx;
 }
 .date-selection{
     height:410rpx;

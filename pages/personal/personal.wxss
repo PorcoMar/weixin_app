@@ -32,7 +32,26 @@ page{
 }
 .header .user-consume .user-consume-item{
     width:30%;
-    height:132rpx;
+    min-height: 10rpx;
+}
+.item-quantity{
+    width:100%;
+    font-size:40rpx;
+    color:#ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-quantity .unit{
+    font-size:28rpx;
+}
+.item-name{
+    padding-top:22rpx;
+    width:100%;
+    font-size:24rpx;
+    color:#ffffff;
+    display: flex;
+    justify-content: center;
 }
 .header .user-detail{
     margin-top:94rpx;
@@ -89,26 +108,7 @@ page{
     font-size:46rpx;
     color:#ffffff;
 }
-.item-quantity{
-    padding-top:30rpx;
-    width:100%;
-    font-size:40rpx;
-    color:#ffffff;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-.item-quantity .unit{
-    font-size:28rpx;
-}
-.item-name{
-    margin-top:22rpx;
-    width:100%;
-    font-size:24rpx;
-    color:#ffffff;
-    display: flex;
-    justify-content: center;
-}
+
 
 /*中间区域样式*/
 .content{
@@ -136,9 +136,16 @@ page{
 }
 .content .section .more{
     width:28rpx;
-    height:28rpx;
+    height:90rpx;
     position:absolute;
+    top:0;
     right:24rpx;
+    display:flex;
+    align-items: center;
+}
+.more-arrow{
+    width:28rpx;
+    height:28rpx;
 }
 
 /*底部样式*/
