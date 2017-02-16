@@ -26,7 +26,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1121">
               <caret line="59" column="11" lean-forward="false" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-              <folding />
+              <folding>
+                <marker date="1487214290884" expanded="true" signature="1967:2510" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,7 +73,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="230" />
+    <option name="x" value="501" />
+    <option name="y" value="8" />
     <option name="width" value="1175" />
     <option name="height" value="1047" />
   </component>
@@ -160,7 +163,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nodejs_yizhen_admin" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -240,18 +243,18 @@
       <workItem from="1486947607446" duration="6478000" />
       <workItem from="1487052580021" duration="599000" />
       <workItem from="1487119499736" duration="611000" />
-      <workItem from="1487206276154" duration="4000" />
+      <workItem from="1487206276154" duration="733000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8579000" />
+    <option name="totallyTimeSpent" value="9308000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="230" y="0" width="1175" height="1047" extended-state="1" />
-    <editor active="true" />
+    <frame x="501" y="8" width="1175" height="1047" extended-state="1" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24978012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24978012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -284,7 +287,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1121">
           <caret line="59" column="11" lean-forward="false" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1487214290884" expanded="true" signature="1967:2510" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -308,7 +313,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1487214290884" expanded="true" signature="1967:2510" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -332,7 +339,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1487214290884" expanded="true" signature="1967:2510" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -356,7 +365,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="15" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1487214290884" expanded="true" signature="1967:2510" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -402,7 +413,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1121">
           <caret line="59" column="11" lean-forward="false" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
-          <folding />
+          <folding>
+            <marker date="1487214290884" expanded="true" signature="1967:2510" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

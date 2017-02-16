@@ -67,6 +67,7 @@ App({
   },
   globalData:{
     userInfo:null,
+
     location:{},
     HOST:"https://test.yizhenjia.com/xcxapi",
     HEADER:{

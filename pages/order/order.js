@@ -1,3 +1,5 @@
+var app = getApp();
+var url = app.globalData.HOST;
 Page({
   data:{
     array: [
@@ -100,7 +102,29 @@ Page({
     })
   },
   onLoad: function () {
-    console.log("---index onload---")
+    console.log("---index onload---");
+    wx.request({
+      url: url+'/order/query',
+      data: {
+        pageNo:1,
+        pageSize:10
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        'content-type':'application/x-www-form-urlencoded'
+      }, // 设置请求的 header
+      success: function(res){
+        // success
+        console.log(res);
+      },
+      fail: function() {
+        // fail
+        alert("fail")
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   onShow:function(){
     console.log("---index onShow----")
