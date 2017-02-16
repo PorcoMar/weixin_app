@@ -18,12 +18,12 @@
 }
 /*门店logo*/
 .shopList .logo{
-    margin:44rpx 20rpx 0 24rpx;
-    float:left;    
+      float:left;   
 }
 .logo .image {
-    width: 80rpx;
-    height: 80rpx;
+      width: 80rpx;
+      height: 80rpx;
+      margin:44rpx 20rpx 0 24rpx;
 }
 /*详情*/
 .shopList .shopOrder {    
@@ -66,14 +66,35 @@
     padding-right: 24rpx;
     font-size: 28rpx;
     color: #4f4f4f;
+    /*border: 1rpx solid black;*/
+}
+.order>text {
+    line-height: 28rpx;
 }
 .order .note {
     float:right;
     color:#333333;
+    line-height: 30rpx;
 }
 .order .redNote {
     float: right;
     color: #fc5a5f;
+}
+.hasPay .orderName {
+    font-family: "PingFang-SC-Medium";
+    font-size: 26rpx;
+    color: #4f4f4f;
+}
+.hasPay .note {
+    font-family: "PingFang-SC-Regular";
+    font-size: 26rpx;
+    color: #c6c6c6;
+}
+.hasPay .green {
+    color:#8cc42d;
+}
+.hasPay .red {
+    color:#fc5a5f;
 }
 /*总额*/
 .shopOrder .total {
@@ -83,18 +104,30 @@
     height: 50rpx;   
     font-size: 24rpx;
     color: #8f8f8f;
+    position: relative;
+}
+.total text{
+    position: absolute;
+    bottom: 30rpx;
 }
 .total .service {
-    float: left;
+    left: 0;
+}
+.total .cost {
+    left:100rpx;
+    color:#4f4f4f;
 }
 .total .combind {
-    margin-left:300rpx;
+    left:400rpx;
+}
+.total .balance {
+    left: 320rpx;
 }
 .total .price{
-    float:right;
     font-size: 28rpx;
     color:#fc5a5f;
-    margin-top: -4rpx;
+    right: 24rpx;
+    bottom: 28rpx;
 }
 
 /*订单操作*/

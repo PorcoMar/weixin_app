@@ -3,15 +3,25 @@
 <!--订单状态-->
     <!--待付款-->
     <view class="orderStatus" wx:if="{{orderStatus === '待付款'}}">
-        <image src="../../../../images/order/￥@2x.png" mode="scaleToFill" class="image"></image>
+        <image src="../../../../images/order/pay@2x.png" class="image"></image>
+        <!--<image src="../../../../images/order/gou@2x.png" class="image"></image>-->
         <view class="statusInfo">
             <view class="waitPay">等待支付</view>
             <text>逾期未支付订单将自动取消</text>
         </view>
     </view>
+    <!--待付尾款-->
+    <view class="orderStatus" wx:if="{{orderStatus === '待付尾款'}}">
+        <image src="../../../../images/order/pay@2x.png" class="image"></image>
+        <!--<image src="../../../../images/order/gou@2x.png" class="image"></image>-->
+        <view class="statusInfo">
+            <view class="waitPay">等待支付尾款</view>
+            <text>逾期未支付订单将自动取消</text>
+        </view>
+    </view>
     <!--已付款-->
     <view class="orderStatus" wx:if="{{orderStatus === '已付款'}}">
-        <image src="../../../../images/order/gou@2x.png" mode="scaleToFill" class="image"></image>
+        <image src="../../../../images/order/gou@2x.png" class="image"></image>
         <view class="statusInfo">
             <view class="waitPay">支付成功</view>
             <text>支付已完成</text>
@@ -19,7 +29,7 @@
     </view>
     <!--已过期-->
     <view class="orderStatus" wx:if="{{orderStatus === '已过期'}}">
-        <image src="../../../../images/order/￥@2x-2.png" mode="scaleToFill" class="image"></image>
+        <image src="../../../../images/order/pay@2x-2.png" class="image"></image>
         <view class="statusInfo">
             <view class="waitPay">已过期</view>
             <text>逾期未支付订单已自动取消</text>
@@ -29,10 +39,10 @@
     <view class="serviceDetail" bindtap="toSubmit">
       <view class="shopName">{{serviceDetail.shopName}}</view>
       <view class="service">
-        <image src="../../../../images/order/none-order@2x.png" mode="scaleToFill" class="shopImg"></image>
+        <image src="../../../../images/order/none-order@2x.png" class="shopImg"></image>
         <view class="serviceInfo">
             <view>{{serviceDetail.serviceName}}</view>
-            <view class="serviceNum">数量X{{serviceDetail.num}}</view>
+            <view class="serviceNum">数量：X{{serviceDetail.num}}</view>
         </view>
         <view class="priceInfo">
             <view class="discount">¥{{serviceDetail.discount}}</view>
@@ -47,7 +57,7 @@
             <text class="font">¥{{priceDetail.orderTotal}}</text>
         </view>
         <view class="memberDiscount">
-            <image src="../../../../images/order/vip@2x.png" class="vip" mode="scaleToFill"></image>
+            <image src="../../../../images/order/vip@2x.png" class="vip"></image>
             <text>商户会员折扣</text>
             <text class="font">-¥{{priceDetail.amount}}</text>
         </view>
@@ -60,7 +70,7 @@
     <view class="infoDetail">
         <view>下 单 人：{{infoDetail.single}}</view>
         <view>联系电话：{{infoDetail.phone}}</view>
-        <view>备    注：{{infoDetail.note}}</view>
+        <view class="foot">备    注：{{infoDetail.note}}</view>
     </view>
     <!--订单详情-->
     <view class="infoDetail" wx:if="{{orderStatus === '已付款'}}">

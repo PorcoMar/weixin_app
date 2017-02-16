@@ -6,7 +6,8 @@
     <view class="flex-item shopList" bindtap="orderDetail" id="{{item.payStatus}}">
         <!--门店logo-->
         <view class="logo">
-          <image src="{{item.logo}}" class="image" mode="scaleToFill"></image>
+          <image src="../../images/order/weixin@2x.png" class="image"></image>
+          <!--<image class="image" src="../../images/homePage/park@2x.png"></image>-->
         </view>
         <!--详情-->
         <view class="shopOrder">
@@ -19,21 +20,56 @@
             <view class="status">{{item.payStatus}}</view>
           </view>
           <!--订单--> 
-          <view class="order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
-            <block wx:if="{{idx <= 2}}">
-              <text class="orderName">Cocodomer面部护理</text>
-              <text class="note">¥5000</text>
-              <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
-              <text class="redNote" wx:else>¥5000</text>-->
-            </block>
-            <block wx:elif="{{idx == 3}}">
-              <text>...</text>
-            </block>
-            <!--<block wx:else>
-            </block>-->
-          </view>
+          <block wx:if="{{item.payStatus === '已付款'}}">
+              <view class="hasPay order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
+              <block wx:if="{{idx == 0}}">
+                <text class="orderName">孕后修身保养服务1</text>
+                <text class="note">已完成</text>
+                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
+                <text class="redNote" wx:else>¥5000</text>-->
+              </block>
+              <block wx:if="{{idx == 1}}">
+                <text class="orderName">孕后修身保养服务2</text>
+                <text class="note green">可使用</text>
+                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
+                <text class="redNote" wx:else>¥5000</text>-->
+              </block>
+              <block wx:if="{{idx == 2}}">
+                <text class="orderName">孕后修身保养服务3</text>
+                <text class="note red">未完成</text>
+                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
+                <text class="redNote" wx:else>¥5000</text>-->
+              </block>
+              <block wx:elif="{{idx == 3}}">
+                <text>...</text>
+              </block>
+              <!--<block wx:else>
+              </block>-->
+            </view>
+          </block>
+          <block wx:else>
+            <view class="order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
+              <block wx:if="{{idx <= 2}}">
+                <text class="orderName">Cocodomer面部护理</text>
+                <text class="note">¥5000</text>
+                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
+                <text class="redNote" wx:else>¥5000</text>-->
+              </block>
+              <block wx:elif="{{idx == 3}}">
+                <text>...</text>
+              </block>
+              <!--<block wx:else>
+              </block>-->
+            </view>
+          </block>
           <!--总额-->
-          <view class="total" wx:if="{{item.payStatus !== '已过期'}}">
+          <view class="total" wx:if="{{item.payStatus === '待付尾款'}}">
+            <text class="service">已支付</text>
+            <text class="cost">¥ 5196</text>
+            <text class="balance">还需支付尾款</text>
+            <text class="price"> ¥ 5196</text>
+          </view>
+          <view class="total" wx:elif="{{item.payStatus !== '已过期'}}">
             <text class="service">共{{item.orderTotal}}项服务</text>
             <text class="combind">合计</text>
             <text class="price"> ¥ {{item.combind}}</text>

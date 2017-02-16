@@ -147,7 +147,9 @@ page {
     font-size: 30rpx;
     color: #8f8f8f;
 }
-
+.infoDetail .foot {
+    padding-bottom: 20rpx;
+}
 .orderDetail{
     height: 120rpx;
 }
