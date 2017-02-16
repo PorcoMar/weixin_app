@@ -37,11 +37,11 @@ Page({
   //点击验证码
   identify:function(){
     console.log("----获取短信验证码-----")
-
     //向后端提交电话后台，获取验证码
     wx.request({
       url:HOST + "/user/getCode",
       //url:"http://localhost:8080/",
+      header:app.globalData.HEADER,
       method:"POST",
       data:{phone:this.data.phone,type:"LOGIN"},
       success:function(res){
@@ -96,15 +96,47 @@ Page({
     }
     
     wx.request({
-      url:"http://localhost:8080/",
+      url:HOST + "/user/login",
       method:"POST",
-      data:{phone:phone,messageCode:messageCode},
+      data:{phone:phone,code:messageCode},
+      header:app.globalData.HEADER,
       success:function(res){
         if(res.data.code == "0"){
-            app.globalData.userInfo.phone = phone;
-            wx.navigateBack({
-              delta: 1 // 回退前 delta(默认为1) 页数
+            var uid = res.data.result.uid;
+            var token = res.data.result.token;
+            app.globalData.HEADER.uid = uid;
+            app.globalData.HEADER.token = token;
+
+            //获取用户信息
+            wx.request({
+              url: HOST + "/user/info",
+              data: {},
+              method: 'POST', 
+              header: app.globalData.HEADER, // 设置请求的 header
+              success: function(res){
+                console.log("realName:",res.data.result.realName);
+                app.globalData.userInfo.phone = res.data.result.phone;
+                app.globalData.userInfo.realName = res.data.result.realName || "";
+                app.globalData.userInfo.province = res.data.result.province || "";
+                app.globalData.userInfo.city = res.data.result.city || "";
+                app.globalData.userInfo.area = res.data.result.area || "";
+                app.globalData.userInfo.birthDate = res.data.result.birthDate || "";
+                
+                wx.setStorage({
+                  key: 'userInfo',
+                  data: app.globalData.userInfo
+                });
+                wx.setStorage({
+                  key: 'HEADER',
+                  data: app.globalData.HEADER
+                });
+                wx.navigateBack({
+                  delta: 1 // 回退前 delta(默认为1) 页数
+                });
+              }
             })
+
+            
         }else{
             wx.showModal({
               title:"提示",

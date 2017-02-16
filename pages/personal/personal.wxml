@@ -2,7 +2,7 @@
     <!--头部开始-->
     <view class="header">
         <view class="user-info" >
-            <image class="user-image" src="../../../images/personal/touxiang@2x.png" wx:if="{{!userInfo}}"></image>
+            <image class="user-image" src="../../images/personal/touxiang@2x.png" wx:if="{{!userInfo}}"></image>
             <image class="user-image" src="{{userInfo.avatarUrl}}" wx:if="{{userInfo}}"></image>
             <view class="user-detail" wx:if="{{userInfo}}">
                 <view class="user-title">
@@ -47,12 +47,16 @@
         <view class="section" bindtap="userBalance">
             <image class="left-icon" src="../../images/personal/yue@2x.png"></image>
             <text class="section-text">我的余额</text>
-            <image class="more" src="../../../images/personal/more@2x.png"></image>
+            <view class="more">
+                <image class="more-arrow" src="../../images/personal/more@2x.png"></image>
+            </view>
         </view>
         <view class="section" bindtap="userInfo">
             <image class="left-icon" src="../../images/personal/gere@2x.png"></image>
             <text class="section-text">个人信息</text>
-            <image class="more" src="../../../images/personal/more@2x.png"></image>
+            <view class="more">
+                <image class="more-arrow" src="../../images/personal/more@2x.png"></image>
+            </view>
         </view>
     </view>
     <!--中间区域结束-->

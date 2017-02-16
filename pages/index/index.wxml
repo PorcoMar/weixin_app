@@ -4,7 +4,11 @@
     <view class="header">
         <image class="logo" src="../../images/homePage/park@2x.png"></image>
         <text class="shopName">{{shopName}}</text>
-        <text class="changeShop" bindtap="changeShop">切换门店</text>
+
+        <view class="changeShop">
+            <text class="changeShop-text">切换门店</text>
+            <image src="../../images/homePage/Path@2x.png" class="more-arrow"></image>
+        </view>
     </view>
     <!--头部结束-->
 
@@ -23,12 +27,17 @@
         <view class="section">
             <image class="left-icon" src="../../images/homePage/address@2x.png" ></image>
             <text class="shop-info-text">[徐汇区]虹桥路1港汇中心一座</text>
-            <image class="right-arrow" src="../../images/homePage/arrow@2x.png"></image>
+            <view class="right-arrow">
+                <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
+            </view>
+            
         </view>
         <view class="section">
             <image class="left-icon" src="../../images/homePage/mendian_tel_nor@2x.png" ></image>
             <text class="shop-info-text">0574-55845004</text>
-            <image class="right-arrow" src="../../images/homePage/arrow@2x.png"></image>
+            <view class="right-arrow">
+                <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
+            </view>
         </view>
         <view class="section">
             <image class="left-icon" src="../../images/homePage/wifi@2x.png"></image>

@@ -1,10 +1,13 @@
 /**index.wxss**/
 
 /*--------头部样式-------*/
+page{
+    background-color:#f5f5f5;
+}
 .header{
     height:80rpx;
-    /*background-color:aqua;*/
-    padding:0 24rpx;
+    background-color:#ffffff;
+    padding:9rpx 24rpx;
     display: flex;
     align-items: center;
     position:relative;
@@ -19,18 +22,24 @@
     color: #4f4f4f;
     margin-left:30rpx;
 }
-.changeShop{
-    /*width:80rpx;
-    height:90rpx;*/
+.header .changeShop{
+    min-width:28rpx;
+    height:98rpx;
+    position:absolute;
+    top:0;
+    right:24rpx;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.changeShop-text{
     font-size:28rpx;
     color:#fc5a5f;
-    background-image: url("../../images/homePage/Path@2x.png");
-    background-repeat: no-repeat;
-    background-size:20rpx 40rpx;
-    background-position:right;
-    padding-right:36rpx;
-    position:absolute;
-    right:80rpx;
+}
+.changeShop .more-arrow{
+    width:28rpx;
+    height:28rpx;
+    margin-left:18rpx;
 }
 
 /*----------门店图片展示结束--------*/
@@ -45,9 +54,8 @@
 /*---------门店详情样式---------*/
 
 .shop-info{
-    border-top-style: solid;
-    border-top-color:#f5f5f5;
-    border-top-width: 20rpx;
+    margin-top:20rpx;
+    background-color:#ffffff;
 }
 .shop-info .section{
     padding-left:24rpx;
@@ -70,9 +78,16 @@
 }
 .shop-info .right-arrow{
     width:16rpx;
-    height:30rpx;
+    height:80rpx;
     position: absolute;
+    top:0;
     right:24rpx;
+    display:flex;
+    align-items: center;
+}
+.right-arrow-image{
+    width:16rpx;
+    height:30rpx;
 }
 .shop-info .extra-service{
     font-size:22rpx;
@@ -85,10 +100,9 @@
 
 /*------服务列表开始------*/
 .service-content{
-    border-top-style: solid;
-    border-top-width:20rpx;
-    border-top-color:#f5f5f5;
+    margin-top:20rpx;
     padding:0 24rpx;
+    background-color:#ffffff;
 }
 .service-content .title{
     width:100%;

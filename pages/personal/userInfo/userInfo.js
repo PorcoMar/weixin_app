@@ -1,5 +1,6 @@
 // pages/personal/userInfo/userInfo.js
 var app = getApp();
+var HOST = app.globalData.HOST;
 Page({
   data:{
     timePicker:{
@@ -8,18 +9,17 @@ Page({
       value:[]
     },
     dateSelection:false,
-    birthdayTemp:{
+    birthDateTemp:{
       month:"",
-      date:""
+      date:"" 
     },
     userInfo:{
-      realName:null,
-      birthday:"02-09"
     }
   },
   onLoad:function(options){
-    this.setData({userInfo:app.globalData.userInfo})
-
+    //设置信息
+    this.setData({userInfo:app.globalData.userInfo});
+    console.log(this.data.userInfo);
     // 页面初始化 options为页面跳转所带来的参数
     var months = [];
     var days = [];
@@ -43,14 +43,14 @@ Page({
     var timePicker = {
       months:months,
       days:days,
-      value:[Month,Day]
+      value:[Month,Day - 1]
     };
     this.setData({timePicker,timePicker});
-    var birthdayTemp = {
+    var birthDateTemp = {
       month:Month,
       date:Day
     };
-    this.setData({birthdayTemp:birthdayTemp});
+    this.setData({birthDateTemp:birthDateTemp});
   },
   onReady:function(){
     // 页面渲染完成
@@ -89,11 +89,11 @@ Page({
       value:[month,date]
     };
     this.setData({timePicker,timePicker})
-    var birthdayTemp = {
+    var birthDateTemp = {
       month:month,
       date:date
     };
-    this.setData({birthdayTemp:birthdayTemp});
+    this.setData({birthDateTemp:birthDateTemp});
   },
   dateSelection:function(){
     this.setData({dateSelection:true});
@@ -102,14 +102,35 @@ Page({
     this.setData({dateSelection:false});
   },
   dateConfirm:function(){
-    var month = 1 + this.data.birthdayTemp.month;
-    var date = 1 + this.data.birthdayTemp.date;
+    var month = 1 + this.data.birthDateTemp.month;
+    var date = this.data.birthDateTemp.date;
     month = (month < 10)?("0" + month):month;
     date = (date < 10)?("0" + date):date;
-    var userInfo = this.data.userInfo;
-    userInfo.birthday = month + "-" + date;
-    this.setData({userInfo:userInfo});
-    app.globalData.userInfo = userInfo;
-    this.setData({dateSelection:false});
+    var birthDate = month + "-" + date;
+    var that = this;
+    wx.request({
+      url: HOST + "/user/edit",
+      data: {birthDate:birthDate},
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: app.globalData.HEADER, // 设置请求的 header
+      success: function(res){
+        console.log(res);
+        if(res.data.code == "0"){
+            var userInfo = that.data.userInfo;
+            userInfo.birthDate = birthDate;
+            that.setData({userInfo:userInfo});
+            app.globalData.userInfo = userInfo;
+            that.setData({dateSelection:false});
+
+            wx.setStorage({
+              key: 'userInfo',
+              data: userInfo
+            })
+        }
+      },
+      fail: function() {
+        // fail
+      }
+    })
   }
 })

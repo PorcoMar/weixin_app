@@ -44,8 +44,23 @@ Page({
             console.log(res);
             var userInfo = JSON.parse(res.rawData);
             app.globalData.userInfo = userInfo;
-            console.log(userInfo);
-            that.setData({ userInfo: userInfo })
+            that.setData({ userInfo: userInfo });
+
+            wx.setStorage({
+              key: 'userInfo',
+              data: userInfo,
+              success: function(res){
+                // success
+                console.log("-----setStorage successed------")
+              },
+              fail: function() {
+                // fail
+                console.log("-----setStorage failed-----")
+              },
+              complete: function() {
+                // complete
+              }
+            })
           }
         })
       }
