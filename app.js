@@ -4,6 +4,6 @@ App({
   },
   globalData:{
     userInfo:null,
-    HOST:"http://xcx.api-test.yizhenjia.com"
+    HOST:"https://test.yizhenjia.com/xcxapi"
   }
 })
