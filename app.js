@@ -40,8 +40,6 @@ App({
           longitude:res.longitude
         };
         getApp().globalData.location = location;
-
-
         wx.request({
           url: getApp().globalData.HOST + "/shop/detail",
           data: {
@@ -53,11 +51,10 @@ App({
           success: function(res){
             // success
             console.log("-------get shop successed-------")
-
-            getApp().globalData.shop = res.data.result;
+            var shopId = res.data.result.id;
+            getApp().globalData.shopId = shopId;
           }
         });
-
       },
       fail:function(){
         console.log("-----getLocation failed----")
@@ -67,7 +64,7 @@ App({
   globalData:{
     userInfo:null,
     location:{},
-    shop:{},
+    shopId:null,
     HOST:"https://test.yizhenjia.com/xcxapi",
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"

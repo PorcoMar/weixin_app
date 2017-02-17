@@ -5,34 +5,17 @@ var HOST = app.globalData.HOST;
 Page({
   data: {
     shopName:"Cocodemer港汇店",
-    shopImage:"../../images/homePage/shop_image.jpg"
+    shopImage:"../../images/homePage/shop_image.jpg",
+    shop:null,
+    location:null
   },
   onLoad: function () {
-    console.log("---index onload---");
-    console.log(getApp().globalData);
-    var location = app.globalData.location;
-    console.log(location);
-    wx.request({
-        url:HOST + "/shop/detail",
-        data:{
-          lng:location.longitude,
-          lat:location.latitude
-        },
-        header:{
-        "Content-Type":"application/x-www-form-urlencoded"
-        },
-        method:"POST",
-        success:function(res){
-          console.log(res);
-          console.log("------get shop successed-----");
-        },
-        fail:function(){
-          console.log("------get shop fail-----")
-        }
-    })
+    console.log("-----index data----");
   },
   onShow:function(){
-    console.log("---index onShow----")
+    console.log("---index onShow----");
+    console.log(getApp().globalData);
+    console.log(getApp().globalData.shopId);
   },
   onReady:function(){
     console.log("---index onReady---")
