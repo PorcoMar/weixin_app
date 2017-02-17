@@ -66,7 +66,6 @@
     padding-right: 24rpx;
     font-size: 28rpx;
     color: #4f4f4f;
-    /*border: 1rpx solid black;*/
 }
 .order>text {
     line-height: 28rpx;
@@ -79,23 +78,9 @@
 .order .redNote {
     float: right;
     color: #fc5a5f;
+    line-height: 30rpx;
 }
-.hasPay .orderName {
-    font-family: "PingFang-SC-Medium";
-    font-size: 26rpx;
-    color: #4f4f4f;
-}
-.hasPay .note {
-    font-family: "PingFang-SC-Regular";
-    font-size: 26rpx;
-    color: #c6c6c6;
-}
-.hasPay .green {
-    color:#8cc42d;
-}
-.hasPay .red {
-    color:#fc5a5f;
-}
+
 /*总额*/
 .shopOrder .total {
     padding-top: 36rpx;

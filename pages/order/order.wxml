@@ -1,90 +1,179 @@
 <!--<view>这是订单页面</view>-->
 <view class="section">
   <!--循环创立订单列表-->
-  <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{array}}">
-  <!--订单和门店详情-->
-    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.payStatus}}">
+  <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}" wx:for-index ="key">
+  <!--普通订单-->
+  <block wx:if="{{item.type =='SERVICE'}}">
+    <!--订单和门店详情-->
+    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}" data-id="{{key}}">
         <!--门店logo-->
-        <view class="logo">
-          <image src="../../images/order/weixin@2x.png" class="image"></image>
-          <!--<image class="image" src="../../images/homePage/park@2x.png"></image>-->
+        <view class="logo">         
+          <image src="{{item.shopLogo}}" class="image"></image>
         </view>
         <!--详情-->
         <view class="shopOrder">
           <!--门店-->
           <view class="shop">
-            <view class="shopDetail">
+            <view class="shopDetail">            
               <view class="shopName">{{item.shopName}}</view>
-              <view class="orderTime">{{item.orderTime}}</view>
+              <view class="orderTime">{{item.createdTime}}</view>
             </view>
-            <view class="status">{{item.payStatus}}</view>
+            <view class="status">{{item.status}}</view>
           </view>
-          <!--订单--> 
-          <block wx:if="{{item.payStatus === '已付款'}}">
-              <view class="hasPay order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
-              <block wx:if="{{idx == 0}}">
-                <text class="orderName">孕后修身保养服务1</text>
-                <text class="note">已完成</text>
-                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
-                <text class="redNote" wx:else>¥5000</text>-->
+          <!--订单-->
+              <block wx:if="{{item.status =='CREATE'}}"> 
+              <view class="order" wx:for="{{item.orderItem}}" wx:for-index="idx">
+                <block wx:if="{{idx <= 2}}">
+                  <text class="orderName">{{item.serviceName}}</text>
+                  <text class="note">价格¥ {{item.price}}</text>
+                </block>
+                <block wx:elif="{{idx == 3}}">
+                  <text>...</text>
+                </block>
+              </view>
               </block>
-              <block wx:if="{{idx == 1}}">
-                <text class="orderName">孕后修身保养服务2</text>
-                <text class="note green">可使用</text>
-                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
-                <text class="redNote" wx:else>¥5000</text>-->
+              <block wx:elif="{{item.status =='PAY'}}"> 
+              <view class="order" wx:for="{{item.orderItem}}" wx:for-index="idx">
+                <block wx:if="{{idx <= 2}}">
+                  <text class="orderName">{{item.serviceName}}</text>
+                  <text class="note">状态{{item.status}}</text>
+                </block>
+                <block wx:elif="{{idx == 3}}">
+                  <text>...</text>
+                </block>
+              </view>
               </block>
-              <block wx:if="{{idx == 2}}">
-                <text class="orderName">孕后修身保养服务3</text>
-                <text class="note red">未完成</text>
-                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
-                <text class="redNote" wx:else>¥5000</text>-->
+              <block wx:else> 
+              <view class="order" wx:for="{{item.orderItem}}" wx:for-index="idx">
+                <block wx:if="{{idx <= 2}}">
+                  <text class="orderName">{{item.serviceName}}</text>
+                  <text class="note redNote">价格¥ {{item.price}}</text>
+                </block>
+                <block wx:elif="{{idx == 3}}">
+                  <text>...</text>
+                </block>
+              </view>
               </block>
-              <block wx:elif="{{idx == 3}}">
-                <text>...</text>
-              </block>
-              <!--<block wx:else>
-              </block>-->
-            </view>
-          </block>
-          <block wx:else>
-            <view class="order" wx:for="{{item.orderDetail}}" wx:for-index="idx">
-              <block wx:if="{{idx <= 2}}">
-                <text class="orderName">Cocodomer面部护理</text>
-                <text class="note">¥5000</text>
-                <!--<text class="note" wx:if="{{item.payStatus === '待付款'}}">¥5000</text>
-                <text class="redNote" wx:else>¥5000</text>-->
-              </block>
-              <block wx:elif="{{idx == 3}}">
-                <text>...</text>
-              </block>
-              <!--<block wx:else>
-              </block>-->
-            </view>
-          </block>
           <!--总额-->
-          <view class="total" wx:if="{{item.payStatus === '待付尾款'}}">
+          <view class="total" wx:if="{{item.status === 'WAIT_TAIL'}}">
             <text class="service">已支付</text>
-            <text class="cost">¥ 5196</text>
+            <text class="cost">¥ {{item.headPrice}}</text>
             <text class="balance">还需支付尾款</text>
-            <text class="price"> ¥ 5196</text>
+            <text class="price"> ¥ {{item.tailPrice}}</text>
           </view>
-          <view class="total" wx:elif="{{item.payStatus !== '已过期'}}">
-            <text class="service">共{{item.orderTotal}}项服务</text>
+          <view class="total" wx:elif="{{item.status === 'EXPTRED'}}">
+          <block wx:if="{{item.payStatus == 'DIVID'}}">
+            <text class="service">已支付</text>
+            <text class="cost">¥ {{item.headPrice}}</text>
+            <text class="balance">还需支付尾款</text>
+            <text class="price"> ¥ {{item.tailPrice}}</text>
+          </block>
+          <block wx:if="{{item.payStatus == 'ALL'}}">
+            <!--<text class="service">已支付</text>
+            <text class="cost">¥ {{item.headPrice}}</text>-->
+            <text class="balance">需支付</text>
+            <text class="price"> ¥ {{item.price}}</text>
+          </block>
+          </view>
+          <view class="total" wx:else>
+            <text class="service">共{{item.quantity}}项服务</text>
             <text class="combind">合计</text>
-            <text class="price"> ¥ {{item.combind}}</text>
+            <text class="price"> ¥ {{item.price}}</text>
           </view>
         </view>
     </view>
   <!--订单操作-->
-    <view class="flex-item operate" wx:if="{{item.payStatus !== '已过期'}}">
-      <block wx:for="{{item.operate}}" wx:for-item="itm">
-          <view class="orderOperate red" wx:if="{{itm === '立即支付'}}">{{itm}}</view>
-          <view class="orderOperate" wx:else>{{itm}}</view>       
-      </block>
+    <view class="flex-item operate" wx:if="{{item.status == 'CREATE'}}">
+          <view class="orderOperate red" >立即支付</view>
+          <view class="orderOperate">联系客服</view> 
     </view>
-    <view class="flex-item operate" wx:else>      
-          <text class="pay">需支付 ¥ 666</text>     
+    <view class="flex-item operate" wx:elif="{{item.status == 'WAIT_TAIL'}}">
+          <view class="orderOperate red" >支付尾款</view>
+          <view class="orderOperate">联系客服</view> 
     </view>
+    <view class="flex-item operate" wx:elif="{{item.status == 'PAY'}}">
+          <view class="orderOperate">联系客服</view> 
+    </view>
+  </block>
+
+  <!--月嫂订单-->
+  <block wx:elif="{{item.type == 'YUESAO'}}">
+    <!--订单和门店详情-->
+    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}" data-id="{{key}}">
+        <!--门店logo-->
+        <view class="logo"> 
+          <image src="{{item.serviceLogo}}" class="image"></image>          
+        </view>
+        <!--详情-->
+        <view class="shopOrder">
+          <!--门店-->
+          <view class="shop">
+            <view class="shopDetail"> 
+              <view class="shopName">{{item.serviceName}}</view>
+              <view class="orderTime">{{item.createdTime}}</view>
+            </view>
+            <view class="status">{{item.status}}</view>
+          </view>
+          <!--订单--> 
+              <block wx:if="{{item.status =='CREATE'}}"> 
+              <view class="order">
+                <text class="orderName">{{item.sku}}</text>
+                <text class="note">价格¥ {{item.price}}</text>
+              </view>
+              </block>
+              <block wx:elif="{{item.status =='PAY'}}"> 
+              <view class="order">
+                <text class="orderName">{{item.sku}}</text>
+                <text class="note">状态{{item.status}}</text>
+              </view>
+              </block>
+              <block wx:else> 
+              <view class="order">
+                <text class="orderName">{{item.sku}}</text>
+                <text class="note redNote">价格¥ {{item.price}}</text>
+              </view>
+              </block>
+              
+          <!--总额-->
+          <view class="total" wx:if="{{item.status === 'WAIT_TAIL'}}">
+            <text class="service">已支付</text>
+            <text class="cost">¥ {{item.headPrice}}</text>
+            <text class="balance">还需支付尾款</text>
+            <text class="price"> ¥ {{item.tailPrice}}</text>
+          </view>
+          <view class="total" wx:elif="{{item.status === 'EXPTRED'}}">
+          <block wx:if="{{item.payStatus == 'DIVID'}}">
+            <text class="service">已支付</text>
+            <text class="cost">¥ {{item.headPrice}}</text>
+            <text class="balance">还需支付尾款</text>
+            <text class="price"> ¥ {{item.tailPrice}}</text>
+          </block>
+          <block wx:if="{{item.payStatus == 'ALL'}}">
+            <!--<text class="service">已支付</text>
+            <text class="cost">¥ {{item.headPrice}}</text>-->
+            <text class="balance">需支付</text>
+            <text class="price"> ¥ {{item.oriPrice}}</text>
+          </block>
+          </view>
+          <view class="total" wx:else>
+            <text class="service">共1项服务</text>
+            <text class="combind">合计</text>
+            <text class="price"> ¥ {{item.oriPrice}}</text>
+          </view>
+        </view>
+    </view>
+  <!--订单操作-->
+    <view class="flex-item operate" wx:if="{{item.status == 'CREATE'}}">
+          <view class="orderOperate red" >立即支付</view>
+          <view class="orderOperate">联系客服</view> 
+    </view>
+    <view class="flex-item operate" wx:elif="{{item.status == 'WAIT_TAIL'}}">
+          <view class="orderOperate red" >支付尾款</view>
+          <view class="orderOperate">联系客服</view> 
+    </view>
+    <view class="flex-item operate" wx:elif="{{item.status == 'PAY'}}">
+          <view class="orderOperate">联系客服</view> 
+    </view>
+  </block>
   </view>
 </view>
