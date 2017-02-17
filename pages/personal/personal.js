@@ -24,15 +24,36 @@ Page({
   },
   //点击个人余额
   userBalance: function () {
-    wx.navigateTo({
-      url: "./balance/balance"
-    })
+    if(!app.globalData.userInfo){
+      this.login();
+      return;
+    };
+    if(app.globalData.userInfo.phone){
+        wx.navigateTo({
+          url: "./balance/balance"
+        })
+    }else{
+        wx.navigateTo({
+          url: "./bindPhone/bindPhone"
+        })
+    };
   },
   //点击个人信息
   userInfo: function () {
-    wx.navigateTo({
-      url: "./userInfo/userInfo"
-    })
+    if(!app.globalData.userInfo){
+      this.login();
+      return;
+    }
+    if(app.globalData.userInfo.phone){
+      wx.navigateTo({
+        url: "./userInfo/userInfo"
+      })
+    }else{
+      wx.navigateTo({
+        url: "./bindPhone/bindPhone"
+      })
+    }
+    
   },
   //登录
   login: function () {
@@ -45,7 +66,6 @@ Page({
             var userInfo = JSON.parse(res.rawData);
             app.globalData.userInfo = userInfo;
             that.setData({ userInfo: userInfo });
-
             wx.setStorage({
               key: 'userInfo',
               data: userInfo,

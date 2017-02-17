@@ -49,4 +49,23 @@
             </view>
         </view>
     </view>
+
+    <view class="selection">
+        <view class="selection-content">
+            <view class="operate-bar">
+                <text bindtap="dateConfirm">确定</text>
+                <text bindtap="cancel">取消</text>
+            </view>
+            <view class="date-selection">
+                <picker-view indicator-style="height:44px;" style="width:100%;height:100%" value="{{timePicker.value}}" bindchange="datebindchange">
+                    <picker-view-column class="column1">
+                        <view wx:for="{{timePicker.months}}" style="line-height:44px;">{{item}}月</view>
+                    </picker-view-column>
+                    <picker-view-column class="column2">
+                        <view wx:for="{{timePicker.days}}" style="line-height:44px;">{{item}}日</view>
+                    </picker-view-column>
+                </picker-view>
+            </view>
+        </view>
+    </view>
 </view>

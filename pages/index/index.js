@@ -21,7 +21,6 @@ Page({
              lat:res.latitude,
              lng:res.longitude
            };
-
            //获取门店信息
            wx.request({
              url: HOST + "/shop/detail",
@@ -31,10 +30,8 @@ Page({
              success: function(res){
                 if(res.data.code == "0"){
                      app.globalData.shop = res.data.result;
-                     app.globalData.location = res.data.location;
+                     app.globalData.location = location;
                      that.setData({shop:app.globalData.shop});
-                     console.log("---this.data---")
-                     console.log(that.data);
                 };
              }  
            })

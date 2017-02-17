@@ -41,16 +41,16 @@
         </view>
         <view class="section">
             <image class="left-icon" src="../../images/homePage/wifi@2x.png" wx:if="{{shop.hasWifi}}"></image>
-            <text class="extra-service" >免费WIFI</text>
+            <text class="extra-service" wx:if="{{shop.hasWifi}}">免费WIFI</text>
 
-            <image class="left-icon right2" src="../../images/homePage/park@2x.png" ></image>
-            <text class="extra-service" >免费停车</text>
+            <image class="left-icon right2" src="../../images/homePage/park@2x.png" wx:if="{{shop.hasPark}}"></image>
+            <text class="extra-service" wx:if="{{shop.hasPark}}">免费停车</text>
 
-            <image class="left-icon right2" src="../../images/homePage/paycard@2x.png"></image>
-            <text class="extra-service">可刷卡</text>
+            <image class="left-icon right2" src="../../images/homePage/paycard@2x.png" wx:if="{{shop.hasPaycard}}"></image>
+            <text class="extra-service" wx:if="{{shop.hasPaycard}}">可刷卡</text>
 
-            <image class="left-icon right2" src="../../images/homePage/tea@2x.png"></image>
-            <text class="extra-service">免费喝茶</text>
+            <image class="left-icon right2" src="../../images/homePage/tea@2x.png" wx:if="{{shop.hasTea}}"></image>
+            <text class="extra-service" wx:if="{{shop.hasTea}}">免费喝茶</text>
         </view>
     </view>
     <!--门店详情结束-->
@@ -69,8 +69,8 @@
                     <text>{{item.name}}</text>
                 </view>
                 <view class="service-type">
-                    <text class="shop">到店服务</text>
-                    <text class="door">到家服务</text>
+                    <text class="shop" wx:if="{{item.type == 'SHOP'}}">到店服务</text>
+                    <text class="door" wx:if="{{item.type == 'DOOR'}}">到家服务</text>
                     <text class="saled">已售：213</text>
                 </view>
                 <view class="service-price">

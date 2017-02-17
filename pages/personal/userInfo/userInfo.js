@@ -14,13 +14,19 @@ Page({
       date:"" 
     },
     userInfo:{
-    }
+    },
+    province:[],
+    city:[],
+    area:[]
   },
   onLoad:function(options){
     //设置信息
     this.setData({userInfo:app.globalData.userInfo});
     console.log(this.data.userInfo);
     // 页面初始化 options为页面跳转所带来的参数
+    // 获取省
+    
+
     var months = [];
     var days = [];
     var date = new Date();

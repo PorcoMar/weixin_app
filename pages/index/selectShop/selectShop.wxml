@@ -1,60 +1,18 @@
 <!--pages/index/selectShop/selectShop.wxml-->
 <view class="container">
     <view class="shop-list">
-        <view class="shop-item" bindtap="selected">
-            <image src="../../../images/homePage/shop_image.jpg"></image>
+        <view class="shop-item" bindtap="selected" wx:for="{{shopList}}" data-id="{{index}}">
+            <image src="{{item.logo}}"></image>
             <view class="shop-detail">
                 <view class="shop-name">
-                    <text>Cocodemer港汇店</text>
+                    <text>{{item.name}}</text>
                 </view>
                 <view class="shop-address">
-                     <text>[徐汇区]虹桥路1港汇中心一座8层</text>
-                     <text class="shop-distance">1.1km</text>
+                     <text>{{item.address}}</text>
+                     <text class="shop-distance">{{item.distance/1000}}km</text>
                 </view>
             </view>
-            <image class="selected" src="../../../images/homePage/biaoji@2x.png"></image>
-        </view>
-
-        <view class="shop-item" bindtap="selected">
-            <image src="../../../images/homePage/shop_image.jpg"></image>
-            <view class="shop-detail">
-                <view class="shop-name">
-                    <text>Cocodemer港汇店</text>
-                </view>
-                <view class="shop-address">
-                     <text>[徐汇区]虹桥路1港汇中心一座8层</text>
-                     <text class="shop-distance">1.1km</text>
-                </view>
-            </view>
-            <image class="selected" src="../../../images/homePage/biaoji@2x.png"></image>
-        </view>
-
-        <view class="shop-item" bindtap="selected">
-            <image src="../../../images/homePage/shop_image.jpg"></image>
-            <view class="shop-detail">
-                <view class="shop-name">
-                    <text>Cocodemer港汇店</text>
-                </view>
-                <view class="shop-address">
-                     <text>[徐汇区]虹桥路1港汇中心一座8层</text>
-                     <text class="shop-distance">1.1km</text>
-                </view>
-            </view>
-            <image class="selected" src="../../../images/homePage/biaoji@2x.png"></image>
-        </view>
-
-        <view class="shop-item" bindtap="selected">
-            <image src="../../../images/homePage/shop_image.jpg"></image>
-            <view class="shop-detail">
-                <view class="shop-name">
-                    <text>Cocodemer港汇店</text>
-                </view>
-                <view class="shop-address">
-                     <text>[徐汇区]虹桥路1港汇中心一座8层</text>
-                     <text class="shop-distance">1.1km</text>
-                </view>
-            </view>
-            <image class="selected" wx:if="{{false}}" src="../../../images/homePage/biaoji@2x.png"></image>
+            <image class="selected" src="../../../images/homePage/biaoji@2x.png" wx:if="{{item.selected}}"></image>
         </view>
     </view>
 </view>
