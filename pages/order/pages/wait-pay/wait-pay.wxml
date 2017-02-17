@@ -50,7 +50,7 @@
             <view class="price">¥{{orderObject.oriPrice}}</view>
         </view>
       </view>
-      </block
+      </block>
     </view>
     <!--价格明细-->
     <view class="priceDetail">
