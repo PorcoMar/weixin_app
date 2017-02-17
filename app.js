@@ -20,51 +20,18 @@ App({
     wx.getStorage({
       key: 'HEADER',
       success: function(res){
-        // success
         console.log("----get HEAER successed-----")
         getApp().globalData.HEADER = res.data;
-        console.log(res.data);
-        console.log(getApp().globalData.HEADER);
       },
       fail: function() {
-        // fail
         console.log("-----get HEADER failed------")
       }
     });
-    //获取地理位置
-    wx.getLocation({
-      type:"wgs84",
-      success:function(res){
-        var location = {
-          latitude:res.latitude,
-          longitude:res.longitude
-        };
-        getApp().globalData.location = location;
-        wx.request({
-          url: getApp().globalData.HOST + "/shop/detail",
-          data: {
-            lng:res.longitude,
-            lat:res.latitude
-          },
-          method: 'POST', 
-          header: getApp().globalData.HEADER, 
-          success: function(res){
-            // success
-            console.log("-------get shop successed-------")
-            var shopId = res.data.result.id;
-            getApp().globalData.shopId = shopId;
-          }
-        });
-      },
-      fail:function(){
-        console.log("-----getLocation failed----")
-      }
-    })
   },
   globalData:{
     userInfo:null,
-    location:{},
-    shopId:null,
+    location:null,
+    shop:null,
     HOST:"https://test.yizhenjia.com/xcxapi",
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"
