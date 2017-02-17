@@ -40,13 +40,14 @@
     <view class="name_cocodemer">{{title_dian}}</view>
     <view class="time_cocodemer">营业时间：周一至周五，{{work_time}}</view>
   </view>
-  <view class="kilm">{{distance}}km</view>
+  <view class="kilm">{{distance}}m</view>
   <image class="coco_right" src="../../../images/service/www.png" bindtap="calling"></image>
 </view>
 <view class="map">
   <image class="map_tu" src="../../../images/service/c.png"></image>
   <view class="left_map">{{address_detail}}</view>
-  <!--<image class="map_right" src="../../../images/service/k.png" bindtap="address"></image>-->
+  <image class="map_right" src="../../../images/service/k.png"></image>
+  <view class="map1"  bindtap="address"></view>
 </view>
 <view class="ul1">
   <li class="hot_point">

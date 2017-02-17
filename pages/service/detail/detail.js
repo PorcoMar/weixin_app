@@ -1,4 +1,4 @@
-
+var app = getApp()
 Page( {
     data: {
         data: [],
@@ -21,7 +21,10 @@ Page( {
         distance:"1.8",
         address_detail:"[徐汇区]虹桥路1港汇中心一座8层805～806",
         price:"1350",
-        phoneNumber:"186XXXXXXXX"
+        phoneNumber:"186XXXXXXXX",
+         longitude:120,
+         latitude:30       
+ 
     },
     //分享
     onShareAppMessage: function () {
@@ -35,6 +38,10 @@ Page( {
     wx.PullDownRefresh()
   },
     onLoad: function( options ) {
+        this.setData({
+           longitude:app.globalData.shop.lng,
+           latitude:app.globalData.shop.lat
+        })
         // 页面初始化 options 为页面跳转所带来的参数
         var that = this
         var id = options.id
@@ -43,14 +50,14 @@ Page( {
         wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/detail',
             method: 'GET',
-            data: {serviceId:id,shopId:shopId},
+            data: {serviceId:id,shopId:shopId,lng:that.data.longitude,lat:that.data.latitude},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 var result = res.data.result
                 var shop = res.data.result.shop
-                console.log(result.imgs)
+                console.log(result)
                 that.setData({
                  imgUrls: result.imgs,
                   title_header:result.name,
@@ -89,9 +96,9 @@ Page( {
         })       
     },
     //查看详情
-    detail_info:function(){
+    // detail_info:function(){
 
-    },
+    // },
     calling:function(){
         var num = this.data.phoneNumber
         wx.makePhoneCall({
@@ -104,9 +111,21 @@ Page( {
         }
         })
     },
-    // address:function(){
-           
-    // },
+    address:function(){
+        var that = this
+        wx.getLocation({
+        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+        success: function(res) {
+            wx.openLocation({
+           longitude:that.data.longitude,
+           latitude:that.data.latitude,
+           name:that.data.title_dian,
+           address:that.data.address_detail,
+            scale: 28
+            })
+        }
+        })         
+    },
     onReady: function() {
         var that = this
         setTimeout( function() {

@@ -28,7 +28,8 @@
 .kilm{float:left;color:#4f4f4f;font-size:24rpx;margin-top:28rpx;font-family:PingFang;}
 .coco_right{float:right;width:40rpx;height:40rpx;margin-top:40rpx;margin-right:40rpx;}
 
-.map{width:725rpx;height:96rpx;border-bottom:1px solid #f5f5f5;margin-left:25rpx;}
+.map{width:725rpx;height:96rpx;border-bottom:1px solid #f5f5f5;margin-left:25rpx;position:relative;}
+.map1{position:absolute;right:0.6rem;top:0.5rem;width:2rem;height:1.8rem;}
 .map_tu{width:20rpx;height:30rpx;line-height:96rpx;margin-right:20rpx;float:left;margin-top:32rpx;}
 .left_map{height:96rpx;line-height:96rpx;color:#4f4f4f;font-size:26rpx;float:left;font-family:PingFang;}
 .map_right{float:right;width:18rpx;height:40rpx;margin-top:33rpx;margin-right:50rpx;}
