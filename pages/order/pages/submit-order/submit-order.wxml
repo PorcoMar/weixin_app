@@ -27,9 +27,9 @@
                 </view>
             </view>
             <view class="right">
-                <text class="reduce">-</text>
-                <text class="num">1</text>
-                <text class="add">+</text>
+                <text class="reduce" bindtap='serviceReduce'>-</text>
+                <text class="num">{{serviceCount}}</text>
+                <text class="add" bindtap="serviceAdd">+</text>
             </view>
         </view>
         <view class="message">
@@ -58,15 +58,21 @@
     <!--支付方式-->
     <view class="payment">
         <view class="title">支付方式</view>
-        <view class="weixin">
+        <view class="weixin" bindtap="weixinPayment">
             <image src="../../../../images/order/weixin@2x.png"></image>
             <text>微信支付</text>
+            <image src="{{weixinImg}}" class="checked" wx:if="{{weixin}}"></image>
+        </view>
+        <view class="weixin balance" bindtap="balancePayment">
+            <image src="../../../../images/order/yuezhifu@2x.png"></image>
+            <text>余额支付</text>
+            <image src="{{weixinImg}}" class="checked" wx:if="{{balance}}"></image>
         </view>
     </view>
     <!--支付按钮-->
     <view class="submitPay">
         <text class="price">价格：</text>
         <text class="num">¥ 15000</text>
-        <text class="btn">确认支付</text>
+        <text class="btn" bindtap="confirmPayment">确认支付</text>
     </view>
 </view>

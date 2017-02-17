@@ -34,7 +34,11 @@ Page({
             'orderObject.price':object.price,//实付款
             'orderObject.memPrice':object.memberCardPrice,//商户会员抵扣
             'orderObject.name':object.name,//下单人
-            'orderObject.phone':object.phone//联系电话
+            'orderObject.phone':object.phone,//联系电话
+            'orderObject.orderNo':object.orderNo,//订单编号
+            'orderObject.payType':object.payType,//支付方式
+            'orderObject.createTime':object.createTime,//下单时间
+            'orderObject.oveerSecond':object.overSecond//剩余支付时间
           })
           if(res.data.result.type == 'YUESAO'){
             that.setData({

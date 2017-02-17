@@ -223,11 +223,17 @@
     position: relative;
     font-family: "中等";
 }
+.payment .balance {
+    border-top: 1rpx solid #f5f5f5;
+}
 .weixin image {
     width: 36rpx;
     height: 36rpx;
     margin-right: 20rpx;
     margin-top: 32rpx;
+}
+.weixin .checked {
+    float: right;
 }
 .weixin text{
     position: absolute;

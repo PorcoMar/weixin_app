@@ -50,7 +50,7 @@
             <view class="price">¥{{orderObject.oriPrice}}</view>
         </view>
       </view>
-      </block
+      </block>
     </view>
     <!--价格明细-->
     <view class="priceDetail">
@@ -65,25 +65,25 @@
         </view>
         <view class="realPay">
             <text>实付款</text>
-            <text class="real">¥{{priceDetail.realPay}}</text>
+            <text class="real">¥{{orderObject.price}}</text>
         </view>
     </view>
     <!--联系信息-->
     <view class="infoDetail">
-        <view>下 单 人：{{infoDetail.single}}</view>
-        <view class="foot">联系电话：{{infoDetail.phone}}</view>
+        <view>下 单 人：{{orderObject.name}}</view>
+        <view class="foot">联系电话：{{orderObject.phone}}</view>
         <!--<view class="foot">备    注：{{infoDetail.note}}</view>-->
     </view>
     <!--订单详情-->
     <view class="infoDetail" wx:if="{{orderStatus === 'PAY'}}">
-        <view>订单编号：123456789</view>
-        <view>支付方式：微信零钱</view>
-        <view>下单时间：2016-10-10 21:22:22</view>
+        <view>订单编号：{{orderObject.orderNo}}</view>
+        <view>支付方式：{{orderObject.payType}}</view>
+        <view>下单时间：{{orderObject.createTime}}</view>
     </view>
     <!--订单编号-->
     <view class="orderDetail" style="margin-top:90rpx;" wx:if="{{orderStatus === 'CREATE'}}">
         <button plain="" class="cancel">取消订单</button>
-        <button class="immediate">立即支付(还剩23小时56分)</button>
+        <button class="immediate">立即支付(还剩{{orderObject.overSecond}})</button>
     </view>
     <view class="orderDetail" style="padding-top:90rpx;background:#f5f5f5;" wx:if="{{orderStatus === 'PAY'}}">
         <view style="width:100%;height:120rpx;background:white;">
