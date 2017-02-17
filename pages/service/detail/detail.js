@@ -13,6 +13,8 @@ Page( {
         pay:null,
         confirm:true,
         //数据
+        serviceId:0,
+        shopId:0,
         mount:656,
         title_header:"CocodemerCocodemer产后护理套餐",
         descript:"仅售418元，价值680元单人颈肩腰部护理一次，节假日通用，免费wifi，男女通用。",
@@ -38,15 +40,17 @@ Page( {
     wx.PullDownRefresh()
   },
     onLoad: function( options ) {
+        var that = this
+        var id = options.id
+        var shopId=options.shopId
+        //console.log(id,shopId)
         this.setData({
+            serviceId:id,
+            shopId:shopId,
            longitude:app.globalData.shop.lng,
            latitude:app.globalData.shop.lat
         })
         // 页面初始化 options 为页面跳转所带来的参数
-        var that = this
-        var id = options.id
-        var shopId=options.shopId
-        console.log(id,shopId)
         wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/detail',
             method: 'GET',

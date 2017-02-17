@@ -77,7 +77,9 @@
     <text class="txt1">¥</text>
     <text class="txt2">{{price}}</text>
   </view>
-  <view class="pay_complay" bindtap="pay">立即购买</view>
+    <navigator  url="../../order/pages/submit-order/submit-order?shopId={{shopId}}&serviceId={{id}}">
+    <view class="pay_complay" bindtap="pay">立即购买</view>
+    </navigator>
 </view>
 
 <!--弹框-->
