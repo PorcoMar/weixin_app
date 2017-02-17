@@ -5,21 +5,19 @@ var HOST = app.globalData.HOST;
 var HEADER = app.globalData.HEADER;
 Page({
   data: {
-    shopName:"Cocodemer港汇店",
-    shopImage:"../../images/homePage/shop_image.jpg",
-    shop:null,
-    location:null
+    shop:null
   },
   onLoad: function () {
     console.log("-----index onLoad----");
     //判断全局变量中location值是否为空
+    var that = this;
     if(!app.globalData.location){
       console.log("------获取位置信息------")
       //获取地理位置信息
        wx.getLocation({
          type:"wgs84",
          success:function(res){
-           app.globalData.location = {
+           var location = {
              lat:res.latitude,
              lng:res.longitude
            };
@@ -27,23 +25,27 @@ Page({
            //获取门店信息
            wx.request({
              url: HOST + "/shop/detail",
-             data: app.globalData.location,
+             data: location,
              method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
              header:HEADER,
              success: function(res){
                 if(res.data.code == "0"){
                      app.globalData.shop = res.data.result;
+                     app.globalData.location = res.data.location;
+                     that.setData({shop:app.globalData.shop});
+                     console.log("---this.data---")
+                     console.log(that.data);
                 };
              }  
            })
          }
        })
+    }else{
+      this.setData({shop:app.globalData.shop});
     }
   },
   onShow:function(){
     console.log("---index onShow----");
-    console.log(getApp().globalData);
-    console.log(getApp().globalData.shopId);
   },
   onReady:function(){
     console.log("---index onReady---")

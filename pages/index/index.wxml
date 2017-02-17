@@ -1,9 +1,9 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{shop}}">
     <!--头部开始-->
     <view class="header">
-        <image class="logo" src="../../images/homePage/park@2x.png"></image>
-        <text class="shopName">{{shopName}}</text>
+        <image class="logo" src="{{shop.logo}}"></image>
+        <text class="shopName">{{shop.name}}</text>
 
         <view class="changeShop" bindtap="changeShop">
             <text class="changeShop-text">切换门店</text>
@@ -14,7 +14,7 @@
 
     <!--门店图片展示开始-->
     <view class="shop-photo">
-        <image src="{{shopImage}}"></image>
+        <image src="{{shop.imgs[0]}}"></image>
     </view>
     <!--门店图片展示结束-->
 
@@ -22,11 +22,11 @@
     <view class="shop-info">
         <view class="section">
             <image class="left-icon" src="../../images/homePage/time@2x.png" ></image>
-            <text class="shop-info-text">营业时间周一至周五，10:00-21:00</text>
+            <text class="shop-info-text">营业时间周一至周五，{{shop.businessHours}}</text>
         </view>
         <view class="section">
             <image class="left-icon" src="../../images/homePage/address@2x.png" ></image>
-            <text class="shop-info-text">[徐汇区]虹桥路1港汇中心一座</text>
+            <text class="shop-info-text">{{shop.address}}</text>
             <view class="right-arrow">
                 <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
             </view>
@@ -34,22 +34,22 @@
         </view>
         <view class="section">
             <image class="left-icon" src="../../images/homePage/mendian_tel_nor@2x.png" ></image>
-            <text class="shop-info-text">0574-55845004</text>
+            <text class="shop-info-text">{{shop.tel}}</text>
             <view class="right-arrow">
                 <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
             </view>
         </view>
         <view class="section">
-            <image class="left-icon" src="../../images/homePage/wifi@2x.png"></image>
-            <text class="extra-service">免费WIFI</text>
+            <image class="left-icon" src="../../images/homePage/wifi@2x.png" wx:if="{{shop.hasWifi}}"></image>
+            <text class="extra-service" >免费WIFI</text>
 
-            <image class="left-icon right2" src="../../images/homePage/park@2x.png"></image>
-            <text class="extra-service">免费停车</text>
+            <image class="left-icon right2" src="../../images/homePage/park@2x.png" ></image>
+            <text class="extra-service" >免费停车</text>
 
-            <image class="left-icon right2" src="../../images/homePage/wifi@2x.png"></image>
+            <image class="left-icon right2" src="../../images/homePage/paycard@2x.png"></image>
             <text class="extra-service">可刷卡</text>
 
-            <image class="left-icon right2" src="../../images/homePage/wifi@2x.png"></image>
+            <image class="left-icon right2" src="../../images/homePage/tea@2x.png"></image>
             <text class="extra-service">免费喝茶</text>
         </view>
     </view>
@@ -61,7 +61,25 @@
             <text>热门服务</text>
         </view>
         <view class="service-list">
-            <view class="service-item">
+            <view class="service-item" wx:for="{{shop.services}}">
+                <view class="service-image">
+                    <image src="{{item.icon}}"></image>
+                </view>
+                <view class="service-name">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="service-type">
+                    <text class="shop">到店服务</text>
+                    <text class="door">到家服务</text>
+                    <text class="saled">已售：213</text>
+                </view>
+                <view class="service-price">
+                    <text class="discountPrice">{{item.price}}</text>
+                    <text class="originalPrice">{{item.oriPrice}}</text>
+                </view>
+            </view>
+
+            <!--<view class="service-item">
                 <view class="service-image">
                     <image src="../../images/homePage/serviceImage.png"></image>
                 </view>
@@ -113,25 +131,7 @@
                     <text class="discountPrice">¥ 666</text>
                     <text class="originalPrice">¥ 1333</text>
                 </view>
-            </view>
-
-            <view class="service-item">
-                <view class="service-image">
-                    <image src="../../images/homePage/serviceImage.png"></image>
-                </view>
-                <view class="service-name">
-                    <text>Cocodemeter产后修复套餐</text>
-                </view>
-                <view class="service-type">
-                    <text class="shop">到店服务</text>
-                    <text class="door">到家服务</text>
-                    <text class="saled">已售：213</text>
-                </view>
-                <view class="service-price">
-                    <text class="discountPrice">¥ 666</text>
-                    <text class="originalPrice">¥ 1333</text>
-                </view>
-            </view>
+            </view>-->
         </view>
     </view>
     <!--热门服务列表结束-->
