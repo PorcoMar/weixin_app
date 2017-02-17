@@ -3,10 +3,10 @@
 /*.swiper-tab{ height: 86rpx; line-height: 86rpx; background: #FFF; display: flex; position: relative; z-index: 2; flex-direction:row; justify-content:center; align-items:center;font-weight:bold;    
 border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
 .swiper-tab-list{ padding: 0 12px;margin-right:55rpx; font-size: 28rpx; font-family:PingFang;font-weight:bold;}*/
-.swiper-tab{white-space:nowrap; height: 106rpx; line-height: 106rpx; background: #FFF; position: relative; z-index: 2;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
+.swiper-tab{white-space:nowrap; height: 86rpx; line-height: 86rpx; background: #FFF; position: fixed; z-index: 22;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;left:0;top:0;}
 .swiper-tab-list{display:inline-block;width:16%;height:86rpx; font-size: 28rpx; font-family:PingFang;font-weight:bold;margin: 0 12px;text-align:center;}
 .lat{margin-right:0}
-.on{ border-bottom: 4rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;height:88rpx;line-height:86rpx;}
+.on{ border-bottom: 4rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;height:78rpx;line-height:86rpx;}
 
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden;}
 
