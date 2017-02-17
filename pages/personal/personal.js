@@ -61,6 +61,9 @@ Page({
                 // complete
               }
             })
+          },
+          fail:function(){
+            console.log("------login fail-------");
           }
         })
       }

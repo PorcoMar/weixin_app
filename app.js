@@ -30,7 +30,7 @@ App({
         // fail
         console.log("-----get HEADER failed------")
       }
-    })
+    });
     //获取地理位置
     wx.getLocation({
       type:"wgs84",
@@ -38,7 +38,10 @@ App({
         var location = {
           latitude:res.latitude,
           longitude:res.longitude
-        }
+        };
+        getApp().globalData.location = location;
+
+
         wx.request({
           url: getApp().globalData.HOST + "/shop/detail",
           data: {
@@ -50,15 +53,11 @@ App({
           success: function(res){
             // success
             console.log("-------get shop successed-------")
-            console.log(res);
-          },
-          fail: function() {
-            // fail
-            console.log("-----get shop failed-----")
+
+            getApp().globalData.shop = res.data.result;
           }
-        })
-        // getApp().globalData.location = location;
-        // console.log("-----getLocation successed------")
+        });
+
       },
       fail:function(){
         console.log("-----getLocation failed----")
@@ -67,8 +66,8 @@ App({
   },
   globalData:{
     userInfo:null,
-
     location:{},
+    shop:{},
     HOST:"https://test.yizhenjia.com/xcxapi",
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"

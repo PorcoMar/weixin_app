@@ -1,6 +1,5 @@
 {
   "pages":[
-    
     "pages/index/index",
     "pages/index/selectShop/selectShop",
 
@@ -35,23 +34,23 @@
     "list": [{
       "pagePath": "pages/index/index",
       "text": "首页",
-      "iconPath":"images/tabBar/shouye2@2x.png",
-      "selectedIconPath":"images/tabBar/shouye@2x.png"
+      "iconPath":"images/tabBar/shouye2@3x.png",
+      "selectedIconPath":"images/tabBar/shouye1@3x.png"
     }, {
       "pagePath": "pages/service/service",
       "text": "服务",
-      "iconPath":"images/tabBar/fuwu2@2x.png",
-      "selectedIconPath":"images/tabBar/fuwu1@2x.png"
+      "iconPath":"images/tabBar/fuwu2@3x.png",
+      "selectedIconPath":"images/tabBar/fuwu1@3x.png"
     },{
       "pagePath": "pages/order/order",
       "text": "订单",
-      "iconPath":"images/tabBar/dingdan2@2x.png",
-      "selectedIconPath":"images/tabBar/dingdan1@2x.png"
+      "iconPath":"images/tabBar/dingdan2@3x.png",
+      "selectedIconPath":"images/tabBar/dingdan1@3x.png"
     },{
       "pagePath": "pages/personal/personal",
       "text": "我的",
-      "iconPath":"images/tabBar/wode2@2x.png",
-      "selectedIconPath":"images/tabBar/wode1@2x.png"
+      "iconPath":"images/tabBar/wode2@3x.png",
+      "selectedIconPath":"images/tabBar/wode1@3x.png"
     }]
   }
 }

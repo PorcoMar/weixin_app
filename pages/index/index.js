@@ -9,6 +9,7 @@ Page({
   },
   onLoad: function () {
     console.log("---index onload---");
+    console.log(getApp().globalData);
     var location = app.globalData.location;
     console.log(location);
     wx.request({
