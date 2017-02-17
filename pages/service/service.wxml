@@ -6,7 +6,7 @@
 </loading>
 <view style="width:100%;height:100%;">
     <scroll-view class="swiper-tab" scroll-x="true" style="width:100%;">
-        <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">{{tab[0].name}}</view>
+        <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav0">{{tab[0].name}}</view>
         <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav1">{{tab[1].name}}</view>
         <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav2">{{tab[2].name}}</view>
         <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav3">{{tab[3].name}}</view>
@@ -20,7 +20,7 @@
 
 
 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;margin-top:1.9rem;" bindchange="bindChange">
 
 
  <!--======================= -->
@@ -52,7 +52,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
         </scroll-view>
     </swiper-item>
@@ -90,7 +95,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -130,7 +140,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -172,7 +187,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -211,7 +231,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -250,7 +275,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -289,7 +319,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -328,7 +363,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>
@@ -367,7 +407,12 @@
 
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
-                <text> 没有更多了 </text>
+                <view wx:if="{{hothidden}}">
+                    <image src="../../images/service/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
             </view>
 </view>
 <view wx:else></view>

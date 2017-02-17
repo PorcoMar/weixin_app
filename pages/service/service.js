@@ -1,6 +1,5 @@
-// pages/service/service.js
-//const util = require( 'utils/util.js' );
-
+var app = getApp()
+var shopIdn = app.globalData.shop
 Page( {
     data: {
 
@@ -15,11 +14,6 @@ Page( {
         topStories : [],
         datalist: [],
         dataThemes : [],
-
-        dataListDateCurrent: 0,      // 当前日期current
-        dataListDateCount: 0,      // 请求次数
-
-        // 显示加载更多 loading
         hothidden: false,
         hothidden1: false,
         hothidden2: false,
@@ -33,14 +27,14 @@ Page( {
         // loading
         hidden: true,
         loadingHidden:false,
-        page:1,
-        pageNo:2,
         indicatorDots: false,    // 是否显示面板指示点
         autoplay: false,    // 是否自动切换
         interval: 5000,     // 自动切换时间间隔
         duration: 1500,     // 滑动动画时长
-        shopId:20,
+        shopId:0,
         cat:1,
+        pageSize:5,
+        pageNo:1,
 
     },
     onShareAppMessage: function () {
@@ -58,10 +52,8 @@ Page( {
      * options 为页面跳转所带来的参数
      */
     onLoad: function( options ) {
-       // wx:showNavigationBarLoading()
         var that = this;
         wx.getSystemInfo( {
-
             success: function( res ) {
                 that.setData( {
                     winWidth: res.windowWidth,
@@ -70,13 +62,9 @@ Page( {
             }
 
         });
-
-
-        /**
-         * 显示 loading
-         */
         that.setData( {
-            hidden: false
+            hidden: false,
+            shopId:app.globalData.shop.id
         });
 
 
@@ -98,11 +86,12 @@ Page( {
         })
         //  请求新11111数据
         var pageNo = that.data.pageNo
-        var cat=that.data.cat
+        var pageSize = that.data.pageSize
+        var shopId = that.data.shopId
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:cat,shopId:20},
+            data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
             header: {
                 'Accept': 'application/json'
             },
@@ -118,35 +107,6 @@ Page( {
                 }, 1500)
             }
         })
-
-
-
-
-        // var page = that.data.page
-        // //  请求新111111数据
-        //  wx.request({
-        //     url: 'http://www.tngou.net/api/top/list',
-        //     method: 'GET',
-        //     data: {page:page,rows:8,id:1},
-        //     header: {
-        //         'Accept': 'application/json'
-        //     },
-        //     success: function(res) {
-        //         console.log(res.data.tngou)
-        //         that.setData({
-        //             choiceItems: res.data.tngou
-        //         })
-        //         setTimeout(function () {
-        //             that.setData({
-        //                 loadingHidden: true
-        //             })
-        //         }, 1500)
-        //     }
-        // })
-
-
-
-
 
     },
     onReady: function() {
@@ -174,15 +134,68 @@ Page( {
         // 页面关闭
     },
 
+    /***********************************************************
+     * 事件处理
+     * scrolltolower 自动加载更多
+     */
+    scrolltolower: function( e ) {
+        var that = this;
+        that.setData( {
+            hothidden: true  
+        })
+// **************************************************
+        var pageNo = that.data.pageNo+1
+        var cat=that.data.cat
+        var pageSize = that.data.pageSize
+        var shopId = that.data.shopId
+         wx.request({
+            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            method: 'GET',
+            data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
+            header: {
+                'Accept': 'application/json'
+            },
+            success: function(res) {
+                var arr1 = res.data.result;
+                var list1 = that.data.choiceItems0
+               // console.log(res.data.result.length) //最后一次加载字段的长度
+                var lastDataLength = res.data.result.length
+                that.setData({
+                    pageSize:lastDataLength 
+                })
 
+                if( that.data.pageSize <5) {
+                    that.setData( {
+                        hothidden: false //显示加载更多
+                    });
+                }else{
+                    that.setData({
+                        choiceItems0: list1.concat(arr1), 
+                        pageNo:that.data.pageNo+1
+                    })
+                } 
+                setTimeout(function () {
+                    that.setData({
+                        loadingHidden: true
+                    })
+                //console.log(that.data.choiceItems0)
+                }, 3500)
+            }
+        })
+
+
+       
+    },
    
     /**
      * 滑动切换tab
      */
     bindChange: function( e ) {
-
         var that = this;
+        var shopId = that.data.shopId
         that.setData( { 
+            pageNo:1,
+            pageSize:5,
             currentTab: e.detail.current,
             hothidden:true,
             hothidden1:true,
@@ -194,13 +207,31 @@ Page( {
             hothidden7:true,
             hothidden8:true,
          });
-
+        var catId = e.detail.current+1 //0/1/2...8
+         wx.request({
+            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            method: 'GET',
+            data: {cat:catId,shopId:shopId,pageNo:1,pageSize:5},
+            header: {
+                'Accept': 'application/json'
+            },
+            success: function(res) {
+                console.log(res)
+                that.setData({
+                    pageNo:1,
+                    pageSize:5,
+                    choiceItems0: res.data.result,
+                    cat:1       
+                })
+            }
+        })
     },
     /**
      * 点击tab切换
      */
-    swichNav: function( e ) {
+    swichNav0: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -211,14 +242,17 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:1,shopId:20},
+            data: {cat:1,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
-                    choiceItems0: res.data.result       
+                    pageNo:1,
+                    pageSize:5,
+                    choiceItems0: res.data.result,
+                    cat:1       
                 })
             }
         })
@@ -226,6 +260,7 @@ Page( {
     },
     swichNav1: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -236,13 +271,16 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:2,shopId:20},
+            data: {cat:2,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5,
+                    cat:2,
                     choiceItems0: res.data.result       
                 })
             }
@@ -251,6 +289,7 @@ Page( {
     },
     swichNav2: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -261,13 +300,16 @@ Page( {
           wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:3,shopId:20},
+            data: {cat:3,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5, 
+                    cat:3,
                     choiceItems0: res.data.result       
                 })
             }
@@ -276,6 +318,7 @@ Page( {
     },
     swichNav3: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -286,14 +329,18 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:4,shopId:20},
+            data: {cat:4,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
-                    choiceItems0: res.data.result       
+                     cat:4,
+                     pageNo:1,
+                    pageSize:5,
+                    choiceItems0: res.data.result 
+                          
                 })
             }
         })
@@ -301,6 +348,7 @@ Page( {
     },
     swichNav4: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -311,13 +359,16 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:5,shopId:20},
+            data: {cat:5,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5,                     
+                    cat:5,
                     choiceItems0: res.data.result       
                 })
             }
@@ -326,6 +377,7 @@ Page( {
     },
     swichNav5: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -336,13 +388,16 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:6,shopId:20},
+            data: {cat:6,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5,                     
+                    cat:6,
                     choiceItems0: res.data.result       
                 })
             }
@@ -351,6 +406,7 @@ Page( {
     },
     swichNav6: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -361,13 +417,16 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:7,shopId:20},
+            data: {cat:7,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5,                     
+                    cat:7,
                     choiceItems0: res.data.result       
                 })
             }
@@ -376,6 +435,7 @@ Page( {
     },
     swichNav7: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -386,13 +446,16 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:8,shopId:20},
+            data: {cat:8,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5,                     
+                    cat:8,
                     choiceItems0: res.data.result       
                 })
             }
@@ -401,6 +464,7 @@ Page( {
     },
     swichNav8: function( e ) {
         var that = this;
+        var shopId = that.data.shopId
         if( this.data.currentTab === e.target.dataset.current ) {
             return false;
         } else {
@@ -411,13 +475,16 @@ Page( {
          wx.request({
             url: 'http://xcx.api-test.yizhenjia.com/service/list',
             method: 'GET',
-            data: {cat:9,shopId:20},
+            data: {cat:9,shopId:shopId,pageNo:1,pageSize:5},
             header: {
                 'Accept': 'application/json'
             },
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    pageNo:1,
+                    pageSize:5,                     
+                    cat:9,
                     choiceItems0: res.data.result       
                 })
             }
