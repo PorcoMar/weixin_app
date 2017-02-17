@@ -1,37 +1,65 @@
 // pages/order/pages/wait-pay/wait-pay.js
-var app =getApp();
+var app = getApp();
+var url = app.globalData.HOST;
+
 Page({
   data:{
-    serviceDetail:{
-      shopName:"Cocodemer杭州大厦店",
-      picture:"",
-      serviceName:"孕后修身补水护肤服务",
-      num:2,
-      price:5152,
-      discount:3888
-    },
-    priceDetail:{
-      orderTotal:10304.00,
-      amount:2528.00,
-      realPay:7756.00
-    },
-    infoDetail:{
-      single:"某某某",
-      phone:18025632563,
-      note:"卡萨丁放假啊"
-    },
-    orderDetail:{
-      orderNo:123456789,
-      payment:"微信零钱",
-      orderTime:"2016-10-10 21:22:22"
-    }
+    orderObject:{}
   },
   onLoad:function(options){
+    var that = this;
     // 页面初始化 options为页面跳转所带来的参数
     var id = app.requestDetailid;
     console.log(id);
-    this.setData({
+    that.setData({
       orderStatus:id
+    });
+    var orderNo = options.orderNo;
+    console.log(orderNo);
+    wx.request({
+      url: url+'/order/info',
+      data: {
+        orderNo: orderNo
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: app.globalData.HEADER, // 设置请求的 header
+      success: function(res){
+        // success
+       if(res.data.code == "0"){
+          console.log("获取订单详情成功！")
+          var object = res.data.result;
+          console.log('DDXQ',object);
+          that.setData({
+            'orderObject.oriPrice':object.oriPrice,//订单总额
+            'orderObject.price':object.price,//实付款
+            'orderObject.memPrice':object.memberCardPrice,//商户会员抵扣
+            'orderObject.name':object.name,//下单人
+            'orderObject.phone':object.phone//联系电话
+          })
+          if(res.data.result.type == 'YUESAO'){
+            that.setData({
+              'orderObject.shopname':object.serviceName,
+              'orderObject.logo':object.serviceLogo,
+              'orderObject.serviceArr':[],
+              'orderObject.serviceArr[0].serviceName':object.sku,
+              'orderObject.serviceArr[0].totalCount':1
+            })
+          }else {
+              that.setData({
+              'orderObject.shopname':object.shopName,
+              'orderObject.logo':object.shopLogo,
+              'orderObject.serviceArr':object.orderItem
+            })
+          }
+          console.log('订单详情：',that.data.orderObject);
+        }
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
     })
   },
   onReady:function(){

@@ -1,11 +1,11 @@
 <!--<view>这是订单页面</view>-->
 <view class="section">
   <!--循环创立订单列表-->
-  <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}">
+  <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}" wx:for-index ="key">
   <!--普通订单-->
   <block wx:if="{{item.type =='SERVICE'}}">
     <!--订单和门店详情-->
-    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}">
+    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}" data-id="{{key}}">
         <!--门店logo-->
         <view class="logo">         
           <image src="{{item.shopLogo}}" class="image"></image>
@@ -83,7 +83,7 @@
         </view>
     </view>
   <!--订单操作-->
-    <view class="flex-item operate" wx:if="{{item.status == 'CREATED'}}">
+    <view class="flex-item operate" wx:if="{{item.status == 'CREATE'}}">
           <view class="orderOperate red" >立即支付</view>
           <view class="orderOperate">联系客服</view> 
     </view>
@@ -97,9 +97,9 @@
   </block>
 
   <!--月嫂订单-->
-  <block wx:if="{{item.type == 'YUESAO'}}">
+  <block wx:elif="{{item.type == 'YUESAO'}}">
     <!--订单和门店详情-->
-    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}">
+    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}" data-id="{{key}}">
         <!--门店logo-->
         <view class="logo"> 
           <image src="{{item.serviceLogo}}" class="image"></image>          
@@ -163,7 +163,7 @@
         </view>
     </view>
   <!--订单操作-->
-    <view class="flex-item operate" wx:if="{{item.status == 'CREATED'}}">
+    <view class="flex-item operate" wx:if="{{item.status == 'CREATE'}}">
           <view class="orderOperate red" >立即支付</view>
           <view class="orderOperate">联系客服</view> 
     </view>

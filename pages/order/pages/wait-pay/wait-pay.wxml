@@ -2,7 +2,7 @@
 <view class="section">
 <!--订单状态-->
     <!--待付款-->
-    <view class="orderStatus" wx:if="{{orderStatus === '待付款'}}">
+    <view class="orderStatus" wx:if="{{orderStatus === 'CREATE'}}">
         <image src="../../../../images/order/pay@2x.png" class="image"></image>
         <!--<image src="../../../../images/order/gou@2x.png" class="image"></image>-->
         <view class="statusInfo">
@@ -11,7 +11,7 @@
         </view>
     </view>
     <!--待付尾款-->
-    <view class="orderStatus" wx:if="{{orderStatus === '待付尾款'}}">
+    <view class="orderStatus" wx:elif="{{orderStatus === 'WAIT_TAIL'}}">
         <image src="../../../../images/order/pay@2x.png" class="image"></image>
         <!--<image src="../../../../images/order/gou@2x.png" class="image"></image>-->
         <view class="statusInfo">
@@ -20,7 +20,7 @@
         </view>
     </view>
     <!--已付款-->
-    <view class="orderStatus" wx:if="{{orderStatus === '已付款'}}">
+    <view class="orderStatus" wx:elif="{{orderStatus === 'PAY'}}">
         <image src="../../../../images/order/gou@2x.png" class="image"></image>
         <view class="statusInfo">
             <view class="waitPay">支付成功</view>
@@ -28,7 +28,7 @@
         </view>
     </view>
     <!--已过期-->
-    <view class="orderStatus" wx:if="{{orderStatus === '已过期'}}">
+    <view class="orderStatus" wx:elif="{{orderStatus === 'EXPIRED'}}">
         <image src="../../../../images/order/pay@2x-2.png" class="image"></image>
         <view class="statusInfo">
             <view class="waitPay">已过期</view>
@@ -37,29 +37,31 @@
     </view>
     <!--服务信息-->
     <view class="serviceDetail" bindtap="toSubmit">
-      <view class="shopName">{{serviceDetail.shopName}}</view>
+      <view class="shopName">{{orderObject.shopName}}</view>
+      <block wx:for="{{orderObject.serviceArr}}">
       <view class="service">
-        <image src="../../../../images/order/none-order@2x.png" class="shopImg"></image>
+        <image src="{{orderObject.logo}}" class="shopImg"></image>
         <view class="serviceInfo">
-            <view>{{serviceDetail.serviceName}}</view>
-            <view class="serviceNum">数量：X{{serviceDetail.num}}</view>
+            <view>{{item.serviceName}}</view>
+            <view class="serviceNum">数量：X{{item.totalCount}}</view>
         </view>
         <view class="priceInfo">
-            <view class="discount">¥{{serviceDetail.discount}}</view>
-            <view class="price">¥{{serviceDetail.price}}</view>
+            <view class="discount">¥{{orderObject.price}}</view>
+            <view class="price">¥{{orderObject.oriPrice}}</view>
         </view>
       </view>
+      </block
     </view>
     <!--价格明细-->
     <view class="priceDetail">
         <view>
             <text class="orderTotal">订单总额</text>
-            <text class="font">¥{{priceDetail.orderTotal}}</text>
+            <text class="font">¥{{orderObject.oriPrice}}</text>
         </view>
         <view class="memberDiscount">
             <image src="../../../../images/order/vip@2x.png" class="vip"></image>
             <text>商户会员折扣</text>
-            <text class="font">-¥{{priceDetail.amount}}</text>
+            <text class="font">- ¥ {{orderObject.memPrice}}</text>
         </view>
         <view class="realPay">
             <text>实付款</text>
@@ -69,21 +71,21 @@
     <!--联系信息-->
     <view class="infoDetail">
         <view>下 单 人：{{infoDetail.single}}</view>
-        <view>联系电话：{{infoDetail.phone}}</view>
-        <view class="foot">备    注：{{infoDetail.note}}</view>
+        <view class="foot">联系电话：{{infoDetail.phone}}</view>
+        <!--<view class="foot">备    注：{{infoDetail.note}}</view>-->
     </view>
     <!--订单详情-->
-    <view class="infoDetail" wx:if="{{orderStatus === '已付款'}}">
+    <view class="infoDetail" wx:if="{{orderStatus === 'PAY'}}">
         <view>订单编号：123456789</view>
         <view>支付方式：微信零钱</view>
         <view>下单时间：2016-10-10 21:22:22</view>
     </view>
     <!--订单编号-->
-    <view class="orderDetail" style="margin-top:90rpx;" wx:if="{{orderStatus === '待付款'}}">
+    <view class="orderDetail" style="margin-top:90rpx;" wx:if="{{orderStatus === 'CREATE'}}">
         <button plain="" class="cancel">取消订单</button>
         <button class="immediate">立即支付(还剩23小时56分)</button>
     </view>
-    <view class="orderDetail" style="padding-top:90rpx;background:#f5f5f5;" wx:if="{{orderStatus === '已付款'}}">
+    <view class="orderDetail" style="padding-top:90rpx;background:#f5f5f5;" wx:if="{{orderStatus === 'PAY'}}">
         <view style="width:100%;height:120rpx;background:white;">
          <button plain="" class="cancel" style="float:right;margin-right:20rpx;">联系客服</button>
         </view>

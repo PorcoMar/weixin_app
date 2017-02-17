@@ -1,18 +1,21 @@
 var app = getApp();
 var url = app.globalData.HOST;
-var HEADER = app.globalData.HEADER;
+
 Page({
   data:{},
   // 订单跳转到订单详情
   orderDetail:function(e){
     // 获取当前下标的id
     var id = e.currentTarget.id;
-    // 获取全局对象
-    var app = getApp();
+    console.log("订单状态",id);
+    var orderId = e.currentTarget.dataset.id;
+    console.log(orderId);
+    var orderNo = this.data.orderArray[orderId].orderNo
+    console.log(orderNo);
     // 设置全局请求访问传递的参数
     app.requestDetailid = id;
     wx.navigateTo({
-      url: './pages/wait-pay/wait-pay'
+      url: './pages/wait-pay/wait-pay?orderNo='+orderNo
     })
   },
   onLoad: function () {
