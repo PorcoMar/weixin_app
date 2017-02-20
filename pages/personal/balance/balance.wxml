@@ -16,19 +16,21 @@
             <view class="content-title-border"></view>
         </view>
         <view class="consume-list">
-            <view class="consume-item">
+
+            <view class="consume-item" wx:for="{{memberJournalList}}">
                 <view class="consume-item-left">
                     <view class="consume-item-name">
-                        <text>门店消费</text>
+                        <text>{{item.title}}</text>
                     </view>
                     <view class="consume-item-time">
-                        <text>2016-11-11 18:15:30</text>
+                        <text>{{item.createTime}}</text>
                     </view>
                 </view>
-                <text class="consume-item-money">-500</text>
+                <text class="consume-item-money" wx:if="{{item.type == 'OUT'}}">-{{item.amount}}</text>
+                <text class="consume-item-recharge" wx:if="{{item.type == 'IN'}}">+{{item.amount}}</text>
             </view>
 
-            <view class="consume-item">
+            <!--<view class="consume-item">
                 <view class="consume-item-left">
                     <view class="consume-item-name">
                         <text>充值</text>
@@ -86,7 +88,8 @@
                     </view>
                 </view>
                 <text class="consume-item-recharge">+5000</text>
-            </view>
+            </view>-->
+
         </view>
     </view>
     <!--主要内容结束-->

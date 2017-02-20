@@ -8,7 +8,15 @@ Page({
     shop:null
   },
   onLoad: function () {
+
     console.log("-----index onLoad----");
+    var str = "123456";
+    // var num = parseFloat(str);
+    // var num1 = num/1000;
+    //var num2 = num1.toFixed(1);
+  
+    var num2 = str.substring(0,2);
+    console.log(num2);
     //判断全局变量中location值是否为空
     var that = this;
     if(!app.globalData.location){

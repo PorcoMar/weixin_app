@@ -58,8 +58,45 @@ Page({
   //登录
   login: function () {
     var that = this;
+    
     wx.login({
-      success: function () {
+      success: function (res) {
+        console.log("---登录成功----");
+        console.log(res);
+        // wx.requestPayment({
+        //   'timeStamp': '1487580042',
+        //   'nonceStr': "i4HYSUtgPV36dEl0",
+        //   'package': 'prepay_id=wx20170220164043e7eae0687e0340954594',
+        //   'signType': 'MD5',
+        //   'paySign': '5D9882747CCB10513340EC00872AA886',
+        //   'success':function(res){
+        //     console.log(res);
+        //   },
+        //   'fail':function(res){
+        //     console.log("---111--");
+        //   }
+        // });
+
+        // var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=28f21efa68c21702db644011e547376f&js_code=" + res.code + "&grant_type=authorization_code"
+
+        // wx.request({
+        //   url: url,
+        //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        //   //header: {}, // 设置请求的 header
+        //   success: function(res){
+        //     // success
+        //     console.log("----success-----");
+        //     console.log(res);
+        //   },
+        //   fail: function() {
+        //     // fail
+        //     console.log("-----fail-----");
+        //   },
+        //   complete: function() {
+        //     // complete
+        //   }
+        // });
+
         wx.getUserInfo({
           success: function (res) {
             console.log(res);

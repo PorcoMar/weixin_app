@@ -37,5 +37,15 @@ App({
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"
     }
+  },
+  formateTime:function(timestamp){
+    var time = new Date(timestamp);
+    var year = time.getFullYear();
+    var month = ((time.getMonth() + 1) < 10)?("0" + (time.getMonth() + 1)): (time.getMonth() + 1);
+    var date = (time.getDate() < 10) ? ("0" + time.getDate()) : time.getDate();
+    var hours = (time.getHours() < 10) ? ("0" + time.getHours()) : time.getHours();
+    var minutes = (time.getMinutes() < 10) ? ("0" + time.getMinutes()) : time.getMinutes();
+    var seconds = (time.getSeconds() < 10) ? ("0" + time.getSeconds()) : time.getSeconds();
+    return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
   }
 })
