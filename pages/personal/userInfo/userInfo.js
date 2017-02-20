@@ -9,23 +9,47 @@ Page({
       value:[]
     },
     dateSelection:false,
+    addressSelection:false,
     birthDateTemp:{
       month:"",
       date:"" 
     },
     userInfo:{
     },
-    province:[],
-    city:[],
-    area:[]
+    provinces:[{name:"省",code:""}],
+    citys:[{name:"市",code:""}],
+    areas:[{name:"区",code:""}],
+    address_value:[],
+    address:{
+      province:"",
+      city:"",
+      area:""
+    }
   },
   onLoad:function(options){
+    
+  },
+  onReady:function(){
+    // 页面渲染完成
+  },
+  onShow:function(){
+    // 页面显示
     //设置信息
     this.setData({userInfo:app.globalData.userInfo});
-    console.log(this.data.userInfo);
     // 页面初始化 options为页面跳转所带来的参数
     // 获取省
-    
+    var that = this;
+    wx.request({
+      url: HOST + "/location/getAllProvinces",
+      data: {},
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: getApp().globalData.HEADER, // 设置请求的 header
+      success: function(res){
+        var result = res.data.result;
+        var provinces = that.data.provinces.concat(result);
+        that.setData({provinces:provinces});
+      }
+    });
 
     var months = [];
     var days = [];
@@ -57,14 +81,6 @@ Page({
       date:Day
     };
     this.setData({birthDateTemp:birthDateTemp});
-  },
-  onReady:function(){
-    this.setData({userInfo:app.globalData.userInfo});
-    console.log(app.globalData.userInfo);
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
   },
   onHide:function(){
     // 页面隐藏
@@ -108,6 +124,7 @@ Page({
   },
   cancel:function(){
     this.setData({dateSelection:false});
+    this.setData({addressSelection:false});
   },
   dateConfirm:function(){
     var month = 1 + this.data.birthDateTemp.month;
@@ -143,6 +160,86 @@ Page({
   editRealName:function(){
     wx.navigateTo({
       url: '../realName/realName'
+    })
+  },
+  addressbindchange:function(e){
+    var that = this;
+    var province_value = e.detail.value[0];
+    var province_code = that.data.provinces[province_value]["code"];
+    var province_name = that.data.provinces[province_value]["name"];
+
+    if(that.data.address.province != province_name){
+        var address_value = [province_value,0,0];
+        that.setData({address_value:address_value});
+    }
+    //获取市列表
+    wx.request({
+      url:HOST + "/location/getCitiesByProviceCode",
+      method:"POST",
+      header:getApp().globalData.HEADER,
+      data:{provinceCode:province_code},
+      success:function(res){
+        var result = res.data.result;
+        var citys = [{name:"市",code:""}].concat(result);
+        that.setData({citys:citys});
+      }
+    });
+
+    var city_value = e.detail.value[1];
+    var city_code = that.data.citys[city_value]["code"];
+    var city_name = that.data.citys[city_value]["name"];
+    if(that.data.address.city != city_name){
+        var address_value = that.data.address_value;
+        address_value[1] = city_value;
+        that.setData({address_value:address_value});
+    };
+
+    //获取区列表
+    wx.request({
+      url:HOST + "/location/getAreasByCityCode",
+      method:"POST",
+      header:getApp().globalData.HEADER,
+      data:{cityCode:city_code},
+      success:function(res){
+        var result = res.data.result;
+        var areas = [{name:"区",code:""}].concat(result);
+        that.setData({areas:areas});
+      }
+    });
+    
+    var area_value = e.detail.value[2];
+    var area_code = that.data.areas[area_value]["code"];
+    var area_name = that.data.areas[area_value]["name"];
+
+    var address = {
+      province:province_name,
+      city:city_name,
+      area:area_name
+    };
+    that.setData({address:address});
+  },
+  addressSelection:function(){
+    console.log("good");
+    this.setData({addressSelection:true});
+  },
+  addressConfirm:function(){
+    var that = this;
+    var address = this.data.address;
+    wx.request({
+      url:HOST + "/user/edit",
+      method:"POST",
+      header:getApp().globalData.HEADER,
+      data:address,
+      success:function(res){
+        if(res.data.code == "0"){
+           var userInfo = that.data.userInfo;
+           userInfo.province = address.province;
+           userInfo.city = address.city;
+           userInfo.area = address.area;
+           that.setData({userInfo:userInfo});
+           that.setData({addressSelection:false});
+        }
+      }
     })
   }
 })

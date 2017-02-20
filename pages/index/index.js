@@ -42,7 +42,22 @@ Page({
     }
   },
   onShow:function(){
-    console.log("---index onShow----");
+    var shopId = getApp().globalData.shopId;
+    var that = this;
+    if(shopId){
+      wx.request({
+        url:HOST + "/shop/detail",
+        method:"POST",
+        header:getApp().globalData.HEADER,
+        data:{shopId:shopId},
+        success:function(res){
+          if(res.data["code"] == "0"){
+            that.setData({shop:res.data.result});
+            getApp().globalData.shop = res.data.result;
+          }
+        }
+      })
+    };
   },
   onReady:function(){
     console.log("---index onReady---")

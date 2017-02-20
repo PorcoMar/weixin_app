@@ -10,7 +10,8 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var location = app.globalData.location;
     console.log("--shoplist onload--")
-    console.log(app.globalData);
+    var shopId = app.globalData.shop.id;
+    console.log(shopId);
     var that = this;
     wx.request({
       url: HOST + "/shop/list",
@@ -20,16 +21,17 @@ Page({
       success: function(res){
         console.log("----get shopList successed----");
         if(res.data.code == "0"){
-            that.setData({shopList:res.data.result});
-            console.log(res.data.result);
+            var shopList = res.data.result;
+
+            for(var i = 0; i < shopList.length; i ++){
+              if(shopId == shopList[i].id){
+                shopList[i].selected = true;
+              }else{
+                 shopList[i].selected = false;
+              }
+            }
+            that.setData({shopList:shopList});
         };
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
       }
     })
   },
@@ -56,5 +58,8 @@ Page({
       }
     };
     this.setData({shopList:shopList});
+
+    var shopId = this.data.shopList[id].id;
+    getApp().globalData.shopId = shopId;
   }
 })

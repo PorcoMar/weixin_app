@@ -32,6 +32,7 @@ App({
     userInfo:null,
     location:null,
     shop:null,
+    shopId:null,
     HOST:"https://test.yizhenjia.com/xcxapi",
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"

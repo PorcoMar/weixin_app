@@ -75,11 +75,27 @@ page{
     font-size:48rpx;
     color:#4f4f4f;
 }
-.column1 view{
+.date-selection .column1 view{
     display: flex;
     justify-content: flex-end;
     margin-right:39rpx;
 }
-.column2{
+.date-selection .column2{
     margin-left:39rpx;
+}
+
+.address-selection{
+    height:410rpx;
+    font-size:40rpx;
+    color:#4f4f4f;
+}
+.address-selection .column1 view{
+    display:flex;
+    justify-content: flex-end;
+}
+.address-selection .column2 view{
+    display:flex;
+    justify-content: center;
+}
+.address-selection .column1{
 }
