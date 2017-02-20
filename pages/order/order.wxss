@@ -72,13 +72,16 @@
 }
 .order .note {
     float:right;
-    color:#333333;
+    color:#8f8f8f;
     line-height: 30rpx;
 }
 .order .redNote {
-    float: right;
+    /*float: right;*/
     color: #fc5a5f;
-    line-height: 30rpx;
+    /*line-height: 30rpx;*/
+}
+.order .greenNote{
+    color: #8cc42d;
 }
 
 /*总额*/

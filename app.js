@@ -47,5 +47,24 @@ App({
     var minutes = (time.getMinutes() < 10) ? ("0" + time.getMinutes()) : time.getMinutes();
     var seconds = (time.getSeconds() < 10) ? ("0" + time.getSeconds()) : time.getSeconds();
     return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
+  },
+  // 转换订单状态名
+  formateStatus:function(status){
+    if(status == 'PAY'){
+      return('已付款');
+    }else if(status == 'CREATE'){
+      return('待付款');
+    }else {
+      return("已过期");
+    }
+  },
+  formateServiceStatus:function(status){
+    if(status == 'UNUSED'){
+      return('可使用');
+    }else if(status == 'USED'){
+      return('待评价');
+    }else {
+      return("已完成");
+    }
   }
 })

@@ -3,27 +3,27 @@
     <!--会员详情-->
     <view class="member">
         <view class="on">
-            <text class="name">{{member.name}}</text>
-            <text class="phone">{{member.phone}}</text>
+            <text class="name">{{detail.memberName}}</text>
+            <text class="phone">{{detail.memberPhone}}</text>
         </view>
         <view class="under">
             <text class="level">会员级别：</text>
-            <text class="memberCard">{{member.level}}</text>
+            <text class="memberCard">{{detail.memberLevel}}</text>
         </view>
     </view>
     <!--门店服务详情-->
     <view class="shopService">
         <view class="shop">
-            <image src="../../../../images/order/gou@2x.png" class="logo"></image>
-            <text class="shopName">可可多米门店名称</text>
+            <image src="{{detail.shopLogo}}" class="logo"></image>
+            <text class="shopName">{{detail.shopName}}</text>
         </view>
         <view class="service">
-            <image src="../../../../images/order/none-order@2x.png" class="left"></image>
+            <image src="{{detail.serviceLogo}}" class="left"></image>
             <view class="middle">
-                <view class="serviceName">护理服务名称</view>
+                <view class="serviceName">{{detail.serviceName}}</view>
                 <view class="price"> 
-                    ¥<text class="real">666</text>
-                    <text class="original">¥855</text>
+                    ¥<text class="real">{{detail.price}}</text>
+                    <text class="original">¥{{detail.oriPrice}}</text>
                 </view>
             </view>
             <view class="right">
@@ -40,19 +40,19 @@
     <view class="orderDetails">
         <view class="title">订单明细</view>
         <view class="serviceDetail">
-            <text class="serviceName">服务名称</text>
-            <text class="serviceNum">X1</text>
-            <text class="servicePrice">¥666</text>
+            <text class="serviceName">{{detail.serviceName}}</text>
+            <text class="serviceNum">X{{serviceCount}}</text>
+            <text class="servicePrice">¥{{detail.price}}</text>
         </view>
         <view class="memberDiscount">
             <image src="../../../../images/order/vip@2x.png" class="vip" mode="scaleToFill"></image>
             <text class="discount">商户会员折扣</text>
-            <text class="font">- ¥ 120.00</text>
+            <text class="font">- ¥ {{detail.memberCardPrice}}</text>
         </view>
         <view class="summary">
-            <text class="order">订单 ¥ 1321</text>
-            <text class="preferential">优惠 ¥ 140</text>
-            <text class="pay">待支付 ¥ 1500.00</text>
+            <text class="order">订单 ¥ {{detail.disCountPrice}}</text>
+            <text class="preferential">优惠 ¥ {{detail.memberCardPrice}}</text>
+            <text class="pay">实付 ¥ {{detail.orderPrice}}</text>
         </view>
     </view>
     <!--支付方式-->
@@ -72,7 +72,7 @@
     <!--支付按钮-->
     <view class="submitPay">
         <text class="price">价格：</text>
-        <text class="num">¥ 15000</text>
+        <text class="num">¥ {{detail.orderPrice}}</text>
         <text class="btn" bindtap="confirmPayment">确认支付</text>
     </view>
 </view>

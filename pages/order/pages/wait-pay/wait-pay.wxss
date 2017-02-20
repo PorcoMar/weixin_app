@@ -139,7 +139,7 @@ page {
 }
 
 .infoDetail {
-    height: 210rpx;
+    /*height: 210rpx;*/
     padding-left: 24rpx;
 }
 .infoDetail view {
