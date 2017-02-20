@@ -1,5 +1,5 @@
 var app = getApp()
-var shopIdn = app.globalData.shop
+var url = app.globalData.HOST; 
 Page( {
     data: {
 
@@ -44,9 +44,9 @@ Page( {
         }
     },
     //下拉刷新
-  onPullDownRefresh: function(){
-    wx.PullDownRefresh()
-  },
+//   onPullDownRefresh: function(){
+//     wx.PullDownRefresh()
+//   },
     /** 
      * 页面初始化
      * options 为页面跳转所带来的参数
@@ -68,15 +68,11 @@ Page( {
         });
 
 
-// ****************初始化请求精选数据*************************
-        
-        //  请求新header数据
+// ****************init request data*************************
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/cat',
+            url: url+'/service/cat',
             method: 'GET',
-            header: {
-                'Accept': 'application/json'
-            },
+            header:app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -89,12 +85,10 @@ Page( {
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -136,25 +130,23 @@ Page( {
 
     /***********************************************************
      * 事件处理
-     * scrolltolower 自动加载更多
+     * scrolltolower auto loading more
      */
     scrolltolower: function( e ) {
         var that = this;
         that.setData( {
             hothidden: true  
         })
-// **************************************************
+
         var pageNo = that.data.pageNo+1
         var cat=that.data.cat
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 var arr1 = res.data.result;
                 var list1 = that.data.choiceItems0
@@ -182,9 +174,6 @@ Page( {
                 }, 3500)
             }
         })
-
-
-       
     },
    
     /**
@@ -209,12 +198,10 @@ Page( {
          });
         var catId = e.detail.current+1 //0/1/2...8
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:catId,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -240,12 +227,10 @@ Page( {
                 hothidden:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:1,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -269,12 +254,10 @@ Page( {
                 hothidden1:true,
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:2,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -298,12 +281,10 @@ Page( {
                 hothidden2:true
             })
           wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:3,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -327,12 +308,10 @@ Page( {
                 hothidden3:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url:url+'/service/list',
             method: 'GET',
             data: {cat:4,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -357,12 +336,10 @@ Page( {
                 hothidden4:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:5,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header:app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -386,12 +363,10 @@ Page( {
                 hothidden5:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:6,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header:app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -415,12 +390,10 @@ Page( {
                 hothidden6:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url: url+'/service/list',
             method: 'GET',
             data: {cat:7,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -444,12 +417,10 @@ Page( {
                 hothidden7:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url:url+'/service/list',
             method: 'GET',
             data: {cat:8,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({
@@ -473,12 +444,10 @@ Page( {
                 hothidden8:true
             })
          wx.request({
-            url: 'https://test.yizhenjia.com/xcxapi/service/list',
+            url:url+'/service/list',
             method: 'GET',
             data: {cat:9,shopId:shopId,pageNo:1,pageSize:5},
-            header: {
-                'Accept': 'application/json'
-            },
+            header:app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
                 that.setData({

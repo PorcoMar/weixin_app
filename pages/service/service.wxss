@@ -1,8 +1,4 @@
 /* pages/service/service.wxss */
-
-/*.swiper-tab{ height: 86rpx; line-height: 86rpx; background: #FFF; display: flex; position: relative; z-index: 2; flex-direction:row; justify-content:center; align-items:center;font-weight:bold;    
-border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
-.swiper-tab-list{ padding: 0 12px;margin-right:55rpx; font-size: 28rpx; font-family:PingFang;font-weight:bold;}*/
 .swiper-tab{white-space:nowrap; height: 86rpx; line-height: 86rpx; background: #FFF; position: fixed; z-index: 22;border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;left:0;top:0;}
 .swiper-tab-list{display:inline-block;width:16%;height:86rpx; font-size: 28rpx; font-family:PingFang;font-weight:bold;margin: 0 12px;text-align:center;}
 ::-webkit-scrollbar{
@@ -15,7 +11,7 @@ border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
 
 .block_f{width:100%;height:16rpx;background:#f5f5f5;}
 .hot-box{ display: block; height: 100%;}
-.hot-box-main{ display: block; overflow: hidden; margin-bottom: 15px; background: #ccc; }
+.hot-box-main{ display: block; overflow: hidden; margin-bottom: 15px;}
 
 .hot-main-box{ position: relative; z-index: 2; }
 .hot-main-title{ color: #FFF; font-size: 34rpx;font-family:PingFang;  }
@@ -34,10 +30,6 @@ border-top:1px solid #dddddd;border-bottom:1px solid #dddddd;}
 .list-box-id{color:#fc5a5f;float:left;font-size:48rpx;margin-right:12rpx;overflow:hidden;font-family:PingFang;font-weight:bold;}
 .list-box-id2{width:70rpx;height:24rpx;font-size:24rpx;color:#969696;text-decoration:line-through;float:left;margin-top:24rpx;font-family:PingFang;}
 .money0{font-size:30rpx;font-weight:bold;}
-.money1{font-size:20rpx}
-
-
-
 .hot-box-more{ text-align: center; font-size: 22rpx; color: #999; margin-bottom: 30px;font-family:PingFang; }
 .hot-box-more image{ width: 80px; height: 16px; display: block; margin: 0 auto;}
 

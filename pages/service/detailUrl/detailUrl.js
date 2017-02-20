@@ -1,4 +1,5 @@
 var app = getApp()
+var url = app.globalData.HOST; 
 Page( {
     data: {
       cont_url:null,
@@ -26,12 +27,10 @@ Page( {
         })
         // 页面初始化 options 为页面跳转所带来的参数
         wx.request({
-            url:'https://test.yizhenjia.com/xcxapi/service/detail',
+            url:url+'/service/detail',
             method: 'GET',
             data: {serviceId:id,shopId:shopId},
-            header: {
-                'Accept': 'application/json'
-            },
+            header:app.globalData.HEADER,
             success: function(res) {
                 var result = res.data.result
                 var shop = res.data.result.shop
@@ -44,16 +43,11 @@ Page( {
         })
     },
 
-    //月嫂弹框跳转
-    pay:function(){
-        this.setData({
-            show:true
-        })
-    },
-    confirm:function(){
-        this.setData({
-            show:false
-        })       
+    onShareAppMessage: function () {
+        return {
+        title: '商品详情',
+        path: '/pages/service/detailUrl/detailUrl'
+        }
     },
 
     onReady: function() {

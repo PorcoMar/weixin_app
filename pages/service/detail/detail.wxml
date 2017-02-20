@@ -43,7 +43,7 @@
     <view class="name_cocodemer">{{title_dian}}</view>
     <view class="time_cocodemer">营业时间：周一至周五，{{work_time}}</view>
   </view>
-  <view class="kilm">{{distance}}m</view>
+  <view class="kilm">{{distance}}km</view>
   <image class="coco_right" src="../../../images/service/www.png" bindtap="calling"></image>
 </view>
 <view class="map">
@@ -80,17 +80,24 @@
     <text class="txt1">¥</text>
     <text class="txt2">{{price}}</text>
   </view>
+<view wx:if="{{yuesao}}">
+  <view class="pay_complay" bindtap="pay">立即购买</view>
+  <!--弹框-->
+  <view class="zhezhao" wx:if="{{show}}"></view>
+  <view class="floatn" wx:if="{{show}}">
+    <text class="p">如需购买服务，须前往亦蓁家APP上购买。</text>
+    <view class="line"></view>
+    <text class="confirm">确定</text>
+    <view class="flo2" wx:if="{{confirm}}" bindtap="confirm"></view>
+  </view>   
+</view>
+<view wx:else>
     <navigator  url="../../order/pages/submit-order/submit-order?shopId={{shopId}}&serviceId={{serviceId}}">
-    <view class="pay_complay" bindtap="pay">立即购买</view>
+      <view class="pay_complay" bindtap="pay">立即购买</view>
     </navigator>
 </view>
 
-<!--弹框-->
-<view class="zhezhao" wx:if="{{show}}"></view>
-<view class="floatn" wx:if="{{show}}">
-  <text class="p">如需购买服务，须前往xxxapp上购买。</text>
-  <view class="line"></view>
-  <text class="confirm">确定</text>
-  <view class="flo2" wx:if="{{confirm}}" bindtap="confirm"></view>
 </view>
+
+
 
