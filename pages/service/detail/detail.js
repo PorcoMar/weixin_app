@@ -52,7 +52,6 @@ Page( {
         })
         // 页面初始化 options 为页面跳转所带来的参数
         wx.request({
-             //url: 'http://xcx.api-test.yizhenjia.com/service/detail',
             url:'https://test.yizhenjia.com/xcxapi/service/detail',
             method: 'GET',
             data: {serviceId:id,shopId:shopId,lng:that.data.longitude,lat:that.data.latitude},
@@ -91,20 +90,16 @@ Page( {
     },
 
     //月嫂弹框跳转
-    pay:function(){
-        this.setData({
-            show:true
-        })
-    },
+    // pay:function(){
+    //     this.setData({
+    //         show:true
+    //     })
+    // },
     confirm:function(){
         this.setData({
             show:false
         })       
     },
-    //查看详情
-    // detail_info:function(){
-
-    // },
     calling:function(){
         var num = this.data.phoneNumber
         wx.makePhoneCall({
@@ -123,11 +118,11 @@ Page( {
         type: 'gcj02', //返回可以用于wx.openLocation的经纬度
         success: function(res) {
             wx.openLocation({
-           longitude:that.data.longitude,
-           latitude:that.data.latitude,
-           name:that.data.title_dian,
-           address:that.data.address_detail,
-            scale: 28
+                longitude:that.data.longitude,
+                latitude:that.data.latitude,
+                name:that.data.title_dian,
+                address:that.data.address_detail,
+                scale: 28
             })
         }
         })         
@@ -139,14 +134,6 @@ Page( {
                 hidden: true
             })
         },500);
-       // wx:hideNavigationBarLoading()
-        // 页面渲染完成
-        // 修改页面标题
-        // wx.setNavigationBarTitle( {
-        //     title: this.data.data.title
-        // })
-
-
     },
     onShow: function() {
         // 页面显示
