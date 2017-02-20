@@ -20,7 +20,7 @@
 
 
 
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;margin-top:1.9rem;" bindchange="bindChange">
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px;margin-top:1.9rem;" bindchange="bindChange">
 
 
  <!--======================= -->
