@@ -34,7 +34,7 @@
 </view>
  
  <!--block-->
-<view class="blockl"></view>
+<view class="blockl"> </view>
 
 <!--information-->
 <view class="information_dian">门店信息</view>
