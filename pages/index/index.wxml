@@ -24,7 +24,7 @@
             <image class="left-icon" src="../../images/homePage/time@2x.png" ></image>
             <text class="shop-info-text">营业时间周一至周五，{{shop.businessHours}}</text>
         </view>
-        <view class="section">
+        <view class="section" bindtap="getLocation">
             <image class="left-icon" src="../../images/homePage/address@2x.png" ></image>
             <text class="shop-info-text">{{shop.address}}</text>
             <view class="right-arrow">
@@ -32,10 +32,10 @@
             </view>
             
         </view>
-        <view class="section">
+        <view class="section" bindtap="phoneCall">
             <image class="left-icon" src="../../images/homePage/mendian_tel_nor@2x.png" ></image>
             <text class="shop-info-text">{{shop.tel}}</text>
-            <view class="right-arrow">
+            <view class="right-arrow" >
                 <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
             </view>
         </view>

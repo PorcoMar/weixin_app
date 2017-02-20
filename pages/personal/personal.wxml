@@ -27,7 +27,7 @@
             </view>
             <view class="user-consume-item">
                 <view class="item-quantity">15 <text class="unit">张</text></view>
-                <view class="item-name">余额</view>
+                <view class="item-name">优惠券</view>
             </view>
             <view class="user-consume-item">
                 <view class="item-quantity">1,400 <text class="unit">分</text></view>

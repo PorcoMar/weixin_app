@@ -72,5 +72,20 @@ Page({
     wx.navigateTo({
       url: './selectShop/selectShop'
     })
+  },
+  //拨打电话
+  phoneCall:function(){
+    var phone = this.data.shop.tel;
+    wx.makePhoneCall({
+      phoneNumber: phone
+    });
+  },
+  getLocation:function(){
+    var location = getApp().globalData.shop;
+    wx.openLocation({
+      latitude: location.lat, // 纬度，范围为-90~90，负数表示南纬
+      longitude: location.lng, // 经度，范围为-180~180，负数表示西经
+      scale: 28
+    })
   }
 })
