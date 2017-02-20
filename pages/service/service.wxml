@@ -5,7 +5,7 @@
     加载中...
 </loading>
 <view style="width:100%;height:100%;">
-    <scroll-view class="swiper-tab" scroll-x="true" style="width:100%;">
+    <scroll-view class="swiper-tab" scroll-x="true" scroll-left="0" style="width:100%;">
         <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav0">{{tab[0].name}}</view>
         <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav1">{{tab[1].name}}</view>
         <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav2">{{tab[2].name}}</view>

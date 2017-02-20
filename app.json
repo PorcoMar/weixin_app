@@ -5,7 +5,8 @@
 
     "pages/service/service",
     "pages/service/detail/detail",
-    
+    "pages/service/detailUrl/detailUrl",
+
     "pages/order/order",
     "pages/order/pages/no-order/no-order",
     "pages/order/pages/submit-order/submit-order",

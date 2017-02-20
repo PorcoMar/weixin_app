@@ -27,7 +27,9 @@
     <view class="btn_home">到家服务</view>
     <view class="btn_count">已售：{{mount}}</view>
   </view>
-  <view class="sew_detail" bindtap="detail_info">查看详情</view>
+    <navigator  url="detailUrl/detailUrl">
+      <view class="sew_detail" bindtap="detail_info">查看详情</view>
+    </navigator>
 </view>
  
  <!--block-->

@@ -72,7 +72,7 @@ Page( {
         
         //  请求新header数据
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/cat',
+            url: 'https://test.yizhenjia.com/xcxapi/service/cat',
             method: 'GET',
             header: {
                 'Accept': 'application/json'
@@ -89,7 +89,7 @@ Page( {
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
             header: {
@@ -149,7 +149,7 @@ Page( {
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
             header: {
@@ -209,7 +209,7 @@ Page( {
          });
         var catId = e.detail.current+1 //0/1/2...8
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:catId,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -240,7 +240,7 @@ Page( {
                 hothidden:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:1,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -269,7 +269,7 @@ Page( {
                 hothidden1:true,
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:2,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -298,7 +298,7 @@ Page( {
                 hothidden2:true
             })
           wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:3,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -327,7 +327,7 @@ Page( {
                 hothidden3:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:4,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -357,7 +357,7 @@ Page( {
                 hothidden4:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:5,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -386,7 +386,7 @@ Page( {
                 hothidden5:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:6,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -415,7 +415,7 @@ Page( {
                 hothidden6:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:7,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -444,7 +444,7 @@ Page( {
                 hothidden7:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:8,shopId:shopId,pageNo:1,pageSize:5},
             header: {
@@ -473,7 +473,7 @@ Page( {
                 hothidden8:true
             })
          wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/list',
+            url: 'https://test.yizhenjia.com/xcxapi/service/list',
             method: 'GET',
             data: {cat:9,shopId:shopId,pageNo:1,pageSize:5},
             header: {

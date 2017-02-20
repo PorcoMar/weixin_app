@@ -43,7 +43,7 @@ Page( {
         var that = this
         var id = options.id
         var shopId=options.shopId
-        //console.log(id,shopId)
+        console.log(id,shopId)
         this.setData({
             serviceId:id,
             shopId:shopId,
@@ -52,7 +52,8 @@ Page( {
         })
         // 页面初始化 options 为页面跳转所带来的参数
         wx.request({
-            url: 'http://xcx.api-test.yizhenjia.com/service/detail',
+             //url: 'http://xcx.api-test.yizhenjia.com/service/detail',
+            url:'https://test.yizhenjia.com/xcxapi/service/detail',
             method: 'GET',
             data: {serviceId:id,shopId:shopId,lng:that.data.longitude,lat:that.data.latitude},
             header: {
@@ -61,7 +62,7 @@ Page( {
             success: function(res) {
                 var result = res.data.result
                 var shop = res.data.result.shop
-                console.log(result)
+                console.log(res)
                 that.setData({
                  imgUrls: result.imgs,
                   title_header:result.name,
@@ -78,7 +79,6 @@ Page( {
         })
 
         wx.getSystemInfo( {
-
             success: function( res ) {
                 that.setData( {
                     winWidth: res.windowWidth,
@@ -86,6 +86,8 @@ Page( {
                 });
             }
         });
+        console.log(app.globalData.shop.lng)
+        console.log(app.globalData.shop.lat)
     },
 
     //月嫂弹框跳转
