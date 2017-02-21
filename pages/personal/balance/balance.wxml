@@ -3,7 +3,7 @@
     <!--头部开始-->
     <view class="header">
         <view class="title">余额</view>
-        <view class="balance"><text class="unit">¥</text> 1,550</view>
+        <view class="balance"><text class="unit">¥  </text> {{userInfo.memberBalance || "0"}}</view>
     </view>
     <!--头部结束-->
 

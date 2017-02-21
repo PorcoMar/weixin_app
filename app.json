@@ -20,12 +20,7 @@
     "pages/personal/bindPhone/bindPhone",
     "pages/personal/twoBarCode/twoBarCode",
     "pages/personal/realName/realName",
-
-    
-
     "pages/personal/userInfo/userInfo"
-    
-    
   ],
   "window":{
     "backgroundTextStyle":"light",

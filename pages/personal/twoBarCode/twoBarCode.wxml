@@ -9,7 +9,8 @@
                         <text>{{wxInfo.nickName}}</text>
                     </view>
                     <view class="user-card">
-                        <text>金卡</text>
+                        <text wx:if="{{!userInfo.memberLevelName}}">非会员</text>
+                        <text wx:if="{{userInfo && userInfo.memberLevelName}}">{{userInfo.memberLevelName}}</text>
                     </view>
                 </view>
             </view>

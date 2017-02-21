@@ -3,6 +3,7 @@ var app = getApp();
 var HOST = getApp().globalData.HOST;
 Page({
   data:{
+    userInfo:{},
     memberJournalList:[],
     page:{
       pageNo:1,
@@ -10,8 +11,21 @@ Page({
     }
   },
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
     var that = this;
+    //获取用户信息
+    wx.request({
+      url:HOST + "/user/info",
+      method:"POST",
+      header:getApp().globalData.HEADER,
+      success:function(res){
+        if(res.data.code == "0"){
+            that.setData({userInfo:res.data.result});
+        }
+      }
+    });
+
+    // 页面初始化 options为页面跳转所带来的参数
+   
     var page = this.data.page;
     wx.request({
       url: HOST + "/user/memberJournalList",
