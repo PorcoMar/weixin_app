@@ -17,7 +17,7 @@ Page({
     wx.request({
       url: url + '/user/info',
       data: {},
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: app.globalData.HEADER, // 设置请求的 header
       success: function(res){
         // success
@@ -236,54 +236,33 @@ Page({
             }else {
               // 微信
               console.log("weixin支付",that.data);
-              wx.login({
-                success: function(res) {
-                  if (res.code) {
-                    //发起网络请求
-                    console.log(res);
-                    var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=ff4fe925d4c79f2a74b4c31d90f4f501&js_code=" + res.code + "&grant_type=authorization_code"
-                    wx.request({
-                      url: url,
-                      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                      //header: {}, // 设置请求的 header
-                      success: function(res){
-                        // success
-                        console.log("----success-----");
-                        console.log('openId',res.openid);
-                        wx.request({
-                          url: url + '/order/confirm',
-                          data: {
-                            orderNo:that.data.detail.orderNo,
-                            payType:that.data.payType,
-                            payStrategy:that.data.detail.payStrategy || 'ALL',
-                            price:that.data.detail.orderPrice,
-                            openId:res.openid
-                          },
-                          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                          header: app.globalData.HEADER, // 设置请求的 header
-                          success: function(res){
-                            // success
-                            console.log('立即支付',res);
-                            if(res.data.code === '0'){
-                                console.log('订单支付成功！');
-                                wx.navigateTo({
-                                  url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
-                                })
-                            }else {
-                              console.log(res.data.errorMsg);
-                              wx.navigateTo({
-                                url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=待付款',
-                              })
-                            }
-                          }
-                        })
-                      }
-                    });
-                  } else {
-                    console.log('获取用户登录态失败！' + res.errMsg)
+              wx.request({
+                url: url + '/order/confirm',
+                data: {
+                  orderNo:that.data.detail.orderNo,
+                  payType:that.data.payType,
+                  payStrategy:that.data.detail.payStrategy || 'ALL',
+                  price:that.data.detail.orderPrice,
+                  openId:app.globalData.openid
+                },
+                method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                header: app.globalData.HEADER, // 设置请求的 header
+                success: function(res){
+                  // success
+                  console.log('立即支付',res);
+                  if(res.data.code === '0'){
+                      console.log('订单支付成功！');
+                      wx.navigateTo({
+                        url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
+                      })
+                  }else {
+                    console.log(res.data.errorMsg);
+                    wx.navigateTo({
+                      url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=待付款',
+                    })
                   }
                 }
-              });
+              })
               
             }
         }

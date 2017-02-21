@@ -67,7 +67,7 @@ Page({
             'orderObject.name':object.name,//下单人
             'orderObject.phone':object.phone,//联系电话
             'orderObject.orderNo':object.orderNo,//订单编号
-            'orderObject.payType':object.payType,//支付方法
+            'orderObject.payType':object.payType || 'MEMBER_CARD',//支付方法
             'orderObject.createTime':createTime,//下单时间
             'orderObject.totalCount':object.quantity,//服务数量
             'orderObject.overSecond':overSecond,//剩余支付时间
@@ -108,43 +108,37 @@ Page({
   payImmediately:function(){
     var that = this;
     console.log("立即支付");
-    wx.login({
+    if(that.data.orderObject.payType == 'WX'){
+      var data = {
+        orderNo:that.data.orderObject.orderNo,
+        payType:that.data.orderObject.payType,
+        payStrategy:that.data.orderObject.payStrategy,
+        price:that.data.orderObject.price,
+        openId:app.globalData.openid
+      }
+    }else {
+      var data = {
+        orderNo:that.data.orderObject.orderNo,
+        payType:that.data.orderObject.payType,
+        payStrategy:that.data.orderObject.payStrategy,
+        price:that.data.orderObject.price
+      }
+    }
+    wx.request({
+      url: url + '/order/confirm',
+      data: data,
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: app.globalData.HEADER, // 设置请求的 header
       success: function(res){
-        console.log('LOGIN',res.code);
-        var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=ff4fe925d4c79f2a74b4c31d90f4f501&js_code=" + res.code + "&grant_type=authorization_code";
-        // var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=28f21efa68c21702db644011e547376f&js_code=" + res.code + "&grant_type=authorization_code";
-        wx.request({
-          url: url,
-          data: {},
-          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-          header: app.globalData.HEADER, // 设置请求的 header
-          success: function(res){
-            // success
-            console.log('支付',res);
-          }
-        })
+        // success
+        console.log('支付结果',res);
+        if(res.data.code == '0'){
+          console.log('支付成功');
+        }else {
+          console.log(res.data.errorMsg);
+        }
       }
     })
-    // wx.request({
-    //   url: url + '/order/confirm',
-    //   data: {
-    //     orderNo:that.data.orderObject.orderNo,
-    //     payType:that.data.orderObject.payType,
-    //     payStrategy:that.data.orderObject.payStrategy,
-    //     price:that.data.orderObject.price
-    //   },
-    //   method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-    //   header: app.globalData.HEADER, // 设置请求的 header
-    //   success: function(res){
-    //     // success
-    //     console.log('支付结果',res);
-    //     if(res.data.code == '0'){
-    //       console.log('支付成功');
-    //     }else {
-    //       console.log(res.data.errorMsg);
-    //     }
-    //   }
-    // })
 
   }
 })
