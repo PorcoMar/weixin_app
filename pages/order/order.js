@@ -95,8 +95,9 @@ Page({
       }
     })
   },
+  
   // 底部加载更多
-  scrolltolower: function( e ) {
+  onReachBottom: function( e ) {
     console.log('加载更多');
     var that = this;
         var pageNo = that.data.pageNo+1;
@@ -138,37 +139,5 @@ Page({
           }
         });
         
-        //  wx.request({
-        //     url: url+'/service/list',
-        //     method: 'GET',
-        //     data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
-        //     header: app.globalData.HEADER,
-        //     success: function(res) {
-        //         var arr1 = res.data.result;
-        //         var list1 = that.data.choiceItems0
-        //        // console.log(res.data.result.length) //最后一次加载字段的长度
-        //         var lastDataLength = res.data.result.length
-        //         that.setData({
-        //             pageSize:lastDataLength 
-        //         })
-
-        //         if( that.data.pageSize <5) {
-        //             that.setData( {
-        //                 hothidden: false //显示加载更多
-        //             });
-        //         }else{
-        //             that.setData({
-        //                 choiceItems0: list1.concat(arr1), 
-        //                 pageNo:that.data.pageNo+1
-        //             })
-        //         } 
-        //         setTimeout(function () {
-        //             that.setData({
-        //                 loadingHidden: true
-        //             })
-        //         //console.log(that.data.choiceItems0)
-        //         }, 3500)
-        //     }
-        // })
     }
 })

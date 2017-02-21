@@ -1,9 +1,11 @@
 // pages/order/pages/submit-order/submit-order.js
 var app = getApp();
-var url = app.globalData.HOST; 
+var url = app.globalData.HOST;
+
 Page({
   data:{
     detail:{},
+    userInfo:{},
     weixinImg:'../../../../images/order/checked@3x.png',
     weixin:true,
     balance:false,
@@ -12,9 +14,25 @@ Page({
   },
   onLoad:function(options){
     var that = this;
-    console.log("用户信息",app.globalData.userInfo);
-    var memberName = app.globalData.userInfo.realName;//会员姓名
-    var memberPhone = app.globalData.userInfo.phone;//会员电话
+    wx.request({
+      url: url + '/user/info',
+      data: {},
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: app.globalData.HEADER, // 设置请求的 header
+      success: function(res){
+        // success
+        console.log(res);
+        that.setData({
+            'userInfo.realName':res.data.result.realName,
+            'userInfo.phone':res.data.result.phone,
+            'userInfo.memberLevelName':res.data.result.memberLevelName
+        })
+      }
+    })
+    console.log('用户信息',that.data.userInfo);
+    // var memberName = that.data.userInfo.realName;//会员姓名
+    // var memberPhone = that.data.userInfo.phone;//会员电话
+    // var memberLevelName = that.data.userInfo.memberLevelName;//会员等级
     // 页面初始化 options为页面跳转所带来的参数
     // console.log(options);
     var shopId = options.shopId;
@@ -38,9 +56,9 @@ Page({
             if(res.data.code == '0'){
                 var arr = res.data.result;
                 that.setData({
-                  'detail.memberName':memberName,
-                  'detail.memberPhone':memberPhone,
-                  'detail.memberLevel':'高级',
+                  'detail.memberName':that.data.userInfo.realName,
+                  'detail.memberPhone':that.data.userInfo.phone,
+                  'detail.memberLevel':that.data.userInfo.memberLevelName,
                   'detail.shopLogo':arr.shop.logo,
                   'detail.shopName':arr.shop.name,
                   'detail.serviceLogo':arr.logo,
@@ -50,7 +68,7 @@ Page({
                   'detail.payStrategy':arr.payStrategy
                 })
             }else {
-               alert("res.data.errorMsg");
+               console.log("res.data.errorMsg");
             } 
         }
     });
@@ -71,7 +89,7 @@ Page({
             'detail.orderPrice':arr.orderPrice
           })
         }else {
-          alert(res.data.errorMsg);
+          console.log(res.data.errorMsg);
         }
       }
     })
@@ -102,7 +120,7 @@ Page({
             'detail.orderPrice':arr.orderPrice
           })
         }else {
-          alert(res.data.errorMsg);
+          console.log(res.data.errorMsg);
         }
       }
     })
@@ -135,7 +153,7 @@ Page({
             'detail.orderPrice':arr.orderPrice
           })
         }else {
-          alert(res.data.errorMsg);
+          console.log(res.data.errorMsg);
         }
       }
     })
@@ -174,97 +192,103 @@ Page({
           var result = res.data.result;
           that.setData({
             'detail.orderNo':result.orderNo
-          })
-        }
-        // 
-        if(that.data.balance){
-        // 余额
-        wx.showModal({
-              content: "请再次确认是否使用余额支付",
-              confirmText: "确认",
-              cancelText: "取消",
-              success:function(e){
-                console.log('确认');
-                that.setData({
-                  payType:'MEMBER_CARD'
-                });
-                console.log('提交订单支付',that.data);
-                // 立即支付
-                wx.request({
-                  url: url + '/order/confirm',
-                  data: {
-                    orderNo:that.data.detail.orderNo,
-                    payType:that.data.payType,
-                    payStrategy:that.data.detail.payStrategy || 'ALL',
-                    price:that.data.detail.orderPrice
-                  },
-                  method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                  header: app.globalData.HEADER, // 设置请求的 header
-                  success: function(res){
-                    // success
-                    console.log('立即支付',res);
-                    if(res.data.code === '0'){
-                      console.log('订单支付成功！');
-                      wx.navigateTo({
-                        url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
-                      })
-                    }else {
-                      alert(res.data.errorMsg);
-                    }
-                  }
-                })
-              }
-            })
-        }else {
-          // 立即支付
-          console.log("weixin支付",that.data);
-          wx.login({
-            success: function(res) {
-              if (res.code) {
-                //发起网络请求
-                console.log(res);
-                var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=28f21efa68c21702db644011e547376f&js_code=" + res.code + "&grant_type=authorization_code"
-                wx.request({
-                  url: url,
-                  method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                  //header: {}, // 设置请求的 header
-                  success: function(res){
-                    // success
-                    console.log("----success-----");
-                    console.log(res.openid);
+          });
+          if(that.data.balance){
+            // 余额
+            wx.showModal({
+                  content: "请再次确认是否使用余额支付",
+                  confirmText: "确认",
+                  cancelText: "取消",
+                  success:function(e){
+                    console.log('确认');
+                    that.setData({
+                      payType:'MEMBER_CARD'
+                    });
+                    console.log('提交订单支付',that.data);
+                    // 立即支付
                     wx.request({
                       url: url + '/order/confirm',
                       data: {
                         orderNo:that.data.detail.orderNo,
                         payType:that.data.payType,
                         payStrategy:that.data.detail.payStrategy || 'ALL',
-                        price:that.data.detail.orderPrice,
-                        openId:res.openid
+                        price:that.data.detail.orderPrice
+                        
                       },
                       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                       header: app.globalData.HEADER, // 设置请求的 header
                       success: function(res){
                         // success
                         console.log('立即支付',res);
+                        console.log(that.data.detail.orderNo,that.data.payType,that.data.detail.payStrategy,that.data.detail.orderPrice)
                         if(res.data.code === '0'){
-                            console.log('订单支付成功！');
-                            wx.navigateTo({
+                          console.log('订单支付成功！');
+                          wx.navigateTo({
                             url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
                           })
                         }else {
-                          alert('res.data.errorMsg');
+                          console.log(res.data.errorMsg);
                         }
                       }
                     })
                   }
-                });
-              } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
-              }
+                })
+            }else {
+              // 微信
+              console.log("weixin支付",that.data);
+              wx.login({
+                success: function(res) {
+                  if (res.code) {
+                    //发起网络请求
+                    console.log(res);
+                    var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=ff4fe925d4c79f2a74b4c31d90f4f501&js_code=" + res.code + "&grant_type=authorization_code"
+                    wx.request({
+                      url: url,
+                      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                      //header: {}, // 设置请求的 header
+                      success: function(res){
+                        // success
+                        console.log("----success-----");
+                        console.log('openId',res.openid);
+                        wx.request({
+                          url: url + '/order/confirm',
+                          data: {
+                            orderNo:that.data.detail.orderNo,
+                            payType:that.data.payType,
+                            payStrategy:that.data.detail.payStrategy || 'ALL',
+                            price:that.data.detail.orderPrice,
+                            openId:res.openid
+                          },
+                          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                          header: app.globalData.HEADER, // 设置请求的 header
+                          success: function(res){
+                            // success
+                            console.log('立即支付',res);
+                            if(res.data.code === '0'){
+                                console.log('订单支付成功！');
+                                wx.navigateTo({
+                                  url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
+                                })
+                            }else {
+                              console.log(res.data.errorMsg);
+                              wx.navigateTo({
+                                url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=待付款',
+                              })
+                            }
+                          }
+                        })
+                      }
+                    });
+                  } else {
+                    console.log('获取用户登录态失败！' + res.errMsg)
+                  }
+                }
+              });
+              
             }
-          });
-          
         }
+        
+        
       }
     })
   }
