@@ -1,4 +1,5 @@
 var app = getApp()
+var url = app.globalData.HOST; 
 Page( {
     data: {
         data: [],
@@ -12,6 +13,8 @@ Page( {
         url:null,
         pay:null,
         confirm:true,
+        serviceType:"service",
+        yuesao:true,
         //数据
         serviceId:0,
         shopId:0,
@@ -36,9 +39,9 @@ Page( {
         }
     },
     //下拉刷新
-  onPullDownRefresh: function(){
-    wx.PullDownRefresh()
-  },
+//   onPullDownRefresh: function(){
+//     wx.PullDownRefresh()
+//   },
     onLoad: function( options ) {
         var that = this
         var id = options.id
@@ -52,16 +55,16 @@ Page( {
         })
         // 页面初始化 options 为页面跳转所带来的参数
         wx.request({
-            url:'https://test.yizhenjia.com/xcxapi/service/detail',
+            url:url+'/service/detail',
             method: 'GET',
             data: {serviceId:id,shopId:shopId,lng:that.data.longitude,lat:that.data.latitude},
-            header: {
-                'Accept': 'application/json'
-            },
+            header:app.globalData.HEADER,
             success: function(res) {
                 var result = res.data.result
                 var shop = res.data.result.shop
+                var distance = (shop.distance/1000).toFixed(1)
                 console.log(res)
+                 //console.log(serviceType)
                 that.setData({
                  imgUrls: result.imgs,
                   title_header:result.name,
@@ -69,11 +72,24 @@ Page( {
                   mount:result.soldCount,
                   title_dian:shop.name,
                   work_time:shop.businessHours,
-                  distance:shop.distance,
+                  distance:distance,
                   address_detail:shop.address,
                   price:result.price,
-                  phoneNumber:shop.tel
+                  phoneNumber:shop.tel,
+                  serviceType:result.serviceType
                 })
+               
+                if(that.data.serviceType=="YUESAO"){
+                    // console.log(that.data.serviceType)
+                    that.setData({
+                        yuesao: true,
+                    })
+                }else{
+                    // console.log(that.data.serviceType)
+                    that.setData({
+                        yuesao:false
+                    })
+                }               
             }
         })
 
@@ -90,11 +106,19 @@ Page( {
     },
 
     //月嫂弹框跳转
-    // pay:function(){
-    //     this.setData({
-    //         show:true
-    //     })
-    // },
+    pay:function(){
+        if(this.data.serviceType=="YUESAO"){
+            this.setData({
+                yuesao: true,
+                show:true
+            })
+        }else{
+            this.setData({
+                yuesao:false,
+                show:false
+            })
+        }
+    },
     confirm:function(){
         this.setData({
             show:false
@@ -105,10 +129,10 @@ Page( {
         wx.makePhoneCall({
         phoneNumber: num, 
         success:function(){
-            console.log("拨打电话成功！")
+           // console.log("拨打电话成功！")
         },
         fail:function(){
-            console.log("拨打电话失败！")
+           // console.log("拨打电话失败！")
         }
         })
     },
