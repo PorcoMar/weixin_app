@@ -3,10 +3,10 @@
     <view class="content">
         <view class="top">
             <view class="user-info">
-                <image class="user-photo" src="{{userInfo.avatarUrl}}"></image>
+                <image class="user-photo" src="{{wxInfo.avatarUrl}}"></image>
                 <view class="user-detail">
                     <view class="user-name">
-                        <text>{{userInfo.nickName}}</text>
+                        <text>{{wxInfo.nickName}}</text>
                     </view>
                     <view class="user-card">
                         <text>金卡</text>

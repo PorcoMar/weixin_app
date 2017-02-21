@@ -154,10 +154,8 @@ Page({
             var userInfo = that.data.userInfo;
             userInfo.birthDate = birthDate;
             that.setData({userInfo:userInfo});
+            that.setData({dateSelection:false});
         }
-      },
-      fail: function() {
-        // fail
       }
     })
   },
