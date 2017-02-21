@@ -17,15 +17,19 @@ Page({
     // 页面关闭
   },
   pay:function(){
-    wx.requestPayment({
-      'timeStamp': '1487643430',
-      'nonceStr': 'Fc08UXgY1QVGkS3G',
-      'package': 'prepay_id=wx20170221101710c88e39c9130219642333',
-      'signType': 'MD5',
-      'paySign': 'EB13CEA8747D52F36AFFF3F95158CE5A',
-      'success':function(res){
-      },
-      'fail':function(res){
+    //登录
+    wx.login({
+      success:function(res){
+        var code = res.code;
+        console.log(code);
+        var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=a4c1b6991cea6c4d2dd597c6a2e40f54&js_code=" + code + "&grant_type=authorization_code";
+        wx.request({
+            url:url,
+            method:"GET",
+            success:function(res){
+              console.log(res);
+            }
+        })
       }
     })
   }
