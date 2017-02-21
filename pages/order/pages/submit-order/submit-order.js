@@ -251,10 +251,23 @@ Page({
                   // success
                   console.log('立即支付',res);
                   if(res.data.code === '0'){
-                      console.log('订单支付成功！');
-                      wx.navigateTo({
-                        url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
+                      console.log('openId请求成功！');
+                      wx.requestPayment({
+                        'timeStamp': res.data.result.timeStamp,
+                        'nonceStr': res.data.result.nonceStr,
+                        'package': res.data.result.package,
+                        'signType': res.data.result.signType,
+                        'paySign': res.data.result.paySign,
+                        'success':function(res){
+                          console.log('订单支付成功！');
+                          wx.navigateTo({
+                            url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
+                          })
+                        },
+                        'fail':function(res){
+                        }
                       })
+                      
                   }else {
                     console.log(res.data.errorMsg);
                     wx.navigateTo({
