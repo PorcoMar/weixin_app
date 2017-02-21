@@ -2,12 +2,13 @@
     <!--头部开始-->
     <view class="header">
         <view class="user-info" >
-            <image class="user-image" src="../../images/personal/touxiang@2x.png" wx:if="{{!userInfo}}"></image>
-            <image class="user-image" src="{{userInfo.avatarUrl}}" wx:if="{{userInfo}}"></image>
-            <view class="user-detail" wx:if="{{userInfo}}">
+            <image class="user-image" src="../../images/personal/touxiang@2x.png" wx:if="{{!wxInfo}}"></image>
+            <image class="user-image" src="{{wxInfo.avatarUrl}}" wx:if="{{wxInfo}}"></image>
+            <view class="user-detail" wx:if="{{wxInfo}}">
                 <view class="user-title">
-                    <text class="user-name">{{userInfo.nickName}}</text>
-                    <text class="member-card">金卡</text>
+                    <text class="user-name">{{wxInfo.nickName}}</text>
+                    <text class="member-card" wx:if="{{!userInfo || !userInfo.memberLevelName}}">非会员</text>
+                    <text class="member-card" wx:if="{{userInfo && userInfo.memberLevelName}}">{{userInfo.memberLevelName}}</text>
                 </view>
                 <view class="user-phone">
                     <image src="../../images/personal/phone@2x.png" class="phoneImage"></image>
@@ -16,7 +17,7 @@
                 </view>
             </view>
             
-            <view class="user-login" wx:if="{{!userInfo}}">
+            <view class="user-login" wx:if="{{!wxInfo}}">
                 <text bindtap="login">登录</text>
             </view>
         </view>

@@ -1,19 +1,12 @@
 //app.js
 App({
   onLaunch: function () {
-    //获取用户缓存信息
+    //获取用户微信缓存信息
     wx.getStorage({
-      key: 'userInfo',
+      key: 'wxInfo',
       success: function(res){
         // success
-        getApp().globalData.userInfo = res.data;
-      },
-      fail: function() {
-        // fail
-        console.log('----getStorage fail----');
-      },
-      complete: function() {
-        // complete
+        getApp().globalData.wxInfo = res.data;
       }
     });
     //获取HEADER缓存信息
@@ -29,7 +22,7 @@ App({
     });
   },
   globalData:{
-    userInfo:null,
+    wxInfo:null,
     location:null,
     shop:null,
     shopId:null,

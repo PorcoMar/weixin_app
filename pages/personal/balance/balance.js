@@ -3,7 +3,7 @@ var app = getApp();
 var HOST = getApp().globalData.HOST;
 Page({
   data:{
-    memberJournalList:null,
+    memberJournalList:[],
     page:{
       pageNo:1,
       pageSize:10
@@ -13,7 +13,6 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var that = this;
     var page = this.data.page;
-    console.log(page);
     wx.request({
       url: HOST + "/user/memberJournalList",
       data:page,
@@ -21,14 +20,14 @@ Page({
       header: getApp().globalData.HEADER, 
       success: function(res){
         console.log("----res data-----");
-        console.log(res.data);
-       
         if(res.data.code == "0"){
+          console.log(res.data);
           var result = res.data.result;
           result.map(function(item,index,array){
             item["createTime"] = app.formateTime(item["createTime"]);
           });
-          that.setData({memberJournalList:result});
+          var memberJournalList = that.data.memberJournalList.concat(result);
+          that.setData({memberJournalList:memberJournalList});
         };
       }
     })
@@ -45,7 +44,13 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
-  onPullDownRefresh: function(){
-    console.log("----refresh----");
-  }
+  downMore:function(){
+    console.log("-----more-----");
+    var page = this.data.page;
+    page.pageNo += 1;
+    this.setData({page:page});
+    
+    this.onLoad();
+  },
+
 })

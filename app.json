@@ -1,5 +1,6 @@
 {
   "pages":[
+
     "pages/index/index",
     "pages/index/selectShop/selectShop",
 
@@ -19,7 +20,11 @@
     "pages/personal/bindPhone/bindPhone",
     "pages/personal/twoBarCode/twoBarCode",
     "pages/personal/realName/realName",
+
+    
+
     "pages/personal/userInfo/userInfo"
+    
     
   ],
   "window":{

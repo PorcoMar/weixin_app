@@ -107,36 +107,19 @@ Page({
             app.globalData.HEADER.uid = uid;
             app.globalData.HEADER.token = token;
 
-            //获取用户信息
-            wx.request({
-              url: HOST + "/user/info",
-              data: {},
-              method: 'POST', 
-              header: app.globalData.HEADER, // 设置请求的 header
+            var HEADER = app.globalData.HEADER;
+            
+            //存储uid和token
+            wx.setStorage({
+              key: 'HEADER',
+              data: HEADER,
               success: function(res){
-                console.log("realName:",res.data.result.realName);
-                app.globalData.userInfo.phone = res.data.result.phone;
-                app.globalData.userInfo.realName = res.data.result.realName || "";
-                app.globalData.userInfo.province = res.data.result.province || "";
-                app.globalData.userInfo.city = res.data.result.city || "";
-                app.globalData.userInfo.area = res.data.result.area || "";
-                app.globalData.userInfo.birthDate = res.data.result.birthDate || "";
-                
-                wx.setStorage({
-                  key: 'userInfo',
-                  data: app.globalData.userInfo
-                });
-                wx.setStorage({
-                  key: 'HEADER',
-                  data: app.globalData.HEADER
-                });
                 wx.navigateBack({
-                  delta: 1 // 回退前 delta(默认为1) 页数
-                });
+                  delta: 1 // 回退前 delta(默认为1) 页面
+                })
               }
             })
 
-            
         }else{
             wx.showModal({
               title:"提示",

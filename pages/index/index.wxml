@@ -61,7 +61,7 @@
             <text>热门服务</text>
         </view>
         <view class="service-list">
-            <view class="service-item" wx:for="{{shop.services}}">
+            <view class="service-item" wx:for="{{shop.services}}" data-id="{{item.id}}" bindtap="selectService">
                 <view class="service-image">
                     <image src="{{item.icon}}"></image>
                 </view>

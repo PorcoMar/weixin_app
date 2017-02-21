@@ -3,7 +3,8 @@ var app = getApp();
 var HOST = app.globalData.HOST;
 Page({
   data: {
-    userInfo: null
+    wxInfo: null,
+    userInfo:null
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -13,8 +14,23 @@ Page({
   },
   onShow: function () {
     // 页面显示
-    this.setData({ userInfo: app.globalData.userInfo });
-    console.log(this.data);
+    var that = this;
+    this.setData({ wxInfo: app.globalData.wxInfo});
+    if(app.globalData.HEADER.uid){
+      console.log("存在uid");
+      //获取用户信息
+      wx.request({
+        url: HOST + "/user/info",
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: app.globalData.HEADER, // 设置请求的 header
+        success: function(res){
+          if(res.data.code == "0"){
+            console.log(res.data.result);
+            that.setData({userInfo:res.data.result});
+          }   
+        }
+      })
+    }
   },
   onHide: function () {
     // 页面隐藏
@@ -24,11 +40,11 @@ Page({
   },
   //点击个人余额
   userBalance: function () {
-    if(!app.globalData.userInfo){
+    if(!this.data.wxInfo){
       this.login();
       return;
     };
-    if(app.globalData.userInfo.phone){
+    if(this.data.userInfo && this.data.userInfo.phone){
         wx.navigateTo({
           url: "./balance/balance"
         })
@@ -40,11 +56,11 @@ Page({
   },
   //点击个人信息
   userInfo: function () {
-    if(!app.globalData.userInfo){
+    if(!this.data.wxInfo){
       this.login();
       return;
-    }
-    if(app.globalData.userInfo.phone){
+    };
+    if(this.data.userInfo && this.data.userInfo.phone){
       wx.navigateTo({
         url: "./userInfo/userInfo"
       })
@@ -52,70 +68,26 @@ Page({
       wx.navigateTo({
         url: "./bindPhone/bindPhone"
       })
-    }
-    
+    };
   },
   //登录
   login: function () {
     var that = this;
-    
     wx.login({
       success: function (res) {
         console.log("---登录成功----");
-        console.log(res);
-        // wx.requestPayment({
-        //   'timeStamp': '1487580042',
-        //   'nonceStr': "i4HYSUtgPV36dEl0",
-        //   'package': 'prepay_id=wx20170220164043e7eae0687e0340954594',
-        //   'signType': 'MD5',
-        //   'paySign': '5D9882747CCB10513340EC00872AA886',
-        //   'success':function(res){
-        //     console.log(res);
-        //   },
-        //   'fail':function(res){
-        //     console.log("---111--");
-        //   }
-        // });
-
-        // var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=28f21efa68c21702db644011e547376f&js_code=" + res.code + "&grant_type=authorization_code"
-
-        // wx.request({
-        //   url: url,
-        //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        //   //header: {}, // 设置请求的 header
-        //   success: function(res){
-        //     // success
-        //     console.log("----success-----");
-        //     console.log(res);
-        //   },
-        //   fail: function() {
-        //     // fail
-        //     console.log("-----fail-----");
-        //   },
-        //   complete: function() {
-        //     // complete
-        //   }
-        // });
-
         wx.getUserInfo({
           success: function (res) {
             console.log(res);
-            var userInfo = JSON.parse(res.rawData);
-            app.globalData.userInfo = userInfo;
-            that.setData({ userInfo: userInfo });
+            var wxInfo = JSON.parse(res.rawData);
+            app.globalData.wxInfo = wxInfo;
+            that.setData({ wxInfo: wxInfo });
             wx.setStorage({
-              key: 'userInfo',
-              data: userInfo,
+              key: 'wxInfo',
+              data: wxInfo,
               success: function(res){
                 // success
                 console.log("-----setStorage successed------")
-              },
-              fail: function() {
-                // fail
-                console.log("-----setStorage failed-----")
-              },
-              complete: function() {
-                // complete
               }
             })
           },
@@ -137,5 +109,8 @@ Page({
     wx.navigateTo({
       url: './twoBarCode/twoBarCode'
     })
+  },
+  downMore:function(){
+    console.log("-----more-----");
   }
 })

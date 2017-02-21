@@ -7,8 +7,19 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    this.setData({realName:app.globalData.userInfo.realName});
-    console.log(this.data.realName);
+    //获取用户信息
+    var that = this;
+    wx.request({
+      url:HOST + "/user/info",
+      method:"POST",
+      header:getApp().globalData.HEADER,
+      success:function(res){
+        if(res.data.code == "0"){
+          var realName = res.data.result.realName;
+          that.setData({realName:realName});
+        }
+      }
+    })
   },
   onReady:function(){
     // 页面渲染完成
@@ -30,7 +41,6 @@ Page({
   },
   saveRealName:function(){
     var realName = this.data.realName;
-
     wx.request({
       url: HOST + "/user/edit",
       data: {realName:realName},
@@ -44,30 +54,14 @@ Page({
               method:"POST", 
               header: app.globalData.HEADER, 
               success: function(res){
-                app.globalData.userInfo.phone = res.data.result.phone;
-                app.globalData.userInfo.realName = res.data.result.realName || "";
-                app.globalData.userInfo.province = res.data.result.province || "";
-                app.globalData.userInfo.city = res.data.result.city || "";
-                app.globalData.userInfo.area = res.data.result.area || "";
-                app.globalData.userInfo.birthDate = res.data.result.birthDate || "";
-                
-                wx.setStorage({
-                  key: 'userInfo',
-                  data: app.globalData.userInfo
-                });
-                
-                wx.navigateBack({
-                  delta: 1 // 回退前 delta(默认为1) 页数
-                });
+                if(res.data.code == "0"){
+                     wx.navigateBack({
+                      delta: 1 // 回退前 delta(默认为1) 页数
+                    });
+                };
               }
             })
         }
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
       }
     })
   }

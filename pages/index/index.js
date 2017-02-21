@@ -36,6 +36,7 @@ Page({
              method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
              header:HEADER,
              success: function(res){
+               console.log(res.data);
                 if(res.data.code == "0"){
                      app.globalData.shop = res.data.result;
                      app.globalData.location = location;
@@ -95,5 +96,12 @@ Page({
       longitude: location.lng, // 经度，范围为-180~180，负数表示西经
       scale: 28
     })
-  }
+  },
+  selectService:function(e){
+    var id = e.currentTarget.dataset.id;
+    var shopId = this.data.shop.id;
+    wx.navigateTo({
+      url: '/pages/service/detail/detail?shopId=' + shopId + "&id=" + id 
+    })
+  } 
 })
