@@ -27,18 +27,28 @@ Page({
     }
   },
   onLoad:function(options){
-    
+    //获取用户信息
   },
   onReady:function(){
     // 页面渲染完成
   },
   onShow:function(){
+    var that = this;
+    //获取用户信息
+    wx.request({
+      url:HOST + "/user/info",
+      method:"POST",
+      header:getApp().globalData.HEADER,
+      success:function(res){
+        if(res.data.code == "0"){
+          that.setData({userInfo:res.data.result});
+        }
+      }
+    });
     // 页面显示
-    //设置信息
-    this.setData({userInfo:app.globalData.userInfo});
+
     // 页面初始化 options为页面跳转所带来的参数
     // 获取省
-    var that = this;
     wx.request({
       url: HOST + "/location/getAllProvinces",
       data: {},
@@ -144,12 +154,6 @@ Page({
             var userInfo = that.data.userInfo;
             userInfo.birthDate = birthDate;
             that.setData({userInfo:userInfo});
-            app.globalData.userInfo = userInfo;
-            that.setData({dateSelection:false});
-            wx.setStorage({
-              key: 'userInfo',
-              data: userInfo
-            })
         }
       },
       fail: function() {

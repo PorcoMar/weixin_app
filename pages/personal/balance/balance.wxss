@@ -31,12 +31,14 @@ page{
 }
 /*-------主要内容区域样式------*/
 .content{
+    height:100%;
     background-color:#ffffff;
-    padding:0 24rpx;
 }
 .content .content-title{
     padding-top:60rpx;
     position:relative;
+    margin-left:24rpx;
+    margin-right:24rpx;
 }
 .content-title-text{
     font-size:26rpx;
@@ -57,8 +59,14 @@ page{
     left:0;
     z-index: 0;
 }
+
+.consume-list{
+    height:880rpx;
+}
+
 .consume-item{
-    width:100%;
+    margin-left:24rpx;
+    margin-right:24rpx;
     height:150rpx;
     display:flex;
     align-items: center;
