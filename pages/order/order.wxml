@@ -1,11 +1,11 @@
 <!--<view>这是订单页面</view>-->
-<view class="section">
+<view class="section" >
   <!--循环创立订单列表-->
   <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}" wx:for-index ="key">
   <!--普通订单-->
  
     <!--订单和门店详情-->
-    <view class="flex-item shopList" bindtap="orderDetail" id="{{item.status}}" data-id="{{key}}">
+    <view class="flex-item shopList" bindtap="orderDetail" data-status="{{item.status}}" data-id="{{key}}">
         <!--门店logo-->
         <view class="logo">         
           <image src="{{item.shopLogo}}" class="image"></image>
@@ -63,20 +63,20 @@
               </view>
               </block>
           <!--总额-->
-          <view class="total" wx:if="{{item.status === 'WAIT_TAIL'}}">
+          <view class="total" wx:if="{{item.status === '待付尾款'}}">
             <text class="service">已支付</text>
             <text class="cost">¥ {{item.headPrice}}</text>
             <text class="balance">还需支付尾款</text>
             <text class="price"> ¥ {{item.tailPrice}}</text>
           </view>
-          <view class="total" wx:elif="{{item.status === 'EXPTRED'}}">
-          <block wx:if="{{item.payStatus == 'DIVID'}}">
+          <view class="total" wx:elif="{{item.status === '已过期'}}">
+          <block wx:if="{{item.payStrategy == 'DIVID'}}">
             <text class="service">已支付</text>
             <text class="cost">¥ {{item.headPrice}}</text>
             <text class="balance">还需支付尾款</text>
             <text class="price"> ¥ {{item.tailPrice}}</text>
           </block>
-          <block wx:if="{{item.payStatus == 'ALL'}}">
+          <block wx:if="{{item.payStrategy == 'ALL'}}">
             <!--<text class="service">已支付</text>
             <text class="cost">¥ {{item.headPrice}}</text>-->
             <text class="balance">需支付</text>
@@ -92,9 +92,12 @@
     </view>
   <!--订单操作-->
     <view class="flex-item operate" >
-          <view class="orderOperate red" wx:if="{{item.status == 'CREATE'}}" bindtap="orderDetail" data-id='{{key}}'>立即支付</view>
-          <view class="orderOperate red" wx:elif="{{item.status == 'WAIT_TAIL'}}" bindtap="payBalance" data-id='{{key}}'>支付尾款</view>
+          <view class="orderOperate red" wx:if="{{item.status == '待付款'}}" data-status="{{item.status}}" bindtap="orderDetail" data-id='{{key}}'>立即支付</view>
+          <view class="orderOperate red" wx:elif="{{item.status == '待付尾款'}}" bindtap="payBalance" data-id='{{key}}'>支付尾款</view>
           <view class="orderOperate" bindtap="phoneCall" data-id='{{key}}'>联系客服</view>
     </view>
   </view>
+</view>
+<view class="footer" bindtap='scrolltolower'>
+  <text>加载更多...</text>
 </view>

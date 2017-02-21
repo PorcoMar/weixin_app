@@ -206,8 +206,10 @@ Page({
                     if(res.data.code === '0'){
                       console.log('订单支付成功！');
                       wx.navigateTo({
-                        url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=PAY',
+                        url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
                       })
+                    }else {
+                      alert(res.data.errorMsg);
                     }
                   }
                 })
@@ -216,27 +218,52 @@ Page({
         }else {
           // 立即支付
           console.log("weixin支付",that.data);
-          wx.request({
-            url: url + '/order/confirm',
-            data: {
-              orderNo:that.data.detail.orderNo,
-              payType:that.data.payType,
-              payStrategy:that.data.detail.payStrategy || 'ALL',
-              price:that.data.detail.orderPrice
-            },
-            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            header: app.globalData.HEADER, // 设置请求的 header
-            success: function(res){
-              // success
-              console.log('立即支付',res);
-              if(res.data.code === '0'){
-                  console.log('订单支付成功！');
-                  wx.navigateTo({
-                  url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=PAY',
-                })
+          wx.login({
+            success: function(res) {
+              if (res.code) {
+                //发起网络请求
+                console.log(res);
+                var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=28f21efa68c21702db644011e547376f&js_code=" + res.code + "&grant_type=authorization_code"
+                wx.request({
+                  url: url,
+                  method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                  //header: {}, // 设置请求的 header
+                  success: function(res){
+                    // success
+                    console.log("----success-----");
+                    console.log(res.openid);
+                    wx.request({
+                      url: url + '/order/confirm',
+                      data: {
+                        orderNo:that.data.detail.orderNo,
+                        payType:that.data.payType,
+                        payStrategy:that.data.detail.payStrategy || 'ALL',
+                        price:that.data.detail.orderPrice,
+                        openId:res.openid
+                      },
+                      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                      header: app.globalData.HEADER, // 设置请求的 header
+                      success: function(res){
+                        // success
+                        console.log('立即支付',res);
+                        if(res.data.code === '0'){
+                            console.log('订单支付成功！');
+                            wx.navigateTo({
+                            url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=已付款',
+                          })
+                        }else {
+                          alert('res.data.errorMsg');
+                        }
+                      }
+                    })
+                  }
+                });
+              } else {
+                console.log('获取用户登录态失败！' + res.errMsg)
               }
             }
-          })
+          });
+          
         }
       }
     })

@@ -31,7 +31,16 @@ Page({
           var object = res.data.result;
           console.log('DDXQ',object);
           var createTime = app.formateTime(object.createdTime);
-          var overSecond = app.formateTime(object.overSecond);
+          var overSecond = app.formateSecond(object.overSecond);
+          setInterval(function(){
+            // console.log('倒计时');
+            overSecond = app.formateSecond(object.overSecond);
+            object.overSecond = object.overSecond - 1;
+            that.setData({
+              'orderObject.overSecond':overSecond//剩余支付时间
+            })
+          },1000)
+          
           that.setData({
             
             'orderObject.oriPrice':object.oriPrice,//订单总额
@@ -40,12 +49,12 @@ Page({
             'orderObject.name':object.name,//下单人
             'orderObject.phone':object.phone,//联系电话
             'orderObject.orderNo':object.orderNo,//订单编号
-            'orderObject.payType':object.payType,//支付方式
+            'orderObject.payType':object.payType,//支付方法
             'orderObject.createTime':createTime,//下单时间
-            'orderObject.overSecond':overSecond,//剩余支付时间
             'orderObject.totalCount':object.quantity,//服务数量
+            'orderObject.overSecond':overSecond,//剩余支付时间
             'orderObject.sellerPhone':object.sellerTel,//客服电话
-            'orderObject.payStrategy':object.payStrategy//
+            'orderObject.payStrategy':object.payStrategy//支付方式
           })
           if(res.data.result.type == 'YUESAO'){
             that.setData({
@@ -69,7 +78,6 @@ Page({
   },
   // 联系客服
   phoneCall:function(e){
-      
       wx.makePhoneCall({
         phoneNumber: this.data.orderObject.sellerPhone,
         success: function(res) {
@@ -80,27 +88,28 @@ Page({
   },
   // 立即支付
   payImmediately:function(){
+    var that = this;
     console.log("立即支付");
     wx.request({
       url: url + '/order/confirm',
       data: {
         orderNo:that.data.orderObject.orderNo,
         payType:that.data.orderObject.payType,
-        payStrategy:that.data.orderObject.payStrategy || 'ALL',
+        payStrategy:that.data.orderObject.payStrategy,
         price:that.data.orderObject.price
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: app.globalData.HEADER, // 设置请求的 header
       success: function(res){
         // success
-        console.log('立即支付',res);
-        if(res.data.code === '0'){
-            console.log('订单支付成功！');
-            wx.navigateTo({
-            url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=PAY',
-          })
+        console.log('支付结果',res);
+        if(res.data.code == '0'){
+          alert('支付成功！');
+        }else {
+          alert(res.data.errorMsg);
         }
       }
     })
+
   }
 })
