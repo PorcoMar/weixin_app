@@ -1,6 +1,8 @@
-<!--<view class="content">{{cont_url}}</view>-->
-<p><image src="http://appimg.yizhenjia.com/2017/01/12/819427155518820352.png" title="" alt="819427155518820352.png"/></p><p><image src="http://appimg.yizhenjia.com/2017/01/12/819431532514119680.jpeg" title="" alt="819431532514119680.jpeg"/></p>
-<p>这是p标签</p>
+<!--<view class="content"><wxParse>{{cont_url}}</wxParse></view>-->
+<!--<p><image src="http://appimg.yizhenjia.com/2017/01/12/819427155518820352.png" title="" alt="819427155518820352.png"/></p><p><image src="http://appimg.yizhenjia.com/2017/01/12/819431532514119680.jpeg" title="" alt="819431532514119680.jpeg"/></p>
+<p>这是p标签</p>-->
+
+<import src="../template/template"/> 
 <!--购买-->
 <view class="pay_content">
   <view class="pay_left">
