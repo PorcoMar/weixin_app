@@ -5,16 +5,16 @@
     加载中...
 </loading>
 <view style="width:100%;height:100%;">
-    <scroll-view class="swiper-tab" scroll-x="true" scroll-left="0" style="width:100%;">
-        <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav0">{{tab[0].name}}</view>
-        <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav1">{{tab[1].name}}</view>
-        <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav2">{{tab[2].name}}</view>
-        <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav3">{{tab[3].name}}</view>
-        <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav4">{{tab[4].name}}</view>
-        <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav5">{{tab[5].name}}</view>
-        <view class="swiper-tab-list {{currentTab==6 ? 'on' : ''}}" data-current="6" bindtap="swichNav6">{{tab[6].name}}</view>
-        <view class="swiper-tab-list {{currentTab==7 ? 'on' : ''}}" data-current="7" bindtap="swichNav7">{{tab[7].name}}</view>
-        <view class="swiper-tab-list {{currentTab==8 ? 'on' : ''}}" data-current="8" bindtap="swichNav8">{{tab[8].name}}</view>
+    <scroll-view class="swiper-tab" scroll-x="true" scroll-left="0" style="width:100%;" scroll-into-view="on">
+        <view id="{{currentTab==0 ? 'on' : ''}}" class="swiper-tab-list" data-current="0" bindtap="swichNav0">{{tab[0].name}}</view>
+        <view id="{{currentTab==1 ? 'on' : ''}}" class="swiper-tab-list" data-current="1" bindtap="swichNav1">{{tab[1].name}}</view>
+        <view id="{{currentTab==2 ? 'on' : ''}}" class="swiper-tab-list" data-current="2" bindtap="swichNav2">{{tab[2].name}}</view>
+        <view id="{{currentTab==3 ? 'on' : ''}}" class="swiper-tab-list" data-current="3" bindtap="swichNav3">{{tab[3].name}}</view>
+        <view id="{{currentTab==4 ? 'on' : ''}}" class="swiper-tab-list" data-current="4" bindtap="swichNav4">{{tab[4].name}}</view>
+        <view id="{{currentTab==5 ? 'on' : ''}}" class="swiper-tab-list" data-current="5" bindtap="swichNav5">{{tab[5].name}}</view>
+        <view id="{{currentTab==6 ? 'on' : ''}}" class="swiper-tab-list" data-current="6" bindtap="swichNav6">{{tab[6].name}}</view>
+        <view id="{{currentTab==7 ? 'on' : ''}}" class="swiper-tab-list" data-current="7" bindtap="swichNav7">{{tab[7].name}}</view>
+        <view id="{{currentTab==8 ? 'on' : ''}}" class="swiper-tab-list" data-current="8" bindtap="swichNav8">{{tab[8].name}}</view>
     </scroll-view>
  </view>
 
@@ -26,8 +26,8 @@
  <!--======================= -->
     <view class="block_f"></view>
     <swiper-item>
-        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
-                    lower-threshold="100" bindscrolltolower="scrolltolower">
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50"  
+        lower-threshold="100" bindscrolltolower="scrolltolower">
 
             <view class="hot-box-main">
                 <view wx:for="{{choiceItems0}}" wx:for-item="item" wx:for-index="i">
