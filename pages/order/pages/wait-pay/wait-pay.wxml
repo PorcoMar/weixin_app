@@ -68,6 +68,20 @@
             <text class="real">¥{{orderObject.price}}</text>
         </view>
     </view>
+    <!--支付方式-->
+    <view class="payment">
+        <view class="title">支付方式</view>
+        <view class="weixin balance" bindtap="balancePayment">
+            <image src="../../../../images/order/yuezhifu@2x.png"></image>
+            <text>余额支付</text>
+            <image src="{{weixinImg}}" class="checked" wx:if="{{balance}}"></image>
+        </view>
+        <view class="weixin" bindtap="weixinPayment">
+            <image src="../../../../images/order/weixin@2x.png"></image>
+            <text>微信支付</text>
+            <image src="{{weixinImg}}" class="checked" wx:if="{{weixin}}"></image>
+        </view>
+    </view>
     <!--联系信息-->
     <view class="infoDetail">
         <view>下 单 人：{{orderObject.name}}</view>

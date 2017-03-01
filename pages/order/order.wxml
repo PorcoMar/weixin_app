@@ -94,6 +94,7 @@
     <view class="flex-item operate" >
           <view class="orderOperate red" wx:if="{{item.status == '待付款'}}" data-status="{{item.status}}" bindtap="orderDetail" data-id='{{key}}'>立即支付</view>
           <view class="orderOperate red" wx:elif="{{item.status == '待付尾款'}}" bindtap="payBalance" data-id='{{key}}'>支付尾款</view>
+          <!--若没有客服电话，则不显示-->
           <view class="orderOperate" bindtap="phoneCall" data-id='{{key}}' wx:if='{{item.sellerTel}}'>联系客服</view>
     </view>
   </view>
