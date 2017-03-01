@@ -3,7 +3,7 @@
 <p>这是p标签</p>-->
 <view wx:if="{{hidd}}">
 <import src="../template/template"/>
-<template is="msgItem" />
+<template is="msgItem" data="{{...item}}"/>
 </view>
   <view wx:else>
       <text> 请重新加载。。</text>

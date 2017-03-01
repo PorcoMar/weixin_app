@@ -2,7 +2,13 @@ var app = getApp()
 var url = app.globalData.HOST; 
 Page( {
     data: {
-     hidd:false,
+     hidd:true,
+    item: {
+        index: 0,
+        msg: 'this is a template',
+        time: '2016-09-15',
+        contentUrl:"暂时没有内容"
+    },
       cont_url:null,
       price:0
     },
@@ -32,23 +38,19 @@ Page( {
                 var result = res.data.result
                 var shop = res.data.result.shop
                 var test0 = result.desc
-                // var test1 = test0.replace("<p","<view").replace("<\/p","<\/view").replace("<span","<text").replace("<\/span","<\/text").replace("<strong","<text").replace("<\/strong","<\/text").replace("<img","<image")
-                // var text = "<text>222222222222222222222222222222222222222222</text>"
-                // console.log(text)
-        
                 // console.log(text)
                 console.log(result.desc)
                 that.setData({
-                    cont_url:test0,
+                    contentUrl:test0,
                     price:result.price,
                 })
             }
         })
-        setTimeout( function() {
-            that.setData( {
-                hidd: true
-            })
-        },3000);
+        // setTimeout( function() {
+        //     that.setData( {
+        //         hidd: true
+        //     })
+        // },3000);
     },
 
     onShareAppMessage: function () {
