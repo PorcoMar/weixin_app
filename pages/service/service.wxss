@@ -5,7 +5,7 @@
     width:0;height:0;color:transparent;
 }
 .lat{margin-right:0}
-.on{ border-bottom: 4rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;height:78rpx;line-height:86rpx;}
+.on{ border-bottom: 8rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;height:78rpx;line-height:86rpx;}
 
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden;}
 
