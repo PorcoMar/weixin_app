@@ -1,11 +1,11 @@
 /* pages/order/pages/wait-pay/wait-pay.wxss */
 page {
     height: 100%;
+    background-color:#f5f5f5;
 }
 .section{
     padding-top: 0rpx;
     height:100%;
-    background-color:#f5f5f5;
 }
 .section>view {
     background: white;
@@ -176,5 +176,41 @@ button {
     margin-right: 20rpx;
 }
 
-
+/*支付方式*/
+.payment {
+    font-size: 28rpx;
+}
+.payment>view {
+    padding-left: 24rpx; 
+}
+.payment .title {
+    color: #8f8f8f;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #f5f5f5;   
+}
+.payment .weixin {
+    color: #4f4f4f;
+    height: 100rpx;
+    position: relative;
+    font-family: "中等";
+}
+.payment .balance {
+    border-top: 1rpx solid #f5f5f5;
+}
+.weixin image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 20rpx;
+    margin-top: 32rpx;
+}
+.weixin .checked {
+    float: right;
+}
+.weixin text{
+    position: absolute;
+    top: 33rpx;
+    left: 80rpx;
+    font-size: 28rpx;
+}
 

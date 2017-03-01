@@ -7,9 +7,9 @@ Page({
     detail:{},
     userInfo:{},
     weixinImg:'../../../../images/order/checked@3x.png',
-    weixin:true,
-    balance:false,
-    payType:'WX',
+    weixin:false,
+    balance:true,
+    payType:'MEMBER_CARD',
     serviceCount:1
   },
   onLoad:function(options){
@@ -193,19 +193,20 @@ Page({
           that.setData({
             'detail.orderNo':result.orderNo
           });
+          // 余额支付方式
           if(that.data.balance){
-            // 余额
             wx.showModal({
-                  content: "请再次确认是否使用余额支付",
-                  confirmText: "确认",
-                  cancelText: "取消",
-                  success:function(e){
-                    console.log('确认');
-                    that.setData({
-                      payType:'MEMBER_CARD'
-                    });
-                    console.log('提交订单支付',that.data);
-                    // 立即支付
+                content: "请再次确认是否使用余额支付",
+                confirmText: "确认",
+                cancelText: "取消",
+                success:function(res){
+                  that.setData({
+                    payType:'MEMBER_CARD'
+                  });
+                  console.log('提交订单支付',that.data);
+                  // 立即支付
+                  if(res.confirm){
+                    console.log('确认',res.confirm);
                     wx.request({
                       url: url + '/order/confirm',
                       data: {
@@ -231,11 +232,22 @@ Page({
                         }
                       }
                     })
+                  }else {
+                    console.log("订单未支付！");
+                    console.log('取消',res.confirm);
+                    wx.navigateTo({
+                        url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=待付款',
+                    })
                   }
-                })
+                  
+                }
+              })
             }else {
-              // 微信
+              // 微信支付方式
               console.log("weixin支付",that.data);
+              that.setData({
+                payType:'WX'
+              });
               wx.request({
                 url: url + '/order/confirm',
                 data: {
@@ -265,19 +277,22 @@ Page({
                           })
                         },
                         'fail':function(res){
+                          console.log("订单未支付");
+                          wx.navigateTo({
+                            url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=待付款',
+                          })
                         }
                       })
                       
                   }else {
                     console.log(res.data.errorMsg);
-                    wx.navigateTo({
-                      url: '../wait-pay/wait-pay?orderNo='+ that.data.detail.orderNo+'&orderStatus=待付款',
-                    })
+                    
                   }
                 }
-              })
-              
+              })             
             }
+        }else {
+          console.log(res.data.errorMsg)
         }
         
         
