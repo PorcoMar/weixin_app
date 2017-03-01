@@ -108,10 +108,10 @@ Page({
   payImmediately:function(){
     var that = this;
     var payData = {};
-    if(that.data.orderObject.payType == 'WX'){
+    if(that.data.weixin){
       payData = {
         orderNo:that.data.orderObject.orderNo,
-        payType:that.data.orderObject.payType,
+        payType:"WX",
         payStrategy:that.data.orderObject.payStrategy || "ALL",
         price:that.data.orderObject.price,
         openId:app.globalData.openid
@@ -153,7 +153,7 @@ Page({
     }else {
       payData = {
         orderNo:that.data.orderObject.orderNo,
-        payType:that.data.orderObject.payType,
+        payType:"MEMBER_CARD",
         payStrategy:that.data.orderObject.payStrategy || "ALL",
         price:that.data.orderObject.price
       };
