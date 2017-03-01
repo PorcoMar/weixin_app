@@ -1,7 +1,10 @@
 /* pages/order/pages/submit-order/submit-order.wxss */
-.section {
+page {
     background-color: #f5f5f5;
-    border-top: 1rpx solid #f5f5f5;
+}
+.section {
+    
+    border-top: 1rpx solid #dedede;
     position: relative;
 }
 .section>view{
@@ -36,8 +39,6 @@
 }
 
 /*门店服务详情*/
-.shopService {
-}
 .shopService .shop {
     height: 100rpx;
     border-bottom: 1rpx solid #f5f5f5;
@@ -208,6 +209,9 @@
 .payment {
     font-size: 28rpx;
 }
+.section .payment {
+    margin-bottom: 120rpx;
+}
 .payment>view {
     padding-left: 24rpx; 
 }
@@ -242,12 +246,20 @@
     font-size: 28rpx;
 }
 /*支付按钮*/
+#submitPay {
+    margin-bottom: 0rpx;
+}
 .submitPay {
-    height: 80rpx;
-    margin-top: 250rpx;
     color:#8f8f8f;
     line-height: 100rpx;
     margin-bottom: 0;
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    border-top:1px solid #dddddd;
+    box-sizing:border-box;
+    background:#fff;
+    z-index:901;
 }
 .submitPay .price {
     font-size: 28rpx;

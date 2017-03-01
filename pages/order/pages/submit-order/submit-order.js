@@ -23,9 +23,9 @@ Page({
         // success
         console.log(res);
         that.setData({
-            'userInfo.realName':res.data.result.realName,
-            'userInfo.phone':res.data.result.phone,
-            'userInfo.memberLevelName':res.data.result.memberLevelName
+            'userInfo.realName':res.data.result.realName || '无',
+            'userInfo.phone':res.data.result.phone || '无',
+            'userInfo.memberLevelName':res.data.result.memberLevelName || '无'
         })
       }
     })

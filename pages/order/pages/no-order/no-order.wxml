@@ -1,5 +1,0 @@
-<!--pages/order/pages/no-order/no-order.wxml-->
-<view class="section">
-    <image src="../../../../images/order/none-order@2x.png" mode="scaleToFill"></image>
-    <view>您还没有相关的订单</view>
-</view>

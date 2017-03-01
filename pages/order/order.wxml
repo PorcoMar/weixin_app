@@ -1,9 +1,14 @@
 <!--<view>这是订单页面</view>-->
-<view class="section" >
+<!--无订单页面-->
+<view class="section" wx:if="{{orderArray.length == 0}}">
+    <image src="../../../images/order/none-order@2x.png" mode="scaleToFill" class="noOrder"></image>
+    <view class="noOrderText">您还没有相关的订单</view>
+</view>
+<!--有订单页面-->
+<view class="section" wx:else>
   <!--循环创立订单列表-->
   <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}" wx:for-index ="key">
   <!--普通订单-->
- 
     <!--订单和门店详情-->
     <view class="flex-item shopList" bindtap="orderDetail" data-status="{{item.status}}" data-id="{{key}}">
         <!--门店logo-->

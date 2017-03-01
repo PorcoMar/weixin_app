@@ -3,12 +3,12 @@
     <!--会员详情-->
     <view class="member">
         <view class="on">
-            <text class="name">{{detail.memberName}}</text>
-            <text class="phone">{{detail.memberPhone}}</text>
+            <text class="name">{{userInfo.realName}}</text>
+            <text class="phone">{{userInfo.phone}}</text>
         </view>
         <view class="under">
             <text class="level">会员级别：</text>
-            <text class="memberCard">{{detail.memberLevel}}</text>
+            <text class="memberCard">{{userInfo.memberLevelName}}</text>
         </view>
     </view>
     <!--门店服务详情-->
@@ -70,7 +70,7 @@
         </view>
     </view>
     <!--支付按钮-->
-    <view class="submitPay">
+    <view class="submitPay" id="submitPay">
         <text class="price">价格：</text>
         <text class="num">¥ {{detail.orderPrice}}</text>
         <text class="btn" bindtap="confirmPayment">确认支付</text>
