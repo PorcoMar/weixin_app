@@ -29,6 +29,7 @@
   </view>
     <view class="sew_detail">查看详情</view>
     <navigator  url="../detailUrl/detailUrl?shopId={{shopId}}&serviceId={{serviceId}}">
+    <!--<navigator  url="../template/template">-->
       <a href="{{descUrl}}" class="flo_btn">{{descUrl}}</a>
     </navigator>
 </view>

@@ -2,6 +2,7 @@ var app = getApp()
 var url = app.globalData.HOST; 
 Page( {
     data: {
+     hidd:false,
       cont_url:null,
       price:0
     },
@@ -12,15 +13,11 @@ Page( {
         path: '/pages/service/detailUrl/detailUrl'
         }
     },
-    //下拉刷新
-  onPullDownRefresh: function(){
-    wx.PullDownRefresh()
-  },
     onLoad: function( options ) {
         var that = this
         var id = options.serviceId
         var shopId=options.shopId
-        console.log(id,shopId)
+        console.log(id,shopId)      
         this.setData({
             serviceId:id,
             shopId:shopId
@@ -35,11 +32,11 @@ Page( {
                 var result = res.data.result
                 var shop = res.data.result.shop
                 var test0 = result.desc
-                var test1 = test0.replace("<p","<view").replace("<\/p","<\/view").replace("<span","<text").replace("<\/span","<\/text").replace("<strong","<text").replace("<\/strong","<\/text").replace("<img","<image")
-                var text = "<text>222222222222222222222222222222222222222222</text>"
-                console.log(text)
+                // var test1 = test0.replace("<p","<view").replace("<\/p","<\/view").replace("<span","<text").replace("<\/span","<\/text").replace("<strong","<text").replace("<\/strong","<\/text").replace("<img","<image")
+                // var text = "<text>222222222222222222222222222222222222222222</text>"
+                // console.log(text)
         
-                console.log(text)
+                // console.log(text)
                 console.log(result.desc)
                 that.setData({
                     cont_url:test0,
@@ -47,6 +44,11 @@ Page( {
                 })
             }
         })
+        setTimeout( function() {
+            that.setData( {
+                hidd: true
+            })
+        },3000);
     },
 
     onShareAppMessage: function () {

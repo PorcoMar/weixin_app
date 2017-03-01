@@ -150,6 +150,7 @@ Page( {
             success: function(res) {
                 var arr1 = res.data.result;
                 var list1 = that.data.choiceItems0
+                console.log(res)//卧槽，因为看不见所以。。。。
                // console.log(res.data.result.length) //最后一次加载字段的长度
                 var lastDataLength = res.data.result.length
                 that.setData({

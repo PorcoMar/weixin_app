@@ -2,7 +2,7 @@ var app = getApp()
 var url = app.globalData.HOST; 
 Page( {
     data: {
-      cont_url:null,
+      cont_url:"XXXXXXXX",
       price:0
     },
     //分享
@@ -12,41 +12,44 @@ Page( {
         path: '/pages/service/detailUrl/detailUrl'
         }
     },
-    //下拉刷新
-  onPullDownRefresh: function(){
-    wx.PullDownRefresh()
-  },
     onLoad: function( options ) {
         var that = this
-        var id = options.serviceId
-        var shopId=options.shopId
-        console.log(id,shopId)
-        this.setData({
-            serviceId:id,
-            shopId:shopId
-        })
-        // 页面初始化 options 为页面跳转所带来的参数
-        wx.request({
-            url:url+'/service/detail',
-            method: 'GET',
-            data: {serviceId:id,shopId:shopId},
-            header:app.globalData.HEADER,
+        var id = 0
+        var shopId = 0
+        wx.getStorage({
+            key: 'shopId',
             success: function(res) {
-                var result = res.data.result
-                var shop = res.data.result.shop
-                var test0 = result.desc
-                var test1 = test0.replace("<p","<view").replace("<\/p","<\/view").replace("<span","<text").replace("<\/span","<\/text").replace("<strong","<text").replace("<\/strong","<\/text").replace("<img","<image")
-                var text = "<text>222222222222222222222222222222222222222222</text>"
-                console.log(text)
-        
-                console.log(text)
-                console.log(result.desc)
-                that.setData({
-                    cont_url:test0,
-                    price:result.price,
-                })
-            }
+                console.log(res.data)
+                shopId = res.data
+            } 
+        })        
+        wx.getStorage({
+            key: 'serviced',
+            success: function(res) {
+                console.log(res.data)
+                id = res.data
+            } 
         })
+        setTimeout(function(){
+            //console.log(id,shopId)//这里不是同步获取吗？怎么执行顺序像是异步的，通过setTimeout解决
+            // 页面初始化 options 为页面跳转所带来的参数
+            wx.request({
+                url:url+'/service/detail',
+                method: 'GET',
+                data: {serviceId:id,shopId:shopId},
+                header:app.globalData.HEADER,
+                success: function(res) {
+                    var result = res.data.result
+                    var shop = res.data.result.shop
+                    console.log(res)
+                    console.log(result.desc)
+                    that.setData({
+                        cont_url:result.desc,
+                        price:result.price,
+                    })
+                }
+            })
+        },100)  
     },
 
     onShareAppMessage: function () {
