@@ -74,8 +74,8 @@
                     <text class="saled">已售：213</text>
                 </view>
                 <view class="service-price">
-                    <text class="discountPrice">{{item.price}}</text>
-                    <text class="originalPrice">{{item.oriPrice}}</text>
+                    <text class="discountPrice">¥{{item.price}}</text>
+                    <text class="originalPrice">¥{{item.oriPrice}}</text>
                 </view>
             </view>
 
