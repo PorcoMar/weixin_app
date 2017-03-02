@@ -18,6 +18,7 @@
   </view>
 
 <!--content-->
+<view class="contentn">
 <view class="bloc"></view>
 <view class="coco_content">
   <text class="titlen">{{title_header}}</text>
@@ -45,7 +46,8 @@
     <view class="time_cocodemer">营业时间：周一至周五，{{work_time}}</view>
   </view>
   <view class="kilm">{{distance}}km</view>
-  <image class="coco_right" src="../../../images/service/www.png" bindtap="calling"></image>
+  <image class="coco_right" src="../../../images/service/www.png"></image>
+  <view class="call_point"  bindtap="calling"></view>
 </view>
 <view class="map">
   <image class="map_tu" src="../../../images/service/c.png"></image>
@@ -73,7 +75,7 @@
 </view>
 
 <view class="blockk"></view>
-
+</view>
 
 <!--购买-->
 <view class="pay_content">

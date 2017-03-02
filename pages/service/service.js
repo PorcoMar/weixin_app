@@ -92,6 +92,7 @@ Page( {
             success: function(res) {
                 console.log(res)
                 that.setData({
+                    hothidden:true,
                     choiceItems0: res.data.result       
                 })
                 setTimeout(function () {
@@ -159,7 +160,7 @@ Page( {
 
                 if( that.data.pageSize <5) {
                     that.setData( {
-                        hothidden: false //显示加载更多
+                        hothidden: false //显示没有更多
                     });
                 }else{
                     that.setData({
