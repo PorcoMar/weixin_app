@@ -3,12 +3,17 @@ var url = app.globalData.HOST;
 Page( {
     data: {
      hidd:true,
+     show:false,
+     yuesao:true,
+     confirm:true,
+     serviceType:"",
     item: {
         // index: 0,
         // msg: 'this is a template',
         // time: '2016-09-15',
         contentUrl:"暂时没有内容"
     },
+    contentUrl:"暂时没有信息额",
       cont_url:null,
       price:0
     },
@@ -42,7 +47,9 @@ Page( {
                 console.log(result.desc)
                 that.setData({
                     'item.contentUrl':test0,
+                    contentUrl:test0,
                     price:result.price,
+                    serviceType:result.serviceType
                 })
             }
         })
@@ -52,8 +59,28 @@ Page( {
         //     })
         // },3000);
     },
-
-    onShareAppMessage: function () {
+    //月嫂弹框跳转
+    pay:function(){
+        console.log(this.data.serviceType)
+        if(this.data.serviceType=="YUESAO"){
+            this.setData({
+                yuesao: true,
+                show:true
+            })
+        }else{
+            this.setData({
+                yuesao:false,
+                show:false
+            })
+        }
+    },   
+     confirm:function(){
+         console.log(1111111)
+        this.setData({
+            show:false
+        })       
+    },
+        onShareAppMessage: function () {
         return {
         title: '商品详情',
         path: '/pages/service/detailUrl/detailUrl'

@@ -7,7 +7,9 @@ Page( {
 
         winHeight: 0,   // 设备高度
         hidden: false,
-        imgUrls:null,
+        imgUrls:[
+        '../../../images/service/default_two.png'
+        ],
         show:false,
         img:null,
         url:null,
@@ -63,31 +65,49 @@ Page( {
            latitude:app.globalData.shop.lat
         })
         // 页面初始化 options 为页面跳转所带来的参数
+        var lngn = that.data.longitude;
+        var latn = that.data.latitude;
+        console.log(lngn,latn)
         wx.request({
             url:url+'/service/detail',
             method: 'GET',
-            data: {serviceId:id,shopId:shopId,lng:that.data.longitude,lat:that.data.latitude},
+            data: {serviceId:id,shopId:shopId,lng:lngn,lat:latn},
             header:app.globalData.HEADER,
             success: function(res) {
-                var result = res.data.result
-                var shop = res.data.result.shop
-                var distance = (shop.distance/1000).toFixed(1)
-                console.log(res)
-                 //console.log(serviceType)
-                that.setData({
-                 imgUrls: result.imgs,
-                  title_header:result.name,
-                  descript:result.summary,
-                  mount:result.soldCount,
-                  title_dian:shop.name,
-                  work_time:shop.businessHours,
-                  distance:distance,
-                  address_detail:shop.address,
-                  price:result.price,
-                  phoneNumber:shop.tel,
-                  serviceType:result.serviceType
-                })
-               
+            console.log(res)
+                if(res.data.code=="CM005"){//系统错误
+                    that.setData({
+                        imgUrls:[
+                        '../../../images/service/default_two.png'
+                        ]
+                    })
+                }
+                else{
+                    var result = res.data.result
+                    var shop = res.data.result.shop
+                    var distance = (shop.distance/1000).toFixed(1)
+                    that.setData({
+                        imgUrls: result.imgs,
+                      title_header:result.name,
+                      descript:result.summary,
+                      mount:result.soldCount,
+                      title_dian:shop.name,
+                      work_time:shop.businessHours,
+                      distance:distance,
+                      address_detail:shop.address,
+                      price:result.price,
+                      phoneNumber:shop.tel,
+                      serviceType:result.serviceType
+                    })
+                    if(res.data.result.imgs.length==0){
+                        that.setData({
+                            imgUrls:[
+                            '../../../images/service/default_two.png'
+                            ]
+                        })                        
+                    }
+                    
+                }
                 if(that.data.serviceType=="YUESAO"){
                     // console.log(that.data.serviceType)
                     that.setData({

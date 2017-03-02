@@ -1,20 +1,34 @@
-<!--<view class="content"><wxParse>{{cont_url}}</wxParse></view>-->
-<!--<p><image src="http://appimg.yizhenjia.com/2017/01/12/819427155518820352.png" title="" alt="819427155518820352.png"/></p><p><image src="http://appimg.yizhenjia.com/2017/01/12/819431532514119680.jpeg" title="" alt="819431532514119680.jpeg"/></p>
-<p>这是p标签</p>-->
+
 <view wx:if="{{hidd}}">
-<import src="../template/template"/>
-<template is="msgItem" data="{{...item}}"/>
+<!--<import src="../template/template"/>
+<template is="msgItem" data="{{...item}}"/>-->
+    <text>{{contentUrl}}</text>
 </view>
   <view wx:else>
       <text> 请重新加载。。</text>
   </view>
+
 <!--购买-->
 <view class="pay_content">
   <view class="pay_left">
     <text class="txt1">¥</text>
     <text class="txt2">{{price}}</text>
   </view>
-    <navigator  url="../../order/pages/submit-order/submit-order?shopId={{shopId}}&serviceId={{serviceId}}">
-    <view class="pay_complay" bindtap="pay">立即购买</view>
-    </navigator>
+<view wx:if="{{yuesao}}">
+  <view class="pay_complay" bindtap="pay">立即购买</view>
+  <!--弹框-->
+  <view class="zhezhao" wx:if="{{show}}"></view>
+  <view class="floatn" wx:if="{{show}}">
+    <text class="p">如需购买服务，须前往亦蓁家APP上购买。</text>
+    <view class="line"></view>
+    <text class="confirm">确定</text>
+    <view class="flo2" wx:if="{{confirm}}" bindtap="confirm"></view>
+  </view>   
+</view>
+<view wx:else>
+    <!--<navigator  url="../../order/pages/submit-order/submit-order?shopId={{shopId}}&serviceId={{serviceId}}">-->
+      <view class="pay_complay" bindtap="pay">立即购买</view>
+    <!--</navigator>-->
+</view>
+
 </view>
