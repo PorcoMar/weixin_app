@@ -141,20 +141,32 @@ page{
     align-items: center;
 }
 .service-item .service-type .shop{
+    
+    width:112rpx;
+    height:40rpx;
     font-size:22rpx;
     color:#78a4ff;
-    padding:10rpx;
     border:1px solid #78a4ff;
     border-radius: 6rpx;
     margin-right:20rpx;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 .service-item .service-type .door{
+    width:110rpx;
+    height:40rpx;
+
     font-size:22rpx;
     color:#fcb95a;
-    padding:10rpx;
     border:1px solid #fcb95a;
     border-radius: 6rpx;
     margin-right:2rpx;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 .service-item .service-type .saled{
     font-size:24rpx;
