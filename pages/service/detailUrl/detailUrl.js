@@ -4,9 +4,9 @@ Page( {
     data: {
      hidd:true,
     item: {
-        index: 0,
-        msg: 'this is a template',
-        time: '2016-09-15',
+        // index: 0,
+        // msg: 'this is a template',
+        // time: '2016-09-15',
         contentUrl:"暂时没有内容"
     },
       cont_url:null,
@@ -41,7 +41,7 @@ Page( {
                 // console.log(text)
                 console.log(result.desc)
                 that.setData({
-                    contentUrl:test0,
+                    'item.contentUrl':test0,
                     price:result.price,
                 })
             }

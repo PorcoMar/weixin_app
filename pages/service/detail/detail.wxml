@@ -18,6 +18,7 @@
   </view>
 
 <!--content-->
+<view class="contentn">
 <view class="bloc"></view>
 <view class="coco_content">
   <text class="titlen">{{title_header}}</text>
@@ -74,7 +75,7 @@
 </view>
 
 <view class="blockk"></view>
-
+</view>
 
 <!--购买-->
 <view class="pay_content">
