@@ -122,7 +122,8 @@ page {
     border:1rpx solid #8f8f8f;
     border-radius: 8rpx;
     margin-top: 24rpx;
-    padding: 12rpx;
+    /*padding: 12rpx;*/
+    padding: 2%;
 }
 .message .note {
     font-size: 30rpx;
