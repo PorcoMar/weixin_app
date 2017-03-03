@@ -42,20 +42,35 @@ Page({
         success: function(res){
           // success
           console.log("全部订单分页列表",res);
-          var arr = res.data.result;
-          // if(arr.length != 0){
+          if(res.data.code == 0){
+            var arr = res.data.result;
+            // if(arr.length != 0){
             arr.map(function(item,index,array){
               item["createdTime"] = app.formateTime(item["createdTime"]);
               item["status"] = app.formateStatus(item["status"]);
               if(item['orderItem'] != null){
-              item["orderItem"].map(function(item,index,array){
-                item['status'] = app.formateServiceStatus(item['status']);
-              })
+                item["orderItem"].map(function(item,index,array){
+                  item['status'] = app.formateServiceStatus(item['status']);
+                })
+              }
+              if(!item['shopLogo']){
+                item["shopLogo"] = '../../images/order/logo.jpg';
               }
             })   
-          that.setData({
-            orderArray:arr,
-          });
+            that.setData({
+              orderArray:arr,
+            });
+          }else {
+            console.log(res.data.errorMsg);
+            // that.setData({
+            //   orderArray:[],
+            // });
+            wx.showToast({
+              title: res.data.errorMsg,
+              duration: 2000
+            })
+          }
+          
           console.log(that.data.orderArray);
         }
       });
