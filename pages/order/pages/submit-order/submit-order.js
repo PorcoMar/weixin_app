@@ -30,9 +30,7 @@ Page({
       }
     })
     console.log('用户信息',that.data.userInfo);
-    // var memberName = that.data.userInfo.realName;//会员姓名
-    // var memberPhone = that.data.userInfo.phone;//会员电话
-    // var memberLevelName = that.data.userInfo.memberLevelName;//会员等级
+  
     // 页面初始化 options为页面跳转所带来的参数
     // console.log(options);
     var shopId = options.shopId;
@@ -214,14 +212,13 @@ Page({
                         payType:that.data.payType,
                         payStrategy:that.data.detail.payStrategy || 'ALL',
                         price:that.data.detail.orderPrice
-                        
                       },
                       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
                       header: app.globalData.HEADER, // 设置请求的 header
                       success: function(res){
                         // success
                         console.log('立即支付',res);
-                        console.log(that.data.detail.orderNo,that.data.payType,that.data.detail.payStrategy,that.data.detail.orderPrice)
+                      
                         if(res.data.code === '0'){
                           console.log('订单支付成功！');
                           wx.navigateTo({
@@ -229,6 +226,10 @@ Page({
                           })
                         }else {
                           console.log(res.data.errorMsg);
+                          wx.showToast({
+                            title: res.data.errorMsg,
+                            duration: 2000
+                          })
                         }
                       }
                     })
