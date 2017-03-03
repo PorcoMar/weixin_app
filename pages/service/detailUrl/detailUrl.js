@@ -57,57 +57,42 @@ Page( {
                     serviceType:result.serviceType
                 })
 
-        //替换标签中特殊字符
-        var infoFlg = "<!--SPINFO#0-->";
-        var imgFlg = "<!--IMG#";
-        var content = test0;
-        console.log(content)
-         //替换标签中特殊字符
-        var infoFlg = "<!--SPINFO#0-->";
-        if (content.indexOf(infoFlg) > 0) {
-         content = content.replace(/<!--SPINFO#0-->/, "");
-         console.log(11111111,content)
-        }
-         console.log(2222222222,infoFlg)
+                //替换标签中特殊字符
+                var infoFlg = "<!--SPINFO#0-->";
+                var imgFlg = "<!--IMG#";
+                var content = test0;
+                console.log(content)
+                //替换标签中特殊字符
+                var infoFlg = "<!--SPINFO#0-->";
+                if (content.indexOf(infoFlg) > 0) {
+                content = content.replace(/<!--SPINFO#0-->/, "");
+                // console.log(11111111,content)
+                }
+                // console.log(2222222222,infoFlg)
 
-        var imgFlg = "<!--IMG#";
-         console.log(3333333,imgFlg)
-        //图片数量
-        var imgCount = (content.split(imgFlg)).length-1; 
-         console.log(444444,imgCount)
-        if (imgCount > 0) {
-          console.log("有dd" + imgCount + "张图片");  
-         console.log(5555555)
-          for (var i = 0; i < imgCount; i++) {
-            var imgStr = "<!--IMG#" + i + "-->";
-            var imgSrc = "\"" + imgInfoArr[i].src + "\""; 
-            var imgHTML = "<div> <img style=\"width:100%\" src=" +imgSrc+ "> </div>";
-            content = content.replace(imgStr, imgHTML);
-         console.log(666666666)
-          }
-        }
-         console.log(7777777)
-        var article = content;
-         console.log(88888888888,article)
-        WxParse.wxParse('article','html',article,that,imgCount);
-         console.log(99999999)
-
-
-
-
-
-
-
-
-
-
+                var imgFlg = "<!--IMG#";
+                // console.log(3333333,imgFlg)
+                //图片数量
+                var imgCount = (content.split(imgFlg)).length-1; 
+                // console.log(444444,imgCount)
+                if (imgCount > 0) {
+                console.log("有dd" + imgCount + "张图片");  
+                // console.log(5555555)
+                for (var i = 0; i < imgCount; i++) {
+                    var imgStr = "<!--IMG#" + i + "-->";
+                    var imgSrc = "\"" + imgInfoArr[i].src + "\""; 
+                    var imgHTML = "<div> <img style=\"width:100%\" src=" +imgSrc+ "> </div>";
+                    content = content.replace(imgStr, imgHTML);
+                //console.log(666666666)
+                }
+                }
+                // console.log(7777777)
+                var article = content;
+                //console.log(88888888888,article)
+                WxParse.wxParse('article','html',article,that,imgCount);
+         //console.log(99999999)
             }
         })
-        // setTimeout( function() {
-        //     that.setData( {
-        //         hidd: true
-        //     })
-        // },3000);
     },
     //月嫂弹框跳转
     pay:function(){
