@@ -1,7 +1,0 @@
-<template name="msgItem" >
-  <view>
-    <!--<text> index:{{index}}<br/> msg:{{msg}} </text>
-    <text> Time: {{time}} </text>-->
-    <text>{{contentUrl}}</text>
-  </view>
-  </template>
