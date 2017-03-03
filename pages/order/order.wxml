@@ -105,6 +105,6 @@
     </view>
   </view>
 </view>
-<!--<view class="footer" bindtap='scrolltolower'>
-  <text>加载更多...</text>
-</view>-->
+<view class="footer">
+  <text>{{footer}}</text>
+</view>

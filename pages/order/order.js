@@ -2,7 +2,9 @@ var app = getApp();
 var url = app.globalData.HOST;
 
 Page({
-  data:{},
+  data:{
+    footer:""
+  },
   // 订单跳转到订单详情
   orderDetail:function(e){
     // 获取当前下标的id
@@ -81,15 +83,6 @@ Page({
         if(res.statusCode == 401){
           wx.navigateTo({
             url: '../personal/bindPhone/bindPhone',
-            success: function(res){
-              // success
-            },
-            fail: function() {
-              // fail
-            },
-            complete: function() {
-              // complete
-            }
           })
         }else {
           if(res.data.code == "0"){
@@ -161,47 +154,62 @@ Page({
   },
   
   // 底部加载更多
-  onReachBottom: function( e ) {
-    console.log('加载更多');
-    var that = this;
-        var pageNo = that.data.pageNo+1;
-        // var cat=that.data.cat
-        var pageSize = that.data.pageSize;
-        wx.request({
-          url: url+'/order/query',
-          data: {
-            pageNo:pageNo,
-            pageSize:pageSize
-          },
-          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-          header: app.globalData.HEADER, // 设置请求的 header
-          success: function(res){
-            // success
-            console.log("全部订单分页列表",res.data);
-            var arr = that.data.orderArray;
-            if(res.data.code == "0"){
-              console.log("获取订单列表成功！")
-    //        console.log(orderArray);
-              var list = res.data.result;
-              list.map(function(item,index,array){
-                item["createdTime"] = app.formateTime(item["createdTime"]);
-                item["status"] = app.formateStatus(item["status"]);
-                if(item['orderItem'] != null){
-                item["orderItem"].map(function(item,index,array){
-                  item['status'] = app.formateServiceStatus(item['status']);
-                })
-                }
-                // console.log(item["createdTime"]);
-              })
-              
-              that.setData({
-                orderArray:arr.concat(list),
-              });
+  onReachBottom: function( e ) {   
+        var that = this;
+        if(that.data.orderArray.length == (that.data.pageNo*10)){
+          console.log('加载更多');
+          var pageNo = that.data.pageNo+1;
+          // var cat=that.data.cat
+          var pageSize = that.data.pageSize;
+          console.log("pageNo:",pageNo,"pageSize",pageSize);
 
+          wx.request({
+            url: url+'/order/query',
+            data: {
+              pageNo:pageNo,
+              pageSize:pageSize
+            },
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: app.globalData.HEADER, // 设置请求的 header
+            success: function(res){
+              // success
+              that.setData({
+                pageNo:pageNo,
+                pageSize:pageSize
+              });
+              console.log("全部订单分页列表",res.data);
+              var arr = that.data.orderArray;
+              if(res.data.code == "0"){
+                console.log("获取订单列表成功！")
+      //        console.log(orderArray);
+                var list = res.data.result;
+                list.map(function(item,index,array){
+                  item["createdTime"] = app.formateTime(item["createdTime"]);
+                  item["status"] = app.formateStatus(item["status"]);
+                  if(item['orderItem'] != null){
+                  item["orderItem"].map(function(item,index,array){
+                    item['status'] = app.formateServiceStatus(item['status']);
+                  })
+                  }
+                })
+                
+                that.setData({
+                  orderArray:arr.concat(list),
+                });
+
+              }
+              // console.log(that.data.orderArray);
             }
-            console.log(that.data.orderArray);
-          }
-        });
+          });
+        }else {
+          console.log("已经到底了！");
+          that.setData({
+            footer:"已经到底了"
+          })
+        }
+
+        
+        
         
     }
 })
