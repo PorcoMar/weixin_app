@@ -22,7 +22,7 @@ Page({
         console.log("----get shopList successed----");
         if(res.data.code == "0"){
             var shopList = res.data.result;
-
+            console.log(shopList);
             for(var i = 0; i < shopList.length; i ++){
               if(shopId == shopList[i].id){
                 shopList[i].selected = true;

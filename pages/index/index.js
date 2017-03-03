@@ -8,15 +8,7 @@ Page({
     shop:null
   },
   onLoad: function () {
-
     console.log("-----index onLoad----");
-    var str = "123456";
-    // var num = parseFloat(str);
-    // var num1 = num/1000;
-    //var num2 = num1.toFixed(1);
-  
-    var num2 = str.substring(0,2);
-    console.log(num2);
     //判断全局变量中location值是否为空
     var that = this;
     if(!app.globalData.location){
@@ -38,6 +30,7 @@ Page({
              success: function(res){
                console.log(res.data);
                 if(res.data.code == "0"){
+                     res.data.result.distance = (res.data.result.distance/1000).toFixed(1) || 0;
                      app.globalData.shop = res.data.result;
                      app.globalData.location = location;
                      that.setData({shop:app.globalData.shop});
@@ -51,16 +44,24 @@ Page({
     }
   },
   onShow:function(){
-    var shopId = getApp().globalData.shopId;
     var that = this;
+    var shopId = getApp().globalData.shopId;
     if(shopId){
+      var lat = getApp().globalData.location.lat;
+      var lng = getApp().globalData.location.lng;
       wx.request({
         url:HOST + "/shop/detail",
         method:"POST",
         header:getApp().globalData.HEADER,
-        data:{shopId:shopId},
+        data:{
+          shopId:shopId,
+          lat:lat,
+          lng:lng
+          },
         success:function(res){
           if(res.data["code"] == "0"){
+            console.log(res.data);
+            res.data.result.distance = res.data.result.distance ?(res.data.result.distance/1000).toFixed(1) : 0;
             that.setData({shop:res.data.result});
             getApp().globalData.shop = res.data.result;
           }

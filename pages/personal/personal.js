@@ -15,22 +15,34 @@ Page({
   onShow: function () {
     // 页面显示
     var that = this;
-    this.setData({ wxInfo: app.globalData.wxInfo});
-    if(app.globalData.HEADER.uid){
-      console.log("存在uid");
-      //获取用户信息
-      wx.request({
-        url: HOST + "/user/info",
-        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        header: app.globalData.HEADER, // 设置请求的 header
-        success: function(res){
-          if(res.data.code == "0"){
-            console.log(res.data.result);
-            that.setData({userInfo:res.data.result});
-          }   
-        }
-      })
+    if(app.globalData.wxInfo){
+      this.setData({ wxInfo: app.globalData.wxInfo});
+      if(app.globalData.HEADER.uid){
+        //获取用户信息
+        wx.request({
+          url: HOST + "/user/info",
+          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+          header: app.globalData.HEADER, // 设置请求的 header
+          success: function(res){
+            if(res.data.code == "0"){
+              console.log(res.data.result);
+              that.setData({userInfo:res.data.result});
+            }   
+          }
+        })
+      };
+    }else{
+        // wx.showToast({
+        //   title:"请删除小程序后重新进入，使用微信授权登录",
+        //   duration:3000
+        // });
+        wx.showModal({
+          title: '提示',
+          content: '请删除小程序后重新进入，使用微信授权登录',
+          showCancel:false
+        });
     }
+    
   },
   onHide: function () {
     // 页面隐藏
@@ -75,9 +87,9 @@ Page({
     var that = this;
     wx.login({
       success: function (res) {
-        console.log("---登录成功----");
         wx.getUserInfo({
           success: function (res) {
+            console.log("-----------login success------------");
             console.log(res);
             var wxInfo = JSON.parse(res.rawData);
             app.globalData.wxInfo = wxInfo;
@@ -93,6 +105,11 @@ Page({
           },
           fail:function(){
             console.log("------login fail-------");
+            wx.showModal({
+              title: '提示',
+              content: '请删除小程序后重新进入，使用微信授权登录',
+              showCancel:false
+            });
           }
         })
       }

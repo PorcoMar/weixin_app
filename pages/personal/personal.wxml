@@ -17,9 +17,9 @@
                 </view>
             </view>
             
-            <view class="user-login" wx:if="{{!wxInfo}}">
+            <!--<view class="user-login" wx:if="{{!wxInfo}}">
                 <text bindtap="login">登录</text>
-            </view>
+            </view>-->
         </view>
         <view class="user-consume">
             <view class="user-consume-item">

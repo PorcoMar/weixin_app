@@ -16,6 +16,7 @@
     <view class="shop-photo">
         <image src="{{shop.imgs[0]}}"></image>
     </view>
+    
     <!--门店图片展示结束-->
 
     <!--门店详情开始-->
@@ -27,6 +28,8 @@
         <view class="section" bindtap="getLocation">
             <image class="left-icon" src="../../images/homePage/address@2x.png" ></image>
             <text class="shop-info-text">{{shop.address}}</text>
+
+            <text class="shop-info-distance" wx:if="{{shop.distance}}">{{shop.distance}}km</text>
             <view class="right-arrow">
                 <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
             </view>
@@ -69,9 +72,9 @@
                     <text>{{item.name}}</text>
                 </view>
                 <view class="service-type">
-                    <text class="shop" wx:if="{{item.type == 'SHOP'}}">到店服务</text>
-                    <text class="door" wx:if="{{item.type == 'DOOR'}}">到家服务</text>
-                    <text class="saled">已售：213</text>
+                    <text class="shop" wx:if="{{item.type == 'SHOP'  || item.type == 'ALL'}}">到店服务</text>
+                    <text class="door" wx:if="{{item.type == 'DOOR' || item.type == 'ALL'}}">到家服务</text>
+                    <text class="saled">已售：{{item.frequency}}</text>
                 </view>
                 <view class="service-price">
                     <text class="discountPrice">¥{{item.price}}</text>

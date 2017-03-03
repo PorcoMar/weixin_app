@@ -2,13 +2,13 @@
 <view class="container">
     <view class="shop-list">
         <view class="shop-item" bindtap="selected" wx:for="{{shopList}}" data-id="{{index}}">
-            <image src="{{item.logo}}"></image>
+            <image src="{{item.imgs[0]}}"></image>
             <view class="shop-detail">
                 <view class="shop-name">
                     <text>{{item.name}}</text>
                 </view>
                 <view class="shop-address">
-                     <text>{{item.address}}</text>
+                     <text class="shop-address-info">{{item.address}}</text>
                      <text class="shop-distance">{{item.distance/1000}}km</text>
                 </view>
             </view>

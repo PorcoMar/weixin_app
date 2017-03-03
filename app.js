@@ -1,6 +1,32 @@
 //app.js
 App({
   onLaunch: function () {
+    console.log("---------onLanch------------");
+    //获取用户微信信息
+    var that = this;
+    wx.login({
+      success: function (res) {
+        console.log("---登录成功----");
+        wx.getUserInfo({
+          success: function (res) {
+            console.log(res);
+            var wxInfo = JSON.parse(res.rawData);
+            getApp().globalData.wxInfo = wxInfo;
+            wx.setStorage({
+              key: 'wxInfo',
+              data: wxInfo,
+              success: function(res){
+                // success
+                console.log("-----setStorage successed------")
+              }
+            })
+          },
+          fail:function(){
+            console.log("------login fail-------");
+          }
+        })
+      }
+    });
     //获取用户微信缓存信息
     wx.getStorage({
       key: 'wxInfo',
