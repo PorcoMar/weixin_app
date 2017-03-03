@@ -286,14 +286,20 @@ Page({
                       })
                       
                   }else {
-                    console.log(res.data.errorMsg);
+                    wx.showToast({
+                      title: res.data.errorMsg,
+                      duration: 2000
+                    })
                     
                   }
                 }
               })             
             }
         }else {
-          console.log(res.data.errorMsg)
+          wx.showToast({
+            title: res.data.errorMsg,
+            duration: 2000
+          })
         }
         
         
