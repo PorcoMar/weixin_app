@@ -12,6 +12,7 @@ Page( {
         ],
         show:false,
         img:null,
+        imgn:true,
         url:null,
         pay:null,
         confirm:true,
@@ -97,13 +98,18 @@ Page( {
                       address_detail:shop.address,
                       price:result.price,
                       phoneNumber:shop.tel,
+                      hasWifi:shop.hasWifi,
+                      hasPark:shop.hasPark,
+                      hasPayCard:shop.hasPayCard,
+                      hasTea:shop.hasTea,
                       serviceType:result.serviceType
                     })
                     if(res.data.result.imgs.length==0){
                         that.setData({
                             imgUrls:[
                             '../../../images/service/default_two.png'
-                            ]
+                            ],
+                            imgn:false
                         })                        
                     }
                     

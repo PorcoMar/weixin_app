@@ -26,7 +26,6 @@ Page( {
 
         // loading
         hidden: true,
-        loadingHidden:false,
         indicatorDots: false,    // 是否显示面板指示点
         autoplay: false,    // 是否自动切换
         interval: 5000,     // 自动切换时间间隔
@@ -103,12 +102,6 @@ Page( {
                     hothidden:true,
                     choiceItems0: res.data.result       
                 })
-                
-                setTimeout(function () {
-                    that.setData({
-                        loadingHidden: true
-                    })
-                }, 1500)
             }
         })
 
@@ -160,7 +153,7 @@ Page( {
             success: function(res) {
                 var arr1 = res.data.result;
                 var list1 = that.data.choiceItems0
-                console.log(res)//卧槽，因为看不见所以。。。。
+                console.log(res.data)//卧槽，因为看不见所以。。。。
                // console.log(res.data.result.length) //最后一次加载字段的长度
                 var lastDataLength = res.data.result.length
                 that.setData({
@@ -177,12 +170,6 @@ Page( {
                         pageNo:that.data.pageNo+1
                     })
                 } 
-                setTimeout(function () {
-                    that.setData({
-                        loadingHidden: true
-                    })
-                //console.log(that.data.choiceItems0)
-                }, 3500)
             }
         })
     },
@@ -208,6 +195,7 @@ Page( {
             hothidden8:true,
          });
         var catId = e.detail.current+1 //0/1/2...8
+        console.log(catId)
          wx.request({
             url: url+'/service/list',
             method: 'GET',

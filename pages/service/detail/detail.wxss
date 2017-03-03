@@ -3,7 +3,7 @@
 .slide-image{width:100%;height:400rpx;}
 .swp{width:100%;height:400rpx;}
 
-.contentn{width:100%;height:100%;background:#fff ;}
+.contentn{width:100%;height:23rem;background:#fff;}
 .bloc{width:100%;height:24rpx;}
 .coco_content{width:702rpx;margin-left:25rpx;position:relative;overflow:hidden;background:#fff;}
 .titlen{height:34rpx;line-height:34rpx;font-size:34rpx;font-family:PingFang;color:#333333;margin-bottom:14rpx;display:block;font-weight: bold}
