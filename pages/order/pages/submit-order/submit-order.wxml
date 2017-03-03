@@ -71,6 +71,8 @@
         </view>
     </view>
     <!--支付按钮-->
+    <view class="paddingBottom"></view>
+    <!--支付按钮-->
     <view class="submitPay" id="submitPay">
         <text class="price">价格：</text>
         <text class="num">¥ {{detail.orderPrice}}</text>
