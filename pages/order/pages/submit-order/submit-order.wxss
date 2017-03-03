@@ -206,7 +206,7 @@ page {
     font-size: 28rpx;
 }
 .section .payment {
-    margin-bottom: 120rpx;
+    /*margin-bottom: 120rpx;*/
 }
 .payment>view {
     padding-left: 24rpx; 
@@ -240,6 +240,13 @@ page {
     top: 33rpx;
     left: 80rpx;
     font-size: 28rpx;
+}
+/*支付按钮*/
+.paddingBottom {
+    width: 100%;
+    height: 78rpx;
+    background: #f5f5f5;
+    
 }
 /*支付按钮*/
 #submitPay {
