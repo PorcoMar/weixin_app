@@ -118,12 +118,10 @@ page {
 }
 .message textarea {
     width: 678rpx;
-    height: 94rpx;
+    height: 120rpx;
     border:1rpx solid #8f8f8f;
     border-radius: 8rpx;
     margin-top: 24rpx;
-    /*padding: 12rpx;*/
-    padding: 2%;
 }
 .message .note {
     font-size: 30rpx;
@@ -132,9 +130,6 @@ page {
 }
 
 /*订单明细*/
-.orderDetails {
-
-}
 .orderDetails>view {
     padding-left: 24rpx;
     height: 100rpx;

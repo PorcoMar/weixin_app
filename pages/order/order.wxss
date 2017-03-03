@@ -13,6 +13,7 @@ page {
     position: absolute;
     top: 260rpx;
     left:240rpx;
+    z-index: 902;
 }
 
 .section .noOrderText {
