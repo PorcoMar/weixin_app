@@ -25,64 +25,44 @@ Page({
     that.setData({
       pageNo:1,
       pageSize:10
-    })
-    wx.request({
-      url: url+'/order/query',
-      data: {
-        pageNo:1,
-        pageSize:10
-      },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: app.globalData.HEADER, // 设置请求的 header
-      success: function(res){
-        // success
-        console.log("全部订单分页列表",res);
-        if(res.statusCode == 401){
-          wx.navigateTo({
-            url: '../personal/bindPhone/bindPhone',
-            success: function(res){
-              // success
-            },
-            fail: function() {
-              // fail
-            },
-            complete: function() {
-              // complete
-            }
-          })
-        }else {
-          if(res.data.code == "0"){
-            console.log("获取订单列表成功！")
-  //        console.log(orderArray);
-            var arr = res.data.result;
-            // if(arr.length != 0){
-              arr.map(function(item,index,array){
-                item["createdTime"] = app.formateTime(item["createdTime"]);
-                item["status"] = app.formateStatus(item["status"]);
-                if(item['orderItem'] != null){
-                item["orderItem"].map(function(item,index,array){
-                  item['status'] = app.formateServiceStatus(item['status']);
-                })
-                }
-                // console.log(item["createdTime"]);
-              })
-            // }else {
-              // arr = false;
-            // }         
-            that.setData({
-              orderArray:arr,
-            });
-          }else{
-            console.log(res.data.errorMsg);
-          }
-        }
-        
-        console.log(that.data.orderArray);
-      },
-      fail: function(res){
-        
-      }
     });
+    var token = app.globalData.HEADER.token;
+    var uid = app.globalData.HEADER.uid;
+    if(token && uid){
+      wx.request({
+        url: url+'/order/query',
+        data: {
+          pageNo:1,
+          pageSize:10
+        },
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: app.globalData.HEADER, // 设置请求的 header
+        success: function(res){
+          // success
+          console.log("全部订单分页列表",res);
+          var arr = res.data.result;
+          // if(arr.length != 0){
+            arr.map(function(item,index,array){
+              item["createdTime"] = app.formateTime(item["createdTime"]);
+              item["status"] = app.formateStatus(item["status"]);
+              if(item['orderItem'] != null){
+              item["orderItem"].map(function(item,index,array){
+                item['status'] = app.formateServiceStatus(item['status']);
+              })
+              }
+            })   
+          that.setData({
+            orderArray:arr,
+          });
+          console.log(that.data.orderArray);
+        }
+      });
+    }else {
+      wx.navigateTo({
+        url: '../personal/bindPhone/bindPhone',
+      })
+    }
+    
   },
   onPullDownRefresh:function(){
     // console.log("下拉刷新");

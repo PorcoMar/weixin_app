@@ -145,7 +145,34 @@ Page( {
             this.setData({
                 yuesao:false,
                 show:false
-            })
+            });
+            console.log("头部",app.globalData.HEADER);
+            var token = app.globalData.HEADER.token;
+            var uid = app.globalData.HEADER.uid;
+            if(token && uid){
+                wx.navigateTo({
+                  url: '../../order/pages/submit-order/submit-order?shopId='+this.data.shopId+'&serviceId='+this.data.serviceId,
+                })
+            }else {
+                console.log("请先绑定手机号！");
+                wx.showModal({
+                    content: "您还没有绑定手机号，请绑定手机号才能购买买！",
+                    confirmText: "确定",
+                    cancelText: "取消",
+                    success:function(res){
+                    // 确认
+                    if(res.confirm){
+                        wx.navigateTo({
+                            url: '../../personal/bindPhone/bindPhone',
+                        })
+                    }else{
+                        // 取消
+                        console.log("手机号未绑定！")
+                    }
+                    }
+                })
+            }
+            
         }
     },
     confirm:function(){

@@ -95,9 +95,9 @@
   </view>   
 </view>
 <view wx:else>
-    <navigator  url="../../order/pages/submit-order/submit-order?shopId={{shopId}}&serviceId={{serviceId}}">
+    <!--<navigator  url="../../order/pages/submit-order/submit-order?shopId={{shopId}}&serviceId={{serviceId}}">-->
       <view class="pay_complay" bindtap="pay">立即购买</view>
-    </navigator>
+    <!--</navigator>-->
 </view>
 
 </view>
