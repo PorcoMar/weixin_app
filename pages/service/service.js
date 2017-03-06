@@ -92,14 +92,6 @@ Page( {
             header: app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
-                // console.log(res.data.result[0].icon)
-                // console.log(res.data.result[2].icon)
-                // if(res.data.result[2].icon==""){
-                //     console.log(11111)
-                //     that.setData({
-                //        "res.data.result[2].icon":"http://appimg.yizhenjia.com//2017/02/15/En0Y5MNK6JpalTKUuBZECRIX.jpg" 
-                //     })
-                // }
                 that.setData({
                     hothidden:true,
                     choiceItems0: res.data.result       
