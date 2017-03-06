@@ -7,6 +7,7 @@
                 <view class="user-detail">
                     <view class="user-name">
                         <text>{{wxInfo.nickName}}</text>
+                        <text>{{userInfo.phone}}</text>
                     </view>
                     <view class="user-card">
                         <text wx:if="{{!userInfo.memberLevelName}}">非会员</text>
@@ -15,11 +16,13 @@
                 </view>
             </view>
             <view class="tiaoxing">
-                <image src="../../../images/personal/tiaoxing.png"></image>
+                <!--<image src="../../../images/personal/tiaoxing.png"></image>-->
+                <image src="{{'http://118.178.243.113:8001/barcode?text=' + userInfo.phone}}"></image>
             </view>
         </view>
         <view class="bottom">
-            <image class="two-bar-code" src="../../../images/personal/erwei@2x.png"></image>
+            <image class="two-bar-code" src="{{'http://118.178.243.113:8001/qrcode?text=' + userInfo.phone}}"></image>
+            <!--<image class="two-bar-code" src="../../../images/personal/erwei@2x.png"></image>-->
         </view>
     </view>
 </view>
