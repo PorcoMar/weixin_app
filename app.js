@@ -55,14 +55,6 @@ App({
         var url = "https://api.weixin.qq.com/sns/jscode2session?appid=wxdc72e9a87f72ca15&secret=551d3747abcbbf9a692453fa18bed146&js_code=" + res.code + "&grant_type=authorization_code";
         console.log(url);
         if(res.code){
-          wx.checkSession({
-            success:function(){
-              console.log("登录未过期")
-            },
-            fail:function(){
-              console.log("登录已过期")
-            }
-          })
           wx.request({
             url:url,
             method:"GET",
