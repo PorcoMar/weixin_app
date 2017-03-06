@@ -132,14 +132,15 @@ Page({
                 'paySign': res.data.result.paySign,
                 'success':function(res){
                   console.log('订单支付成功！');
-                  wx.navigateTo({
-                    url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo + '&orderStatus=已付款',
+                  wx.switchTab({
+                    url: '/pages/order/order',
                   })
                 },
                 'fail':function(res){
                   console.log("支付失败！");
-                  wx.navigateTo({
-                    url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo + '&orderStatus=待付款',
+                  wx.showToast({
+                    title: res.errorMag,
+                    duration: 2000
                   })
                 }
               })           
@@ -176,9 +177,9 @@ Page({
                 console.log('立即支付',res);
                 if(res.data.code === '0'){
                   console.log('订单支付成功！');
-                  wx.navigateTo({
-                    url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo+'&orderStatus=已付款',
-                  })
+                     wx.switchTab({
+                      url: '/pages/order/order',
+                     })
                 }else {
                   console.log(res.data.errorMsg);
                   wx.showToast({
@@ -191,9 +192,10 @@ Page({
           }else{
             // 取消
             console.log("订单未支付！")
-             wx.navigateTo({
-                url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo+'&orderStatus=待付款',
-             })
+            wx.showToast({
+              title: "订单未支付",
+              duration: 2000
+            })
           }
         }
       })  
