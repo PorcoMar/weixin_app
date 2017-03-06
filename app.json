@@ -20,7 +20,7 @@
     "pages/personal/userInfo/userInfo"
   ],
   "window":{
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "商户名称",
