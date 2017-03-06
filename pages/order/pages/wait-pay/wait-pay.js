@@ -123,7 +123,7 @@ Page({
         header: app.globalData.HEADER, // 设置请求的 header
         success: function(res){
           // success
-          console.log('立即支付',res);
+          console.log('立即支付',res,payData);
           if(res.data.code === '0'){
               console.log('openId请求成功！');
               wx.requestPayment({
@@ -146,6 +146,7 @@ Page({
                 }
               })           
           }else {
+            console.log('支付失败',res,payData);
             wx.showToast({
               title: res.data.errorMsg,
               duration: 2000

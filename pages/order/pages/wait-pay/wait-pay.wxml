@@ -98,12 +98,12 @@
     <view class="paddingBottom" wx:if="{{orderStatus === '待付款'}}"></view>
     <!--订单编号-->
     <view class="orderDetail" wx:if="{{orderStatus === '待付款'}}">
-        <button plain="" class="cancel" bindtap='phoneCall'>联系客服</button>
+        <button plain="" class="cancel" bindtap='phoneCall' style="position:absolute;left:20rpx;">联系客服</button>
         <button class="immediate" bindtap="payImmediately">立即支付(还剩{{orderObject.overSecond}})</button>
     </view>
     <view class="orderDetail" style="background:#f5f5f5;" wx:elif="{{orderStatus === '已付款'}}">
         <view style="width:100%;height:120rpx;background:white;">
-         <button plain="" class="cancel"  bindtap='phoneCall'>联系客服</button>
+         <button plain="" class="cancel"  bindtap='phoneCall' style="float:right;margin-right:20rpx;">联系客服</button>
         </view>
     </view>
 </view>

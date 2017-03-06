@@ -167,9 +167,7 @@ button {
     width:210rpx;
     background: #fff;
     border:1rpx solid #4f4f4f;
-	color:#4f4f4f;
-    position: absolute;
-    right:20rpx;
+	color:#4f4f4f;  
 }
 .immediate {
     width: 464rpx;
@@ -177,8 +175,6 @@ button {
     color:#fffefe;
     position: absolute;
     right: 20rpx;
-    /*float:right;
-    margin-right: 20rpx;*/
 }
 
 /*支付方式*/
