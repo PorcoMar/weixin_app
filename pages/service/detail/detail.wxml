@@ -65,8 +65,8 @@
   <image class="map_right" src="../../../images/service/k.png"></image>
   <view class="map1"  bindtap="address"></view>
 </view>
-<view class="ul1" wx:if="{{hasWifi}}">
-  <li class="hot_point">
+<view class="ul1">
+  <li class="hot_point" wx:if="{{hasWifi}}">
     <image class="point_img" src="../../../images/service/d.png"></image>
     <view class="point-text">免费wifi</view>
   </li>
