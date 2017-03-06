@@ -8,6 +8,7 @@ Page( {
          */
         winWidth: 0,
         winHeight: 0,
+        block_hidden:true,
 
         // tab切换
         currentTab: 0,
@@ -36,6 +37,7 @@ Page( {
         pageNo:1,
 
     },
+
     onShareAppMessage: function () {
         return {
         title: '服务',
@@ -131,6 +133,12 @@ Page( {
         // 页面关闭
     },
 
+upper:function(){
+    this.setData({
+        block_hidden:true
+    })
+    console.log("出现")
+},
 
     /***********************************************************
      * 事件处理
@@ -139,9 +147,10 @@ Page( {
     scrolltolower: function( e ) {
         var that = this;
         that.setData( {
-            hothidden: true  
+            hothidden: true, 
+            block_hidden:false 
         })
-
+        console.log("滚动消失")
         var pageNo = that.data.pageNo+1
         var cat=that.data.cat
         var pageSize = that.data.pageSize
@@ -174,14 +183,19 @@ Page( {
             }
         })
     },
-   
+
+
+
+            
+
     /**
      * 滑动切换tab
      */
     bindChange: function( e ) {
         var that = this;
         var shopId = that.data.shopId
-        that.setData( { 
+        that.setData( {
+            block_hidden:true,
             pageNo:1,
             pageSize:5,
             currentTab: e.detail.current,
@@ -223,6 +237,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden:true
             })
@@ -250,6 +265,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden1:true,
             })
@@ -277,6 +293,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden2:true
             })
@@ -304,6 +321,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden3:true
             })
@@ -332,6 +350,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden4:true
             })
@@ -359,6 +378,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden5:true
             })
@@ -386,6 +406,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden6:true
             })
@@ -413,6 +434,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden7:true
             })
@@ -440,6 +462,7 @@ Page( {
             return false;
         } else {
             that.setData( {
+                block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden8:true
             })
@@ -460,5 +483,6 @@ Page( {
         })
         }
     },
+
 
 })
