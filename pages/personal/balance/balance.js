@@ -13,16 +13,24 @@ Page({
   onLoad:function(options){
     var that = this;
     //获取用户信息
-    wx.request({
-      url:HOST + "/user/info",
-      method:"POST",
-      header:getApp().globalData.HEADER,
-      success:function(res){
-        if(res.data.code == "0"){
-            that.setData({userInfo:res.data.result});
-        }
+    wx.getStorage({
+      key: 'HEADER',
+      success: function(res){
+        // success
+         getApp().globalData.HEADER = res.data;
+         wx.request({
+          url:HOST + "/user/info",
+          method:"POST",
+          header:getApp().globalData.HEADER,
+          success:function(res){
+            if(res.data.code == "0"){
+                that.setData({userInfo:res.data.result});
+            }
+          }
+        });
       }
-    });
+    })
+    
 
     // 页面初始化 options为页面跳转所带来的参数
    

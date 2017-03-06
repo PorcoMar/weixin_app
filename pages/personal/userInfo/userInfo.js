@@ -34,21 +34,30 @@ Page({
   },
   onShow:function(){
     var that = this;
-    //获取用户信息
-    wx.request({
-      url:HOST + "/user/info",
-      method:"POST",
-      header:getApp().globalData.HEADER,
+    wx.getStorage({
+      key:"HEADER",
       success:function(res){
-        if(res.data.code == "0"){
-          that.setData({userInfo:res.data.result});
-        }
+        //获取用户信息
+        getApp().globalData.HEADER = res.data;
+        wx.request({
+          url:HOST + "/user/info",
+          method:"POST",
+          header:res.data,
+          success:function(res){
+            if(res.data.code == "0"){
+              res.data.result.province = res.data.result.province || "省";
+              res.data.result.city = res.data.result.city || "市";
+              res.data.result.area = res.data.result.area || "区";
+              that.setData({userInfo:res.data.result});
+            }
+          }
+        });
       }
-    });
+    })
+
+    
     // 页面显示
 
-    // 页面初始化 options为页面跳转所带来的参数
-    // 获取省
     wx.request({
       url: HOST + "/location/getAllProvinces",
       data: {},
@@ -88,7 +97,7 @@ Page({
     this.setData({timePicker,timePicker});
     var birthDateTemp = {
       month:Month,
-      date:Day
+      date:Day - 1
     };
     this.setData({birthDateTemp:birthDateTemp});
   },
@@ -138,14 +147,20 @@ Page({
   },
   dateConfirm:function(){
     var month = 1 + this.data.birthDateTemp.month;
-    var date = this.data.birthDateTemp.date;
+    var date = 1 + this.data.birthDateTemp.date;
+    console.log(month);
+    console.log(date);
     month = (month < 10)?("0" + month):month;
     date = (date < 10)?("0" + date):date;
     var birthDate = month + "-" + date;
     var that = this;
+    var data = {
+      realName:that.data.userInfo.realName,
+      birthDate:birthDate
+    };
     wx.request({
       url: HOST + "/user/edit",
-      data: {birthDate:birthDate},
+      data: data,
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: app.globalData.HEADER, // 设置请求的 header
       success: function(res){
@@ -226,12 +241,14 @@ Page({
   },
   addressConfirm:function(){
     var that = this;
+    var data = this.data.address;
+    data["realName"] = this.data.userInfo.realName;
     var address = this.data.address;
     wx.request({
       url:HOST + "/user/edit",
       method:"POST",
       header:getApp().globalData.HEADER,
-      data:address,
+      data:data,
       success:function(res){
         if(res.data.code == "0"){
            var userInfo = that.data.userInfo;
