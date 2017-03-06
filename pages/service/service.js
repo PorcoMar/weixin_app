@@ -42,10 +42,10 @@ Page( {
         path: '/pages/service/service'
         }
     },
-    //下拉刷新
-//   onPullDownRefresh: function(){
-//     wx.PullDownRefresh()
-//   },
+ //下拉刷新
+  onPullDownRefresh: function(){
+    wx.PullDownRefresh()
+  },
     /** 
      * 页面初始化
      * options 为页面跳转所带来的参数
@@ -131,6 +131,7 @@ Page( {
         // 页面关闭
     },
 
+
     /***********************************************************
      * 事件处理
      * scrolltolower auto loading more
@@ -162,7 +163,7 @@ Page( {
 
                 if( that.data.pageSize <5) {
                     that.setData( {
-                        hothidden: false //显示没有更多
+                        hothidden: false //显示没有更多 
                     });
                 }else{
                     that.setData({
