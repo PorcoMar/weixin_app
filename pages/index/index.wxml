@@ -2,9 +2,9 @@
 <view class="container" wx:if="{{shop}}">
     <!--头部开始-->
     <view class="header">
-        <image class="logo" src="{{shop.logo}}"></image>
+        <image class="logo" src="../../images/homePage/danaizui@3x.png" wx:if="{{!shop.logo}}"></image>
+        <image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>
         <text class="shopName">{{shop.name}}</text>
-
         <view class="changeShop" bindtap="changeShop">
             <text class="changeShop-text">切换门店</text>
             <image src="../../images/homePage/Path@2x.png" class="more-arrow"></image>
@@ -14,7 +14,8 @@
 
     <!--门店图片展示开始-->
     <view class="shop-photo">
-        <image src="{{shop.imgs[0]}}"></image>
+        <image src="../../images/homePage/chang@3x.png" wx:if="{{!shop.imgs[0]}}"></image>
+        <image src="{{shop.imgs[0]}}" wx:if="{{shop.imgs[0]}}"></image>
     </view>
     
     <!--门店图片展示结束-->

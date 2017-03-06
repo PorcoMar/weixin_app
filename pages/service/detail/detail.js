@@ -41,10 +41,10 @@ Page( {
         path: '/pages/service/detail/detail'
         }
     },
-    //下拉刷新
-//   onPullDownRefresh: function(){
-//     wx.PullDownRefresh()
-//   },
+//     下拉刷新
+  onPullDownRefresh: function(){
+    wx.PullDownRefresh()
+  },
     onLoad: function( options ) {
         var that = this
         var id = options.id

@@ -19,12 +19,9 @@
  </view>
 
 
-
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight+20}}px;margin-top:1.9rem;" bindchange="bindChange">
-
-
  <!--======================= -->
-    <view class="block_f"></view>
+<view class="block_f"></view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight+20}}px;margin-top:0rem;" bindchange="bindChange">
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50"  
         lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -40,7 +37,7 @@
                                     <view class="list-box-title">{{item.name}}</view>
                                     <view class="dian">到店服务</view>
                                     <view class="home">到家服务</view>
-                                    <view class="blockn">{{item.id}}</view>
+                                    <view class="blockn"></view>
                                     <view class="list-box-id"><text class="money0">￥</text>{{item.oriPrice}}</view>
                                     <view class="list-box-id2"><text class="money1">￥</text>{{item.price}}</view>
                                 </view>

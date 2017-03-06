@@ -2,6 +2,7 @@
 App({
   onLaunch: function () {
     console.log("---------onLanch------------");
+
     //获取用户微信信息
     var that = this;
     wx.login({
@@ -142,5 +143,5 @@ App({
        result = ""+parseInt(theTime2)+"小时"+result;
        }
        return result;
-   },
+   }
 })

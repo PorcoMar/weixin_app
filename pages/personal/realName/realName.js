@@ -9,17 +9,25 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     //获取用户信息
     var that = this;
-    wx.request({
-      url:HOST + "/user/info",
-      method:"POST",
-      header:getApp().globalData.HEADER,
-      success:function(res){
-        if(res.data.code == "0"){
-          var realName = res.data.result.realName;
-          that.setData({realName:realName});
-        }
+    wx.getStorage({
+      key: 'HEADER',
+      success: function(res){
+
+        getApp().globalData.HEADER = res.data;
+        wx.request({
+          url:HOST + "/user/info",
+          method:"POST",
+          header:res.data,
+          success:function(res){
+            if(res.data.code == "0"){
+              var realName = res.data.result.realName;
+              that.setData({realName:realName});
+            }
+          }
+        });
       }
     })
+    
   },
   onReady:function(){
     // 页面渲染完成
