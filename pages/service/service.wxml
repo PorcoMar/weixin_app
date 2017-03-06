@@ -19,9 +19,9 @@
  </view>
 
  <!--=======================-->
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
 <view class="top_bloc" wx:if="{{block_hidden}}"></view>
 <view class="block_f"  wx:if="{{block_hidden}}"></view>
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight+20}}px;" bindchange="bindChange">
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" bindscrolltoupper="upper" bindscroll="scroll_n"
         lower-threshold="100" bindscrolltolower="scrolltolower" >
@@ -38,8 +38,8 @@
                                     <view class="dian">到店服务</view>
                                     <view class="home">到家服务</view>
                                     <view class="blockn"></view>
-                                    <view class="list-box-id"><text class="money0">￥</text>{{item.oriPrice}}</view>
-                                    <view class="list-box-id2"><text class="money1">￥</text>{{item.price}}</view>
+                                    <view class="list-box-id"><text class="money0">￥</text>{{item.price}}</view>
+                                    <view class="list-box-id2"><text class="money1">￥</text>{{item.oriPrice}}</view>
                                 </view>
                             </view>
                         </navigator>

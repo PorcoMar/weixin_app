@@ -56,8 +56,8 @@ Page( {
         var that = this;
         wx.getSystemInfo( {
             success: function( res ) {
+                //console.log(res)
                 that.setData( {
-                    winWidth: res.windowWidth,
                     winHeight: res.windowHeight
                 });
             }
