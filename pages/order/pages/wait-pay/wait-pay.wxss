@@ -169,9 +169,7 @@ button {
     border:1rpx solid #4f4f4f;
 	color:#4f4f4f;
     position: absolute;
-    left:20rpx;
-    /*float:left;
-    margin-left: 20rpx;*/
+    right:20rpx;
 }
 .immediate {
     width: 464rpx;

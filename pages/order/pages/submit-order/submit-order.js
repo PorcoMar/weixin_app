@@ -245,7 +245,7 @@ Page({
               })
             }else {
               // 微信支付方式
-              console.log("weixin支付",that.data);
+              console.log("weixin支付",that.data,app.globalData.openid);
               that.setData({
                 payType:'WX'
               });
