@@ -30,6 +30,7 @@ Page({
     });
     var token = app.globalData.HEADER.token;
     var uid = app.globalData.HEADER.uid;
+    // console.log("uid",uid);
     if(token && uid){
       wx.request({
         url: url+'/order/query',
@@ -44,14 +45,15 @@ Page({
           console.log("全部订单分页列表",res);
           if(res.data.code == 0){
             var arr = res.data.result;
-            // if(arr.length != 0){
+            // console.log(arr);
             arr.map(function(item,index,array){
               item["createdTime"] = app.formateTime(item["createdTime"]);
               item["status"] = app.formateStatus(item["status"]);
               if(item['orderItem'] != null){
                 item["orderItem"].map(function(item,index,array){
                   item['status'] = app.formateServiceStatus(item['status']);
-                })
+                  // item['status'] = item['status'];
+                 })
               }
               if(!item['shopLogo']){
                 item["shopLogo"] = '../../images/order/logo.jpg';
@@ -62,9 +64,6 @@ Page({
             });
           }else {
             console.log(res.data.errorMsg);
-            // that.setData({
-            //   orderArray:[],
-            // });
             wx.showToast({
               title: res.data.errorMsg,
               duration: 2000

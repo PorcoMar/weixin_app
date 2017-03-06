@@ -49,7 +49,7 @@
                   <text class="note redNote">{{item.status}}</text>
                   </block>
                   <block wx:if="{{item.status == '已完成'}}">
-                  <text class="note">{{item.status}}</text>
+                  <text class="note" style="color:#8f8f8f;">{{item.status}}</text>
                   </block>
                 </block>
                 <block wx:elif="{{idx == 3}}">
