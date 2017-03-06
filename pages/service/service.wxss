@@ -1,5 +1,5 @@
 /* pages/service/service.wxss */
-.swiper-tab{white-space:nowrap; height: 86rpx; line-height: 86rpx; background: #FFF; position: fixed; z-index: 22;border-top:1rpx solid #dddddd;border-bottom:1rpx solid #dddddd;left:0;top:0;}
+.swiper-tab{white-space:nowrap; height: 86rpx; line-height: 86rpx; background: #FFF; position: fixed; z-index: 22;border-top:1rpx solid #dddddd;border-bottom:1rpx solid #dddddd;left:0;top:0;o}
 .swiper-tab-list{display:inline-block;width:16%;height:86rpx; font-size: 28rpx; font-family:PingFang;font-weight:bold;margin: 0 12px;text-align:center;color:#4f4f4f}
 ::-webkit-scrollbar{
     width:0;height:0;color:#fff;opacity:0;
@@ -8,9 +8,9 @@
 .on{ border-bottom: 8rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;height:78rpx;line-height:86rpx;}
 #on{ border-bottom: 8rpx solid #fc5a5f; color: #fc5a5f; margin-bottom:2rpx;height:78rpx;line-height:86rpx;}
 
-.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden;background:#fff;}
+.swiper-box{ display: block; height: 34.5rem; width: 100%; overflow: hidden;background:#fff;}
 
-.top_bloc{width:100%;height:2.4rem;background:#fff;}
+.top_bloc{width:100%;height: 88rpx;background:#fff;}
 .block_f{width:100%;height:16rpx;background:#f5f5f5;}
 .hot-box{ display: block; height: 100%;}
 .hot-box-main{ display: block; overflow: hidden; margin-bottom: 15px;}
@@ -32,7 +32,7 @@
 .list-box-id{color:#fc5a5f;float:left;font-size:46rpx;margin-right:12rpx;overflow:hidden;font-family:PingFang;}
 .list-box-id2{width:70rpx;height:24rpx;font-size:24rpx;color:#969696;text-decoration:line-through;float:left;margin-top:24rpx;font-family:PingFang;}
 .money0{font-size:30rpx;}
-.hot-box-more{ text-align: center; font-size: 22rpx; color: #999; margin-bottom: 30px;font-family:PingFang; }
+.hot-box-more{ text-align: center; font-size: 22rpx; color: #999; margin-bottom: 20px;font-family:PingFang; }
 .hot-box-more image{ width: 80px; height: 16px; display: block; margin: 0 auto;}
 
 
