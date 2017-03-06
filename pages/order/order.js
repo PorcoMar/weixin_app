@@ -30,7 +30,7 @@ Page({
     });
     var token = app.globalData.HEADER.token;
     var uid = app.globalData.HEADER.uid;
-    // console.log("uid",uid);
+    console.log("uid",uid);
     if(token && uid){
       wx.request({
         url: url+'/order/query',
@@ -51,6 +51,7 @@ Page({
               item["status"] = app.formateStatus(item["status"]);
               if(item['orderItem'] != null){
                 item["orderItem"].map(function(item,index,array){
+                  console.log("状态",item['status']);
                   item['status'] = app.formateServiceStatus(item['status']);
                   // item['status'] = item['status'];
                  })
@@ -82,55 +83,9 @@ Page({
   },
   onPullDownRefresh:function(){
     // console.log("下拉刷新");
-    var that = this;
-    wx.request({
-      url: url+'/order/query',
-      data: {
-        pageNo:1,
-        pageSize:10
-      },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: app.globalData.HEADER, // 设置请求的 header
-      success: function(res){
-        // success
-        console.log("全部订单分页列表",res);
-        if(res.statusCode == 401){
-          wx.navigateTo({
-            url: '../personal/bindPhone/bindPhone',
-          })
-        }else {
-          if(res.data.code == "0"){
-            console.log("获取订单列表成功！")
-  //        console.log(orderArray);
-            var arr = res.data.result;
-            // if(arr.length != 0){
-              arr.map(function(item,index,array){
-                item["createdTime"] = app.formateTime(item["createdTime"]);
-                item["status"] = app.formateStatus(item["status"]);
-                if(item['orderItem'] != null){
-                item["orderItem"].map(function(item,index,array){
-                  item['status'] = app.formateServiceStatus(item['status']);
-                })
-                }
-                // console.log(item["createdTime"]);
-              })
-            // }else {
-              // arr = false;
-            // }         
-            that.setData({
-              orderArray:arr,
-            });
-          }else{
-            console.log(res.data.errorMsg);
-          }
-        }
-        
-        console.log(that.data.orderArray);
-      },
-      fail: function(res){
-        
-      }
-    });
+    // 隐藏下拉刷新动画
+    wx.stopPullDownRefresh();
+    this.onLoad();
   },
   // 联系客服
   phoneCall:function(e){
@@ -218,7 +173,7 @@ Page({
         }else {
           console.log("已经到底了！");
           that.setData({
-            footer:"已经到底了"
+            footer:"已经到底了哦~"
           })
         }
 

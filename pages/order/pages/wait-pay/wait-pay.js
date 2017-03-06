@@ -107,23 +107,21 @@ Page({
   // 立即支付
   payImmediately:function(){
     var that = this;
-    var payData = {};
     if(that.data.weixin){
-      payData = {
-        orderNo:that.data.orderObject.orderNo,
-        payType:"WX",
-        payStrategy:that.data.orderObject.payStrategy || "ALL",
-        price:that.data.orderObject.price,
-        openId:app.globalData.openid
-      };
       wx.request({
         url: url + '/order/confirm',
-        data: payData,
+        data: {
+          orderNo:that.data.orderObject.orderNo,
+          payType:"WX",
+          payStrategy:that.data.orderObject.payStrategy || "ALL",
+          price:that.data.orderObject.price,
+          openId:app.globalData.openid
+        },
         method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         header: app.globalData.HEADER, // 设置请求的 header
         success: function(res){
           // success
-          console.log('立即支付',res,payData);
+          console.log('立即支付',res);
           if(res.data.code === '0'){
               console.log('openId请求成功！');
               wx.requestPayment({
@@ -135,18 +133,18 @@ Page({
                 'success':function(res){
                   console.log('订单支付成功！');
                   wx.navigateTo({
-                    url: '../wait-pay/wait-pay?orderNo='+ payData.orderNo+'&orderStatus=已付款',
+                    url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo + '&orderStatus=已付款',
                   })
                 },
                 'fail':function(res){
                   console.log("支付失败！");
                   wx.navigateTo({
-                    url: '../wait-pay/wait-pay?orderNo='+ payData.orderNo+'&orderStatus=待付款',
+                    url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo + '&orderStatus=待付款',
                   })
                 }
               })           
           }else {
-            console.log('支付失败',res,payData);
+            console.log('支付失败',res);
             wx.showToast({
               title: res.data.errorMsg,
               duration: 2000
@@ -155,34 +153,31 @@ Page({
         }
       })
     }else {
-      payData = {
-        orderNo:that.data.orderObject.orderNo,
-        payType:"MEMBER_CARD",
-        payStrategy:that.data.orderObject.payStrategy || "ALL",
-        price:that.data.orderObject.price
-      };
       wx.showModal({
         content: "请再次确认是否使用余额支付",
         confirmText: "确认",
         cancelText: "取消",
         success:function(res){
           // 立即支付
-          console.log('立即支付',payData);
           // 确认
           if(res.confirm){
             wx.request({
               url: url + '/order/confirm',
-              data: payData,
+              data: {
+                orderNo:that.data.orderObject.orderNo,
+                payType:"MEMBER_CARD",
+                payStrategy:that.data.orderObject.payStrategy || "ALL",
+                price:that.data.orderObject.price
+              },
               method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
               header: app.globalData.HEADER, // 设置请求的 header
               success: function(res){
                 // success
                 console.log('立即支付',res);
-                // console.log(that.data.detail.orderNo,that.data.payType,that.data.detail.payStrategy,that.data.detail.orderPrice)
                 if(res.data.code === '0'){
                   console.log('订单支付成功！');
                   wx.navigateTo({
-                    url: '../wait-pay/wait-pay?orderNo='+ payData.orderNo+'&orderStatus=已付款',
+                    url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo+'&orderStatus=已付款',
                   })
                 }else {
                   console.log(res.data.errorMsg);
@@ -192,21 +187,16 @@ Page({
                   })
                 }
               }
-              
             })
           }else{
             // 取消
             console.log("订单未支付！")
              wx.navigateTo({
-                url: '../wait-pay/wait-pay?orderNo='+ payData.orderNo+'&orderStatus=待付款',
+                url: '../wait-pay/wait-pay?orderNo='+ that.data.orderObject.orderNo+'&orderStatus=待付款',
              })
           }
         }
-      })
-    
+      })  
     }
-    console.log("立即支付",payData);
-    
-
   }
 })
