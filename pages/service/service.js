@@ -72,7 +72,7 @@ Page( {
 // ****************init request data*************************
          wx.request({
             url: url+'/service/cat',
-            method: 'GET',
+            method: 'POST',
             header:app.globalData.HEADER,
             success: function(res) {
                 console.log(res)
@@ -87,11 +87,11 @@ Page( {
         var shopId = that.data.shopId
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
             header: app.globalData.HEADER,
             success: function(res) {
-                console.log(res)
+                //console.log(res)
                 that.setData({
                     hothidden:true,
                     choiceItems0: res.data.result       
@@ -149,7 +149,7 @@ upper:function(){
         var shopId = that.data.shopId
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -205,7 +205,7 @@ upper:function(){
         console.log(catId)
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:catId,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -235,7 +235,7 @@ upper:function(){
             })
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:1,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -263,7 +263,7 @@ upper:function(){
             })
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:2,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -291,7 +291,7 @@ upper:function(){
             })
           wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:3,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -319,7 +319,7 @@ upper:function(){
             })
          wx.request({
             url:url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:4,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -348,7 +348,7 @@ upper:function(){
             })
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:5,shopId:shopId,pageNo:1,pageSize:5},
             header:app.globalData.HEADER,
             success: function(res) {
@@ -376,7 +376,7 @@ upper:function(){
             })
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:6,shopId:shopId,pageNo:1,pageSize:5},
             header:app.globalData.HEADER,
             success: function(res) {
@@ -404,7 +404,7 @@ upper:function(){
             })
          wx.request({
             url: url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:7,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -432,7 +432,7 @@ upper:function(){
             })
          wx.request({
             url:url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:8,shopId:shopId,pageNo:1,pageSize:5},
             header: app.globalData.HEADER,
             success: function(res) {
@@ -460,7 +460,7 @@ upper:function(){
             })
          wx.request({
             url:url+'/service/list',
-            method: 'GET',
+            method: 'POST',
             data: {cat:9,shopId:shopId,pageNo:1,pageSize:5},
             header:app.globalData.HEADER,
             success: function(res) {

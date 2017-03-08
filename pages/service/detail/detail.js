@@ -71,7 +71,7 @@ Page( {
         console.log(lngn,latn)
         wx.request({
             url:url+'/service/detail',
-            method: 'GET',
+            method: 'POST',
             data: {serviceId:id,shopId:shopId,lng:lngn,lat:latn},
             header:app.globalData.HEADER,
             success: function(res) {
