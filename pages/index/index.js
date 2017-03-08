@@ -59,6 +59,7 @@ Page({
           lng:lng
           },
         success:function(res){
+          console.log(res);
           if(res.data["code"] == "0"){
             console.log(res.data);
             res.data.result.distance = res.data.result.distance ?(res.data.result.distance/1000).toFixed(1) : 0;

@@ -7,7 +7,7 @@
                 <view class="user-detail">
                     <view class="user-name">
                         <text>{{wxInfo.nickName}}</text>
-                        <text>{{userInfo.phone}}</text>
+                        <!--<text>{{userInfo.phone}}</text>-->
                     </view>
                     <view class="user-card">
                         <text wx:if="{{!userInfo.memberLevelName}}">非会员</text>

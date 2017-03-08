@@ -50,8 +50,10 @@
             <image class="left-icon right2" src="../../images/homePage/park@2x.png" wx:if="{{shop.hasPark}}"></image>
             <text class="extra-service" wx:if="{{shop.hasPark}}">免费停车</text>
 
-            <image class="left-icon right2" src="../../images/homePage/paycard@2x.png" wx:if="{{shop.hasPaycard}}"></image>
-            <text class="extra-service" wx:if="{{shop.hasPaycard}}">可刷卡</text>
+
+            <image class="left-icon right2" src="../../images/homePage/paycard@2x.png" wx:if="{{shop.hasPayCard}}"></image>
+            <text class="extra-service" wx:if="{{shop.hasPayCard}}">可刷卡</text>
+
 
             <image class="left-icon right2" src="../../images/homePage/tea@2x.png" wx:if="{{shop.hasTea}}"></image>
             <text class="extra-service" wx:if="{{shop.hasTea}}">免费喝茶</text>
