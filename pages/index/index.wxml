@@ -2,7 +2,7 @@
 <view class="container" wx:if="{{shop}}">
     <!--头部开始-->
     <view class="header">
-        <image class="logo" src="../../images/homePage/danaizui@3x.png" wx:if="{{!shop.logo}}"></image>
+        <image class="logo" src="../../images/homePage/logo@3x.png" wx:if="{{!shop.logo}}"></image>
         <image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>
         <text class="shopName">{{shop.name}}</text>
         <view class="changeShop" bindtap="changeShop">
