@@ -1,12 +1,12 @@
 <!--<view>这是订单页面</view>-->
 <!--无订单页面-->
-<view class="section" wx:if="{{orderArray.length == 0}}">
+<view class="section" wx:else>
     <!--<image src="../../../images/order/noneorder@2x.png" mode="scaleToFill" class="noOrder"></image>-->
     <image src="../../images/order/noneorder@2x.png" class="noOrder"></image>
     <view class="noOrderText">您还没有相关的订单</view>
 </view>
 <!--有订单页面-->
-<view class="section" wx:else>
+<view class="section" wx:if="{{orderArray.length != 0}}">
   <!--循环创立订单列表-->
   <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}" wx:for-index ="key">
   <!--普通订单-->
@@ -105,6 +105,6 @@
     </view>
   </view>
 </view>
-<view class="footer">
+<!--<view class="footer">
   <text>{{footer}}</text>
-</view>
+</view>-->
