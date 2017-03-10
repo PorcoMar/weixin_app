@@ -49,7 +49,7 @@ Page( {
         var that = this
         var id = options.id
         var shopId=options.shopId
-       // console.log(id,shopId)
+        console.log(id,shopId)
         wx.setStorage({//存入localstorge在details里取得
             key:"serviced",
             data:id

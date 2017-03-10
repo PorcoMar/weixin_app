@@ -18,7 +18,7 @@
     </scroll-view>
  </view>
 
- <!--=======================-->
+ <!--===========1============-->
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
 <view class="top_bloc" wx:if="{{block_hidden}}"></view>
 <view class="block_f"  wx:if="{{block_hidden}}"></view>
@@ -64,7 +64,7 @@
 
 
 
- <!--======================= -->
+ <!--=======2================ -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50"  bindscrolltoupper="upper"
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -109,7 +109,7 @@
 
 
 
- <!--======================= -->
+ <!--========3=============== -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50"  bindscrolltoupper="upper"
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -156,7 +156,7 @@
 
 
 
- <!--======================= -->
+ <!--========4=============== -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50"  bindscrolltoupper="upper"
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -200,7 +200,7 @@
 
 
 
- <!--======================= -->
+ <!--==========5============= -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50"  bindscrolltoupper="upper"
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -244,7 +244,7 @@
 
 
 
- <!--======================= -->
+ <!--=========6============== -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" bindscrolltoupper="upper" 
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -288,7 +288,7 @@
 
 
 
- <!--======================= -->
+ <!--=========7============== -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" bindscrolltoupper="upper" 
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -332,7 +332,7 @@
 
 
 
- <!--======================= -->
+ <!--=========8============== -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" bindscrolltoupper="upper" 
                     lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -376,7 +376,7 @@
 
 
 
- <!--======================= -->
+ <!--==========9============= -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" bindscrolltoupper="upper" 
                     lower-threshold="100" bindscrolltolower="scrolltolower">

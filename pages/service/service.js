@@ -84,14 +84,14 @@ Page( {
         //  请求新11111数据
         var pageNo = that.data.pageNo
         var pageSize = that.data.pageSize
-        var shopId = that.data.shopId
+        var shopId = that.data.shopId//检测正常
          wx.request({
             url: url+'/service/list',
             method: 'POST',
             data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
             header: app.globalData.HEADER,
             success: function(res) {
-                //console.log(res)
+                console.log(res)
                 that.setData({
                     hothidden:true,
                     choiceItems0: res.data.result       
@@ -142,15 +142,16 @@ upper:function(){
             hothidden: true, 
             block_hidden:false 
         })
-        console.log("滚动消失")
+        console.log("滚动事件")
         var pageNo = that.data.pageNo+1
         var cat=that.data.cat
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
+        console.log(cat,shopId)//检测正常
          wx.request({
             url: url+'/service/list',
             method: 'POST',
-            data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
+            data: {cat:cat,shopId:shopId,pageNo:pageNo,pageSize:pageSize}, 
             header: app.globalData.HEADER,
             success: function(res) {
                 var arr1 = res.data.result;
@@ -177,9 +178,6 @@ upper:function(){
     },
 
 
-
-            
-
     /**
      * 滑动切换tab
      */
@@ -202,7 +200,7 @@ upper:function(){
             hothidden8:true,
          });
         var catId = e.detail.current+1 //0/1/2...8
-        console.log(catId)
+        console.log(catId,shopId)//检测正常
          wx.request({
             url: url+'/service/list',
             method: 'POST',
@@ -214,7 +212,7 @@ upper:function(){
                     pageNo:1,
                     pageSize:5,
                     choiceItems0: res.data.result,
-                    cat:1       
+                    cat:catId       
                 })
             }
         })
