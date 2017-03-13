@@ -85,7 +85,8 @@
     <!--联系信息-->
     <view class="infoDetail">
         <view>下 单 人：{{orderObject.name}}</view>
-        <view class="foot">联系电话：{{orderObject.phone}}</view>
+        <view>联系电话：{{orderObject.phone}}</view>
+        <view class="foot">订单号：{{orderObject.orderNo}}</view>
         <!--<view class="foot">备    注：{{infoDetail.note}}</view>-->
     </view>
     <!--订单详情-->
