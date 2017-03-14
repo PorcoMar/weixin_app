@@ -179,7 +179,7 @@ upper:function(){
         var cat=that.data.cat
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
-        console.log(cat,shopId)//检测正常
+        console.log(cat,shopId,pageSize)//检测正常
          wx.request({
             url: url+'/service/list',
             method: 'POST',
@@ -191,20 +191,23 @@ upper:function(){
                 console.log(res.data)//卧槽，因为看不见所以。。。。
                // console.log(res.data.result.length) //最后一次加载字段的长度
                 var lastDataLength = res.data.result.length
-                that.setData({
-                    pageSize:lastDataLength 
-                })
-
-                if( that.data.pageSize <5) {
+                if( lastDataLength <5) {
+                    console.log(that.data.isBoolen)
                     if(that.data.isBoolen){
+                        console.log(11111)
                         that.setData( {
                             choiceItems0: list1.concat(arr1),
                         });
+                        if(lastDataLength==0){
+                           that.setData({hothidden: false}) 
+                        }
                         that.setData({isBoolen:false})
                     }else{
                         that.setData({hothidden: false})//显示没有更多 
+                        console.log(22222)
                     }
                 }else{
+                        console.log(33333)
                     that.setData({
                         choiceItems0: list1.concat(arr1), 
                         pageNo:that.data.pageNo+1
@@ -235,6 +238,7 @@ upper:function(){
             hothidden6:true,
             hothidden7:true,
             hothidden8:true,
+            isBoolen:true
          });
         var catId = e.detail.current+1 //0/1/2...8
         console.log(catId,shopId)//检测正常
@@ -264,6 +268,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden:true
@@ -292,6 +297,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden1:true,
@@ -320,6 +326,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden2:true
@@ -348,6 +355,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden3:true
@@ -377,6 +385,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden4:true
@@ -405,6 +414,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden5:true
@@ -433,6 +443,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden6:true
@@ -461,6 +472,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden7:true
@@ -489,6 +501,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden8:true
