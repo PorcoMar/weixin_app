@@ -69,7 +69,7 @@
         <view class="service-list">
             <view class="service-item" wx:for="{{shop.services}}" data-id="{{item.id}}" bindtap="selectService">
                 <view class="service-image">
-                    <image src="{{item.icon}}"></image>
+                    <image src="{{item.imgs[0]}}"></image>
                 </view>
                 <view class="service-name">
                     <text>{{item.name}}</text>
