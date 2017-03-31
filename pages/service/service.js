@@ -35,7 +35,7 @@ Page( {
         cat:1,
         pageSize:5,
         pageNo:1,
-
+        isBoolen:true
     },
 
     onShareAppMessage: function () {
@@ -52,6 +52,9 @@ Page( {
      * 页面初始化
      * options 为页面跳转所带来的参数
      */
+    onLaunch:function(){
+        console.log(111111111)
+    },
     onLoad: function( options ) {
         var that = this;
         wx.getSystemInfo( {
@@ -68,43 +71,71 @@ Page( {
             shopId:app.globalData.shop.id
         });
 
+      console.log("------获取位置信息------")
+      //获取地理位置信息
+       wx.getLocation({
+         type:"wgs84",
+         success:function(res){
+           var location = {
+             lat:res.latitude,
+             lng:res.longitude
+           };
+           //获取门店信息
+           wx.request({
+             url: url + "/shop/detail",
+             data: location,
+             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+             header:app.globalData.HEADER,
+             success: function(res){
+               console.log(res.data);
+                if(res.data.code == "0"){
+                    that.setData({
+                        shopId:res.data.result.id
+                    })
+                };
+             }  
+           })
+         }
+       })
+             wx.request({
+                url: url+'/service/cat',
+                method: 'POST',
+                header:app.globalData.HEADER,
+                success: function(res) {
+                    console.log(res)
+                    that.setData({
+                        tab: res.data.result
+                    })
+                }
+            })
+            //  请求新11111数据
+            var pageNo = that.data.pageNo
+            var pageSize = that.data.pageSize
+            var shopId = that.data.shopId//检测正常
+            console.log(shopId)
+            wx.request({
+                url: url+'/service/list',
+                method: 'POST',
+                data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
+                header: app.globalData.HEADER,
+                success: function(res) {
+                    console.log(res)
+                    that.setData({
+                        hothidden:true,
+                        choiceItems0: res.data.result       
+                    })
+                }
+            })        
+
 
 // ****************init request data*************************
-         wx.request({
-            url: url+'/service/cat',
-            method: 'POST',
-            header:app.globalData.HEADER,
-            success: function(res) {
-                console.log(res)
-                that.setData({
-                    tab: res.data.result
-                })
-            }
-        })
-        //  请求新11111数据
-        var pageNo = that.data.pageNo
-        var pageSize = that.data.pageSize
-        var shopId = that.data.shopId//检测正常
-         wx.request({
-            url: url+'/service/list',
-            method: 'POST',
-            data: {cat:1,shopId:shopId,pageNo:pageNo,pageSize:pageSize},
-            header: app.globalData.HEADER,
-            success: function(res) {
-                console.log(res)
-                that.setData({
-                    hothidden:true,
-                    choiceItems0: res.data.result       
-                })
-            }
-        })
+
 
     },
     onReady: function() {
        // wx:hideNavigationBarLoading()
         // 页面渲染完成
-        var that = this;
-
+        var that = this
        // 数据加载完成后 延迟隐藏loading
         setTimeout( function() {
             that.setData( {
@@ -116,6 +147,7 @@ Page( {
     },
     onShow: function() {
         // 页面显示
+
     },
     onHide: function() {
         // 页面隐藏
@@ -147,7 +179,7 @@ upper:function(){
         var cat=that.data.cat
         var pageSize = that.data.pageSize
         var shopId = that.data.shopId
-        console.log(cat,shopId)//检测正常
+        console.log(cat,shopId,pageSize)//检测正常
          wx.request({
             url: url+'/service/list',
             method: 'POST',
@@ -159,15 +191,23 @@ upper:function(){
                 console.log(res.data)//卧槽，因为看不见所以。。。。
                // console.log(res.data.result.length) //最后一次加载字段的长度
                 var lastDataLength = res.data.result.length
-                that.setData({
-                    pageSize:lastDataLength 
-                })
-
-                if( that.data.pageSize <5) {
-                    that.setData( {
-                        hothidden: false //显示没有更多 
-                    });
+                if( lastDataLength <5) {
+                    console.log(that.data.isBoolen)
+                    if(that.data.isBoolen){
+                        console.log(11111)
+                        that.setData( {
+                            choiceItems0: list1.concat(arr1),
+                        });
+                        if(lastDataLength==0){
+                           that.setData({hothidden: false}) 
+                        }
+                        that.setData({isBoolen:false})
+                    }else{
+                        that.setData({hothidden: false})//显示没有更多 
+                        console.log(22222)
+                    }
                 }else{
+                        console.log(33333)
                     that.setData({
                         choiceItems0: list1.concat(arr1), 
                         pageNo:that.data.pageNo+1
@@ -198,6 +238,7 @@ upper:function(){
             hothidden6:true,
             hothidden7:true,
             hothidden8:true,
+            isBoolen:true
          });
         var catId = e.detail.current+1 //0/1/2...8
         console.log(catId,shopId)//检测正常
@@ -227,6 +268,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden:true
@@ -255,6 +297,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden1:true,
@@ -283,6 +326,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden2:true
@@ -311,6 +355,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden3:true
@@ -340,6 +385,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden4:true
@@ -368,6 +414,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden5:true
@@ -396,6 +443,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden6:true
@@ -424,6 +472,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden7:true
@@ -452,6 +501,7 @@ upper:function(){
             return false;
         } else {
             that.setData( {
+                isBoolen:true,
                 block_hidden:true,
                 currentTab: e.target.dataset.current,
                 hothidden8:true

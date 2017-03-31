@@ -21,6 +21,7 @@ Page({
              lat:res.latitude,
              lng:res.longitude
            };
+           console.log(location);
            //获取门店信息
            wx.request({
              url: HOST + "/shop/detail",
