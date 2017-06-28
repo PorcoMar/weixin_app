@@ -64,9 +64,27 @@
     <!--热门服务列表开始-->
     <view class="service-content">
         <view class="title">
-            <text>热门服务</text>
+          <text>服务品牌</text>
         </view>
-        <view class="service-list">
+        <view class="service-brand">
+          <view class="brand-item">
+            <image src="../../images/homePage/haoniangjia@2x.png"></image>
+            <image src="../../images/homePage/cocolove@2x.png"></image>
+          </view>
+          <view class="brand-item">
+            <image src="../../images/homePage/chanhou@2x.png"></image>
+            <image src="../../images/homePage/cocohappy@2x.png"></image>
+          </view>
+          <view class="brand-item">
+            <image src="../../images/homePage/cocoyoyo@2x.png"></image>
+            <image src="../../images/homePage/zhimakaimen@2x.png"></image>
+          </view>
+          <view class="brand-item">
+            <image src="../../images/homePage/yuezihuisuo@2x.png"></image>
+            <image src="../../images/homePage/leges@2x.png"></image>
+          </view>
+        </view>
+        <!--<view class="service-list">
             <view class="service-item" wx:for="{{shop.services}}" data-id="{{item.id}}" bindtap="selectService">
                 <view class="service-image">
                     <image src="{{item.imgs[0]}}"></image>
@@ -83,7 +101,7 @@
                     <text class="discountPrice">¥{{item.price}}</text>
                     <text class="originalPrice">¥{{item.oriPrice}}</text>
                 </view>
-            </view>
+            </view>-->
 
             <!--<view class="service-item">
                 <view class="service-image">
@@ -138,13 +156,13 @@
                     <text class="originalPrice">¥ 1333</text>
                 </view>
             </view>-->
-        </view>
+        <!--</view>-->
     </view>
     <!--热门服务列表结束-->
 
     <!--底部样式开始-->
-    <view class="footer">
+    <!--<view class="footer">
         <text>已经到底了哦~</text>
-    </view>
+    </view>-->
     <!--底部样式结束-->
 </view>

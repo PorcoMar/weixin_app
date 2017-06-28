@@ -1,55 +1,57 @@
 {
-  "pages":[
-    
+  "pages": [
     "pages/index/index",
     "pages/index/selectShop/selectShop",
-
     "pages/service/service",
     "pages/service/detail/detail",
     "pages/service/detailUrl/detailUrl",
-
     "pages/order/order",
     "pages/order/pages/submit-order/submit-order",
     "pages/order/pages/wait-pay/wait-pay",
-
     "pages/personal/personal",
     "pages/personal/balance/balance",
     "pages/personal/bindPhone/bindPhone",
     "pages/personal/twoBarCode/twoBarCode",
     "pages/personal/realName/realName",
-    "pages/personal/userInfo/userInfo"
+    "pages/personal/userInfo/userInfo",
+    "pages/coupon/coupon"
   ],
-  "window":{
+  "window": {
     "enablePullDownRefresh": false,
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "商户名称",
-    "navigationBarTextStyle":"black",
-    "backgroundColor":"#f5f5f5"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f5f5"
   },
-  "tabBar":{
-    "borderStyle":"white",
-    "selectedColor":"#fc5a5f",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath":"images/tabBar/shouye2@3x.png",
-      "selectedIconPath":"images/tabBar/shouye1@3x.png"
-    }, {
-      "pagePath": "pages/service/service",
-      "text": "服务",
-      "iconPath":"images/tabBar/fuwu2@3x.png",
-      "selectedIconPath":"images/tabBar/fuwu1@3x.png"
-    },{
-      "pagePath": "pages/order/order",
-      "text": "订单",
-      "iconPath":"images/tabBar/dingdan2@3x.png",
-      "selectedIconPath":"images/tabBar/dingdan1@3x.png"
-    },{
-      "pagePath": "pages/personal/personal",
-      "text": "我的",
-      "iconPath":"images/tabBar/wode2@3x.png",
-      "selectedIconPath":"images/tabBar/wode1@3x.png"
-    }]
+  "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#fc5a5f",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabBar/shouye2@3x.png",
+        "selectedIconPath": "images/tabBar/shouye1@3x.png"
+      },
+      {
+        "pagePath": "pages/coupon/coupon",
+        "text": "优惠券",
+        "iconPath": "images/tabBar/youhuiquan1@3x.png",
+        "selectedIconPath": "images/tabBar/youhuiquan2@3x.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/tabBar/dingdan2@3x.png",
+        "selectedIconPath": "images/tabBar/dingdan1@3x.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "images/tabBar/wode2@3x.png",
+        "selectedIconPath": "images/tabBar/wode1@3x.png"
+      }
+    ]
   }
 }

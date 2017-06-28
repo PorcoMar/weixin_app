@@ -69,8 +69,12 @@ App({
         
       }
     })
-
-    
+    // 将设备信息存储在globalData中
+    wx.getSystemInfo({
+      success: function(res) {
+        that.globalData.deviceInfo = res
+      },
+    })
   },
   globalData:{
     wxInfo:null,
@@ -80,7 +84,8 @@ App({
     HOST:"https://test.yizhenjia.com/xcxapi",
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"
-    }
+    },
+    deviceInfo: null
   },
   formateTime:function(timestamp){
     var time = new Date(timestamp);

@@ -85,6 +85,15 @@ Page({
       })
     };
   },
+  conpons: function() {
+    if(!this.data.wxInfo) {
+      this.login();
+      return;
+    }
+    wx.switchTab({
+      url: '/pages/coupon/coupon',
+    })
+  },
   //登录
   login: function () {
     var that = this;

@@ -1,0 +1,86 @@
+<!--coupon.wxml-->
+
+<!--顶部Tab-->
+<view class="top-nav">
+  <view class="tab {{currentTab == 0 ? 'active' : ''}}" data-current="0" data-type="UNUSED" bindtap="switchNav">
+    可使用
+    <view wx:if="{{currentTab == 0}}" class="line-nav"></view>
+  </view>
+  <view class="tab {{currentTab == 1 ? 'active' : ''}}" data-current="1" data-type="USED" bindtap="switchNav">
+    已使用
+    <view wx:if="{{currentTab == 1}}" class="line-nav"></view>
+  </view>
+  <view class="tab {{currentTab == 2 ? 'active' : ''}}" data-current="2" data-type="EXPIRED" bindtap="switchNav">
+    已过期
+    <view wx:if="{{currentTab == 2}}" class="line-nav"></view>
+  </view>
+</view>
+
+<!--列表页-->
+<view class="scroll-wrapper">
+
+  <!--列表不为空-->
+  <scroll-view wx:if="{{couponsList.length > 0}}" scroll-y class="coupon-list type-enable" bindscrolltolower="loadMoreBottom" style="height:{{scrollH}}px;">
+    <view wx:if="{{currentTab == 0}}" class="coupon-item" wx:for="{{couponsList}}" wx:key="index">
+      <image class="bg" src="../../images/coupon/youhuiquan2@2x.png"></image>
+      <view class="coupon-price" wx:if="{{item.couponDetail.type == 'CASH'}}">
+        <span class="symbol">￥</span>
+        <span class="num">{{item.couponDetail.value}}</span>
+      </view>
+      <view class="coupon-price" wx:if="{{item.couponDetail.type == 'DISCOUNT'}}">
+        <span class="num">{{item.couponDetail.value / 10}}</span>
+        <span class="discount">折</span>
+      </view>
+      <view class="coupon-logo">
+        <image src="{{item.couponDetail.logoSmall}}"></image>
+      </view>
+      <view class="limit-list">
+        <view class="text">· 满{{item.couponDetail.limitFeeMin}}可用</view>
+        <view class="text" wx:if="{{item.couponDetail.validTimeType == 'DATE'}}">· {{item.couponDetail.beginTime}}-{{item.couponDetail.endTime}}</view>
+        <view class="text" wx:if="{{item.couponDetail.validTimeType == 'DAYS'}}">· {{item.couponDetail.validDays}}天内有效</view>
+        <view class="text">· 限{{item.couponDetail.limitCatName}}使用</view>
+      </view>
+      <view class="btn-toUse" data-limitcat="{{item.couponDetail.limitCat}}" catchtap="useHandle">立即使用</view>
+    </view>
+    <view wx:if="{{currentTab == 1 || currentTab == 2}}" class="coupon-item type-used" wx:for="{{couponsList}}" wx:key="index">
+      <image wx:if="{{currentTab == 1}}" class="bg" src="../../images/coupon/yishiyong@2x.png"></image>
+      <image wx:if="{{currentTab == 2}}" class="bg" src="../../images/coupon/yiguoqi@2x.png"></image>
+      <view class="coupon-price" wx:if="{{item.couponDetail.type == 'CASH'}}">
+        <span class="symbol">￥</span>
+        <span class="num">{{item.couponDetail.value}}</span>
+      </view>
+      <view class="coupon-price" wx:if="{{item.couponDetail.type == 'DISCOUNT'}}">
+        <span class="num">{{item.couponDetail.value / 10}}</span>
+        <span class="discount">折</span>
+      </view>
+      <view class="coupon-logo">
+        <image src="{{item.couponDetail.logoSmall}}"></image>
+      </view>
+      <view class="limit-list">
+        <view class="text">· 满{{item.couponDetail.limitFeeMin}}可用</view>
+        <view class="text" wx:if="{{item.couponDetail.validTimeType == 'DATE'}}">· {{item.couponDetail.beginTime}}-{{item.couponDetail.endTime}}</view>
+        <view class="text" wx:if="{{item.couponDetail.validTimeType == 'DAYS'}}">· {{item.couponDetail.validDays}}天内有效</view>
+        <view class="text">· 限{{item.couponDetail.limitCatName}}使用</view>
+      </view>
+    </view>
+    <view class="loading" wx:if="{{loadMore.loading}}">加载中...</view>
+    <view class="no-more" wx:if="{{loadMore.hasMore}}">没有更多了哦~</view>
+  </scroll-view>
+
+
+  <!--列表为空-->
+  <view wx:if="{{couponsList.length == 0}}" class="no-couponsList">
+    <view class="empty-wrapper">
+      <image src="../../images/coupon/empty.png"></image>
+    </view>
+    <view class="empty-text">这里是空的哦~</view>
+  </view>
+</view>
+
+<!--modal-->
+<view class="modal-use {{useModalState === false ? 'hide' : ''}}" bindtap="hideModal">
+  <view class="modal-use-panel" catchtap="keepModal">
+    <text>该优惠券支持在线下门店使用,到店后,请展示您的手机号码给收银员,即可在购买指定服务品牌时,抵扣结算金额。</text>
+    <view class="btn-lookShop" catchtap="gotoShopList">查看可使用门店</view>
+  </view>
+</view>

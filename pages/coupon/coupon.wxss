@@ -1,0 +1,238 @@
+/* coupon.wxss */
+page {
+  background: #f5f5f5;
+  position: relative;
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.top-nav {
+  height: 88rpx;
+  background: #ffffff;
+  border-top: 1rpx solid #dedede;
+  display: flex;
+  display: -webkit-flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.top-nav .tab {
+  flex: 1;
+  text-align: center;
+  line-height: 88rpx;
+  font-family: "PingFang SC Medium";
+  color: #8f8f8f;
+  font-size: 30rpx;
+  position: relative;
+}
+
+.top-nav .tab.active {
+  color: #fd5a5f;
+}
+
+.top-nav .tab .line-nav {
+  height: 4rpx;
+  width: 110rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -55rpx;
+  background: #fc5a5f;
+}
+
+.scroll-wrapper {
+  box-sizing: border-box;
+  padding-top: 124rpx;
+}
+
+.coupon-list {
+  width: 100%;
+}
+
+.coupon-item {
+  width: 702rpx;
+  height: 218rpx;
+  margin: 0 auto 20rpx;
+  position: relative;
+}
+
+.coupon-item .bg {
+  width: 100%;
+  height: 218rpx;
+}
+
+.coupon-item .limit-list {
+  position: absolute;
+  left: 214rpx;
+  top: 64rpx;
+}
+
+.coupon-item.type-used .limit-list,
+.coupon-item.type-expired .limit-list {
+  left: 252rpx;
+}
+
+.coupon-item .limit-list .text {
+  font-family: "PingFang SC Medium";
+  font-size: 28rpx;
+  color: #8f8f8f;
+  margin-bottom: 12rpx;
+}
+
+.coupon-item.type-used .limit-list .text,
+.coupon-item.type-expired .limit-list .text{
+  color: #b9b9b9;
+}
+
+.coupon-item .btn-toUse {
+  height: 36rpx;
+  line-height: 36rpx;
+  width: 100rpx;
+  border-radius: 18rpx;
+  position: absolute;
+  text-align: center;
+  bottom: 78rpx;
+  right: 30rpx;
+  font-size: 20rpx;
+  border: 1rpx solid #fc5a5f;
+  color: #fc5a5f;
+}
+
+.coupon-item .coupon-price {
+  position: absolute;
+  width: 192rpx;
+  text-align: center;
+  top: 66rpx;
+  left: 0;
+}
+
+.coupon-item.type-used .coupon-price,
+.coupon-item.type-expired .coupon-price {
+  width: 230rpx;
+}
+
+.coupon-item .coupon-price span {
+  color: #fc5a5f;
+  font-family: "PingFang SC Medium";
+}
+
+.coupon-item.type-used .coupon-price span,
+.coupon-item.type-expired .coupon-price span {
+  color: #b9b9b9;
+}
+
+.coupon-item .coupon-price .symbol {
+  margin-right: 6rpx;
+  font-size: 46rpx;
+}
+
+.coupon-item .coupon-price .discount {
+  margin-left: 6rpx;
+}
+
+.coupon-item .coupon-price .num {
+  font-size: 66rpx;
+}
+
+.coupon-item .coupon-logo {
+  position: absolute;
+  width: 176rpx;
+  height: 50rpx;
+  bottom: 27rpx;
+  left: 8rpx;
+}
+
+.coupon-item.type-used .coupon-logo,
+.coupon-item.type-expired .coupon-logo {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);  
+    filter: grayscale(100%);
+}
+
+
+.coupon-item.type-used .coupon-logo,
+.coupon-item.type-expired .coupon-logo {
+  left: 27rpx;
+}
+
+.coupon-item .coupon-logo image {
+  height: 100%;
+  width: 100%;
+}
+
+.modal-use {
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.modal-use-panel {
+  box-sizing: border-box;
+  position: absolute;
+  background: #ffffff;
+  height: 316rpx;
+  width: 578rpx;
+  top: 240rpx;
+  left: 50%;
+  margin-left: -289rpx;
+  border-radius: 10rpx;
+  padding: 30rpx 35rpx;
+}
+
+.modal-use-panel text {
+  font-family: "PingFang SC Medium";
+  font-size: 28rpx;
+  color: #4f4f4f;
+}
+
+.modal-use-panel .btn-lookShop {
+  height: 88rpx;
+  line-height: 88rpx;
+  width: 280rpx;
+  background: #fc5a5f;
+  color: #ffffff;
+  margin: 50rpx auto 0;
+  text-align: center;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+}
+
+.no-more,
+.loading {
+  font-family: 'PingFang SC Medium';
+  text-align: center;
+  font-size: 30rpx;
+  color: #8f8f8f;
+  margin-top: 88rpx;
+  margin-bottom: 48rpx;
+}
+
+.empty-wrapper {
+  height: 376rpx;
+  width: 416rpx;
+  margin: 100rpx auto 48rpx;
+}
+
+.empty-wrapper image {
+  height: 100%;
+  width: 100%;
+}
+
+.empty-text {
+  text-align: center;
+  font-size: 32rpx;
+  font-family: "PingFang SC Medium";
+  color: #8f8f8f;
+}

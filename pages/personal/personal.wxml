@@ -60,6 +60,13 @@
                 <image class="more-arrow" src="../../images/personal/more@2x.png"></image>
             </view>
         </view>
+        <view class="section" bindtap="conpons">
+            <image class="left-icon" src="../../images/personal/youhuiquan@2x.png"></image>
+            <text class="section-text">门店优惠券</text>
+            <view class="more">
+                <image class="more-arrow" src="../../images/personal/more@2x.png"></image>
+            </view>
+        </view>
     </view>
     <!--中间区域结束-->
     <!--底部开始-->

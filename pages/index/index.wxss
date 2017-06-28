@@ -123,7 +123,8 @@ page{
 /*------服务列表开始------*/
 .service-content{
     margin-top:20rpx;
-    padding:0 24rpx;
+    margin-bottom: 60rpx;
+    padding:0 24rpx 34rpx 24rpx;
     background-color:#ffffff;
 }
 .service-content .title{
@@ -133,7 +134,7 @@ page{
     display: flex;
     justify-content: center;
     padding-top:28rpx;
-    padding-bottom:20rpx;
+    padding-bottom:36rpx;
 }
 
 .service-item + .service-item{
@@ -219,4 +220,29 @@ page{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*服务品牌*/
+
+.service-brand {
+  width: 546rpx;
+  margin: 0 auto;
+}
+
+.service-brand .brand-item {
+  display: flex;
+  margin-bottom: 40rpx;
+}
+
+.service-brand .brand-item:last-child {
+  margin-bottom: 0;
+}
+
+.service-brand .brand-item image {
+  width: 260rpx;
+  height: 90rpx;
+}
+
+.service-brand .brand-item image:first-child {
+  margin-right: 26rpx;
 }
