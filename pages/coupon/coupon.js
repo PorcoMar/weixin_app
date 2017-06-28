@@ -121,11 +121,12 @@ Page({
         break;
       case "2":
         console.log("请求已过期");
-        _params = Object.assign({}, _params, {status: "EXPIRED"});
         this.setData({
+          couponsList: [],
           currentTab: e.target.dataset.current,
           currentStatus: 'EXPIRED'
         })
+        _params = Object.assign({}, _params, { status: "EXPIRED" });
         break;
       default:
         // no op
@@ -254,6 +255,12 @@ Page({
         throttleStatus: false
       })
     }
+  },
+
+  onHide: function() {
+    this.setData({
+      useModalState: false
+    })
   }
 
 })
