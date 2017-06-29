@@ -109,7 +109,7 @@ Page({
         sellerPhone = arr.join("");
         console.log(sellerPhone,typeof(sellerPhone));
         that.setData({
-          sellerPhone:sellerPhone
+          sellerPhone: "400-902-3323"
         });
         wx.makePhoneCall({
           phoneNumber: that.data.sellerPhone,

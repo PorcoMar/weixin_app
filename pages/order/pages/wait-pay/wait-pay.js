@@ -56,7 +56,7 @@ Page({
             'orderObject.createTime':createTime,//下单时间
             'orderObject.totalCount':object.quantity,//服务数量
             'orderObject.overSecond':overSecond,//剩余支付时间
-            'orderObject.sellerPhone':object.sellerTel,//客服电话
+            'orderObject.sellerPhone':'400-902-3323',//客服电话
             'orderObject.payStrategy':object.payStrategy//支付方式
           })
           if(res.data.result.type == 'YUESAO'){
