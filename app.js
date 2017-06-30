@@ -1,4 +1,16 @@
 //app.js
+// 接口环境配置
+const productionApiUrl = "https://test.yizhenjia.com/xcxapi_online";
+const testApiUrl = "https://test.yizhenjia.com/xcxapi";
+const version = "0.1.4";
+var env = 'production';
+var apiUrl;
+if (env == 'dev') {
+  apiUrl = testApiUrl;
+} else {
+  apiUrl = productionApiUrl;
+}
+
 App({
   onLaunch: function () {
     console.log("---------onLanch------------");
@@ -81,7 +93,7 @@ App({
     location:null,
     shop:null,
     shopId:null,
-    HOST:"https://test.yizhenjia.com/xcxapi",
+    HOST:apiUrl,
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"
     },
