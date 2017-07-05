@@ -14,7 +14,15 @@
     "pages/personal/twoBarCode/twoBarCode",
     "pages/personal/realName/realName",
     "pages/personal/userInfo/userInfo",
-    "pages/coupon/coupon"
+    "pages/VIPCenter/VIPCenter",
+    "pages/VIPCenter/VIPCenter/recomGiftAfter",
+    "pages/VIPCenter/shareGift/shareGift",
+    "pages/VIPCenter/getGift/getGift",
+    "pages/VIPCenter/recomRecord/recomRecord",
+    "pages/VIPCenter/moneyRecord/moneyRecord",
+    "pages/VIPCenter/applyCash/applyCash",
+    "pages/VIPCenter/applyCashRecord/applyCashRecord",
+    "pages/VIPCenter/recomGiftBefore/recomGiftBefore"
   ],
   "window": {
     "enablePullDownRefresh": false,
@@ -47,8 +55,8 @@
         "selectedIconPath": "images/tabBar/dingdan1@3x.png"
       },
       {
-        "pagePath": "pages/personal/personal",
-        "text": "我的",
+        "pagePath": "pages/VIPCenter/VIPCenter",
+        "text": "会员中心",
         "iconPath": "images/tabBar/wode2@3x.png",
         "selectedIconPath": "images/tabBar/wode1@3x.png"
       }

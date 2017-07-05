@@ -1,0 +1,4 @@
+<!--pages/personal/userInfo/userInfo.wxml-->
+<view class="container">
+ this is viocenter
+</view>
