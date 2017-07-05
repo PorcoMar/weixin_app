@@ -14,6 +14,7 @@
     "pages/personal/twoBarCode/twoBarCode",
     "pages/personal/realName/realName",
     "pages/personal/userInfo/userInfo",
+    "pages/coupon/coupon",
     "pages/VIPCenter/VIPCenter",
     "pages/VIPCenter/VIPCenter/recomGiftAfter",
     "pages/VIPCenter/shareGift/shareGift",

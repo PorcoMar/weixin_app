@@ -7,6 +7,16 @@ Page({
   },
   onLoad:function(options){
     //获取用户信息
+    var token = app.globalData.HEADER.token;
+    var uid = app.globalData.HEADER.uid;
+    console.log("uid", uid);
+    if (token && uid) {
+
+    } else{
+      wx.navigateTo({
+        url: '../personal/bindPhone/bindPhone',
+      })
+    }   
   },
   onReady:function(){
     // 页面渲染完成
