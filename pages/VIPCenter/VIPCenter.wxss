@@ -58,7 +58,8 @@ background:#fff;
 .monry_name{
   font-size:26rpx;color:#8f8f8f;margin-top:20rpx;
 }
-.borderm{width:1px;height:64rpx;background: #dedede}
+.borderm{width:1px;height:64rpx;background: #dedede;margin-bottom:28rpx;
+}
 
 .myOrder{
   width:calc(100%-25rpx);height:250rpx;padding-left:25rpx;margin-bottom:20rpx;
