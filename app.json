@@ -16,9 +16,7 @@
     "pages/personal/realName/realName",
     "pages/personal/userInfo/userInfo",
     "pages/coupon/coupon",
-<<<<<<< HEAD
-    "pages/appointment/appointment"
-=======
+    "pages/appointment/appointment",
     "pages/VIPCenter/VIPCenter",
     "pages/VIPCenter/VIPCenter/recomGiftAfter",
     "pages/VIPCenter/shareGift/shareGift",
@@ -27,8 +25,8 @@
     "pages/VIPCenter/moneyRecord/moneyRecord",
     "pages/VIPCenter/applyCash/applyCash",
     "pages/VIPCenter/applyCashRecord/applyCashRecord",
-    "pages/VIPCenter/recomGiftBefore/recomGiftBefore"
->>>>>>> 90e2f3b4566da80f23bbf759d95ea8cf52bb30ec
+    "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
+    "pages/appointment/appointmentSuccess/appointmentSuccess"
   ],
   "window": {
     "enablePullDownRefresh": false,

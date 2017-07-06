@@ -10,7 +10,7 @@
     <!--头部开始-->
     <view class="changeShop" bindtap="changeShop">
             <text class="changeShop-text">切换门店</text>
-            <image src="../../images/homePage/Path@2x.png" class="more-arrow"></image>
+            <image src="../../images/app2.0/arrow@3x.png" class="more-arrow"></image>
     </view>
     <view class="header">
         <image class="logo" src="../../images/homePage/logo@3x.png" wx:if="{{!shop.logo}}"></image>

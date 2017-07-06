@@ -10,6 +10,7 @@ Page({
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var location = app.globalData.location;
+    location.city = app.globalData.cityInfo
     console.log("--shoplist onload--",location)
     this.setData({
       options: options

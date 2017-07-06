@@ -9,21 +9,28 @@ page{
 }
 .header{
     height:80rpx;
-    background-color:#ffffff;
-    padding:9rpx 24rpx;
-    display: flex;
-    align-items: center;
+    /*background-color:;*/
+    /*padding:9rpx 24rpx;*/
+    display:flex;
+    align-items:center;
     position:relative;
+    justify-content:center;
+    font-size:36rpx;
+    color:#fd5a5f;
 }
 .logo{
-    width:90rpx;
-    height:80rpx;
+    width:180rpx;
+    height:180rpx;
+    position:absolute;
+    left:24rpx;
+    bottom:20rpx;
+
 }
 .shopName{
-    font-size:30rpx;
+    /*font-size:30rpx;*/
     font-family: "PingFang-SC-Medium";
-    color: #4f4f4f;
-    margin-left:30rpx;
+    /*color: #4f4f4f;*/
+    /*margin-left:30rpx;*/
 }
 .header .changeShop{
     min-width:28rpx;
@@ -38,22 +45,27 @@ page{
 .changeShop{
   position:absolute;
   z-index:100;
-  top:12rpx;
-  right:15rpx;
+  top:24rpx;
+  right:24rpx;
   background:gray;
   border-radius:100rpx;
   padding:0 20rpx;
-
+  width:150rpx;
+  height:50rpx;
+  font-size:24rpx;
+  color:#ffffff;
+  text-align:center;
+  line-height:50rpx;
+  opacity: 0.65;
 }
-.changeShop-text{
+.changeShop .changeShop-text{
     font-size:28rpx;
-    color:#fc5a5f;
+    /*color:#fc5a5f;*/
 }
 .changeShop .more-arrow{
-    width:28rpx;
-    height:28rpx;
+    width:24rpx;
+    height:24rpx;
     margin-top:5rpx;
-    /*margin-left:18rpx;*/
 }
 
 /*----------门店图片展示结束--------*/
@@ -104,15 +116,15 @@ page{
     text-overflow: ellipsis;
 }
 .shop-info .shop-info-note{
-  margin:24rpx 48rpx 0;
-  font-size:24rpx;
+  margin:34rpx 48rpx 0;
+  font-size:22rpx;
+  color:#8f8f8f;
 }
 
 .shop-info .shop-info-distance{
-    font-size:28rpx;
+    font-size:24rpx;
     margin-left:20rpx;
-    color:#4f4f4f;
-
+    color:#8f8f8f;
     position: absolute;
     top:0;
     right:72rpx;
@@ -131,12 +143,16 @@ page{
 }
 .shop-info .right-button{
   position:absolute;
-  top:24rpx;
+  top:48rpx;
   right:24rpx;
 }
 .right-button .appointment{
   border-radius:200rpx;
-  width:240rpx;
+  width:180rpx;
+  height:60rpx;
+  font-size:26rpx;
+  color:#ffffff;
+  background-color:#fd5a5f;
 }
 .right-arrow-image{
     width:16rpx;

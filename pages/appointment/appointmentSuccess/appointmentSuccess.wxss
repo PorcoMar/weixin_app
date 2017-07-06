@@ -1,0 +1,41 @@
+/* appointmentSuccess.wxss */
+.sucessPage{
+width:600rpx;
+margin:37px;
+text-align:center;
+
+}
+.sucessLogo{
+width:146rpx;
+height:146rpx;
+margin:0 227rpx 60rpx 227rpx
+}
+.title{
+display:block;
+font-size:40rpx;
+color:#4f4f4f;
+margin-bottom:56rpx;
+
+}
+.note{
+display:block;
+font-size:30rpx;
+color:#8f8f8f;
+line-height:38rpx;
+margin-bottom:170rpx;
+
+}
+.comeback{
+height:88rpx;
+background-color:#fd5a5f;
+color:#ffffff;
+margin-bottom:30rpx;
+border-radius:44rpx;
+}
+.check{
+height:88rpx;
+background-color:#ffffff;
+color:#fd5a5f;
+border: 1rpx solid #fd5a5f;
+border-radius:44rpx;
+}

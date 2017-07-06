@@ -3,22 +3,54 @@
 var app = getApp();
 var HOST = app.globalData.HOST;
 var HEADER = app.globalData.HEADER;
+// 引用百度地图微信小程序JSAPI模块 
+var bmap = require('../../libs/bmap-wx.js'); 
+var wxMarkerData = [];  //定位成功回调对象
 Page({
   data: {
-    shop:null
-  },
+    shop: null,
+    ak: "UnPNw6EZjdPyhL2dbpjoebPE2uvzm1LT", //填写申请到的ak  
+    // cityInfo: {}     //城市信息  
+  },  
   onLoad: function () {
     console.log("-----index onLoad----");
     //判断全局变量中location值是否为空
     var that = this;
     if(!app.globalData.location){
       console.log("------获取位置信息------")
+      /* 获取定位地理位置 */
+      // 新建bmap对象   
+      var BMap = new bmap.BMapWX({
+        ak: that.data.ak
+      });
+      var fail = function (data) {
+        console.log(data);
+      };
+      var success = function (data) {
+        //返回数据内，已经包含经纬度  
+        console.log(data);
+        //使用wxMarkerData获取数据  
+        wxMarkerData = data.wxMarkerData;
+        //把所有数据放在初始化data内  
+        // console.log("city", data.originalData.result.addressComponent);
+        app.globalData.cityInfo = data.originalData.result.addressComponent.city;
+        that.setData({
+        //   markers: wxMarkerData,
+        //   latitude: wxMarkerData[0].latitude,
+        //   longitude: wxMarkerData[0].longitude,
+        //   address: wxMarkerData[0].address,
+          // cityInfo: data.originalData.result.addressComponent
+        });
+      }
+      // 发起regeocoding检索请求   
+      BMap.regeocoding({
+        fail: fail,
+        success: success
+      });   
       //获取地理位置信息
        wx.getLocation({
          type:"wgs84",
          success:function(res){
-           //获取所在城市
-          //  this.loadCity(res.ongitude,res.latitude);  
            var location = {
              lat:res.latitude,
              lng:res.longitude
@@ -38,7 +70,10 @@ Page({
                      app.globalData.location = location;
                      that.setData({shop:app.globalData.shop});
                 };
-             }  
+             } ,
+             fail: function(res){
+               console.log(res);
+             } 
            })
          }
        })
@@ -123,7 +158,7 @@ Page({
         // page.setData({ currentCity: city });
       },
       fail: function () {
-        page.setData({ currentCity: "获取定位失败" });
+        // page.setData({ currentCity: "获取定位失败" });
       },
 
     })

@@ -33,8 +33,8 @@
   </view>
   <view class="appointment-body">
     <view class="body-demo">
-      <text>10:00</text>
-      <text>可预约</text>
+      <text class="text-time">10:00</text>
+      <text class="text-note">可预约</text>
     </view>
     <view class="body-demo">
       <text>11:00</text>
@@ -86,10 +86,15 @@
       <image class="textImage" src="../../images/homePage/wifi@2x.png"></image>
       <text>温馨提示</text>
     </view>
-    <text>bajdkjhasbdfkjhbkjgsdjfbgjsdhfvksdbhfjkvhsbfkvhbskfdhbvjksdfbvjksdbfjvbsdjkfvsdfv jsfbvkjsbfjhvbsdjfhvbjsfbvjsdfbvjsdfbjkvsbdf</text>
-
+    <view class="textDetail">
+        阿斯顿发尽快哈市的国际法哈数量的法律手段复活甲拉速度恢复暴风金卡戴珊拉法基收到货了上的开发领导就是法律手段上的法律开始大家好伐啦卡萨丁
+    </view>
+    <!--<text>bajdkjhasbdfkjhbkjgsdjfbgjsdhfvksdbhfjkvhsbfkvhbskfdhbvjksdfbvjksdbfjvbsdjkfvsdfv jsfbvkjsbfjhvbsdjfhvbjsfbvjsdfbvjsdfbjkvsbdf</text>-->
   </view>
   <view class="appointment-footer">
-  
+    <text class="submitText">请选择预约时间</text>
+    <view class="right-button">
+          <button class="submitAppointment" type="warn" bindtap="submitAppointment">提交预约</button>
+    </view>
   </view>
 </view>

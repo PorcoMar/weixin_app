@@ -1,18 +1,11 @@
 <!--selectCity.wxml-->
 <view class="shopCity">
-  <view class="shopCity-item">
-    上海市
-  </view>
-  <view class="shopCity-item">
-    上海市
-  </view>
-  <view class="shopCity-item">
-    上海市
-  </view>
-  <view class="shopCity-item">
-    上海市
-  </view>
-  <view class="shopCity-item">
-    上海市
+  <text class="city-title">开通服务城市</text>
+  <view class="cityList">
+    <view class="shopCity-item">上海市</view>
+    <view class="shopCity-item">上海市</view>
+    <view class="shopCity-item">上海市</view>
+    <view class="shopCity-item">上海市</view>
+    <view class="shopCity-item">上海市</view>
   </view>
 </view>

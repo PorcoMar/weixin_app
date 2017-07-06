@@ -6,7 +6,7 @@
         <text class="shopName">Cocodemer产后修复</text>
         <view class="changeShop" bindtap="changeCity">
             <text class="changeShop-text">上海</text>
-            <image src="../../../images/homePage/Path@2x.png" class="more-arrow"></image>
+            <image src="../../../images/app2.0/Path2@3x.png" class="more-arrow"></image>
         </view>
     </view>
     <view class="shop-list">
@@ -19,7 +19,7 @@
             </view>
             <view class="shop-detail">
                 <view class="shop-address">
-                     <image src="../../../images/homePage/address@2x.png" style="width:28rpx;height:28rpx;"></image>
+                     <image src="../../../images/homePage/address@2x.png" style="width:24rpx;height:24rpx;"></image>
                      <text class="shop-address-info">{{item.address}}</text>
                      <text class="shop-distance">{{item.distance/1000}}km</text>
                 </view>

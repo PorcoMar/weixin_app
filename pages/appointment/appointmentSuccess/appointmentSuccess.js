@@ -1,18 +1,18 @@
-// appointment.js
+// appointmentSuccess.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+  
   },
 
   /**
@@ -63,9 +63,16 @@ Page({
   onShareAppMessage: function () {
   
   },
-  submitAppointment:function(){
-    wx.navigateTo({
-      url: './appointmentSuccess/appointmentSuccess',
+  // 返回首页
+  comebackIndex:function(){
+    wx.switchTab({
+      url: '../../index/index',
     })
+  },
+  // 查看我的预约
+  checkAppointment:function(){
+    // wx.switchTab({
+    //   url: '',
+    // })
   }
 })
