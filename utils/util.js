@@ -25,7 +25,19 @@ function formatTimestamp(timestamp) {
   return Y + M + D;
 }
 
+function secondTimestamp(timestamp){
+  var date = new Date(timestamp);
+  console.log(date)
+  var Year = date.getFullYear();
+  var Month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+  var day = date.getDate();
+  var Hour = date.getHours();
+  var Min = date.getMinutes();
+  var seconds = date.getSeconds();
+  return Year + "-" + Month + "-" + day + " " + Hour + ":" + Min + ":" +seconds
+}
 module.exports = {
   formatTime: formatTime,
-  formatTimestamp: formatTimestamp
+  formatTimestamp: formatTimestamp,
+  secondTimestamp: secondTimestamp
 }
