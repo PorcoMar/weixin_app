@@ -1,0 +1,58 @@
+<!--reserveHistory.wxml-->
+<!--<text>reserveHistory.wxml</text>-->
+<!--reserve.wxml-->
+<!--<text>reserve.wxml</text>-->
+<view class="page">
+  <view class="reserveList">
+    <view class="reserveItem">
+      <view class="itemheader">
+        <image class="itemLogo" src="../../../images/app2.0/dianpu@3x.png"></image>
+        <text class="shopName">Cocodemer上海金茂汇所</text>
+        <text class="remainTime">已过期</text>
+      </view>
+      <view class="itembody">
+          <view class="reserveTime">
+            <image class="timeLogo" src="../../../images/app2.0/time22@3x.png"></image>
+            <text class="temeText">4月23日(周三) 12:00</text>
+          </view>
+          <view class="reserveAddress">
+            <image class="addressLogo" src="../../../images/app2.0/address22@3x.png"></image>
+            <text class="addressText">[浦东新区]世纪大道88号金茂大厦生活重心A座1楼</text>
+          </view>
+      </view>
+      <view class="itemfooter">
+        <text class="endTime">05-25 16:04</text>
+        <button class="cancelReserve">取消预约</button>
+        <button class="contactService">联系客服</button>
+      </view>
+    </view>
+
+    <view class="reserveItem">
+      <view class="itemheader">
+        <image class="itemLogo" src="../../../images/app2.0/dianpu@3x.png"></image>
+        <text class="shopName">Cocodemer上海金茂汇所</text>
+        <text class="remainTime">已过期</text>
+      </view>
+      <view class="itembody">
+          <view class="reserveTime">
+            <image class="timeLogo" src="../../../images/app2.0/time22@3x.png"></image>
+            <text class="temeText">4月23日(周三) 12:00</text>
+          </view>
+          <view class="reserveAddress">
+            <image class="addressLogo" src="../../../images/app2.0/address22@3x.png"></image>
+            <text class="addressText">[浦东新区]世纪大道88号金茂大厦生活重心A座1楼</text>
+          </view>
+      </view>
+      <view class="itemfooter">
+        <text class="endTime">05-25 16:04</text>
+        <button class="cancelReserve">取消预约</button>
+        <button class="contactService">联系客服</button>
+      </view>
+    </view>
+  </view>
+
+  <!--<view class="checkHistory">
+    <button class="check" bindtap="checkHistoryList">查看历史记录</button>
+  </view>-->
+</view>
+

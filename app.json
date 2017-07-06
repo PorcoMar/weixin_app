@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/VIPCenter/VIPCenter",
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     "pages/index/selectCity/selectCity",
@@ -27,7 +26,9 @@
     "pages/VIPCenter/applyCash/applyCash",
     "pages/VIPCenter/applyCashRecord/applyCashRecord",
     "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
-    "pages/appointment/appointmentSuccess/appointmentSuccess"
+    "pages/appointment/appointmentSuccess/appointmentSuccess",
+    "pages/reserve/reserve",
+    "pages/reserve/reserveHistory/reserveHistory"
   ],
   "window": {
     "enablePullDownRefresh": false,
@@ -48,16 +49,10 @@
         "selectedIconPath": "images/tabBar/shouye1@3x.png"
       },
       {
-        "pagePath": "pages/coupon/coupon",
-        "text": "优惠券",
-        "iconPath": "images/tabBar/youhuiquan1@3x.png",
-        "selectedIconPath": "images/tabBar/youhuiquan2@3x.png"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "text": "订单",
-        "iconPath": "images/tabBar/dingdan2@3x.png",
-        "selectedIconPath": "images/tabBar/dingdan1@3x.png"
+        "pagePath": "pages/reserve/reserve",
+        "text": "我的预约",
+        "iconPath": "images/app2.0/yuyue@3x.png",
+        "selectedIconPath": "images/app2.0/yuyue2@3x.png"
       },
       {
         "pagePath": "pages/VIPCenter/VIPCenter",

@@ -1,4 +1,4 @@
-// appointmentSuccess.js
+// reserve.js
 Page({
 
   /**
@@ -63,16 +63,9 @@ Page({
   onShareAppMessage: function () {
   
   },
-  // 返回首页
-  comebackIndex:function(){
-    wx.switchTab({
-      url: '../../index/index',
-    })
-  },
-  // 查看我的预约
-  checkAppointment:function(){
-    wx.switchTab({
-      url: '../../reserve/reserve',
+  checkHistoryList:function(){
+    wx.navigateTo({
+      url: './reserveHistory/reserveHistory',
     })
   }
 })
