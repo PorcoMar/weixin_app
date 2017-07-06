@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/index/selectShop/selectShop",
+    "pages/index/selectCity/selectCity",
     "pages/service/service",
     "pages/service/detail/detail",
     "pages/service/detailUrl/detailUrl",
@@ -14,7 +15,8 @@
     "pages/personal/twoBarCode/twoBarCode",
     "pages/personal/realName/realName",
     "pages/personal/userInfo/userInfo",
-    "pages/coupon/coupon"
+    "pages/coupon/coupon",
+    "pages/appointment/appointment"
   ],
   "window": {
     "enablePullDownRefresh": false,

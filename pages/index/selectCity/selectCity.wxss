@@ -1,0 +1,15 @@
+/* selectCity.wxss */
+.shopCity{
+  position: absolute;
+  height: 100%;
+  background:gray; 
+}
+.shopCity .shopCity-item{
+  display:inline-block;
+  /*width:33.33%;*/
+  background:white;
+  margin:28rpx;
+  padding:30rpx;
+  border-radius:10rpx;
+
+}

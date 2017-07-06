@@ -35,6 +35,16 @@ page{
     align-items: center;
     justify-content: flex-end;
 }
+.changeShop{
+  position:absolute;
+  z-index:100;
+  top:12rpx;
+  right:15rpx;
+  background:gray;
+  border-radius:100rpx;
+  padding:0 20rpx;
+
+}
 .changeShop-text{
     font-size:28rpx;
     color:#fc5a5f;
@@ -42,12 +52,14 @@ page{
 .changeShop .more-arrow{
     width:28rpx;
     height:28rpx;
-    margin-left:18rpx;
+    margin-top:5rpx;
+    /*margin-left:18rpx;*/
 }
 
 /*----------门店图片展示结束--------*/
 .shop-photo{
-    margin-top:4rpx;
+    /*margin-top:4rpx;*/
+    height:400rpx;
 }
 .shop-photo image{
     width:100%;
@@ -68,6 +80,12 @@ page{
     align-items: center;
     position:relative;
 }
+.shop-info .other-section{
+    /*padding-left:24rpx;*/
+    padding: 31rpx 24rpx;
+    border-bottom:1px #e5e5e5 solid; 
+    position:relative;
+}
 
 .shop-info .left-icon{
     width:28rpx;
@@ -84,6 +102,10 @@ page{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.shop-info .shop-info-note{
+  margin:24rpx 48rpx 0;
+  font-size:24rpx;
 }
 
 .shop-info .shop-info-distance{
@@ -107,6 +129,15 @@ page{
     display:flex;
     align-items: center;
 }
+.shop-info .right-button{
+  position:absolute;
+  top:24rpx;
+  right:24rpx;
+}
+.right-button .appointment{
+  border-radius:200rpx;
+  width:240rpx;
+}
 .right-arrow-image{
     width:16rpx;
     height:30rpx;
@@ -121,12 +152,12 @@ page{
 }
 
 /*------服务列表开始------*/
-.service-content{
+/*.service-content{
     margin-top:20rpx;
     margin-bottom: 60rpx;
     padding:0 24rpx 34rpx 24rpx;
     background-color:#ffffff;
-}
+}*/
 .service-content .title{
     width:100%;
     font-size:32rpx;

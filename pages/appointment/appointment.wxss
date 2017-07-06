@@ -1,0 +1,37 @@
+/* appointment.wxss */
+.appointment{
+
+}
+.appointment .appointment-title{
+  display:flex;
+  border:1px solid;
+}
+
+.appointment-title .title-text{
+  margin:12rpx;
+  font-size:32rpx;
+  text-align:center;
+}
+.title-text text{
+  display:block;
+}
+
+.appointment .appointment-body{
+  display:flex;
+  flex-wrap:wrap;
+  margin-top:20rpx;
+  width:92%;
+  margin-left:4%;
+
+}
+.appointment-body .body-demo{
+flex-basis:22%;
+padding:30rpx;
+border:1px solid;
+margin:1% 1%;
+text-align:center;
+
+}
+.body-demo text{
+  display: block;
+}

@@ -1,15 +1,25 @@
 <!--pages/index/selectShop/selectShop.wxml-->
 <view class="container">
+    <view class="shop-header">
+        <image class="logo" src="../../../images/homePage/logo@3x.png" wx:if="{{!shop.logo}}"></image>
+        <!--<image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>-->
+        <text class="shopName">Cocodemer产后修复</text>
+        <view class="changeShop" bindtap="changeCity">
+            <text class="changeShop-text">上海</text>
+            <image src="../../../images/homePage/Path@2x.png" class="more-arrow"></image>
+        </view>
+    </view>
     <view class="shop-list">
         <view class="shop-item" bindtap="selected" wx:for="{{shopList}}" data-id="{{index}}">
             <image src="../../../images/homePage/chang@3x.png" wx:if="{{!item.imgs[0]}}"></image>
             <image src="../../../images/homePage/chang@3x.png" wx:if="{{item.imgs[0] == 'http://appimg.yizhenjia.com/'}}"></image>
             <image src="{{item.imgs[0]}}" wx:if="{{item.imgs[0] && item.imgs[0] != 'http://appimg.yizhenjia.com/'}}"></image>
-            <view class="shop-detail">
-                <view class="shop-name">
+            <view class="shop-name">
                     <text>{{item.name}}</text>
-                </view>
+            </view>
+            <view class="shop-detail">
                 <view class="shop-address">
+                     <image src="../../../images/homePage/address@2x.png" style="width:28rpx;height:28rpx;"></image>
                      <text class="shop-address-info">{{item.address}}</text>
                      <text class="shop-distance">{{item.distance/1000}}km</text>
                 </view>

@@ -1,31 +1,29 @@
 <!--index.wxml-->
 <view class="container" wx:if="{{shop}}">
-    <!--头部开始-->
-    <view class="header">
-        <image class="logo" src="../../images/homePage/logo@3x.png" wx:if="{{!shop.logo}}"></image>
-        <image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>
-        <text class="shopName">{{shop.name}}</text>
-        <view class="changeShop" bindtap="changeShop">
-            <text class="changeShop-text">切换门店</text>
-            <image src="../../images/homePage/Path@2x.png" class="more-arrow"></image>
-        </view>
-    </view>
-    <!--头部结束-->
+    
 
     <!--门店图片展示开始-->
     <view class="shop-photo">
         <image src="../../images/homePage/chang@3x.png" wx:if="{{!shop.imgs[0]}}"></image>
         <image src="{{shop.imgs[0]}}" wx:if="{{shop.imgs[0]}}"></image>
     </view>
+    <!--头部开始-->
+    <view class="changeShop" bindtap="changeShop">
+            <text class="changeShop-text">切换门店</text>
+            <image src="../../images/homePage/Path@2x.png" class="more-arrow"></image>
+    </view>
+    <view class="header">
+        <image class="logo" src="../../images/homePage/logo@3x.png" wx:if="{{!shop.logo}}"></image>
+        <image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>
+        <text class="shopName">{{shop.name}}</text>
+    </view>
+    <!--头部结束-->
     
     <!--门店图片展示结束-->
 
     <!--门店详情开始-->
     <view class="shop-info">
-        <view class="section">
-            <image class="left-icon" src="../../images/homePage/time@2x.png" ></image>
-            <text class="shop-info-text">营业时间周一至周五，{{shop.businessHours}}</text>
-        </view>
+        <!--门店地址-->
         <view class="section" bindtap="getLocation">
             <image class="left-icon" src="../../images/homePage/address@2x.png" ></image>
             <text class="shop-info-text">{{shop.address}}</text>
@@ -34,8 +32,8 @@
             <view class="right-arrow">
                 <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
             </view>
-            
         </view>
+        <!--联系电话-->
         <view class="section" bindtap="phoneCall">
             <image class="left-icon" src="../../images/homePage/mendian_tel_nor@2x.png" ></image>
             <text class="shop-info-text">{{shop.tel}}</text>
@@ -43,6 +41,17 @@
                 <image class="right-arrow-image" src="../../images/homePage/arrow@2x.png"></image>
             </view>
         </view>
+        <!--预约时间-->
+        <view class="other-section">
+            <image class="left-icon" src="../../images/homePage/time@2x.png" ></image>
+            <text class="shop-info-text">周一至周日({{shop.businessHours}})</text>
+            <!--<text>hasdkjfhaksdjfa</text>-->
+            <view class="shop-info-note">在线预约更方便更优惠</view>
+            <view class="right-button">
+                <button class="appointment" type="warn" bindtap="appointmentTime">立即预约</button>
+            </view>
+        </view>
+        <!--门店服务-->
         <view class="section">
             <image class="left-icon" src="../../images/homePage/wifi@2x.png" wx:if="{{shop.hasWifi}}"></image>
             <text class="extra-service" wx:if="{{shop.hasWifi}}">免费WIFI</text>
@@ -63,7 +72,7 @@
 
     <!--热门服务列表开始-->
     <view class="service-content">
-        <view class="title">
+        <!--<view class="title">
           <text>服务品牌</text>
         </view>
         <view class="service-brand">
@@ -83,7 +92,7 @@
             <image src="../../images/homePage/yuezihuisuo@2x.png"></image>
             <image src="../../images/homePage/leges@2x.png"></image>
           </view>
-        </view>
+        </view>-->
         <!--<view class="service-list">
             <view class="service-item" wx:for="{{shop.services}}" data-id="{{item.id}}" bindtap="selectService">
                 <view class="service-image">

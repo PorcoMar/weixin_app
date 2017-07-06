@@ -1,0 +1,95 @@
+<!--appointment.wxml-->
+<!--<text>appointment.wxml</text>-->
+<view class="appointment">
+  <view class="appointment-title">
+    <view class="title-text">
+      <text>明天</text>
+      <text>07-03</text>
+    </view>
+    <view class="title-text">
+      <text>周四</text>
+      <text>07-03</text>
+    </view>
+    <view class="title-text">
+      <text>周五</text>
+      <text>07-03</text>
+    </view>
+    <view class="title-text">
+      <text>周六</text>
+      <text>07-03</text>
+    </view>
+    <view class="title-text">
+      <text>周日</text>
+      <text>07-03</text>
+    </view>
+    <view class="title-text">
+      <text>周一</text>
+      <text>07-03</text>
+    </view>
+    <view class="title-text">
+      <text>周二</text>
+      <text>07-03</text>
+    </view>
+  </view>
+  <view class="appointment-body">
+    <view class="body-demo">
+      <text>10:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>11:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>12:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>13:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>14:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>15:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>16:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>17:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>18:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>19:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>20:00</text>
+      <text>可预约</text>
+    </view>
+    <view class="body-demo">
+      <text>21:00</text>
+      <text>可预约</text>
+    </view>
+  </view>
+  <view class="appointment-text">
+    <view class="text-header">
+      <image class="textImage" src="../../images/homePage/wifi@2x.png"></image>
+      <text>温馨提示</text>
+    </view>
+    <text>bajdkjhasbdfkjhbkjgsdjfbgjsdhfvksdbhfjkvhsbfkvhbskfdhbvjksdfbvjksdbfjvbsdjkfvsdfv jsfbvkjsbfjhvbsdjfhvbjsfbvjsdfbvjsdfbjkvsbdf</text>
+
+  </view>
+  <view class="appointment-footer">
+  
+  </view>
+</view>

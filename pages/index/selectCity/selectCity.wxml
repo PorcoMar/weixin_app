@@ -1,0 +1,18 @@
+<!--selectCity.wxml-->
+<view class="shopCity">
+  <view class="shopCity-item">
+    上海市
+  </view>
+  <view class="shopCity-item">
+    上海市
+  </view>
+  <view class="shopCity-item">
+    上海市
+  </view>
+  <view class="shopCity-item">
+    上海市
+  </view>
+  <view class="shopCity-item">
+    上海市
+  </view>
+</view>

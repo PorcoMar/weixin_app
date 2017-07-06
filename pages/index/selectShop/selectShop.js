@@ -10,7 +10,7 @@ Page({
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var location = app.globalData.location;
-    console.log("--shoplist onload--")
+    console.log("--shoplist onload--",location)
     this.setData({
       options: options
     })
@@ -62,7 +62,7 @@ Page({
           console.log("----get shopList successed----");
           if (res.data.code == "0") {
             var shopList = res.data.result;
-            console.log(shopList);
+            console.log("shopList",shopList);
             for (var i = 0; i < shopList.length; i++) {
               if (shopId == shopList[i].id) {
                 shopList[i].selected = true;
@@ -88,6 +88,12 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+  changeCity: function () {
+    console.log("chageCity");
+    wx.navigateTo({
+      url: '../selectCity/selectCity'
+    })
   },
   selected:function(e){
     var id = e.currentTarget.dataset.id;

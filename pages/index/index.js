@@ -17,6 +17,8 @@ Page({
        wx.getLocation({
          type:"wgs84",
          success:function(res){
+           //获取所在城市
+          //  this.loadCity(res.ongitude,res.latitude);  
            var location = {
              lat:res.latitude,
              lng:res.longitude
@@ -85,6 +87,11 @@ Page({
       url: './selectShop/selectShop'
     })
   },
+  appointmentTime:function(){
+    wx.navigateTo({
+      url: '../appointment/appointment',
+    })
+  },
   //拨打电话
   phoneCall:function(){
     var phone = this.data.shop.tel;
@@ -100,6 +107,27 @@ Page({
       scale: 28
     })
   },
+  loadCity: function (longitude, latitude) {
+    var page = this
+    wx.request({
+      url: 'https://api.map.baidu.com/geocoder/v2/?ak=UnPNw6EZjdPyhL2dbpjoebPE2uvzm1LT&location=' + latitude + ',' + longitude + '&output=json',
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        // success    
+        console.log(res);
+        var city = res.data.result.addressComponent.city;
+        console.log("city",city);
+        // page.setData({ currentCity: city });
+      },
+      fail: function () {
+        page.setData({ currentCity: "获取定位失败" });
+      },
+
+    })
+  }, 
   selectService:function(e){
     var id = e.currentTarget.dataset.id;
     var shopId = this.data.shop.id;
