@@ -1,4 +1,4 @@
-// pages/personal/userInfo/userInfo.js
+const util = require('../../utils/util.js');
 var app = getApp();
 var HOST = app.globalData.HOST;
 Page({
@@ -11,7 +11,8 @@ Page({
     var uid = app.globalData.HEADER.uid;
     console.log("uid", uid);
     if (token && uid) {
-
+      console.log(util.secondTimestamp(1499245853))
+      console.log(app.globalData)
     } else{
       wx.navigateTo({
         url: '../personal/bindPhone/bindPhone',
