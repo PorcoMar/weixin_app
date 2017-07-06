@@ -17,12 +17,8 @@
     "pages/personal/realName/realName",
     "pages/personal/userInfo/userInfo",
     "pages/coupon/coupon",
-<<<<<<< HEAD
     "pages/appointment/appointment",
     "pages/VIPCenter/VIPCenter",
-=======
-    
->>>>>>> 496ce0439fd100dc51ec8ac8068bae7d6d44ed76
     "pages/VIPCenter/VIPCenter/recomGiftAfter",
     "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/getGift/getGift",
