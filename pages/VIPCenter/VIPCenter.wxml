@@ -1,34 +1,85 @@
 <!--pages/personal/userInfo/userInfo.wxml-->
 <view class="container">
+<!--banner area-->
   <view class="container_vip">
+    <image class="banner-header" src="../../images/app2.0/ka@2x.png"></image>
+
+    <view class="top">
+      <image src="../../images/app2.0/jiantou@2x.png"></image>
+      <text>杭州西子会所</text>
+    </view>
+
+    <view class="userInfo">
+    <image src="{{wxInfo.avatarUrl}}"></image>
+      <view class="right_text">
+      <text class="nickName">{{wxInfo.nickName}}</text>
+      <image src="../../images/app2.0/huiyuandengji@2x.png"></image>
+      <text class="vipLevel">非会员</text>
+      </view>
+    </view>
+
+    <view class="bottom-num">
+      NO.123123123123
+    </view>
 
   </view>
+
   <view class="second-money">
-    <view class="floatL">123</view>
+    <view class="floatL">
+      <text class="money-nor"><text class="money-bold">15500</text> 元</text>
+      <text class="monry_name">钱包</text>
+    </view>
     <text class="borderm"></text>
-    <view class="floatL">234</view>
+    <view class="floatL">
+      <text class="money-nor"><text class="money-bold">15500</text> 元</text>
+      <text class="monry_name">钱包</text>
+    </view>
     <text class="borderm"></text>
-    <view class="floatL">345</view>
+    <view class="floatL">
+      <text class="money-nor"><text class="money-bold">15500</text> 元</text>
+      <text class="monry_name">钱包</text>
+    </view>
   </view>
+
 
 <view class="myOrder">
-  <text>我的订单</text>
+  <text class="my_order">我的订单</text>
   <view class="contan-satatue">
-    <view class="floatL2">123</view>
-    <view class="floatL2">234</view>
-    <view class="floatL2">345</view>
-    <view class="floatL2">456</view>
+    <view class="floatL2">
+      <image src="../../images/app2.0/代付款@2x.png"></image>
+      <text>待付款</text>
+    </view>
+    <view class="floatL2">
+      <image src="../../images/app2.0/代付款@2x.png"></image>
+      <text>待付款</text>
+    </view>
+    <view class="floatL2">
+      <image src="../../images/app2.0/代付款@2x.png"></image>
+      <text>待付款</text>
+    </view>
+    <view class="floatL2">
+      <image src="../../images/app2.0/代付款@2x.png"></image>
+      <text>待付款</text>
+    </view>
   </view>
 </view>
-<view class="VipPower">
-  <text>会员特权</text>
-  <view class="VipPower-cont">
-    <view class="floatL3">123</view>
-    <view class="floatL3">234</view>
-    <view class="floatL3" style="visibility:hidden;"></view>
-    <view class="floatL3" style="visibility:hidden;"></view>
+
+<view class="myOrder">
+  <text class="my_order">会员特权</text>
+  <view class="contan-satatue">
+    <view class="floatL2">
+      <image src="../../images/app2.0/代付款@2x.png"></image>
+      <text>待付款</text>
+    </view>
+    <view class="floatL2">
+      <image src="../../images/app2.0/代付款@2x.png"></image>
+      <text>待付款</text>
+    </view>
+    <view class="floatL2" style="visibility:hidden;"></view>
+    <view class="floatL2" style="visibility:hidden;"></view>
   </view>
 </view>
+
 
 
 
