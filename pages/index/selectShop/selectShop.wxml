@@ -5,7 +5,7 @@
         <!--<image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>-->
         <text class="shopName">Cocodemer产后修复</text>
         <view class="changeShop" bindtap="changeCity">
-            <text class="changeShop-text">上海</text>
+            <text class="changeShop-text">{{cityName}}</text>
             <image src="../../../images/app2.0/Path2@3x.png" class="more-arrow"></image>
         </view>
     </view>
@@ -20,6 +20,7 @@
             <view class="shop-detail">
                 <view class="shop-address">
                      <image src="../../../images/homePage/address@2x.png" style="width:24rpx;height:24rpx;"></image>
+                     <!--<text class="shop-address-info">{{item.address}}</text>-->
                      <text class="shop-address-info">{{item.address}}</text>
                      <text class="shop-distance">{{item.distance/1000}}km</text>
                 </view>

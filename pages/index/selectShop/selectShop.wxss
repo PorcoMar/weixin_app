@@ -43,8 +43,8 @@ margin-left:30rpx;
 }
 .changeShop .more-arrow{
     width:22rpx;
-height:12rpx;
-    /*margin-left:18rpx;*/
+    height:12rpx;
+    margin-left:12rpx;
 }
 .shop-list .shop-item{
     /*padding:28rpx 0rpx;*/

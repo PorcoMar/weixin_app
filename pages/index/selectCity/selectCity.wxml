@@ -2,10 +2,19 @@
 <view class="shopCity">
   <text class="city-title">开通服务城市</text>
   <view class="cityList">
+    <!--<view class="shopCity-item" wx:for="{{cityList}}">
+      <text wx:if="{{item}} == '舟山市'">{{item}}1</text>
+
+    </view>-->
+    <!--<view class="shopCity-item">上海市</view>
     <view class="shopCity-item">上海市</view>
     <view class="shopCity-item">上海市</view>
-    <view class="shopCity-item">上海市</view>
-    <view class="shopCity-item">上海市</view>
-    <view class="shopCity-item">上海市</view>
+    <view class="shopCity-item">上海市</view>-->
+    <block wx:for="{{cityList}}" wx:for-item="group">
+      <view class="shopCity-item" id="{{cityName==group? 'shopCity-item-select' : ''}}" data-city="{{group}}" bindtap="changeCity">
+        <text>{{group}}</text>
+        <text wx:if="{{cityName==group}}" class="selected-city">定位城市</text>      
+      </view>
+    </block>
   </view>
 </view>
