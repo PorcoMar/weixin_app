@@ -1,74 +1,36 @@
-<!--pages/personal/userInfo/userInfo.wxml-->
 <view class="container">
-    <!--主要内容开始-->
-    <view class="content">
-        <view class="section">
-            <text class="section-name">姓名</text>
-            <view class="section-button" bindtap="editRealName">
-                <text class="section-text" wx:if="{{userInfo.realName}}">{{userInfo.realName}}</text>
-                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
-            </view>
-            
 
-        </view>
-        <view class="section">
-            <text class="section-name">地址</text>
-            <view class="section-button" bindtap="addressSelection">
-                <text class="section-text">{{userInfo.province}}-{{userInfo.city}}-{{userInfo.area}}</text>
-                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
-            </view>
-        </view>
-        <view class="section">
-            <text class="section-name">生日</text>
-            <view class="section-button" bindtap="dateSelection">
-                <text class="section-text"  wx:if="{{userInfo.birthDate}}">{{userInfo.birthDate}}</text>
-                <text class="section-text" wx:if="{{!userInfo.birthDate}}">01-01</text>
-                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
-            </view>
+<view class="banner_head">
+  <text>1,550.00</text>
+  <text>可提总礼金(元)</text>
+  <text>预计总礼金: 1890.00</text>
+</view>
 
-           
-        </view>
-    </view>
-    <!--主要内容开始-->
+<view class="moneyRecord">礼金记录</view>
 
-    <view class="selection" wx:if="{{dateSelection}}">
-        <view class="selection-content">
-            <view class="operate-bar">
-                <text bindtap="dateConfirm">确定</text>
-                <text bindtap="cancel">取消</text>
-            </view>
-            <view class="date-selection">
-                <picker-view indicator-style="height:44px;" style="width:100%;height:100%" value="{{timePicker.value}}" bindchange="datebindchange">
-                    <picker-view-column class="column1">
-                        <view wx:for="{{timePicker.months}}" style="line-height:44px;">{{item}}月</view>
-                    </picker-view-column>
-                    <picker-view-column class="column2">
-                        <view wx:for="{{timePicker.days}}" style="line-height:44px;">{{item}}日</view>
-                    </picker-view-column>
-                </picker-view>
-            </view>
-        </view>
-    </view>
+<view class="big_box">
 
-    <view class="selection" wx:if="{{addressSelection}}">
-        <view class="selection-content">
-            <view class="operate-bar">
-                <text bindtap="addressConfirm">确定</text>
-                <text bindtap="cancel">取消</text>
-            </view>
-            <view class="address-selection">
-                <picker-view indicator-style="height:44px;" style="width:100%;height:100%" value="{{address_value}}" bindchange="addressbindchange">
-                    <picker-view-column class="column1">
-                        <view wx:for="{{provinces}}" style="line-height:44px;">{{item.name}}</view>
-                    </picker-view-column>
-                    <picker-view-column class="column2">
-                        <view wx:for="{{citys}}" style="line-height:44px;">{{item.name}}</view>
-                    </picker-view-column>
-                    <picker-view-column class="column3">
-                        <view wx:for="{{areas}}" style="line-height:44px;">{{item.name}}</view>
-                    </picker-view-column>
-                </picker-view>
-            </view>
-        </view>
-    </view>
+<view class="listContent">
+  <view class="leftCont">
+    <text>2016-11-11 18;12:34</text>
+    <text>Mr.chen (186****7876) </text>
+  </view>
+  <view class="rightCont">
+    <text>待结算</text>
+    <text>+150.00 </text>
+  </view>
+</view>
+<view class="listContent">
+  <view class="leftCont">
+    <text>2016-11-11 18;12:34</text>
+    <text>Mr.chen (186****7876) </text>
+  </view>
+  <view class="rightCont">
+    <text>待结算</text>
+    <text>+150.00 </text>
+  </view>
+</view>
+
+</view>
+
 </view>

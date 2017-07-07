@@ -19,6 +19,8 @@
     "pages/appointment/appointment",
     "pages/VIPCenter/VIPCenter",
     "pages/VIPCenter/VIPCenter/recomGiftAfter",
+    "pages/VIPCenter/VIPCenter",
+    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",        
     "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/getGift/getGift",
     "pages/VIPCenter/recomRecord/recomRecord",
@@ -28,7 +30,8 @@
     "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
     "pages/appointment/appointmentSuccess/appointmentSuccess",
     "pages/reserve/reserve",
-    "pages/reserve/reserveHistory/reserveHistory"
+    "pages/reserve/reserveHistory/reserveHistory",
+    "pages/VIPCenter/recomGiftBefore/recomGiftBefore"
   ],
   "window": {
     "enablePullDownRefresh": false,
