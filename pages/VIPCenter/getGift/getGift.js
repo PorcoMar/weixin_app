@@ -50,6 +50,16 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+  returnIndex:function(){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+  toCashRecord:function(){
+    wx.navigateTo({
+      url: '/pages/VIPCenter/applyCashRecord/applyCashRecord',
+    })
+  }
 
 
 })

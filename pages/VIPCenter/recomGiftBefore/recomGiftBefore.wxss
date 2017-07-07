@@ -22,13 +22,13 @@
 }
 .opra-proccess{
   height:310rpx;width:100%;display:flex;justify-content:space-around;
-  align-items:flex-end;background: #fff;
+  align-items:flex-end;background: #fff;margin-bottom:20rpx;
 }
 .opra-proccess .jiantou{
-  width:50rpx;height:16rpx;margin-bottom:180rpx;
+  width:50rpx;height:16rpx;margin-bottom:186rpx;
 }
 .opra-proccess .step{
-  width:150rpx;height:270rpx;background: #ccc;
+  width:150rpx;height:270rpx;
   display:flex;flex-direction:column;text-align:center;
 }
 .hongbao{
@@ -40,6 +40,7 @@
 .stepColor{
   color:#fc5a5f;font-size:28rpx;line-height:62rpx;
 }
+
 .footn{
   height:130rpx;width:100%;background: #fff;position:fixed;bottom:0;display:flex;justify-content: center;align-items: center;
 }

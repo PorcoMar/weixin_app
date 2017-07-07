@@ -36,8 +36,18 @@ function secondTimestamp(timestamp){
   var seconds = date.getSeconds();
   return Year + "-" + Month + "-" + day + " " + Hour + ":" + Min + ":" +seconds
 }
+function stringNum(num){
+  if (typeof num=="number"){
+    let str = num.toString();
+    return str.substr(0, 3) + "****" + str.substr(8, 10);
+  }else{
+    return num.substr(0, 3) + "****" + num.substr(8, 10);
+  }
+ 
+}
 module.exports = {
   formatTime: formatTime,
   formatTimestamp: formatTimestamp,
-  secondTimestamp: secondTimestamp
+  secondTimestamp: secondTimestamp,
+  stringNum:stringNum
 }

@@ -20,25 +20,29 @@
 
 <view class="opra-proccess">
   <view class="step">
-  <image class="hongbao" src="../../../images/app2.0/gouwudai@2x.png"></image>
+  <image class="hongbao" src="../../../images/app2.0/143b59c96d8f05f9935d9b33a50ecc57@2x.png"
+  style="margin-top:10rpx;"></image>
   <text class="stepColor">Step1</text>
   <text class="gigtwenzi">分享新人红包给您的好友</text>
   </view>
   <image class="jiantou" src="../../../images/app2.0/jiantou@2x.png"></image>
 
   <view class="step">
-  <image class="hongbao" src="../../../images/app2.0/gouwudai@2x.png"></image>
-  <text class="stepColor">Step1</text>
-  <text class="gigtwenzi">分享新人红包给您的好友</text>
+  <image class="hongbao" src="../../../images/app2.0/gouwudai@2x.png" style="margin-bottom:10rpx;"></image>
+  <text class="stepColor">Step2</text>
+  <text class="gigtwenzi">好友使用</text>
+  <text class="gigtwenzi">红包消费</text>
   </view>
   <image class="jiantou" src="../../../images/app2.0/jiantou@2x.png"></image>
 
   <view class="step">
-  <image class="hongbao" src="../../../images/app2.0/gouwudai@2x.png"></image>
-  <text class="stepColor">Step1</text>
-  <text class="gigtwenzi">分享新人红包给您的好友</text>
+  <image class="hongbao" src="../../../images/app2.0/2ceefca776ef99020970a144dbb1c2ca@2x.png" style="margin-top:10rpx;"></image>
+  <text class="stepColor">Step3</text>
+  <text class="gigtwenzi">您获取</text>
+  <text class="gigtwenzi">推荐礼金</text>
   </view>
 </view>
+
 <view style="height:130rpx;"></view>
 
 <view class="footn">

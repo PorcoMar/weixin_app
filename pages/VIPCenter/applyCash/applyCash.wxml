@@ -1,74 +1,40 @@
-<!--pages/personal/userInfo/userInfo.wxml-->
 <view class="container">
-    <!--主要内容开始-->
-    <view class="content">
-        <view class="section">
-            <text class="section-name">姓名</text>
-            <view class="section-button" bindtap="editRealName">
-                <text class="section-text" wx:if="{{userInfo.realName}}">{{userInfo.realName}}</text>
-                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
-            </view>
-            
+<view class="header_top"></view>
+<view class="inp">
+<text>提现人姓名</text>
+<input type="text" placeholder="请输入提现人的姓名" bindinput="bindName"/>
+</view>
+<view class="inp">
+<text>支付宝账号</text>
+<input type="text" placeholder="请输入提现人的支付宝账号" bindinput="bindNum"/>
+</view>
+<view class="allMoney">
+<view class="allCash">提现金额</view>
+<view class="numCash">
+  <text>¥</text>
+  <input type="number" placeholder="2800" bindinput="bindCash"/>
+</view>
+</view>
 
-        </view>
-        <view class="section">
-            <text class="section-name">地址</text>
-            <view class="section-button" bindtap="addressSelection">
-                <text class="section-text">{{userInfo.province}}-{{userInfo.city}}-{{userInfo.area}}</text>
-                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
-            </view>
-        </view>
-        <view class="section">
-            <text class="section-name">生日</text>
-            <view class="section-button" bindtap="dateSelection">
-                <text class="section-text"  wx:if="{{userInfo.birthDate}}">{{userInfo.birthDate}}</text>
-                <text class="section-text" wx:if="{{!userInfo.birthDate}}">01-01</text>
-                <image class="more-arrow" src="../../../images/personal/more@2x.png"></image>
-            </view>
+<view class="getCashm">
+<text>可提金额<text class="numcak"> ¥ 2800</text></text>
+<view class="allCashm">全部提现</view>
+</view>
 
-           
-        </view>
-    </view>
-    <!--主要内容开始-->
 
-    <view class="selection" wx:if="{{dateSelection}}">
-        <view class="selection-content">
-            <view class="operate-bar">
-                <text bindtap="dateConfirm">确定</text>
-                <text bindtap="cancel">取消</text>
-            </view>
-            <view class="date-selection">
-                <picker-view indicator-style="height:44px;" style="width:100%;height:100%" value="{{timePicker.value}}" bindchange="datebindchange">
-                    <picker-view-column class="column1">
-                        <view wx:for="{{timePicker.months}}" style="line-height:44px;">{{item}}月</view>
-                    </picker-view-column>
-                    <picker-view-column class="column2">
-                        <view wx:for="{{timePicker.days}}" style="line-height:44px;">{{item}}日</view>
-                    </picker-view-column>
-                </picker-view>
-            </view>
-        </view>
-    </view>
+</view>
+<!--outside container-->
+<view class="attention">
+<view class="attn1">
+<image src="../../../images/app2.0/zhuyi@2x.png"></image>
+<text>温馨提示</text>
+</view>
+<text>单笔提现金额大于100元，每个月最多提现2次。</text>
+</view>
 
-    <view class="selection" wx:if="{{addressSelection}}">
-        <view class="selection-content">
-            <view class="operate-bar">
-                <text bindtap="addressConfirm">确定</text>
-                <text bindtap="cancel">取消</text>
-            </view>
-            <view class="address-selection">
-                <picker-view indicator-style="height:44px;" style="width:100%;height:100%" value="{{address_value}}" bindchange="addressbindchange">
-                    <picker-view-column class="column1">
-                        <view wx:for="{{provinces}}" style="line-height:44px;">{{item.name}}</view>
-                    </picker-view-column>
-                    <picker-view-column class="column2">
-                        <view wx:for="{{citys}}" style="line-height:44px;">{{item.name}}</view>
-                    </picker-view-column>
-                    <picker-view-column class="column3">
-                        <view wx:for="{{areas}}" style="line-height:44px;">{{item.name}}</view>
-                    </picker-view-column>
-                </picker-view>
-            </view>
-        </view>
-    </view>
+<view class="footern">
+<view class="buttom" bindtap="getgift">
+<image src="../../../images/app2.0/wode2@3x.png"></image>
+<text>提现</text>
+</view>
 </view>

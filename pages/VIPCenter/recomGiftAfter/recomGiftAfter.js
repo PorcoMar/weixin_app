@@ -13,6 +13,7 @@ Page({
     console.log(token, uid);
     if (token && uid) {
       console.log(util.secondTimestamp(1499245853))
+      console.log(util.stringNum(13678765465))
       console.log(app.globalData)
       this.setData({ wxInfo: app.globalData.wxInfo})
     } else {
@@ -51,6 +52,28 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
-
+  //转发
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '满300减300',
+      path: '/pages/VIPCenter/shareGift/shareGift',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
+  getBash:function(){
+    wx.navigateTo({
+      url: '/pages/VIPCenter/applyCash/applyCash',
+    })
+  },
+  
 
 })
