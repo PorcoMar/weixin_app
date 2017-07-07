@@ -36,8 +36,40 @@ function secondTimestamp(timestamp){
   var seconds = date.getSeconds();
   return Year + "-" + Month + "-" + day + " " + Hour + ":" + Min + ":" +seconds
 }
+
+//获取接下来的一周时间
+function nextWeek(date){
+    // var date = new Date();
+    var week = [];
+    var showDate = (date.getMonth() + 1) + '/' + date.getDate();
+    console.log(showDate)
+    for (var i = 1; i <= 7; i++) {//后7天
+        var obj = {};
+        date.setDate(date.getDate() + 1);
+        var mon = (date.getMonth() + 1);
+        var day =  date.getDate();
+        showDate =  (mon<10?('0'+mon):mon)+"-"+(day<10?('0'+day):day);
+        var weekDay =  getDayName(date.getDay());
+        obj.date = showDate;
+        obj.weekDay = weekDay;
+        obj.year = date.getFullYear();
+        // console.log(showDate);
+        week.push(obj);
+    }
+    week[0].weekDay = "明天";
+    return week;
+}
+function getDayName(day)
+{
+    var day=parseInt(day);
+    if(isNaN(day) || day<0 || day>6)
+        return false;
+    var weekday=["周日","周一","周二","周三","周四","周五","周六"];
+    return weekday[day];
+}
 module.exports = {
   formatTime: formatTime,
   formatTimestamp: formatTimestamp,
-  secondTimestamp: secondTimestamp
+  secondTimestamp: secondTimestamp,
+  nextWeek:nextWeek
 }

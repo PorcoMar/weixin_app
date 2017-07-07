@@ -19,8 +19,12 @@ color:#4f4f4f;
 margin-top:16rpx;
 
 }
+#title-text{
+  color: #fc5a5f;
+}
 .title-text text{
   display:block;
+  margin:8rpx 0;
 }
 
 .appointment .appointment-body{
@@ -41,12 +45,22 @@ text-align:center;
 height:160rpx;
 /*vertical-align:middle;*/
 }
+.appointment-body .timeFull .text-time{
+  color: #8f8f8f;
+}
+.appointment-body .timeFull .text-note{
+  color: #fc5a5f;
+}
+#body-demo{
+  border:1px solid #fd5a5f;
+}
 .body-demo .text-time{
   margin:44rpx 0 16rpx 0;
-
+  font-size:42rpx;
 }
 .body-demo .text-note{
-  font-size: 24rpx;
+  font-size: 28rpx;
+  color:#6ecb67;
 }
 .body-demo text{
   display: block;
@@ -94,6 +108,7 @@ margin:0 24rpx 32rpx 0;
 }
 .submitAppointment{
   border-radius:50rpx;
-background-color:#ff6266;
+  color:#ffffff;
+/*background-color:#ff6266;*/
 
 }

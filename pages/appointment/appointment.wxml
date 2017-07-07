@@ -2,99 +2,36 @@
 <!--<text>appointment.wxml</text>-->
 <view class="appointment">
   <view class="appointment-title">
-    <view class="title-text">
-      <text>明天</text>
-      <text>07-03</text>
+  <block wx:for="{{dateList}}" wx:for-index="idx">
+    <view class="title-text" bindtap="changeDate" data-id="{{idx}}" id="{{idx==chooseDate?'title-text':''}}">
+      <text>{{item.weekDay}}</text>
+      <text>{{item.date}}</text>
     </view>
-    <view class="title-text">
-      <text>周四</text>
-      <text>07-03</text>
-    </view>
-    <view class="title-text">
-      <text>周五</text>
-      <text>07-03</text>
-    </view>
-    <view class="title-text">
-      <text>周六</text>
-      <text>07-03</text>
-    </view>
-    <view class="title-text">
-      <text>周日</text>
-      <text>07-03</text>
-    </view>
-    <view class="title-text">
-      <text>周一</text>
-      <text>07-03</text>
-    </view>
-    <view class="title-text">
-      <text>周二</text>
-      <text>07-03</text>
-    </view>
+  </block>
   </view>
   <view class="appointment-body">
-    <view class="body-demo">
-      <text class="text-time">10:00</text>
-      <text class="text-note">可预约</text>
+  <block wx:for="{{timeList}}" wx:for-index="idx">
+    <view class="body-demo {{timeReserve[idx]==2?'timeFull':''}}" bindtap="{{timeReserve[idx]==2?'':'changeTime'}}" data-id="{{idx}}" id="{{idx==chooseTime?'body-demo':''}}">
+      <text class="text-time">{{item}}</text>
+      <text class="text-note">{{timeReserve[idx]==2?'已约满':'可预约'}}</text>
     </view>
-    <view class="body-demo">
-      <text>11:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>12:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>13:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>14:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>15:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>16:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>17:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>18:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>19:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>20:00</text>
-      <text>可预约</text>
-    </view>
-    <view class="body-demo">
-      <text>21:00</text>
-      <text>可预约</text>
-    </view>
+  </block>
+    
   </view>
   <view class="appointment-text">
     <view class="text-header">
-      <image class="textImage" src="../../images/homePage/wifi@2x.png"></image>
+      <image class="textImage" src="../../images/app2.0/zhuyi@3x.png"></image>
       <text>温馨提示</text>
     </view>
     <view class="textDetail">
-        阿斯顿发尽快哈市的国际法哈数量的法律手段复活甲拉速度恢复暴风金卡戴珊拉法基收到货了上的开发领导就是法律手段上的法律开始大家好伐啦卡萨丁
+      在线预约可以从明天开始7天内的个时间段的预约，为确保服务质量，每个时间段只有2个线上预约名额，可在预约时间的前后30分钟内到点。
     </view>
     <!--<text>bajdkjhasbdfkjhbkjgsdjfbgjsdhfvksdbhfjkvhsbfkvhbskfdhbvjksdfbvjksdbfjvbsdjkfvsdfv jsfbvkjsbfjhvbsdjfhvbjsfbvjsdfbvjsdfbjkvsbdf</text>-->
   </view>
   <view class="appointment-footer">
-    <text class="submitText">请选择预约时间</text>
+    <text class="submitText">{{chooseTime!==null?'预约开始时间:     '+dateList[chooseDate].date+'     '+timeList[chooseTime]:'请选择预约开始时间'}}</text>
     <view class="right-button">
-          <button class="submitAppointment" type="warn" bindtap="submitAppointment">提交预约</button>
+          <button class="submitAppointment" style="background:{{chooseTime!==null?'#ff6266':'#d1d1d1'}}" bindtap="{{chooseTime!==null?'submitAppointment':''}}">提交预约</button>
     </view>
   </view>
 </view>
