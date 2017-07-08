@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/VIPCenter/shareGift/shareGift",
+    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     "pages/service/service",
@@ -17,8 +17,8 @@
     "pages/personal/userInfo/userInfo",
     "pages/coupon/coupon",
     "pages/VIPCenter/VIPCenter",
-    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     
+    "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/getGift/getGift",
     "pages/VIPCenter/recomRecord/recomRecord",
     "pages/VIPCenter/moneyRecord/moneyRecord",

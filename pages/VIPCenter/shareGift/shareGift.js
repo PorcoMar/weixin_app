@@ -29,7 +29,7 @@ Page({
     second: 6,
     ifShow: false,
     defaultFont: "获取验证码",
-    modalHidden1: false,
+    modalHidden1: true,
     modalHidden2: false,
     modalHidden3: false,
     modalHidden4: false,
@@ -38,8 +38,15 @@ Page({
     disabled: false,
     val: "",
     codeNum: "",
+    haha:"",
+    haha2:""
   },
+
   onLoad: function (options) {
+    this.setData({
+      oriName: options.name,
+      oriOpenId: options.openid
+    })
     wx.getUserInfo({
       success: (res)=> {
         console.log(res);
@@ -58,7 +65,7 @@ Page({
         const userImg = wxInfo.avatarUrl;
         const useName = wxInfo.nickName;
         const openIdn = app.globalData.openid;
-        console.log(openIdn,useName,userImg)
+        //console.log(openIdn,useName,userImg)
       },
       fail: function () {
         console.log("------login fail-------");
@@ -69,17 +76,6 @@ Page({
         });
       }
     })
-
-
-
-
-    //获取用户信息
-      //console.log(app.globalData.wxInfo)
-      //let userInfo = app.globalData;
-      // let userImg = userInfo.wxInfo.avatarUrl;
-      // let userName = userInfo.wxInfo.nickName;
-      // let openId = userInfo.openid;
-      //console.log(userImg, userName, openId)
   },
   onReady: function () {
     // 页面渲染完成
@@ -164,6 +160,9 @@ Page({
         modalHidden1: true
       })
      }else{
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
        //请求提交接口
       wx.request({
         url: HOST + "/distribute/addDistributeUser",
@@ -172,9 +171,14 @@ Page({
         data: { 
           phone: this.data.val,
           code: this.data.codeNum,
-
+          sourceOpenid:this.data.oriOpenId,
+          headerImage: userImg,
+          nickName: useName,
+          openid: openIdn,
+          distributeConfigId:1
           },
         success: function (res) {
+          console.log(res)
           if (res.data.code == 0) {
             console.log("请求成功")
             this.setData({
