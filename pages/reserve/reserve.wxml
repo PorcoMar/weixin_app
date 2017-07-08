@@ -2,54 +2,34 @@
 <!--<text>reserve.wxml</text>-->
 <view class="page">
   <view class="reserveList">
-    <view class="reserveItem">
-      <view class="itemheader">
-        <image class="itemLogo" src="../../images/app2.0/dianpu@3x.png"></image>
-        <text class="shopName">Cocodemer上海金茂汇所</text>
-        <text class="remainTime">剩余3天</text>
+    <block wx:for="{{reserveList}}">
+      <view class="reserveItem">
+        <view class="itemheader">
+          <image class="itemLogo" src="../../images/app2.0/dianpu@3x.png"></image>
+          <text class="shopName">{{item.shopName}}</text>
+          <text class="remainTime">{{item.endTime>0?'剩余'+item.endTime+'天':''}}</text>
+        </view>
+        <view class="itembody">
+            <view class="reserveTime">
+              <image class="timeLogo" src="../../images/app2.0/time22@3x.png"></image>
+              <text class="temeText">{{item.reserveTime}}</text>
+            </view>
+            <view class="reserveAddress">
+              <image class="addressLogo" src="../../images/app2.0/address22@3x.png"></image>
+              <text class="addressText">{{item.address}}</text>
+            </view>
+        </view>
+        <view class="itemfooter">
+          <!--<text class="endTime">{{item.modifiedTime}}</text>-->
+          <button class="cancelReserve" bindtap="cancelReserve" data-id="{{item.id}}">取消预约</button>
+          <button class="contactService" bindtap="contactService" data-phone="{{item.phone}}">联系客服</button>
+        </view>
       </view>
-      <view class="itembody">
-          <view class="reserveTime">
-            <image class="timeLogo" src="../../images/app2.0/time22@3x.png"></image>
-            <text class="temeText">4月23日(周三) 12:00</text>
-          </view>
-          <view class="reserveAddress">
-            <image class="addressLogo" src="../../images/app2.0/address22@3x.png"></image>
-            <text class="addressText">[浦东新区]世纪大道88号金茂大厦生活重心A座1楼</text>
-          </view>
-      </view>
-      <view class="itemfooter">
-        <text class="endTime">05-25 16:04</text>
-        <button class="cancelReserve">取消预约</button>
-        <button class="contactService">联系客服</button>
-      </view>
-    </view>
-
-    <view class="reserveItem">
-      <view class="itemheader">
-        <image class="itemLogo" src="../../images/app2.0/dianpu@3x.png"></image>
-        <text class="shopName">Cocodemer上海金茂汇所</text>
-        <text class="remainTime">剩余3天</text>
-      </view>
-      <view class="itembody">
-          <view class="reserveTime">
-            <image class="timeLogo" src="../../images/app2.0/time22@3x.png"></image>
-            <text class="temeText">4月23日(周三) 12:00</text>
-          </view>
-          <view class="reserveAddress">
-            <image class="addressLogo" src="../../images/app2.0/address22@3x.png"></image>
-            <text class="addressText">[浦东新区]世纪大道88号金茂大厦生活重心A座1楼</text>
-          </view>
-      </view>
-      <view class="itemfooter">
-        <text class="endTime">05-25 16:04</text>
-        <button class="contactService">联系客服</button>
-        <button class="cancelReserve">取消预约</button>
-      </view>
-    </view>
+    </block>
   </view>
 
   <view class="checkHistory">
     <button class="check" bindtap="checkHistoryList">查看历史记录</button>
   </view>
+  
 </view>

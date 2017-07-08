@@ -112,6 +112,27 @@ App({
     var seconds = (time.getSeconds() < 10) ? ("0" + time.getSeconds()) : time.getSeconds();
     return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
   },
+  // 获取时间格式化
+    formateNormalTime:function(timestamp){
+        var time = new Date(timestamp);
+        // var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var date = time.getDate();
+        var hours = (time.getHours() < 10) ? ("0" + time.getHours()) : time.getHours();
+        var minutes = (time.getMinutes() < 10) ? ("0" + time.getMinutes()) : time.getMinutes();
+        // var seconds = (time.getSeconds() < 10) ? ("0" + time.getSeconds()) : time.getSeconds();
+        var week = '';
+        switch (time.getDay()) {
+            case 0:week="(周日)";break
+            case 1:week="(周一)";break
+            case 2:week="(周二)";break
+            case 3:week="(周三)";break
+            case 4:week="(周四)";break
+            case 5:week="(周五)";break
+            case 6:week="(周六)";break
+        }
+        return month + "月" + date + "日"+week+'   ' + hours + ":" + minutes;
+    },
   // 转换订单状态名
   formateStatus:function(status){
     if(status == 'PAY'){
@@ -155,5 +176,32 @@ App({
        result = ""+parseInt(theTime2)+"小时"+result;
        }
        return result;
-   }
+   },
+
+  //计算距截止时间还剩几天
+    showTime:function (date){
+      // var timeStr = $("#classTime").html();  //获得的时间字符串.
+      // if(timeStr==null || timeStr==''){
+      //     return;
+      // }
+      // var end_str = (timeStr).replace(/-/g,"/");
+      var class_time = date;   //将时间字符串转换为时间.
+      var now_time = new Date();
+      var totalSecs=(class_time-now_time)/1000;   //获得两个时间的总毫秒数. 靠前的就调换再减。
+      var days=Math.floor(totalSecs/3600/24);
+      var hours=Math.floor((totalSecs-days*24*3600)/3600);
+      var mins=Math.floor((totalSecs-days*24*3600-hours*3600)/60);
+      var secs=Math.floor((totalSecs-days*24*3600-hours*3600-mins*60));
+
+      return days;
+      // if (days != 0 ) {
+      //     $("#tellTime").html("还有"+days+"天"+hours+"小时"+mins+"分钟"+secs+"秒");
+      // }else if (hours == 0 && mins == 0) {
+      //     $("#tellTime").html("还有"+secs+"秒");
+      // }else if (hours == 0 && mins != 0) {
+      //     $("#tellTime").html("还有"+mins+"分钟"+secs+"秒");
+      // }else if (hours != 0) {
+      //     $("#tellTime").html("还有"+hours+"小时"+mins+"分钟"+secs+"秒");
+      // }
+  }
 })
