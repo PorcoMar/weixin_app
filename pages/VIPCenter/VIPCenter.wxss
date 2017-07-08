@@ -44,7 +44,7 @@
 background:#fff;
 }
 .floatL{
-  width:240rpx;height:103rpx;text-align:center;background: #ccc;
+  width:240rpx;height:103rpx;text-align:center;
   display:flex;flex-direction:column;
 }
 .money-nor{
@@ -73,7 +73,7 @@ background:#fff;
   width:100%;height:160rpx;display:flex;justify-content:space-around;align-items:flex-end;
 }
 .floatL2{
-  width:4rem;height:125rpx;text-align:center;background: #ccc;
+  width:4rem;height:125rpx;text-align:center;
   display:flex;flex-direction:column;
 }
 .floatL2 image{
@@ -84,5 +84,5 @@ background:#fff;
   width:100%;height:4rem;display:flex;justify-content:space-around;align-items:flex-end;
 }
 .floatL3{
-  width:4rem;height:3rem;text-align:center;background: #ccc;
+  width:4rem;height:3rem;text-align:center;
 }

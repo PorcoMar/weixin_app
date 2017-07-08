@@ -4,7 +4,9 @@ var HOST = app.globalData.HOST;
 Page({
   data: {
     wxInfo: null,
-    userInfo: null
+    userInfo: null,
+    name:"张阿姨",
+    numberm: util.stringNum(18767453678),
   },
   onLoad: function (options) {
     //获取用户信息
@@ -13,7 +15,9 @@ Page({
     console.log(token, uid);
     if (token && uid) {
       console.log(util.secondTimestamp(1499245853))
+      console.log(util.stringNum(13678765465))
       console.log(app.globalData)
+      this.setData({ wxInfo: app.globalData.wxInfo })
     } else {
       wx.navigateTo({
         url: '../personal/bindPhone/bindPhone',

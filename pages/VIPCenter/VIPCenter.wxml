@@ -31,13 +31,13 @@
     </view>
     <text class="borderm"></text>
     <view class="floatL">
-      <text class="money-nor"><text class="money-bold">15500</text> 元</text>
-      <text class="monry_name">钱包</text>
+      <text class="money-nor"><text class="money-bold">500</text> 元</text>
+      <text class="monry_name">礼金</text>
     </view>
     <text class="borderm"></text>
     <view class="floatL">
-      <text class="money-nor"><text class="money-bold">15500</text> 元</text>
-      <text class="monry_name">钱包</text>
+      <text class="money-nor"><text class="money-bold">12</text> 张</text>
+      <text class="monry_name">优惠券</text>
     </view>
   </view>
 
@@ -50,16 +50,16 @@
       <text>待付款</text>
     </view>
     <view class="floatL2">
-      <image src="../../images/app2.0/代付款@2x.png"></image>
-      <text>待付款</text>
+      <image src="../../images/app2.0/fuwu@2x.png"></image>
+      <text>可用服务</text>
     </view>
     <view class="floatL2">
-      <image src="../../images/app2.0/代付款@2x.png"></image>
-      <text>待付款</text>
+      <image src="../../images/app2.0/pingjia@2x.png"></image>
+      <text>待评价</text>
     </view>
     <view class="floatL2">
-      <image src="../../images/app2.0/代付款@2x.png"></image>
-      <text>待付款</text>
+      <image src="../../images/app2.0/quanbudingdan@2x.png"></image>
+      <text>全部订单</text>
     </view>
   </view>
 </view>
@@ -67,13 +67,13 @@
 <view class="myOrder">
   <text class="my_order">会员特权</text>
   <view class="contan-satatue">
-    <view class="floatL2">
-      <image src="../../images/app2.0/代付款@2x.png"></image>
-      <text>待付款</text>
+    <view class="floatL2" bindtap="birthPower">
+      <image src="../../images/app2.0/shengri@2x.png"></image>
+      <text>生日特权</text>
     </view>
-    <view class="floatL2">
-      <image src="../../images/app2.0/代付款@2x.png"></image>
-      <text>待付款</text>
+    <view class="floatL2" bindtap="recomGigt">
+      <image src="../../images/app2.0/liwu@2x.png"></image>
+      <text>推荐有礼</text>
     </view>
     <view class="floatL2" style="visibility:hidden;"></view>
     <view class="floatL2" style="visibility:hidden;"></view>

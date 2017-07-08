@@ -80,6 +80,17 @@ Page({
   onUnload:function(){
     // 页面关闭
   },
+  recomGigt:function(){
+    wx.navigateTo({
+     // url: "/pages/VIPCenter/recomGiftBefore/recomGiftBefore"
+      url: "/pages/VIPCenter/recomGiftAfter/recomGiftAfter"
+    })
+  },
+  birthPower:function(){
+    wx.navigateTo({
+      url: '',
+    })
+  }
 
 
 })

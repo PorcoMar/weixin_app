@@ -36,7 +36,6 @@ function secondTimestamp(timestamp){
   var seconds = date.getSeconds();
   return Year + "-" + Month + "-" + day + " " + Hour + ":" + Min + ":" +seconds
 }
-
 //获取接下来的一周时间
 function nextWeek(date){
     // var date = new Date();
@@ -67,9 +66,19 @@ function getDayName(day)
     var weekday=["周日","周一","周二","周三","周四","周五","周六"];
     return weekday[day];
 }
+function stringNum(num){
+  if (typeof num=="number"){
+    let str = num.toString();
+    return str.substr(0, 3) + "****" + str.substr(8, 10);
+  }else{
+    return num.substr(0, 3) + "****" + num.substr(8, 10);
+  }
+ 
+}
 module.exports = {
   formatTime: formatTime,
   formatTimestamp: formatTimestamp,
   secondTimestamp: secondTimestamp,
-  nextWeek:nextWeek
+  nextWeek:nextWeek,
+  stringNum:stringNum
 }

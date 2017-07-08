@@ -4,7 +4,10 @@ var HOST = app.globalData.HOST;
 Page({
   data: {
     wxInfo: null,
-    userInfo: null
+    userInfo: null,
+    cash:"",
+    name:"",
+    num:""
   },
   onLoad: function (options) {
     //获取用户信息
@@ -49,6 +52,36 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+  getgift:function(){
+    let name = this.data.name;
+    let num = this.data.num;
+    let cash = this.data.cash;
+    console.log(name,num,cash)
+    if(name && num && cash){
+      console.log(1111111)
+    }else{
+      console.log(222222)
+      wx.navigateTo({
+        url: '/pages/VIPCenter/getGift/getGift',
+      })
+    }
+
+  },
+  bindCash: function (e) {
+    this.setData({
+      cash: e.detail.value
+    })
+  },
+  bindName: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  bindNum: function (e) {
+    this.setData({
+      num: e.detail.value
+    })
   },
 
 
