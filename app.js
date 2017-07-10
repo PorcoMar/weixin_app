@@ -3,9 +3,7 @@
 const productionApiUrl = "https://test.yizhenjia.com/xcxapi_online";
 const testApiUrl = "https://test.yizhenjia.com/xcxapi";
 // const testApiUrl = "https://192.168.1.107:8244";
-
 const version = "0.1.4";
-// var env = 'production';
 var env = 'dev';
 var apiUrl;
 if (env == 'dev') {

@@ -6,6 +6,7 @@ Page({
     wxInfo: null,
     userInfo: null
   },
+
   onLoad: function (options) {
     //获取用户信息
     var token = app.globalData.HEADER.token;
@@ -52,15 +53,29 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+
   //转发
   onShareAppMessage: function (res) {
+    let info = app.globalData;
+    console.log(info)
+    let infoName = info.wxInfo.nickName;
+    let oriOpenId = info.openid
     if (res.from === 'button') {
       // 来自页面内转发按钮
-      console.log(res.target)
+      //console.log(res.target)
     }
+    // wx.showShareMenu({
+    //   withShareTicket: true
+    // })
+    // wx.getShareInfo({
+    //   withShareTicket: true,
+    //   success(res) {
+    //     console.log(res)
+    //   }
+    // })
     return {
-      title: '满300减300',
-      path: '/pages/VIPCenter/shareGift/shareGift',
+      title: '推荐有礼',
+      path: '/pages/VIPCenter/shareGift/shareGift?openid=' + oriOpenId + '&name=' + infoName,
       success: function (res) {
         // 转发成功
       },

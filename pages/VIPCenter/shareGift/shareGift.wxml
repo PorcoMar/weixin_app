@@ -90,16 +90,42 @@
 </view>
 
 <view class="codePhone">
-<view class="tit">张三抢到一个大红包，请你来拔草</view>
+<view class="tit">{{oriName}}抢到一个大红包，请你来拔草</view>
 <view>
-  <input type="number" placeholder="输入手机号码领取" placeholder-style="color:#8f8f8f" class="phoneNum" bindinput=""phoneNum/>
+  <input type="number" placeholder="输入手机号码领取" placeholder-style="color:#8f8f8f" class="phoneNum" bindinput="bindInp"/>
 </view>
 <view class="chech">
-  <input type="number" placeholder-style="color:#8f8f8f" placeholder="输入验证码" bindinput="codeNum"/>
-  <view class="getCode">获取验证码</view>
+  <input type="number" placeholder-style="color:#8f8f8f" placeholder="输入验证码" bindinput="bindInp2"/>
+  <button class="getCode" bindtap="getVal" disabled="{{disabled}}" wx:if="{{ifShow}}">{{second}}s</button>
+<view class="getCode" bindtap="getVal"  wx:else >{{defaultFont}}</view>
 </view>
-<view class="getHb">领取红包</view>
+<button bindtap="getGift"  class="getHb">领取红包</button>
 </view>
+<!--alert-->
+        <modal title="标题" confirm-text="confirm" cancel-text="cancel" wx:if="{{modalHidden}}" mask bindconfirm="modalChange" bindcancel="modalChange">
+            这是对话框的内容。
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden1}}" no-cancel bindconfirm="modalChange1" >
+            <view class="content">请输入验证码！</view>
+            <view>openId:{{oriOpenId}}</view>
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden2}}" no-cancel bindconfirm="modalChange2" >
+            <view class="content">请输入手机号码！</view>
+        </modal>
+
+        <modal class="modal" wx:if="{{modalHidden3}}" no-cancel bindconfirm="modalChange3" >
+            <view class="content">请输入11位电话号码！</view>
+        </modal>
+
+        <modal class="modal" wx:if="{{modalHidden4}}" no-cancel bindconfirm="modalChange4" >
+            <view class="content">请输入有效的手机号码！</view>
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden5}}" no-cancel bindconfirm="modalChange5" >
+            <view class="content" >领取成功，快去使用吧！</view>
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden6}}" no-cancel bindconfirm="modalChange6" >
+            <view class="content">本活动仅针对新用户，您已经是我们的老用户，不能参加活动。</view>
+        </modal>
 
 <view class="coook">
 <view class="title_gift">
@@ -109,34 +135,29 @@
 </view>
 <view class="last">
 <view class="floattl">
-  <view class="contImg"></view>
+  <view class="contImg">
+  <!--<image src="src"></image>-->
+  </view>
   <view class="wensi">母婴护理</view>
 </view>
 <view class="floattr">
 <view class="contImg">
-  <image src="src"></image>
+  <!--<image src="src"></image>-->
   </view>
   <view class="wensi">产后服务</view>
 </view>
 <view class="floattl">
 <view class="contImg">
-  <image src="src"></image>
+  <!--<image src="src"></image>-->
   </view>
   <view class="wensi">儿童摄影</view>
 </view>
 <view class="floattr">
   <view class="contImg">
-  <image src="src"></image>
+  <!--<image src="src"></image>-->
   </view>
   <view class="wensi">婴童理发</view>
   </view>
 </view>
 </view>
-<view style="height:286rpx;"></view>
-
-<view class="footn">
-<view class="footer_btn">
-  <image src="../../../images/app2.0/time@2x.png"></image>
-  <text>我要加入</text>
-</view>
-</view>
+<view style="height:86rpx;"></view>

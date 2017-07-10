@@ -49,7 +49,7 @@
       <image src="../../images/app2.0/代付款@2x.png"></image>
       <text>待付款</text>
     </view>
-    <view class="floatL2">
+    <view class="floatL2" bindtap="">
       <image src="../../images/app2.0/fuwu@2x.png"></image>
       <text>可用服务</text>
     </view>
