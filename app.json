@@ -18,12 +18,12 @@
     "pages/coupon/coupon",
     "pages/appointment/appointment",
     "pages/VIPCenter/VIPCenter",
-    "pages/VIPCenter/shareGift/shareGift",        
+    "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/VIPCenter/recomGiftAfter",
     "pages/VIPCenter/VIPCenter",
-    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",        
+    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     "pages/VIPCenter/shareGift/shareGift",
-    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",    
+    "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/getGift/getGift",
     "pages/VIPCenter/recomRecord/recomRecord",
@@ -34,7 +34,9 @@
     "pages/appointment/appointmentSuccess/appointmentSuccess",
     "pages/reserve/reserve",
     "pages/reserve/reserveHistory/reserveHistory",
-    "pages/VIPCenter/recomGiftBefore/recomGiftBefore"
+    "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
+    "pages/order/wait_use_order/wait_use_order",
+    "pages/order/wait_rate_order/wait_rate_order"
   ],
   "window": {
     "enablePullDownRefresh": false,

@@ -93,10 +93,30 @@ Page({
   },
   // 跳转到全部订单页面
   toOrderList:function(){
+    app.globalData.orderType = "ALL";
     wx.navigateTo({
       url: '../order/order',
     })
-  }
-
-
+  },
+  // 跳转到代付款页面
+  waitPayment:function(){
+    app.globalData.orderType = "WAIT_PAY";
+    wx.navigateTo({
+      url: '../order/order',
+    })
+  },
+  // 跳转到可用服务页面
+  enableService: function () {
+    app.globalData.orderType = "WAIT_USE";
+    wx.navigateTo({
+      url: '../order/wait_use_order/wait_use_order',
+    })
+  },
+  // 跳转到待评价页面
+  waitEvaluation: function () {
+    app.globalData.orderType = "WAIT_RATE";
+    wx.navigateTo({
+      url: '../order/wait_rate_order/wait_rate_order',
+    })
+  },
 })

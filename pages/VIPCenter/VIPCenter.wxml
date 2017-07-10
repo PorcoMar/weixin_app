@@ -45,15 +45,15 @@
 <view class="myOrder">
   <text class="my_order">我的订单</text>
   <view class="contan-satatue">
-    <view class="floatL2" bindtap="">
+    <view class="floatL2" bindtap="waitPayment">
       <image src="../../images/app2.0/代付款@2x.png"></image>
       <text>待付款</text>
     </view>
-    <view class="floatL2" bindtap="">
+    <view class="floatL2" bindtap="enableService">
       <image src="../../images/app2.0/fuwu@2x.png"></image>
       <text>可用服务</text>
     </view>
-    <view class="floatL2">
+    <view class="floatL2" bindtap="waitEvaluation">
       <image src="../../images/app2.0/pingjia@2x.png"></image>
       <text>待评价</text>
     </view>

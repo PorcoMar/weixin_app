@@ -1,0 +1,30 @@
+<!--wait_use_order.wxml-->
+<view class="section" wx:if="{{orderArray.length == 0}}">
+    <!--<image src="../../../images/order/noneorder@2x.png" mode="scaleToFill" class="noOrder"></image>-->
+    <image src="../../../images/order/noneorder@2x.png" class="noOrder"></image>
+    <view class="noOrderText">您还没有相关的订单</view>
+</view>
+<!--有订单页面-->
+<view class="section" wx:else>
+  <!--循环创立订单列表-->
+  <view class="flex-wrp bac" style="flex-direction:column;" wx:for="{{orderArray}}" wx:for-index ="key">
+  <!--普通订单-->
+    <!--订单和门店详情-->
+    <view class="flex-item shopList" bindtap="orderDetail" data-status="{{item.status}}" data-id="{{key}}">
+        <view class="up">
+          <image src="{{item.serviceLogo}}" class="image"></image>
+          <view class="serviceDetail">
+              <text class="serviceName">{{item.serviceName}}</text>
+              <text class="serviceSku">{{item.sku}}</text>
+          </view>
+        </view>
+        <view class="down" wx:if="{{item.sku}}">
+          <text class="yanzhen">验证码</text>
+          <text class="code">{{item.consumeCode}}</text>
+        </view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <text>{{footer}}</text>
+</view>

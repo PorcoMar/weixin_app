@@ -17,12 +17,12 @@ Page({
     // 设置全局请求访问传递的参数
     // app.requestDetailid = id;
 
-    wx.navigateTo({
-      url: './pages/wait-pay/wait-pay?orderNo='+orderNo+'&orderStatus='+status
-    })
+    // wx.navigateTo({
+    //   url: './pages/wait-pay/wait-pay?orderNo='+orderNo+'&orderStatus='+status
+    // })
   },
   onLoad: function () {
-    console.log("---index onload---");
+    console.log("---index onload---",app.globalData.orderType);
     var that = this;
     that.setData({
       pageNo:1,
@@ -36,7 +36,8 @@ Page({
         url: url+'/order/query',
         data: {
           pageNo:1,
-          pageSize:10
+          pageSize:10,
+          status:app.globalData.orderType
         },
         method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         header: app.globalData.HEADER, // 设置请求的 header
@@ -51,7 +52,7 @@ Page({
               item["status"] = app.formateStatus(item["status"]);
               if(item['orderItem'] != null){
                 item["orderItem"].map(function(item,index,array){
-                  console.log("状态",item['status']);
+                  // console.log("状态",item['status']);
                   item['status'] = app.formateServiceStatus(item['status']);
                   // item['status'] = item['status'];
                  })
@@ -136,7 +137,8 @@ Page({
             url: url+'/order/query',
             data: {
               pageNo:pageNo,
-              pageSize:pageSize
+              pageSize:pageSize,
+              status:app.globalData.orderType
             },
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             header: app.globalData.HEADER, // 设置请求的 header

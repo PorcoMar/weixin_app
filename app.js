@@ -98,7 +98,8 @@ App({
     HEADER:{
         "Content-Type":"application/x-www-form-urlencoded"
     },
-    deviceInfo: null
+    deviceInfo: null,
+    orderType:null
   },
   formateTime:function(timestamp){
     var time = new Date(timestamp);
@@ -139,6 +140,7 @@ App({
       return('待付款');
     }else {
       return("已过期");
+      //     return status;
     }
   },
   //转换服务状态
@@ -149,6 +151,7 @@ App({
       return('待评价');
     }else {
       return("已完成");
+      //   return status;
     }
   },
   // 倒计时转换

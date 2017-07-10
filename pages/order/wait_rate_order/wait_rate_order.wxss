@@ -1,0 +1,110 @@
+/* wait_rate_order.wxss */
+page {
+  background-color: #f5f5f5;
+  height: 100%;
+}
+
+.section {
+  padding-top: 0rpx;
+}
+
+/*无订单页面样式*/
+
+.section .noOrder {
+  width: 280rpx;
+  height: 280rpx;
+  position: absolute;
+  top: 260rpx;
+  left: 240rpx;
+  z-index: 902;
+}
+
+.section .noOrderText {
+  position: absolute;
+  top: 590rpx;
+  left: 240rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #4f4f4f;
+}
+
+.flex-wrp {
+  display: flex;
+}
+
+/*订单列表*/
+
+.bac {
+  background-color: white;
+  margin-top: 20rpx;
+}
+
+/*订单和门店详情*/
+
+.shopList {
+  /*border-bottom: 1rpx solid #c6c6c6;  */
+}
+
+.shopList .up {
+  padding: 30rpx;
+  position: relative;
+}
+
+.up .image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.up .serviceDetail {
+  display: inline-block;
+  margin-left: 36rpx;
+  position: absolute;
+  top: 38rpx;
+}
+
+.serviceDetail .serviceName {
+  display: block;
+  font-size: 36rpx;
+  color: #4f4f4f;
+}
+
+.serviceDetail .serviceSku {
+  display: block;
+  font-size: 28rpx;
+  color: #4f4f4f;
+  margin-top: 20rpx;
+}
+
+.shopList .down {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 30rpx;
+    border-top: 1rpx solid #d4d4d4;
+}
+
+.down .yanzhen {
+  font-size:28rpx;
+color:#4f4f4f;
+margin-right:28rpx;
+
+}
+
+.down .code {
+  font-size:42rpx;
+color:#8f8f8f;
+text-decoration:line-through;
+
+}
+
+/*加载更多*/
+
+.footer {
+  font-size: 28rpx;
+  color: #8f8f8f;
+  width: 100%;
+  height: 80rpx;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
