@@ -107,7 +107,7 @@
         </modal>
         <modal class="modal" wx:if="{{modalHidden1}}" no-cancel bindconfirm="modalChange1" >
             <view class="content">请输入验证码！</view>
-            <view>openId:{{oriOpenId}}</view>
+            <!--<view>openId:{{oriOpenId}}</view>-->
         </modal>
         <modal class="modal" wx:if="{{modalHidden2}}" no-cancel bindconfirm="modalChange2" >
             <view class="content">请输入手机号码！</view>
@@ -136,25 +136,25 @@
 <view class="last">
 <view class="floattl">
   <view class="contImg">
-  <!--<image src="src"></image>-->
+  <image src="../../../images/app2.0/1@2x.png"></image>
   </view>
   <view class="wensi">母婴护理</view>
 </view>
 <view class="floattr">
 <view class="contImg">
-  <!--<image src="src"></image>-->
+  <image src="../../../images/app2.0/2@2x.png"></image>
   </view>
   <view class="wensi">产后服务</view>
 </view>
 <view class="floattl">
 <view class="contImg">
-  <!--<image src="src"></image>-->
+  <image src="../../../images/app2.0/3@2x.png"></image>
   </view>
   <view class="wensi">儿童摄影</view>
 </view>
 <view class="floattr">
   <view class="contImg">
-  <!--<image src="src"></image>-->
+  <image src="../../../images/app2.0/4@2x.png"></image>
   </view>
   <view class="wensi">婴童理发</view>
   </view>
