@@ -29,7 +29,7 @@ Page({
     second: 6,
     ifShow: false,
     defaultFont: "获取验证码",
-    modalHidden1: true,
+    modalHidden1: false,
     modalHidden2: false,
     modalHidden3: false,
     modalHidden4: false,
@@ -39,7 +39,10 @@ Page({
     val: "",
     codeNum: "",
     haha:"",
-    haha2:""
+    haha2:"",
+    //oriName:"张先生",
+    //oriOpenId:"oyn4K0byXgEfJVZdfIvW-xRHkNjQ"
+
   },
 
   onLoad: function (options) {
@@ -62,10 +65,12 @@ Page({
             //console.log(this.data.wxInfo)
           }
         })
-        const userImg = wxInfo.avatarUrl;
-        const useName = wxInfo.nickName;
-        const openIdn = app.globalData.openid;
-        //console.log(openIdn,useName,userImg)
+        this.setData({ userImg: wxInfo.avatarUrl });
+        this.setData({ useName: wxInfo.nickName });
+        this.setData({ openIdn: app.globalData.openid });
+        
+
+        //console.log(this.data.openIdn, this.data.useName, this.data.userImg)
       },
       fail: function () {
         console.log("------login fail-------");
@@ -76,6 +81,7 @@ Page({
         });
       }
     })
+
   },
   onReady: function () {
     // 页面渲染完成
@@ -159,11 +165,25 @@ Page({
       this.setData({
         modalHidden1: true
       })
-     }else{
-      wx.switchTab({
-        url: '/pages/index/index',
+    } else if (!this.data.val) {
+      this.setData({
+        modalHidden2: true
       })
+    } else if (this.data.val.length != 11) {
+      this.setData({
+        modalHidden3: true
+      })
+    } else if (!(/^1[34578]\d{9}$/.test(this.data.val))) {
+      this.setData({
+        modalHidden4: true
+      })
+    } else{
        //请求提交接口
+      // console.log(this.data.val, this.data.codeNum)
+      // console.log(this.data.oriOpenId)
+      // console.log(this.data.useName)
+      // console.log(this.data.openIdn)
+      // console.log(this.data.userImg) 
       wx.request({
         url: HOST + "/distribute/addDistributeUser",
         method: "POST",
@@ -172,12 +192,12 @@ Page({
           phone: this.data.val,
           code: this.data.codeNum,
           sourceOpenid:this.data.oriOpenId,
-          headerImage: userImg,
-          nickName: useName,
-          openid: openIdn,
+          headerImage: this.data.userImg,
+          nickName: this.data.useName,
+          openid: this.data.openIdn,
           distributeConfigId:1
           },
-        success: function (res) {
+        success:(res)=> {
           console.log(res)
           if (res.data.code == 0) {
             console.log("请求成功")

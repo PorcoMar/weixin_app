@@ -46,7 +46,7 @@
 <view style="height:130rpx;"></view>
 
 <view class="footn">
-<view class="footer_btn">
+<view class="footer_btn" bindtap="toAfter">
   <image src="../../../images/app2.0/time@2x.png"></image>
   <text>我要加入</text>
 </view>

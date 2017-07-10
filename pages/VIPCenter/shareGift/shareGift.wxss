@@ -99,6 +99,9 @@ align-items:center;
 .contImg{
   width:340rpx;height:340rpx;background:purple;
 }
+.contImg image{
+  width:340rpx;height:340rpx;
+}
 .wensi{
   width:340rpx;height:88rpx;line-height:88rpx;text-align:center;
   font-size:30rpx;color:#4f4f4f;

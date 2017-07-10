@@ -81,10 +81,25 @@ Page({
     // 页面关闭
   },
   recomGigt:function(){
-    wx.navigateTo({
-     // url: "/pages/VIPCenter/recomGiftBefore/recomGiftBefore"
-      url: "/pages/VIPCenter/recomGiftAfter/recomGiftAfter"
+   // console.log(11111111)
+    wx.getStorageInfo({
+      success: function (res) {
+        let keys = res.keys.join(",");
+        //console.log(keys)
+        if (keys.indexOf("firstIn")>0){
+          wx.navigateTo({
+            url: '/pages/VIPCenter/recomGiftAfter/recomGiftAfter',
+          })
+        }else{
+          wx.navigateTo({
+            url: '/pages/VIPCenter/recomGiftBefore/recomGiftBefore',
+          })
+        }
+
+
+      }
     })
+
   },
   birthPower:function(){
     wx.navigateTo({

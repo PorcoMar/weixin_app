@@ -3,9 +3,8 @@
 <!--banner area-->
   <view class="container_vip">
     <image class="banner-header" src="../../images/app2.0/ka@2x.png"></image>
-
     <view class="top">
-      <image src="../../images/app2.0/jiantou@2x.png"></image>
+      <image src="../../images/app2.0/logo@2x.png"></image>
       <text>杭州西子会所</text>
     </view>
 
@@ -13,8 +12,10 @@
     <image src="{{wxInfo.avatarUrl}}"></image>
       <view class="right_text">
       <text class="nickName">{{wxInfo.nickName}}</text>
-      <image src="../../images/app2.0/huiyuandengji@2x.png"></image>
-      <text class="vipLevel">非会员</text>
+      <view class="noet">
+        <image src="../../images/app2.0/huiyuandengji@2x.png"></image>
+        <text class="vipLevel">非会员</text>
+      </view>
       </view>
     </view>
 
