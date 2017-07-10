@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d309e4-b584-4173-a599-ea05d1285a99" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserve.js" afterPath="$PROJECT_DIR$/pages/reserve/reserve.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserve.wxml" afterPath="$PROJECT_DIR$/pages/reserve/reserve.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserve.wxss" afterPath="$PROJECT_DIR$/pages/reserve/reserve.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.js" afterPath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.wxml" afterPath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/VIPCenter/VIPCenter.js" afterPath="$PROJECT_DIR$/pages/VIPCenter/VIPCenter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/VIPCenter/VIPCenter.wxml" afterPath="$PROJECT_DIR$/pages/VIPCenter/VIPCenter.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/order/order.wxml" afterPath="$PROJECT_DIR$/pages/order/order.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/order/order.wxss" afterPath="$PROJECT_DIR$/pages/order/order.wxss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
+            <state relative-caret-position="475">
+              <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -66,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/pages/index/selectCity/selectCity.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="35" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="35" />
+              <caret line="3" column="35" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -92,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reserveHistory.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reserveHistory.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="838">
@@ -122,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/order/order.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="64" column="15" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="64" selection-end-column="15" />
+            <state relative-caret-position="235">
+              <caret line="123" column="2" lean-forward="true" selection-start-line="123" selection-start-column="2" selection-end-line="123" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -463,12 +462,12 @@
       <workItem from="1491832225051" duration="3000" />
       <workItem from="1499151801105" duration="562000" />
       <workItem from="1499392923150" duration="6891000" />
-      <workItem from="1499416124954" duration="7682000" />
+      <workItem from="1499416124954" duration="8599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27425000" />
+    <option name="totallyTimeSpent" value="28342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-59" width="1912" height="992" extended-state="0" />
@@ -838,8 +837,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="54" column="38" lean-forward="false" selection-start-line="54" selection-start-column="38" selection-end-line="54" selection-end-column="38" />
+        <state relative-caret-position="475">
+          <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -856,14 +855,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/order/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="64" column="15" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="64" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/selectCity/selectCity.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -875,7 +866,7 @@
     <entry file="file://$PROJECT_DIR$/pages/index/selectCity/selectCity.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="35" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="35" />
+          <caret line="3" column="35" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -916,6 +907,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="838">
           <caret line="171" column="3" lean-forward="false" selection-start-line="171" selection-start-column="3" selection-end-line="171" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/order/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="123" column="2" lean-forward="true" selection-start-line="123" selection-start-column="2" selection-end-line="123" selection-end-column="2" />
           <folding />
         </state>
       </provider>

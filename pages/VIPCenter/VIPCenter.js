@@ -90,6 +90,12 @@ Page({
     wx.navigateTo({
       url: '',
     })
+  },
+  // 跳转到全部订单页面
+  toOrderList:function(){
+    wx.navigateTo({
+      url: '../order/order',
+    })
   }
 
 
