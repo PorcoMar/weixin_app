@@ -114,17 +114,19 @@ Page({
     var shopId = this.data.shopList[id].id;
     getApp().globalData.shopId = shopId;
 
-
-    if (this.data.options.limitcat) {
-      wx.switchTab({
+    wx.switchTab({
         url: '/pages/index/index',
-      })
-    } else {
-      //选择完毕门店后返回到首页
-      wx.navigateBack({
-        delta: 1 // 回退前 delta(默认为1) 页面
-      })
-    }
+    })
+    // if (this.data.options.limitcat) {
+    //   wx.switchTab({
+    //     url: '/pages/index/index',
+    //   })
+    // } else {
+    //   //选择完毕门店后返回到首页
+    //   wx.navigateBack({
+    //     delta: 1 // 回退前 delta(默认为1) 页面
+    //   })
+    // }
     
   }
 })
