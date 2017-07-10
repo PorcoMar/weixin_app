@@ -13,8 +13,10 @@
     <image src="{{wxInfo.avatarUrl}}"></image>
       <view class="right_text">
       <text class="nickName">{{wxInfo.nickName}}</text>
-      <image src="../../images/app2.0/huiyuandengji@2x.png"></image>
-      <text class="vipLevel">非会员</text>
+      <view class="noet">
+        <image src="../../images/app2.0/huiyuandengji@2x.png"></image>
+        <text class="vipLevel">非会员</text>
+      </view>
       </view>
     </view>
 

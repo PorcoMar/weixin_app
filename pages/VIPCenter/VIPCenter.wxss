@@ -9,7 +9,7 @@
   display:block;margin:0 auto;width:680rpx;height:360rpx;
 }
 .top{
-  width:300rpx;height:74rpx;background:#ccc;position:absolute;top:38rpx;left:95rpx;   display:flex;flex-direction: row;align-items:flex-end;
+  width:300rpx;height:74rpx;position:absolute;top:38rpx;left:95rpx;   display:flex;flex-direction: row;align-items:flex-end;
  }
 .top image{
   display:block;width:86rpx;height:48rpx;margin-right:10rpx;
@@ -19,20 +19,24 @@
   font-size:28rpx;color:#ffe5d3;
 }
 .userInfo{
-  width:300rpx;height:100rpx;background:#ccc;position:absolute;top:162rpx;left:95rpx;
+  width:300rpx;height:100rpx;position:absolute;top:162rpx;left:95rpx;
 }
 .userInfo image{width:100rpx;height:100rpx;border-radius:100rpx;margin-right:18rpx;float:left;}
 .right_text{
  float:left;width:182rpx;height:82px;padding-top:18rpx;
 }
+.noet{
+  width:150rpx;height:26rpx;display:flex;
+  flex-direction:row;
+}
 .right_text .nickName{
   font-size:38rpx;color:#fff;
 }
 .right_text .vipLevel{
-  color:#fff000;font-size:22rpx;
+  color:#fff000;font-size:22rpx;margin-bottom:10rpx;line-height:30rpx;
 }
 .right_text image{
-  width:26rpx;height:26rpx;margin-right:6rpx;margin-top:10rpx;
+  width:26rpx;height:26rpx;margin-right:6rpx;
 }
 .bottom-num{
   position:absolute;bottom:-68rpx;right:105rpx;font-size:22rpx;
