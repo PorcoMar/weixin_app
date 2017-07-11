@@ -4,8 +4,8 @@
   <view class="container_vip">
     <image class="banner-header" src="../../images/app2.0/ka@2x.png"></image>
     <view class="top">
-      <image src="../../images/app2.0/logo@2x.png"></image>
-      <text>杭州西子会所</text>
+      <image src="{{shopLogo}}"></image>
+      <text>{{shopName}}</text>
     </view>
 
     <view class="userInfo">
@@ -14,13 +14,13 @@
       <text class="nickName">{{wxInfo.nickName}}</text>
       <view class="noet">
         <image src="../../images/app2.0/huiyuandengji@2x.png"></image>
-        <text class="vipLevel">非会员</text>
+        <text class="vipLevel">{{cardName}}</text>
       </view>
       </view>
     </view>
 
     <view class="bottom-num">
-      NO.123123123123
+      NO.{{idCardNo}}
     </view>
 
   </view>
@@ -31,7 +31,7 @@
       <text class="monry_name">钱包</text>
     </view>
     <text class="borderm"></text>
-    <view class="floatL">
+    <view class="floatL" bindtap="toMoneyRecord">
       <text class="money-nor"><text class="money-bold">500</text> 元</text>
       <text class="monry_name">礼金</text>
     </view>

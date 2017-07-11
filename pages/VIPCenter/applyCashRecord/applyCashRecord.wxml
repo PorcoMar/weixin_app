@@ -3,28 +3,19 @@
 
 <view class="big_box">
 
-<view class="listContent">
+<view class="listContent"  wx:for="{{dataList}}" wx:for-item="item" >
   <view class="leftCont">
-    <text>2016-11-11 18;12:34</text>
-    <text>Mr.chen (186****7876) </text>
-    <text>卡号不符</text>
+    <text>{{item.createdTime}}</text>
+    <text>{{item.bankUserName}} ({{item.phone}}) </text>
+    <text>{{failCase}}</text>
   </view>
   <view class="rightCont">
-    <text>提现失败</text>
-    <text>+150.00 </text>
-    
+    <text style="color:{{item.color}}">{{item.amountStatus}}</text>
+    <text>+{{item.amount}} </text>
   </view>
 </view>
-<view class="listContent">
-  <view class="leftCont">
-    <text>2016-11-11 18;12:34</text>
-    <text>Mr.chen (186****7876) </text>
-  </view>
-  <view class="rightCont">
-    <text>待结算</text>
-    <text>+150.00 </text>
-  </view>
-</view>
+
+
 
 </view>
 

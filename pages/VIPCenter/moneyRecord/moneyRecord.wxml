@@ -1,33 +1,24 @@
 <view class="container">
 
 <view class="banner_head">
-  <text>1,550.00</text>
+  <text>{{canAmount}}</text>
   <text>可提总礼金(元)</text>
-  <text>预计总礼金: 1890.00</text>
+  <text>预计总礼金: {{totalAmount}}</text>
 </view>
 
 <view class="moneyRecord">礼金记录</view>
 
 <view class="big_box">
 
-<view class="listContent">
+
+<view class="listContent" wx:for="{{dataList}}" wx:for-item="item">
   <view class="leftCont">
-    <text>2016-11-11 18;12:34</text>
-    <text>Mr.chen (186****7876) </text>
+    <text>{{item.createdTime}}</text>
+    <text>{{item.name}} ({{item.phone}}) </text>
   </view>
   <view class="rightCont">
-    <text>待结算</text>
-    <text>+150.00 </text>
-  </view>
-</view>
-<view class="listContent">
-  <view class="leftCont">
-    <text>2016-11-11 18;12:34</text>
-    <text>Mr.chen (186****7876) </text>
-  </view>
-  <view class="rightCont">
-    <text>待结算</text>
-    <text>+150.00 </text>
+    <text style="color:{{item.color}}">{{item.amountStatus}}</text>
+    <text>+{{item.amount}} </text>
   </view>
 </view>
 

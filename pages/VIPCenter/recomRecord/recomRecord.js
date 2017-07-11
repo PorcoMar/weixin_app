@@ -5,46 +5,44 @@ Page({
   data: {
     wxInfo: null,
     userInfo: null,
-    name:"张阿姨",
-    numberm: util.stringNum(18767453678),
+    hothidden: false,
   },
   onLoad: function (options) {
     //获取用户信息
-    var token = app.globalData.HEADER.token;
-    var uid = app.globalData.HEADER.uid;
-    console.log(token, uid);
-    if (token && uid) {
-      console.log(util.secondTimestamp(1499245853))
-      console.log(util.stringNum(13678765465))
-      console.log(app.globalData)
-      this.setData({ wxInfo: app.globalData.wxInfo })
-    } else {
-      wx.navigateTo({
-        url: '../personal/bindPhone/bindPhone',
-      })
-    }
+    this.setData({ userId: app.globalData.HEADER.uid })
   },
   onReady: function () {
     // 页面渲染完成
   },
   onShow: function () {
-    var that = this;
-
-    wx.getStorage({
-      key: "HEADER",
-      success: function (res) {
-        //获取用户信息
-        getApp().globalData.HEADER = res.data;
-        wx.request({
-          url: HOST + "/user/info",
-          method: "POST",
-          header: res.data,
-          success: function (res) {
-            console.log(res)
-          }
-        });
+    //请求推荐记录
+    wx.request({
+      url: HOST + "/distribute/listDistributeUser",
+      method: "POST",
+      header: getApp().globalData.HEADER,
+      data: {
+        //referrerId: this.data.userId,
+        referrerId:18981,
+        referrerType: "USER",
+        pageNo: 1,
+        pageSize: 100,
+      },
+      success: (res) => {
+        console.log(res)
+        let dataList = res.data.result.list;
+        this.setData({ dataList: dataList })
+        let newList = this.data.dataList;
+        for (let i in newList) {
+          let datan = newList[i];
+          datan.customerPhone = util.stringNum(datan.customerPhone)
+          datan.createdTime = util.secondTimestamp(datan.createdTime)
+        }
+        this.setData({ dataList: newList })
       }
-    })
+
+
+    });
+
 
 
   },

@@ -12,15 +12,36 @@
 <view class="allCash">提现金额</view>
 <view class="numCash">
   <text>¥</text>
-  <input type="number" placeholder="2800" bindinput="bindCash"/>
+    <input type="number" placeholder="2000" bindinput="bindCash" value="{{cash}}"/>
 </view>
 </view>
 
 <view class="getCashm">
-<text>可提金额<text class="numcak"> ¥ 2800</text></text>
-<view class="allCashm">全部提现</view>
+<text>可提金额<text class="numcak"> ¥ {{allMoney}}</text></text>
+<view class="allCashm" bindtap="allGetCash">全部提现</view>
 </view>
 
+ <modal class="modal" wx:if="{{modalHidden1}}" no-cancel bindconfirm="modalChange1" >
+            <view class="content">请填写姓名</view>
+            <!--<view>openId:{{oriOpenId}}</view>-->
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden2}}" no-cancel bindconfirm="modalChange2" >
+            <view class="content">请填写支付宝账号</view>
+        </modal>
+
+        <modal class="modal" wx:if="{{modalHidden3}}" no-cancel bindconfirm="modalChange3" >
+            <view class="content">请填写提现金额</view>
+        </modal>
+
+        <modal class="modal" wx:if="{{modalHidden4}}" no-cancel bindconfirm="modalChange4" >
+            <view class="content">提现金额不能大于可提金额</view>
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden5}}" no-cancel bindconfirm="modalChange5" >
+            <view class="content" >提现成功</view>
+        </modal>
+        <modal class="modal" wx:if="{{modalHidden6}}" no-cancel bindconfirm="modalChange6" >
+            <view class="content" >{{alertCont}}</view>
+        </modal>
 
 </view>
 <!--outside container-->
@@ -29,12 +50,12 @@
 <image src="../../../images/app2.0/zhuyi@2x.png"></image>
 <text>温馨提示</text>
 </view>
-<text>单笔提现金额大于100元，每个月最多提现2次。</text>
+<text>单笔提现金额大于{{minTakeout}}元，每个月最多提现{{minTakeoutNo}}次。</text>
 </view>
 
 <view class="footern">
 <view class="buttom" bindtap="getgift">
-<image src="../../../images/app2.0/wode2@3x.png"></image>
+<image src="../../../images/app2.0/tixian@2x.png"></image>
 <text>提现</text>
 </view>
 </view>

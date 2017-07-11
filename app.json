@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/VIPCenter/VIPCenter",
+    
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     "pages/service/service",
@@ -16,15 +16,21 @@
     "pages/personal/realName/realName",
     "pages/personal/userInfo/userInfo",
     "pages/coupon/coupon",
-    
+    "pages/VIPCenter/VIPCenter",
     "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
     "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/getGift/getGift",
-    "pages/VIPCenter/recomRecord/recomRecord",
-    "pages/VIPCenter/moneyRecord/moneyRecord",
     "pages/VIPCenter/applyCash/applyCash",
-    "pages/VIPCenter/applyCashRecord/applyCashRecord"
+    "pages/VIPCenter/recomRecord/recomRecord",
+    "pages/VIPCenter/applyCashRecord/applyCashRecord",
+    "pages/VIPCenter/moneyRecord/moneyRecord"
+    
+    
+    
+    
+    
+    
    
     
   ],
