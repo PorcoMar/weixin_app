@@ -1,7 +1,10 @@
 <!--reserveHistory.wxml-->
-<!--<text>reserveHistory.wxml</text>-->
-<!--reserve.wxml-->
-<!--<text>reserve.wxml</text>-->
+<!--无预约页面-->
+<view class="section" wx:if="{{reserveList.length == 0}}">
+    <!--<image src="../../../images/order/noneorder@2x.png" mode="scaleToFill" class="noOrder"></image>-->
+    <image src="../../../images/order/noneorder@2x.png" class="noOrder"></image>
+    <view class="noOrderText">您还没有相关的历史记录</view>
+</view>
 <view class="page">
   <view class="reserveList">
       <block wx:for="{{historyList}}">
@@ -29,9 +32,8 @@
         </view>
       </block>
   </view>
-
-  <!--<view class="checkHistory">
-    <button class="check" bindtap="checkHistoryList">查看历史记录</button>
-  </view>-->
 </view>
+<!--<view class="footer">
+  <text>{{footer}}</text>
+</view>-->
 

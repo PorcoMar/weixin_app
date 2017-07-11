@@ -16,6 +16,7 @@ Page({
     console.log("-----index onLoad----");
     //判断全局变量中location值是否为空
     var that = this;
+    console.log("location",app.globalData.location);
     if(!app.globalData.location){
       console.log("------获取位置信息------")
       /* 获取定位地理位置 */
@@ -51,7 +52,6 @@ Page({
               res.data.result.distance = (res.data.result.distance / 1000).toFixed(1) || 0;
               app.globalData.shop = res.data.result;
               app.globalData.location = location;
-              // console.log(app.globalData.location);
               that.setData({ shop: app.globalData.shop });
             };
           },
@@ -176,27 +176,6 @@ Page({
       scale: 28
     })
   },
-  loadCity: function (longitude, latitude) {
-    var page = this
-    wx.request({
-      url: 'https://api.map.baidu.com/geocoder/v2/?ak=UnPNw6EZjdPyhL2dbpjoebPE2uvzm1LT&location=' + latitude + ',' + longitude + '&output=json',
-      data: {},
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        // success    
-        console.log(res);
-        var city = res.data.result.addressComponent.city;
-        console.log("city",city);
-        // page.setData({ currentCity: city });
-      },
-      fail: function () {
-        // page.setData({ currentCity: "获取定位失败" });
-      },
-
-    })
-  }, 
   selectService:function(e){
     var id = e.currentTarget.dataset.id;
     var shopId = this.data.shop.id;

@@ -159,6 +159,7 @@ Page({
 
   // 获取优惠券
   getCoupons: function (params, context, callback) {
+    console.log("params",params);
     wx.request({
       url: HOST + '/user/listCoupons',
       data: params,

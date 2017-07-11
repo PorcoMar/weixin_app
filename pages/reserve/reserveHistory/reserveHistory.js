@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historyList:null
+    historyList:null,
+    footer:null
   },
 
   /**
@@ -89,14 +90,69 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    // console.log("下拉刷新");
+    // 隐藏下拉刷新动画
+    wx.stopPullDownRefresh();
+    this.onLoad();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var userId = app.globalData.HEADER.uid;
+    var sellerId = 1;
+    var that = this;
+    if (that.data.historyList.length == (that.data.pageNo * 10)) {
+      console.log('加载更多');
+      var pageNo = that.data.pageNo + 1;
+      // var cat=that.data.cat
+      var pageSize = that.data.pageSize;
+      console.log("pageNo:", pageNo, "pageSize", pageSize);
+      wx.request({
+        url: HOST + '/wx/listReserveShopHistory',
+        data: {
+          userId: userId,
+          sellerId: sellerId,
+          pageNo: pageNo,
+          pageSize: pageSize
+        },
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: app.globalData.HEADER, // 设置请求的 header
+        success: function (res) {
+          // success
+          that.setData({
+            pageNo: pageNo,
+            pageSize: pageSize
+          });
+          console.log("全部订单分页列表", res.data);
+          var arr = that.data.historyList;
+          if (res.data.code == "0") {
+            console.log("获取订单列表成功！")
+            //        console.log(orderArray);
+            var list = res.data.result.list;
+            console.log("list",list);
+            list.map(function (item, index, array) {
+              item["createdTime"] = app.formateTime(item["createdTime"]);
+              item["modifiedTime"] = app.formateTime(item["modifiedTime"]);
+              item["endTime"] = app.showTime(item["reserveTime"]);
+              item["reserveTime"] = app.formateNormalTime(item["reserveTime"]);
+            })
+
+            that.setData({
+              historyList: arr.concat(list),
+            });
+
+          }
+          // console.log(that.data.orderArray);
+        }
+      });
+    } else {
+      console.log("已经到底了！");
+      that.setData({
+        footer: "已经到底了哦~"
+      })
+    }
   },
 
   /**

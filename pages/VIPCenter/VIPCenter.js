@@ -134,4 +134,22 @@ Page({
       url: '../order/wait_rate_order/wait_rate_order',
     })
   },
+  // 跳转到优惠券列表
+  couponList:function(){
+    wx.navigateTo({
+      url: '../coupon/coupon',
+    })
+  },
+  // 跳转到提现记录页面
+  cashGift:function(){
+    wx.navigateTo({
+      url: '../VIPCenter/applyCashRecord/applyCashRecord',
+    })
+  },
+  // 跳转到钱包页面
+  searchWallet:function(){
+    wx.navigateTo({
+      url: '../personal/balance/balance',
+    })
+  }
 })
