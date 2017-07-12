@@ -76,7 +76,11 @@ Page({
           };
         }
       })
-    }
+    } else {
+      wx.navigateTo({
+        url: '../personal/bindPhone/bindPhone',
+      })
+    } 
   },
 
   /**

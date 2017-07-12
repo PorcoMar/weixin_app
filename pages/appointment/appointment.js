@@ -166,49 +166,51 @@ Page({
     var reserveTime = data.dateList[data.chooseDate].year + '-' + data.dateList[data.chooseDate].date+' '+data.timeList[data.chooseTime] +':00';
     console.log(userId,shopId,sellerId,reserveTime);
     //添加预约到店
-    wx.request({
-      url: HOST + "/wx/addReserveShop",
-      data: {
-        userId: userId,
-        shopId: shopId,
-        sellerId: sellerId,
-        reserveTime: reserveTime
-      },
-      method: 'POST',
-      header: HEADER,
-      success: function (res) {
-        console.log("---- addReserveShop successed----", res);
-        if (res.data.code == "0") {
-          wx.navigateTo({
-            url: './appointmentSuccess/appointmentSuccess',
-          })
-          // var timeReserve = res.data.result;
-          // console.log(timeReserve);
-          // var arr = [];
-          // for (var item in timeReserve) {
-          //   arr.push(timeReserve[item]);
-          // }
-          // that.setData({ timeReserve: arr });
-        }else {
-          wx.showModal({
-            title: '提示',
-            content: res.data.errorMsg,
-            showCancel:false,
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              } else if (res.cancel) {
-                console.log('用户点击取消')
+    if(userId){
+      wx.request({
+        url: HOST + "/wx/addReserveShop",
+        data: {
+          userId: userId,
+          shopId: shopId,
+          sellerId: sellerId,
+          reserveTime: reserveTime
+        },
+        method: 'POST',
+        header: HEADER,
+        success: function (res) {
+          console.log("---- addReserveShop successed----", res);
+          if (res.data.code == "0") {
+            wx.navigateTo({
+              url: './appointmentSuccess/appointmentSuccess',
+            })
+            // var timeReserve = res.data.result;
+            // console.log(timeReserve);
+            // var arr = [];
+            // for (var item in timeReserve) {
+            //   arr.push(timeReserve[item]);
+            // }
+            // that.setData({ timeReserve: arr });
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: res.data.errorMsg,
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
               }
-            }
-          })
-        };
-      }
-    })
-
-    // wx.navigateTo({
-    //   url: './appointmentSuccess/appointmentSuccess',
-    // })
+            })
+          };
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: '../personal/bindPhone/bindPhone',
+      })
+    } 
   },
   // 修改日期
   changeDate:function(e){
