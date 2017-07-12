@@ -70,12 +70,13 @@ page {
 }
 
 .itembody {
-  height: 140rpx;
+  /* height: 140rpx; */
   border-bottom: 2rpx solid #dedede;
   padding-left: 24rpx;
   margin-top: 30rpx;
   color: #4f4f4f;
   font-size: 30rpx;
+  padding-bottom: 20rpx;
 }
 
 .reserveTime {
@@ -101,6 +102,10 @@ page {
 }
 
 .addressText {
+  /* width: 640rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap; */
 }
 
 .itemfooter {
@@ -126,6 +131,7 @@ page {
   border-radius: 26rpx;
   border: 1rpx solid #dedede;
   line-height: 54rpx;
+  padding: 0;
 }
 
 .contactService {
@@ -140,6 +146,7 @@ page {
   border-radius: 26rpx;
   border: 1rpx solid #dedede;
   line-height: 54rpx;
+  padding: 0;
 }
 
 .checkHistory {

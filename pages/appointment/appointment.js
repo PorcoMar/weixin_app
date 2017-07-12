@@ -49,11 +49,21 @@ Page({
         console.log("----get timeReserve successed----", res);
         if (res.data.code == "0") {
           var timeReserve = res.data.result;
-          console.log(timeReserve);
+          // var numArr = ["time0", "time1", "time2", "time3", "time4", "time5", "time6", "time7", "time8", "time9", "time10", "time11"];
           var arr = [];
-          for (var item in timeReserve) {
-            arr.push(timeReserve[item]);
+          console.log(timeReserve);
+          var objKeys = Object.keys(timeReserve);
+          objKeys = objKeys.sort();//这里写所需要的规则
+          for (var i = 0; i < objKeys.length; i++) {
+            // console.log(objKeys[i] + " : " + timeReserve[objKeys[i]]);
+            arr.push(timeReserve[objKeys[i]]);
           }
+          var time10 = arr[2];
+          var time11 = arr[3];
+          arr.splice(2,2);
+          arr.push(time10);
+          arr.push(time11);
+          console.log(arr);
           that.setData({ timeReserve: arr });
         };
       }
@@ -119,11 +129,21 @@ Page({
         console.log("----get timeReserve successed----", res);
         if (res.data.code == "0") {
           var timeReserve = res.data.result;
-          console.log(timeReserve);
+          // var numArr = ["time0", "time1", "time2", "time3", "time4", "time5", "time6", "time7", "time8", "time9", "time10", "time11"];
           var arr = [];
-          for (var item in timeReserve) {
-            arr.push(timeReserve[item]);
+          console.log(timeReserve);
+          var objKeys = Object.keys(timeReserve);
+          objKeys = objKeys.sort();//这里写所需要的规则
+          for (var i = 0; i < objKeys.length; i++) {
+            // console.log(objKeys[i] + " : " + timeReserve[objKeys[i]]);
+            arr.push(timeReserve[objKeys[i]]);
           }
+          var time10 = arr[2];
+          var time11 = arr[3];
+          arr.splice(2, 2);
+          arr.push(time10);
+          arr.push(time11);
+          console.log(arr);
           that.setData({ timeReserve: arr });
         };
       }
@@ -233,11 +253,21 @@ Page({
         console.log("----get timeReserve successed----", res);
         if (res.data.code == "0") {
           var timeReserve = res.data.result;
-          console.log(timeReserve);
+          // var numArr = ["time0", "time1", "time2", "time3", "time4", "time5", "time6", "time7", "time8", "time9", "time10", "time11"];
           var arr = [];
-          for (var item in timeReserve) {
-            arr.push(timeReserve[item]);
+          console.log(timeReserve);
+          var objKeys = Object.keys(timeReserve);
+          objKeys = objKeys.sort();//这里写所需要的规则
+          for (var i = 0; i < objKeys.length; i++) {
+            // console.log(objKeys[i] + " : " + timeReserve[objKeys[i]]);
+            arr.push(timeReserve[objKeys[i]]);
           }
+          var time10 = arr[2];
+          var time11 = arr[3];
+          arr.splice(2, 2);
+          arr.push(time10);
+          arr.push(time11);
+          console.log(arr);
           that.setData({ timeReserve: arr });
         };
       }
