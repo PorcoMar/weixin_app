@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9d309e4-b584-4173-a599-ea05d1285a99" name="默认的" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index/selectShop/selectShop.wxml" afterPath="$PROJECT_DIR$/pages/index/selectShop/selectShop.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserve.js" afterPath="$PROJECT_DIR$/pages/reserve/reserve.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.js" afterPath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.wxml" afterPath="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/VIPCenter/VIPCenter.wxml" afterPath="$PROJECT_DIR$/pages/VIPCenter/VIPCenter.wxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/personal/bindPhone/bindPhone.wxss" afterPath="$PROJECT_DIR$/pages/personal/bindPhone/bindPhone.wxss" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
