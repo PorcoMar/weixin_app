@@ -12,8 +12,43 @@ Page({
     var uid = app.globalData.HEADER.uid;
     console.log("uid", uid);
     if (token && uid) {
-      console.log(util.secondTimestamp(1499245853))
-      console.log(app.globalData)
+      //console.log(app.globalData.wxInfo)
+      var that = this;
+      if (app.globalData.wxInfo) {
+        this.setData({ wxInfo: app.globalData.wxInfo });
+        wx.getStorage({
+          key: "HEADER",
+          success:(res)=> {
+            console.log("------get header success-------");
+            //获取用户信息
+            getApp().globalData.HEADER = res.data;
+            wx.request({
+              url: HOST + "/user/info",
+              method: 'POST',
+              header: res.data,
+              success: (res)=> {
+                console.log(res)
+                if (res.data.code == "0") {
+                  let datnn = res.data.result;
+                  this.setData({
+                    cardName: datnn.memberLevelName,
+                    idCardNo: datnn.idCardNo,
+                    shopName: datnn.shopName,
+                    shopLogo: datnn.shopLogo
+                  })
+                  this.setData({ userInfo: res.data.result});
+                }
+              }
+            })
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '请删除小程序后重新进入，使用微信授权登录',
+          showCancel: false
+        });
+      };
     } else{
       wx.navigateTo({
         url: '../personal/bindPhone/bindPhone',
@@ -24,55 +59,6 @@ Page({
     // 页面渲染完成
   },
   onShow:function(){
-    console.log(app.globalData.wxInfo)
-    var that = this;
-    if (app.globalData.wxInfo) {
-      this.setData({ wxInfo: app.globalData.wxInfo });
-      wx.getStorage({
-        key: "HEADER",
-        success: function (res) {
-          console.log("------get header success-------");
-          //获取用户信息
-
-          getApp().globalData.HEADER = res.data;
-
-          wx.request({
-            url: HOST + "/user/info",
-            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            header: res.data, // 设置请求的 header
-            success: function (res) {
-              if (res.data.code == "0") {
-                console.log(res.data.result);
-                that.setData({ userInfo: res.data.result });
-              }
-            }
-          })
-        }
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '请删除小程序后重新进入，使用微信授权登录',
-        showCancel: false
-      });
-    };
-    wx.getStorage({
-      key:"HEADER",
-      success:function(res){
-        //获取用户信息
-        getApp().globalData.HEADER = res.data;
-        wx.request({
-          url:HOST + "/user/info",
-          method:"POST",
-          header:res.data,
-          success:function(res){
-            console.log(res)
-          }
-        });
-      }
-    })
-
-    
   },
   onHide:function(){
     // 页面隐藏
@@ -81,7 +67,6 @@ Page({
     // 页面关闭
   },
   recomGigt:function(){
-   // console.log(11111111)
     wx.getStorageInfo({
       success: function (res) {
         let keys = res.keys.join(",");
@@ -140,7 +125,7 @@ Page({
       url: '../coupon/coupon',
     })
   },
-  // 跳转到提现记录页面
+  // 跳转到礼金记录页面
   cashGift:function(){
     wx.navigateTo({
       url: '../VIPCenter/moneyRecord/moneyRecord',

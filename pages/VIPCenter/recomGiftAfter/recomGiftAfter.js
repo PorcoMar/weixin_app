@@ -9,26 +9,18 @@ Page({
 
   onLoad: function (options) {
     //获取用户信息
-    var token = app.globalData.HEADER.token;
-    var uid = app.globalData.HEADER.uid;
-    console.log(token, uid);
-    if (token && uid) {
-      console.log(util.secondTimestamp(1499245853))
-      console.log(util.stringNum(13678765465))
-      console.log(app.globalData)
-      this.setData({ wxInfo: app.globalData.wxInfo})
-    } else {
-      wx.navigateTo({
-        url: '../personal/bindPhone/bindPhone',
-      })
-    }
+    console.log(util.secondTimestamp(1499245853))
+    console.log(util.stringNum(13678765465))
+    let info = app.globalData.wxInfo;
+    this.setData({wxInfo:info})
+    this.setData({ userId: app.globalData.HEADER.uid })
+    console.log(this.data.userId)
   },
   onReady: function () {
-    // 页面渲染完成
+  // 页面渲染完成
   },
   onShow: function () {
     var that = this;
-
     wx.getStorage({
       key: "HEADER",
       success: function (res) {
@@ -38,13 +30,60 @@ Page({
           url: HOST + "/user/info",
           method: "POST",
           header: res.data,
-          success: function (res) {
+          success: (res)=> {
             console.log(res)
+            
           }
         });
       }
     })
-
+//请求个人数据   
+console.log(this.data.userId) 
+    wx.request({
+      url: HOST + "/distribute/getUserDistributeAccount",
+      method: "POST",
+      header: getApp().globalData.HEADER,
+      data:{
+      userId: this.data.userId
+      //userId: 18981
+        },
+      success:(res)=> {
+        console.log(res)
+        let datan  = res.data.result;
+        this.setData({
+          canAmount: util.toMoney(datan.canAmount),
+          totalAmount: util.toMoney(datan.totalAmount),
+          subUserCount: datan.subUserCount,
+          orderCount: datan.orderCount,
+          pastAmount: util.toMoney(datan.pastAmount)
+        })
+      }
+    });
+    //请求推荐记录
+    wx.request({
+      url: HOST + "/distribute/listDistributeUser",
+      method: "POST",
+      header: getApp().globalData.HEADER,
+      data: {
+        referrerId: this.data.userId,
+        //referrerId: 18981,
+        referrerType: "USER",
+        pageNo: 1,
+        pageSize: 4,
+      },
+      success: (res) => {
+        console.log(res)
+        let dataList = res.data.result.list;
+        this.setData({ dataList: dataList })
+        let newList = this.data.dataList;
+        for (let i in newList) {
+          let datan = newList[i];
+          datan.customerPhone = util.stringNum(datan.customerPhone)
+          datan.createdTime = util.secondTimestamp(datan.createdTime)
+        }
+        this.setData({ dataList: newList })
+      }
+    });
 
   },
   onHide: function () {
@@ -64,18 +103,9 @@ Page({
       // 来自页面内转发按钮
       //console.log(res.target)
     }
-    // wx.showShareMenu({
-    //   withShareTicket: true
-    // })
-    // wx.getShareInfo({
-    //   withShareTicket: true,
-    //   success(res) {
-    //     console.log(res)
-    //   }
-    // })
     return {
       title: '推荐有礼',
-      path: '/pages/VIPCenter/shareGift/shareGift?openid=' + oriOpenId + '&name=' + infoName,
+      path: '/pages/VIPCenter/shareGift/shareGift?openid=' + oriOpenId + '&name=' + infoName + "&uid=" + this.data.userId,
       success: function (res) {
         // 转发成功
       },

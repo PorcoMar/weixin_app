@@ -1,55 +1,66 @@
-const util = require('../../../utils/util.js');
-var app = getApp();
-var HOST = app.globalData.HOST;
+// pages/VIPCenter/VIPCenter/recomGiftAfter.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    wxInfo: null,
-    userInfo: null
+  
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
-    //获取用户信息
-    var token = app.globalData.HEADER.token;
-    var uid = app.globalData.HEADER.uid;
-    console.log(token, uid);
-    if (token && uid) {
-      console.log(util.secondTimestamp(1499245853))
-      console.log(app.globalData)
-    } else {
-      wx.navigateTo({
-        url: '../personal/bindPhone/bindPhone',
-      })
-    }
+  
   },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   onReady: function () {
-    // 页面渲染完成
+  
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
   onShow: function () {
-    var that = this;
-
-    wx.getStorage({
-      key: "HEADER",
-      success: function (res) {
-        //获取用户信息
-        getApp().globalData.HEADER = res.data;
-        wx.request({
-          url: HOST + "/user/info",
-          method: "POST",
-          header: res.data,
-          success: function (res) {
-            console.log(res)
-          }
-        });
-      }
-    })
-
-
+  
   },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
   onHide: function () {
-    // 页面隐藏
+  
   },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
   onUnload: function () {
-    // 页面关闭
+  
   },
 
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
 
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
 })

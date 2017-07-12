@@ -22,8 +22,6 @@
     "pages/VIPCenter/VIPCenter/recomGiftAfter",
     "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     "pages/VIPCenter/getGift/getGift",
-    "pages/VIPCenter/recomRecord/recomRecord",
-    "pages/VIPCenter/moneyRecord/moneyRecord",
     "pages/VIPCenter/applyCash/applyCash",
     "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
     "pages/appointment/appointmentSuccess/appointmentSuccess",
@@ -31,7 +29,9 @@
     "pages/reserve/reserveHistory/reserveHistory",
     "pages/order/wait_use_order/wait_use_order",
     "pages/order/wait_rate_order/wait_rate_order",
-    "pages/VIPCenter/applyCashRecord/applyCashRecord"
+    "pages/VIPCenter/applyCashRecord/applyCashRecord",
+    "pages/VIPCenter/recomRecord/recomRecord",
+    "pages/VIPCenter/moneyRecord/moneyRecord"
   ],
   "window": {
     "enablePullDownRefresh": false,

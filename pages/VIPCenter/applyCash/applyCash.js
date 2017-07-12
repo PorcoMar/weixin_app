@@ -7,44 +7,56 @@ Page({
     userInfo: null,
     cash:"",
     name:"",
-    num:""
+    num:"",
+    modalHidden1: false,
+    modalHidden2: false,
+    modalHidden3: false,
+    modalHidden4: false,
+    modalHidden5: false,
+    modalHidden6: false,
   },
   onLoad: function (options) {
-    //获取用户信息
-    var token = app.globalData.HEADER.token;
-    var uid = app.globalData.HEADER.uid;
-    console.log(token, uid);
-    if (token && uid) {
-      console.log(util.secondTimestamp(1499245853))
-      console.log(app.globalData)
-    } else {
-      wx.navigateTo({
-        url: '../personal/bindPhone/bindPhone',
+    this.setData({ userId: app.globalData.HEADER.uid })
+    //console.log(app.globalData)
+  //查看提现规则
+  wx.request({
+    url:HOST+"/distribute/takeoutWarn",
+    method:"POST",
+    header:getApp().globalData.HEADER,
+    success:(res)=>{
+      //console.log(res)
+      let datap = res.data.result;
+      this.setData({
+        minTakeout: datap.minTakeout,
+        minTakeoutNo: datap.minTakeoutNo
       })
     }
+  })
+ //查看个人记录
+    wx.request({
+      url: HOST + "/distribute/getUserDistributeAccount",
+      method: "POST",
+      header: getApp().globalData.HEADER,
+      data: {
+      userId: this.data.userId,
+      //userId:"18981"
+      },
+      success:(res)=> {
+        console.log(res)
+        if(!res.data.result){
+          this.setData({ allMoney: 0 })
+        }else{
+          this.setData({ allMoney: res.data.result.canAmount })
+        }
+       
+      }
+    });  
+
   },
   onReady: function () {
     // 页面渲染完成
   },
   onShow: function () {
-    var that = this;
-
-    wx.getStorage({
-      key: "HEADER",
-      success: function (res) {
-        //获取用户信息
-        getApp().globalData.HEADER = res.data;
-        wx.request({
-          url: HOST + "/user/info",
-          method: "POST",
-          header: res.data,
-          success: function (res) {
-            console.log(res)
-          }
-        });
-      }
-    })
-
 
   },
   onHide: function () {
@@ -57,14 +69,55 @@ Page({
     let name = this.data.name;
     let num = this.data.num;
     let cash = this.data.cash;
-    console.log(name,num,cash)
-    if(name && num && cash){
-      console.log(1111111)
+   
+    if (!name){
+      console.log("请填写姓名")
+      this.setData({ modalHidden1: true})
+    } else if (!num){
+      console.log("请填写支付宝账号")
+      this.setData({ modalHidden2: true })
+    } else if (!cash) {
+      if (this.data.allMoney=="0"){
+        this.setData({ modalHidden6: true, alertCont:"没有可提现的金额" })
+      }else{
+        console.log("请填写提现金额")
+        this.setData({ modalHidden3: true })
+      }
+
     }else{
-      console.log(222222)
-      wx.navigateTo({
-        url: '/pages/VIPCenter/getGift/getGift',
-      })
+      if (cash > this.data.allMoney){
+        this.setData({ modalHidden4: true })
+      }else{
+        //console.log("提现成功")
+        //this.setData({ modalHidden5: true })
+  //申请提现   
+        console.log(name, num, cash, this.data.userId)
+    wx.request({
+      url: HOST + "/distribute/addTakeOut",
+      method: "POST",
+      header: getApp().globalData.HEADER,
+      data:{
+        amount:cash,
+        //userId: 18981,
+        userId: this.data.userId,
+        userName:name,
+        alipayAccount:num,
+      },
+      success:(res)=> {
+        console.log(res)
+        if(res.data.code=="0"){
+          this.setData({ modalHidden5: true })
+        }else{
+          this.setData({
+             modalHidden6: true,
+             alertCont: res.data.errorMsg 
+             })
+
+        }
+      }
+    });
+
+      }
     }
 
   },
@@ -81,6 +134,42 @@ Page({
   bindNum: function (e) {
     this.setData({
       num: e.detail.value
+    })
+  },
+  allGetCash:function(){
+    this.setData({ cash:this.data.allMoney})
+  },
+  modalChange1: function () {//点击确定,隐藏
+    this.setData({
+      modalHidden1: false
+    })
+  },
+  modalChange2: function () {//点击确定,隐藏
+    this.setData({
+      modalHidden2: false
+    })
+  },
+  modalChange3: function () {//点击确定,隐藏
+    this.setData({
+      modalHidden3: false
+    })
+  },
+  modalChange4: function () {//点击确定,隐藏
+    this.setData({
+      modalHidden4: false
+    })
+  },
+  modalChange5: function () {
+    this.setData({
+      modalHidden5: false
+    })
+      wx.navigateTo({
+        url: '/pages/VIPCenter/getGift/getGift',
+      })
+  },
+  modalChange6: function () {//点击确定,隐藏
+    this.setData({
+      modalHidden6: false
     })
   },
 

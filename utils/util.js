@@ -24,10 +24,10 @@ function formatTimestamp(timestamp) {
   var D = date.getDate()
   return Y + M + D;
 }
-
+//年月日时分秒
 function secondTimestamp(timestamp){
   var date = new Date(timestamp);
-  console.log(date)
+  //console.log(date)
   var Year = date.getFullYear();
   var Month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
   var day = date.getDate();
@@ -66,6 +66,15 @@ function getDayName(day)
     var weekday=["周日","周一","周二","周三","周四","周五","周六"];
     return weekday[day];
 }
+//年月日
+function thirdTimestamp(timestamp) {
+  var date = new Date(timestamp);
+  //console.log(date)
+  var Year = date.getFullYear();
+  var Month = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+  var day = date.getDate();
+  return Year + "." + Month + "." + day
+}
 function stringNum(num){
   if (typeof num=="number"){
     let str = num.toString();
@@ -75,10 +84,27 @@ function stringNum(num){
   }
  
 }
+//转换钱币格式以及小数点保留两位
+function toMoney(a){
+  let aa = parseFloat(a).toLocaleString()
+  if(aa.indexOf(".")>0){
+    let splt = aa.split(".")[1];
+    let len = splt.length;
+    if(len==1){
+      return aa+"0"
+    }else if(len>1){
+      return aa.split(".")+"."+splt.substr(0,2)
+    }
+  }else{
+    return aa
+  }
+}
 module.exports = {
   formatTime: formatTime,
   formatTimestamp: formatTimestamp,
   secondTimestamp: secondTimestamp,
   nextWeek:nextWeek,
-  stringNum:stringNum
+  stringNum:stringNum,
+  toMoney: toMoney,
+  thirdTimestamp: thirdTimestamp
 }

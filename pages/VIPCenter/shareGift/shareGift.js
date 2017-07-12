@@ -38,21 +38,43 @@ Page({
     disabled: false,
     val: "",
     codeNum: "",
-    haha:"",
-    haha2:"",
-    //oriName:"张先生",
-    //oriOpenId:"oyn4K0byXgEfJVZdfIvW-xRHkNjQ"
-
+    oriName:"张先生",
+    oriOpenId:"oyn4K0byXgEfJVZdfIvW-xRHkNjQ",
+    uid:"18981"
   },
 
   onLoad: function (options) {
     this.setData({
       oriName: options.name,
-      oriOpenId: options.openid
+      oriOpenId: options.openid,
+      uid:options.uid
     })
+
+//优惠
+    wx.request({
+      url: HOST + "/distribute/listDistributeUserBonus",
+      method: "POST",
+      header: getApp().globalData.HEADER,
+      success: (res)=> {
+        //console.log(res)
+        //console.log(res.data.result.coupons)
+        let dataList = res.data.result.coupons;
+        this.setData({ dataList: dataList })
+        let newList = this.data.dataList
+        //console.log(newList)
+        for (let i in newList) {
+          let datan = newList[i];
+          datan.beginTime = util.thirdTimestamp(datan.beginTime)
+          datan.endTime=util.thirdTimestamp(datan.endTime)
+        }
+        this.setData({dataList:newList})
+      }
+    });
+
+
     wx.getUserInfo({
       success: (res)=> {
-        console.log(res);
+        //console.log(res);
         let wxInfo = JSON.parse(res.rawData);
         app.globalData.wxInfo = wxInfo;
         //console.log(app.globalData)
@@ -72,7 +94,7 @@ Page({
 
         //console.log(this.data.openIdn, this.data.useName, this.data.userImg)
       },
-      fail: function () {
+      fail:()=> {
         console.log("------login fail-------");
         wx.showModal({
           title: '提示',
@@ -87,25 +109,6 @@ Page({
     // 页面渲染完成
   },
   onShow: function () {
-    var that = this;
-
-    // wx.getStorage({
-    //   key: "HEADER",
-    //   success: function (res) {
-    //     console.log(res)
-    //     //获取用户信息
-    //     getApp().globalData.HEADER = res.data;
-    //     wx.request({
-    //       url: HOST + "/user/info",
-    //       method: "POST",
-    //       header: res.data,
-    //       success: function (res) {
-    //         console.log(res)
-    //       }
-    //     });
-    //   }
-    // })
-
 
   },
   onHide: function () {
@@ -179,11 +182,12 @@ Page({
       })
     } else{
        //请求提交接口
-      // console.log(this.data.val, this.data.codeNum)
-      // console.log(this.data.oriOpenId)
-      // console.log(this.data.useName)
-      // console.log(this.data.openIdn)
-      // console.log(this.data.userImg) 
+      console.log(this.data.val, this.data.codeNum)
+      console.log(this.data.oriOpenId)
+      console.log(this.data.useName)
+      console.log(this.data.openIdn)
+      console.log(this.data.userImg) 
+      console.log(this.data.uid) 
       wx.request({
         url: HOST + "/distribute/addDistributeUser",
         method: "POST",
@@ -195,7 +199,8 @@ Page({
           headerImage: this.data.userImg,
           nickName: this.data.useName,
           openid: this.data.openIdn,
-          distributeConfigId:1
+          distributeConfigId:1,
+          userId:this.data.uid
           },
         success:(res)=> {
           console.log(res)
@@ -204,6 +209,11 @@ Page({
             this.setData({
               modalHidden5: true
             })
+          }else{
+            this.setData({
+              modalHidden6: true,
+              alertCont: res.data.errorMsg
+            }) 
           }
         }
       });
@@ -238,7 +248,11 @@ Page({
     wx.switchTab({
       url: '/pages/index/index',
     })
+  },
+  modalChange6: function () {//点击确定,隐藏
+    this.setData({
+      modalHidden6: false
+    })
   }
-
 
 })

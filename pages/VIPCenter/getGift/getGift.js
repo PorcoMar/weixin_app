@@ -8,17 +8,7 @@ Page({
   },
   onLoad: function (options) {
     //获取用户信息
-    var token = app.globalData.HEADER.token;
-    var uid = app.globalData.HEADER.uid;
-    console.log(token, uid);
-    if (token && uid) {
-      console.log(util.secondTimestamp(1499245853))
-      console.log(app.globalData)
-    } else {
-      wx.navigateTo({
-        url: '../personal/bindPhone/bindPhone',
-      })
-    }
+
   },
   onReady: function () {
     // 页面渲染完成

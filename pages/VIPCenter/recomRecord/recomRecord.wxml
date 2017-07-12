@@ -1,23 +1,32 @@
 <view class="containar">
 <view class="recordList">
 <view class="topDef"></view>
-  <view class="listCont">
-  <text>2017-05-10 18:28:23</text>
-  <text>{{name}}（{{numberm}}）领取了您的红包。</text>
+  <view class="listCont" wx:for="{{dataList}}" wx:for-item="item" >
+    <text>{{item.createdTime}}</text>
+    <text>（{{item.customerPhone}}）领取了您的红包</text>
   </view>
-  <view class="listCont">
-  <text>2017-05-10 18:28:23</text>
-  <text>张阿姨（139****1234）领取了您的红包</text>
-  </view>
-  <view class="listCont">
-  <text>2017-05-10 18:28:23</text>
-  <text>张阿姨（139****1234）领取了您的红包</text>
-  </view>
-  <view class="listCont">
-  <text>2017-05-10 18:28:23</text>
-  <text>张阿姨（139****1234）领取了您的红包</text>
-  </view>
-
 </view>
 </view>
 <view class="noMore">- 已显示所有推荐记录 -</view>
+
+
+
+<!--<swiper-item>
+        <scroll-view >
+
+  <view class="hot-box-main">
+      <view wx:for="{{dataList}}" ></view>
+  </view>
+
+  <view hidden="{{hotshidden}}">
+      <view wx:if="{{hothidden}}">
+          <image src="../../../images/service/loading.gif" mode="aspectFill" style="width:120rpx;height:30rpx;display:block;margin:0 auto;"/>
+      </view>
+      <view wx:else>
+          <text> 没有更多了 </text>
+      </view>
+  </view>
+
+
+    </scroll-view>
+  </swiper-item>-->

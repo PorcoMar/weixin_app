@@ -6,11 +6,11 @@
 </view>
 <view class="ticks">
 <!--first-->
-<view class="tick_cont">
+<view class="tick_cont" wx:for="{{dataList}}"wx:for-item="item" wx:for-index="i">
   <image class="bgImg" src="../../../images/app2.0/youhuiquan@2x.png"></image>
   <view class="floatL">
     <view class="leftm">
-      <view class="rmb">¥<text> 5</text></view>
+      <view class="rmb">¥<text> {{item.value}}</text></view>
       <view class="imgpp">
         <image  src="../../../images/app2.0/youhuiquan@2x.png"></image>
       </view>
@@ -18,77 +18,23 @@
     <view class="rightm">
       <view class="txt">
         <view class="vue"></view> 
-        满38可用 
+        满{{item.limitFeeMin}}可用 
       </view>
       <view class="txt">
       <view class="vue"></view> 
-      2016.11.25-2017.12.12
+      {{item.beginTime}}-{{item.endTime}}
       </view>
       <view class="txt">
       <view class="vue"></view> 
-      限婴童生活使用
+      {{item.name}}
       </view>
     </view>
   </view>
 </view>
-
-<!--second-->
-<view class="tick_cont">
-  <image class="bgImg" src="../../../images/app2.0/youhuiquan@2x.png"></image>
-  <view class="floatL">
-    <view class="leftm">
-      <view class="rmb">¥<text> 5</text></view>
-      <view class="imgpp">
-        <image  src="../../../images/app2.0/youhuiquan@2x.png"></image>
-      </view>
-    </view>
-    <view class="rightm">
-      <view class="txt">
-        <view class="vue"></view> 
-        满38可用 
-      </view>
-      <view class="txt">
-      <view class="vue"></view> 
-      2016.11.25-2017.12.12
-      </view>
-      <view class="txt">
-      <view class="vue"></view> 
-      限产后修复使用
-      </view>
-    </view>
-  </view>
-</view>
-
-<!--third-->
-<view class="tick_cont">
-  <image class="bgImg" src="../../../images/app2.0/youhuiquan@2x.png"></image>
-  <view class="floatL">
-    <view class="leftm">
-      <view class="rmb">¥<text> 5</text></view>
-      <view class="imgpp">
-        <image  src="../../../images/app2.0/youhuiquan@2x.png"></image>
-      </view>
-    </view>
-    <view class="rightm">
-      <view class="txt">
-        <view class="vue"></view> 
-        满38可用 
-      </view>
-      <view class="txt">
-      <view class="vue"></view> 
-      2016.11.25-2017.12.12
-      </view>
-      <view class="txt">
-      <view class="vue"></view> 
-      限产后修复使用
-      </view>
-    </view>
-  </view>
-</view>
-
 <view style="height:12rpx;"></view>
 </view>
 
+<!-- <text>openId:{{oriOpenId}},uid:{{uid}}</text> -->
 <view class="codePhone">
 <view class="tit">{{oriName}}抢到一个大红包，请你来拔草</view>
 <view>
@@ -124,7 +70,7 @@
             <view class="content" >领取成功，快去使用吧！</view>
         </modal>
         <modal class="modal" wx:if="{{modalHidden6}}" no-cancel bindconfirm="modalChange6" >
-            <view class="content">本活动仅针对新用户，您已经是我们的老用户，不能参加活动。</view>
+            <view class="content">{{alertCont}}</view>
         </modal>
 
 <view class="coook">

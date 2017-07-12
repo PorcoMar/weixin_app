@@ -104,7 +104,6 @@ Page({
         if(res.data.code == "0"){
             var uid = res.data.result.uid;
             var token = res.data.result.token;
-
             app.globalData.HEADER.uid = uid;
             app.globalData.HEADER.token = token;
 
