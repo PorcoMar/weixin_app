@@ -5,7 +5,7 @@
   height:390rpx;margin-bottom:20rpx;
 }
 .banner image{
-  height:390rpx;
+  height:390rpx;width:100%;
 }
 
 .activity_explain{

@@ -39,7 +39,8 @@ display:flex;flex-direction:row;
   width:100rpx;height:50rpx;margin:28rpx auto;
 }
 .floatL .leftm .imgpp image{
-  width:100rpx;height:50rpx;display:block;margin:0 auto;
+  width:110rpx;height:50rpx;display:block;margin-left:-30rpx;
+  margin-top:-20rpx;
 }
 .floatL .leftm .rmb{
   margin:0 auto;color:#fc5a5f;font-size:32rpx;

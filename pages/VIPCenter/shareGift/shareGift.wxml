@@ -12,7 +12,7 @@
     <view class="leftm">
       <view class="rmb">¥<text> {{item.value}}</text></view>
       <view class="imgpp">
-        <image  src="../../../images/app2.0/youhuiquan@2x.png"></image>
+        <image  src="{{item.logoSmall}}" style="width:180rpx;"></image>
       </view>
     </view>
     <view class="rightm">
@@ -22,7 +22,8 @@
       </view>
       <view class="txt">
       <view class="vue"></view> 
-      {{item.beginTime}}-{{item.endTime}}
+      <view wx:if="{{item.beginTime}}">{{item.beginTime}}-{{item.endTime}}</view>
+      <view wx:else>{{item.validDays}}天内有效</view>
       </view>
       <view class="txt">
       <view class="vue"></view> 

@@ -20,5 +20,6 @@ font-size:34rpx;color:#4f4f4f;
 }
 .noMore{
   text-align:center;font-size:24rpx;color:#8f8f8f;
-  margin-top:240rpx;
+  height:100rpx;line-height:100rpx;
+  /* margin-top:240rpx; */
 }

@@ -12,7 +12,7 @@
 <view class="allCash">提现金额</view>
 <view class="numCash">
   <text>¥</text>
-    <input type="number" placeholder="2000" bindinput="bindCash" value="{{cash}}"/>
+    <input type="number" placeholder="{{placehold}}" bindinput="bindCash" value="{{cash}}"/>
 </view>
 </view>
 

@@ -4,7 +4,8 @@ var HOST = app.globalData.HOST;
 Page({
   data: {
     wxInfo: null,
-    userInfo: null
+    userInfo: null,
+    record:true
   },
 
   onLoad: function (options) {
@@ -50,13 +51,24 @@ console.log(this.data.userId)
       success:(res)=> {
         console.log(res)
         let datan  = res.data.result;
-        this.setData({
-          canAmount: util.toMoney(datan.canAmount),
-          totalAmount: util.toMoney(datan.totalAmount),
-          subUserCount: datan.subUserCount,
-          orderCount: datan.orderCount,
-          pastAmount: util.toMoney(datan.pastAmount)
-        })
+        if(!datan){
+          this.setData({
+            canAmount:0,
+            totalAmount:0,
+            subUserCount:0,
+            orderCount:0,
+            pastAmount:0
+          })
+        }else{
+          this.setData({
+            canAmount: util.toMoney(datan.canAmount),
+            totalAmount: util.toMoney(datan.totalAmount),
+            subUserCount: datan.subUserCount,
+            orderCount: datan.orderCount,
+            pastAmount: util.toMoney(datan.pastAmount)
+          })
+        }
+
       }
     });
     //请求推荐记录
@@ -74,6 +86,10 @@ console.log(this.data.userId)
       success: (res) => {
         console.log(res)
         let dataList = res.data.result.list;
+        console.log(dataList)
+        if(dataList.length==0){
+          this.setData({ record:false})
+        }
         this.setData({ dataList: dataList })
         let newList = this.data.dataList;
         for (let i in newList) {

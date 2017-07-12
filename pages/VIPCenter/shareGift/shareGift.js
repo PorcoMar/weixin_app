@@ -57,15 +57,18 @@ Page({
       header: getApp().globalData.HEADER,
       success: (res)=> {
         //console.log(res)
-        //console.log(res.data.result.coupons)
+        console.log(res.data.result.coupons)
         let dataList = res.data.result.coupons;
         this.setData({ dataList: dataList })
         let newList = this.data.dataList
         //console.log(newList)
         for (let i in newList) {
           let datan = newList[i];
-          datan.beginTime = util.thirdTimestamp(datan.beginTime)
-          datan.endTime=util.thirdTimestamp(datan.endTime)
+          if (datan.beginTime){
+            datan.beginTime = util.thirdTimestamp(datan.beginTime)
+            datan.endTime = util.thirdTimestamp(datan.endTime)
+          }
+          datan.logoSmall = util.imgUrl(datan.logoSmall)
         }
         this.setData({dataList:newList})
       }

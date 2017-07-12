@@ -99,6 +99,10 @@ function toMoney(a){
     return aa
   }
 }
+// 图片地址
+function imgUrl(a){
+  return "http://appimg.yizhenjia.com"+a
+}
 module.exports = {
   formatTime: formatTime,
   formatTimestamp: formatTimestamp,
@@ -106,5 +110,6 @@ module.exports = {
   nextWeek:nextWeek,
   stringNum:stringNum,
   toMoney: toMoney,
-  thirdTimestamp: thirdTimestamp
+  thirdTimestamp: thirdTimestamp,
+  imgUrl:imgUrl
 }

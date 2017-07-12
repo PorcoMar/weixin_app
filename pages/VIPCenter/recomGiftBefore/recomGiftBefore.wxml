@@ -1,7 +1,7 @@
 <view class="container">
 
 <view class="banner">
-<image src="../../../images/app2.0/ka@2x.png"></image>
+<image src="../../../images/app2.0/banner2.png"></image>
 </view>
 <view class="activity_explain">
   <text class="line"></text>
@@ -47,7 +47,7 @@
 
 <view class="footn">
 <view class="footer_btn" bindtap="toAfter">
-  <image src="../../../images/app2.0/time@2x.png"></image>
+  <image src="../../../images/app2.0/jiaru@2x.png"></image>
   <text>我要加入</text>
 </view>
 </view>

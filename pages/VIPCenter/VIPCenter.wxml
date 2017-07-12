@@ -19,7 +19,7 @@
       </view>
     </view>
 
-    <view class="bottom-num">
+    <view class="bottom-num" wx:if="{{idCardNo}}">
       NO.{{idCardNo}}
     </view>
 

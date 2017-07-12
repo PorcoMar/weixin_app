@@ -71,11 +71,10 @@
   </view>
 
 
-  <view class="more_record">
+  <view class="more_record" wx:if="{{record}}">
    <navigator url="/pages/VIPCenter/recomRecord/recomRecord" hover-class="navigator-hover">
   更多推荐记录
   </navigator>
-  
   </view>
   <view style="height:1rpx"></view>
 </view>
@@ -83,7 +82,7 @@
 
 <view class="footerm">
   <button class="makeMoney" bindtap="makeMOney"  open-type="share">
-  <image src="../../../images/app2.0/liwu@2x.png"></image>
+  <image src="../../../images/app2.0/lijin2@2x.png"></image>
     
     <text>赚礼金</text>
   </button>
@@ -92,10 +91,5 @@
     <text>提现</text>
   </button>
 </view>
-
-
-
-
-
 
 </view>

@@ -8,6 +8,7 @@ Page({
     cash:"",
     name:"",
     num:"",
+    placehold:"2000",
     modalHidden1: false,
     modalHidden2: false,
     modalHidden3: false,
@@ -44,7 +45,10 @@ Page({
       success:(res)=> {
         console.log(res)
         if(!res.data.result){
-          this.setData({ allMoney: 0 })
+          this.setData({
+             allMoney: 0,
+             placehold:0
+           })
         }else{
           this.setData({ allMoney: res.data.result.canAmount })
         }

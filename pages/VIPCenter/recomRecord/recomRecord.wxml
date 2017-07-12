@@ -1,4 +1,4 @@
-<view class="containar">
+<!-- <view class="containar">
 <view class="recordList">
 <view class="topDef"></view>
   <view class="listCont" wx:for="{{dataList}}" wx:for-item="item" >
@@ -7,26 +7,28 @@
   </view>
 </view>
 </view>
-<view class="noMore">- 已显示所有推荐记录 -</view>
+<view class="noMore">- 已显示所有推荐记录 -</view> -->
 
+<view class="containar">
+<view class="recordList">
+<view class="topDef"></view>
 
+<swiper style="height:{{windowHeight}}px;display:block;overflow:hidden;">
+  <scroll-view scroll-y="true" style="height:{{windowHeight}}px;display:block;overflow:hidden;" bindscrolltoupper="upper" bindscrolltolower="scrolltolower" bindscroll="scroll">
 
-<!--<swiper-item>
-        <scroll-view >
-
-  <view class="hot-box-main">
-      <view wx:for="{{dataList}}" ></view>
+  <view class="listCont" wx:for="{{dataList}}" wx:for-item="item" >
+    <text>{{item.createdTime}}</text>
+    <text>{{item.customerPhone}} 领取了您的红包</text>
+    <!-- <view>{{item.lat}}</view> -->
   </view>
 
-  <view hidden="{{hotshidden}}">
-      <view wx:if="{{hothidden}}">
-          <image src="../../../images/service/loading.gif" mode="aspectFill" style="width:120rpx;height:30rpx;display:block;margin:0 auto;"/>
-      </view>
-      <view wx:else>
-          <text> 没有更多了 </text>
-      </view>
+<!-- 没有更多的时候 -->
+    <view wx:if="{{hothidden}}" style="height:80rpx;">
+        <image style="display:block;width:120rpx;height:40rpx;margin:20rpx auto;" src="../../../images/service/loading.gif" mode="aspectFill"/>
+    </view>
+    <view wx:else class="noMore">- 已显示所有推荐记录 -</view>
+  </scroll-view>
+  </swiper>
+
+  </view>  
   </view>
-
-
-    </scroll-view>
-  </swiper-item>-->
