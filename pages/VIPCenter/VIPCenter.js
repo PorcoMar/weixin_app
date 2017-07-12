@@ -143,7 +143,7 @@ Page({
   // 跳转到提现记录页面
   cashGift:function(){
     wx.navigateTo({
-      url: '../VIPCenter/applyCashRecord/applyCashRecord',
+      url: '../VIPCenter/moneyRecord/moneyRecord',
     })
   },
   // 跳转到钱包页面

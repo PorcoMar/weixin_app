@@ -94,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/pages/order/order.wxss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" column="1" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
+              <caret line="25" column="1" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -126,6 +126,7 @@
         <option value="$PROJECT_DIR$/pages/reserve/reserveHistory/reserveHistory.js" />
         <option value="$PROJECT_DIR$/pages/order/order.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/pages/order/order.wxss" />
       </list>
     </option>
   </component>
@@ -432,16 +433,16 @@
       <workItem from="1499151801105" duration="562000" />
       <workItem from="1499392923150" duration="6891000" />
       <workItem from="1499416124954" duration="10147000" />
-      <workItem from="1499682180689" duration="2877000" />
+      <workItem from="1499682180689" duration="3418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32767000" />
+    <option name="totallyTimeSpent" value="33308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-59" width="1912" height="983" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1124477" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -870,7 +871,7 @@
     <entry file="file://$PROJECT_DIR$/pages/order/order.wxss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
+          <caret line="25" column="1" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
           <folding />
         </state>
       </provider>
