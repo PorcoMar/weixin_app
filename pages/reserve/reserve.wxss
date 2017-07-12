@@ -131,7 +131,7 @@ page {
   border-radius: 26rpx;
   border: 1rpx solid #dedede;
   line-height: 54rpx;
-  padding: 0；
+  padding: 0;
 }
 
 .contactService {
@@ -146,7 +146,7 @@ page {
   border-radius: 26rpx;
   border: 1rpx solid #dedede;
   line-height: 54rpx;
-  padding: 0；
+  padding: 0;
 }
 
 .checkHistory {
