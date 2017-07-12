@@ -8,10 +8,10 @@
 
 <view class="moneyRecord">礼金记录</view>
 
-<view class="big_box">
 
 
-<view class="listContent" wx:for="{{dataList}}" wx:for-item="item">
+
+<!-- <view class="listContent" wx:for="{{dataList}}" wx:for-item="item">
   <view class="leftCont">
     <text>{{item.createdTime}}</text>
     <text>{{item.name}} ({{item.phone}}) </text>
@@ -20,8 +20,33 @@
     <text style="color:{{item.color}}">{{item.amountStatus}}</text>
     <text>+{{item.amount}} </text>
   </view>
-</view>
+</view> -->
 
-</view>
+
+<swiper style="height:{{windowHeight}}px;display:block;overflow:hidden;">
+  <scroll-view scroll-y="true" style="height:{{windowHeight}}px;background:#fff;display:block;overflow:hidden;" bindscrolltoupper="upper" bindscrolltolower="scrolltolower" bindscroll="scroll">
+
+  <view class="listContent" wx:for="{{dataList}}" wx:for-item="item" >
+    <view class="leftCont">
+      <text>{{item.createdTime}}</text>
+      <text>{{item.name}} ({{item.phone}}) </text>
+    </view>
+    <view class="rightCont">
+      <text style="color:{{item.color}}">{{item.amountStatus}}</text>
+      <text>+{{item.amount}} </text>
+    </view>
+  </view>
+
+<!-- 没有更多的时候 -->
+    <view wx:if="{{hothidden}}" style="height:80rpx;">
+        <image style="display:block;width:120rpx;height:40rpx;margin:20rpx auto;" src="../../../images/service/loading.gif" mode="aspectFill"/>
+    </view>
+    <view wx:else class="noMore">- 已显示所有礼金记录 -</view>
+  </scroll-view>
+  </swiper>
+
+
+
+
 
 </view>

@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     "pages/index/selectCity/selectCity",

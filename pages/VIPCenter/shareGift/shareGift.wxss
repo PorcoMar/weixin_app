@@ -5,8 +5,9 @@ modal .content{
   text-align:center;
 }
 .banner{
-  width:100%;height:400rpx;margin-bottom:20rpx;background: orange;
+  width:100%;height:600rpx;margin-bottom:20rpx;background: orange;
 }
+.banner image{height:600rpx;width:100%;}
 .title_gift{
   height:100rpx;padding-top:8rpx;display:flex;align-items:center;
   justify-content: space-around;background: #fff
@@ -33,7 +34,7 @@ display:flex;flex-direction:row;
 }
 .floatL .leftm{
   width:198rpx;height:140rpx;
-  display:flex;justify-content: cneter;flex-direction:column;
+  display:flex;flex-direction:column;
 }
 .floatL .leftm .imgpp{
   width:100rpx;height:50rpx;margin:28rpx auto;
@@ -43,7 +44,7 @@ display:flex;flex-direction:row;
   margin-top:-20rpx;
 }
 .floatL .leftm .rmb{
-  margin:0 auto;color:#fc5a5f;font-size:32rpx;
+  color:#fc5a5f;font-size:32rpx;text-align:center;
 }
 .floatL .leftm .rmb text{font-size:46rpx;}
 .floatL .rightm{
@@ -63,7 +64,7 @@ align-items:center;
   flex-direction:column;justify-content: center;margin-bottom:20rpx;
 }
 .codePhone .tit{
-  color:#fc5a5f;font-size:30rpx;padding-top:50rpx;padding-bottom:40rpx;margin:0 auto;font-weight:bold;
+  color:#fc5a5f;font-size:30rpx;padding-top:50rpx;padding-bottom:40rpx;text-align: center;font-weight:bold;
 }
 .phoneNum{
   width:510rpx;height:88rpx;border-radius:10rpx;background:#ededed;

@@ -1,9 +1,9 @@
 <view class="container">
 <view style="height:20rpx;background:#f5f5f5;"></view>
 
-<view class="big_box">
 
-<view class="listContent"  wx:for="{{dataList}}" wx:for-item="item" >
+
+<!-- <view class="listContent"  wx:for="{{dataList}}" wx:for-item="item" >
   <view class="leftCont">
     <text>{{item.createdTime}}</text>
     <text>{{item.bankUserName}} ({{item.phone}}) </text>
@@ -13,11 +13,30 @@
     <text style="color:{{item.color}}">{{item.amountStatus}}</text>
     <text>+{{item.amount}} </text>
   </view>
-</view>
+</view> -->
+<swiper style="height:{{windowHeight}}px;display:block;overflow:hidden;">
+  <scroll-view scroll-y="true" style="height:{{windowHeight}}px;display:block;overflow:hidden;background:#fff;" bindscrolltoupper="upper" bindscrolltolower="scrolltolower" bindscroll="scroll">
 
+  <view class="listContent"  wx:for="{{dataList}}" wx:for-item="item" >
+   <view class="leftCont">
+    <text>{{item.createdTime}}</text>
+    <text>{{item.bankUserName}} ({{item.phone}}) </text>
+    <text>{{failCase}}</text>
+  </view>
+  <view class="rightCont">
+    <text style="color:{{item.color}}">{{item.amountStatus}}</text>
+    <text>+{{item.amount}} </text>
+  </view>
+  </view>
 
+<!-- 没有更多的时候 -->
+    <view wx:if="{{hothidden}}" style="height:80rpx;">
+        <image style="display:block;width:120rpx;height:40rpx;margin:20rpx auto;" src="../../../images/service/loading.gif" mode="aspectFill"/>
+    </view>
+    <view wx:else class="noMore">- 已显示所有推荐记录 -</view>
+  </scroll-view>
+  </swiper>
 
-</view>
 
 </view>
 

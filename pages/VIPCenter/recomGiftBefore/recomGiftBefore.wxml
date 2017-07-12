@@ -1,7 +1,7 @@
 <view class="container">
 
 <view class="banner">
-<image src="../../../images/app2.0/banner2.png"></image>
+<image src="http://appimg.yizhenjia.com/zm/bann-n2.png"></image>
 </view>
 <view class="activity_explain">
   <text class="line"></text>

@@ -3,13 +3,13 @@ var app = getApp();
 var HOST = app.globalData.HOST;
 function countdown(that) {
   let second = that.data.second;
-  console.log(second)
+  //console.log(second)
   if (second == 0) {
     that.setData({
       defaultFont: "重新发送",
       ifShow: false,
       disabled: true,
-      second: 6,
+      second: 60,
     });
     return;
   }
@@ -26,7 +26,7 @@ Page({
     userInfo: null,
     numVlu:"",
     codeVlu:"",
-    second: 6,
+    second: 60,
     ifShow: false,
     defaultFont: "获取验证码",
     modalHidden1: false,
@@ -69,7 +69,9 @@ Page({
             datan.endTime = util.thirdTimestamp(datan.endTime)
           }
           datan.logoSmall = util.imgUrl(datan.logoSmall)
+          datan.type == "DISCOUNT" ? datan.count = true : datan.count = false
         }
+        console.log(newList)
         this.setData({dataList:newList})
       }
     });

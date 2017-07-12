@@ -26,15 +26,15 @@ Page({
       method: 'POST',
       //data: { cat: 1, shopId: 10, pageNo: this.data.pageNo, pageSize: 10 },
       data:{
-        referrerId: this.data.userId,
-        //referrerId:18981,
+        //referrerId: this.data.userId,
+        referrerId:18981,
          referrerType: "USER",
          pageSize:10,
          pageNo: this.data.pageNo
       },
       header: app.globalData.HEADER,
       success: (res) => {
-        console.log(res.data.result)
+        console.log(res.data.result.list)
         let dat = res.data.result.list
         let len = dat.length;
         for(let i in dat){
@@ -100,36 +100,6 @@ Page({
     // 页面渲染完成
   },
   onShow: function () {
-    //请求推荐记录
-    // wx.request({
-    //   url: HOST + "/distribute/listDistributeUser",
-    //   method: "POST",
-    //   header: getApp().globalData.HEADER,
-    //   data: {
-    //     //referrerId: this.data.userId,
-    //     referrerId:18981,
-    //     referrerType: "USER",
-    //     pageNo: 1,
-    //     pageSize: 100,
-    //   },
-    //   success: (res) => {
-    //     console.log(res)
-    //     let dataList = res.data.result.list;
-    //     this.setData({ dataList: dataList })
-    //     let newList = this.data.dataList;
-    //     for (let i in newList) {
-    //       let datan = newList[i];
-    //       datan.customerPhone = util.stringNum(datan.customerPhone)
-    //       datan.createdTime = util.secondTimestamp(datan.createdTime)
-    //     }
-    //     this.setData({ dataList: newList })
-    //   }
-
-
-    // });
-
-
-
   },
   onHide: function () {
     // 页面隐藏

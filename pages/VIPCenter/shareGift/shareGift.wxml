@@ -1,4 +1,6 @@
-<view class="banner"></view>
+<view class="banner">
+<image src="http://appimg.yizhenjia.com/zm/newPeople.png"></image>
+</view>
 <view class="title_gift">
   <view class="line"></view>
   <view class="font">新人大礼包</view>
@@ -10,7 +12,8 @@
   <image class="bgImg" src="../../../images/app2.0/youhuiquan@2x.png"></image>
   <view class="floatL">
     <view class="leftm">
-      <view class="rmb">¥<text> {{item.value}}</text></view>
+      <view class="rmb" wx:if="{{item.count}}"><text> {{item.value}}%</text></view>
+      <view class="rmb" wx:else>¥<text> {{item.value}}</text></view>
       <view class="imgpp">
         <image  src="{{item.logoSmall}}" style="width:180rpx;"></image>
       </view>
@@ -18,7 +21,7 @@
     <view class="rightm">
       <view class="txt">
         <view class="vue"></view> 
-        满{{item.limitFeeMin}}可用 
+        <view>满{{item.limitFeeMin}}可用 </view>
       </view>
       <view class="txt">
       <view class="vue"></view> 
@@ -27,7 +30,7 @@
       </view>
       <view class="txt">
       <view class="vue"></view> 
-      {{item.name}}
+      <view>{{item.name}}</view>
       </view>
     </view>
   </view>
@@ -83,25 +86,25 @@
 <view class="last">
 <view class="floattl">
   <view class="contImg">
-  <image src="../../../images/app2.0/1@2x.png"></image>
+  <image src="http://appimg.yizhenjia.com/zm/dfg1.png"></image>
   </view>
   <view class="wensi">母婴护理</view>
 </view>
 <view class="floattr">
 <view class="contImg">
-  <image src="../../../images/app2.0/2@2x.png"></image>
+  <image src="http://appimg.yizhenjia.com/zm/dfg2.png"></image>
   </view>
   <view class="wensi">产后服务</view>
 </view>
 <view class="floattl">
 <view class="contImg">
-  <image src="../../../images/app2.0/3@2x.png"></image>
+  <image src="http://appimg.yizhenjia.com/zm/dfg3.png"></image>
   </view>
   <view class="wensi">儿童摄影</view>
 </view>
 <view class="floattr">
   <view class="contImg">
-  <image src="../../../images/app2.0/4@2x.png"></image>
+  <image src="http://appimg.yizhenjia.com/zm/dfg4.png"></image>
   </view>
   <view class="wensi">婴童理发</view>
   </view>

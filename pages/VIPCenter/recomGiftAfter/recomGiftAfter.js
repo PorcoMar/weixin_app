@@ -10,8 +10,6 @@ Page({
 
   onLoad: function (options) {
     //获取用户信息
-    console.log(util.secondTimestamp(1499245853))
-    console.log(util.stringNum(13678765465))
     let info = app.globalData.wxInfo;
     this.setData({wxInfo:info})
     this.setData({ userId: app.globalData.HEADER.uid })
@@ -22,22 +20,6 @@ Page({
   },
   onShow: function () {
     var that = this;
-    wx.getStorage({
-      key: "HEADER",
-      success: function (res) {
-        //获取用户信息
-        getApp().globalData.HEADER = res.data;
-        wx.request({
-          url: HOST + "/user/info",
-          method: "POST",
-          header: res.data,
-          success: (res)=> {
-            console.log(res)
-            
-          }
-        });
-      }
-    })
 //请求个人数据   
 console.log(this.data.userId) 
     wx.request({
