@@ -11,9 +11,9 @@
   </view>
   <view class="appointment-body">
   <block wx:for="{{timeList}}" wx:for-index="idx">
-    <view class="body-demo {{timeReserve[idx]==2?'timeFull':''}}" bindtap="{{timeReserve[idx]==2?'':'changeTime'}}" data-id="{{idx}}" id="{{idx==chooseTime?'body-demo':''}}">
+    <view class="body-demo {{timeReserve[idx]>=2?'timeFull':''}}" bindtap="{{timeReserve[idx]>=2?'':'changeTime'}}" data-id="{{idx}}" id="{{idx==chooseTime?'body-demo':''}}">
       <text class="text-time">{{item}}</text>
-      <text class="text-note">{{timeReserve[idx]==2?'已约满':'可预约'}}</text>
+      <text class="text-note">{{timeReserve[idx]>=2?'已约满':'可预约'}}</text>
     </view>
   </block>
     
