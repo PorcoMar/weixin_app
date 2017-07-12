@@ -14,7 +14,7 @@ page{
     display:flex;
     align-items:center;
     position:relative;
-    justify-content:center;
+    /* justify-content:center; */
     font-size:36rpx;
     color:#fd5a5f;
 }
@@ -28,7 +28,14 @@ page{
 }
 .shopName{
     /*font-size:30rpx;*/
+    /* 超出一行文字自动隐藏 */
+    overflow:hidden;
+/* 文字隐藏后添加省略号 */
+text-overflow:ellipsis;
+/* 强制不换行 */
+white-space:nowrap;
     font-family: "PingFang-SC-Medium";
+    margin-left: 220rpx;
     /*color: #4f4f4f;*/
     /*margin-left:30rpx;*/
 }
