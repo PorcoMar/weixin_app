@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    historyList:null,
+    historyList:[],
     footer:null
   },
 
@@ -24,38 +24,40 @@ Page({
       pageNo: 1,
       pageSize: 10
     });
-    wx.request({
-      url: HOST + "/wx/listReserveShopHistory",
-      data: {
-        userId: userId,
-        sellerId: sellerId,
-        pageNo: 1,
-        pageSize: 10
-      },
-      method: 'POST',
-      header: HEADER,
-      success: function (res) {
-        console.log("----get listReserveShopHistory successed----", res);
-        if (res.data.code == "0") {
-          var historyList = res.data.result.list;
-          historyList.map(function (item, index, array) {
-            item["createdTime"] = app.formateTime(item["createdTime"]);
-            item["modifiedTime"] = app.formateTime(item["modifiedTime"]);
-            item["endTime"] = app.showTime(item["reserveTime"]);
-            item["reserveTime"] = app.formateNormalTime(item["reserveTime"]);
-          })
-          that.setData({
-            historyList: historyList,
-          });
-        } else {
-          console.log(res.data.errorMsg);
-          wx.showToast({
-            title: res.data.errorMsg,
-            duration: 2000
-          })
-        };
-      }
-    })
+    if(userId){
+      wx.request({
+        url: HOST + "/wx/listReserveShopHistory",
+        data: {
+          userId: userId,
+          sellerId: sellerId,
+          pageNo: 1,
+          pageSize: 10
+        },
+        method: 'POST',
+        header: HEADER,
+        success: function (res) {
+          console.log("----get listReserveShopHistory successed----", res);
+          if (res.data.code == "0") {
+            var historyList = res.data.result.list;
+            historyList.map(function (item, index, array) {
+              item["createdTime"] = app.formateTime(item["createdTime"]);
+              item["modifiedTime"] = app.formateTime(item["modifiedTime"]);
+              item["endTime"] = app.showTime(item["reserveTime"]);
+              item["reserveTime"] = app.formateNormalTime(item["reserveTime"]);
+            })
+            that.setData({
+              historyList: historyList,
+            });
+          } else {
+            console.log(res.data.errorMsg);
+            wx.showToast({
+              title: res.data.errorMsg,
+              duration: 2000
+            })
+          };
+        }
+      })
+    }
   },
 
   /**
