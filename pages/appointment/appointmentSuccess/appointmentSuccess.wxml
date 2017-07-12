@@ -3,7 +3,7 @@
 <view class="sucessPage">
   <image class="sucessLogo" src="../../../images/app2.0/gou@3x.png"></image>
   <text class="title">恭喜，您已预约成功！</text>
-  <text class="note">阿斯顿发惊世毒妃卡京东首发及时到货发空间的撒科技时代话费卡上的法开始的法律上的房间爱死了，结束的离开房间爱上的浪费。</text>
+  <text class="note">商户会为您预留30分钟，过时订单将作废，请按时到店。若行程有变请提前在我的预约中取消。</text>
   <button class="comeback" bindtap="comebackIndex">返回首页</button>
   <button class="check" bindtap="checkAppointment">查看我的预约</button>
 </view>
