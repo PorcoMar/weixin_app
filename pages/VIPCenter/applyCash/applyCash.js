@@ -111,6 +111,11 @@ Page({
         console.log(res)
         if(res.data.code=="0"){
           this.setData({ modalHidden5: true })
+        } else if (res.data.code =="DT002"){
+          this.setData({
+            modalHidden6: true,
+            alertCont:"本活动仅针对新用户，您已经是我们的老用户了，不能参加本次活动"
+          })
         }else{
           this.setData({
              modalHidden6: true,
