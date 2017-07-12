@@ -14,7 +14,7 @@ Page({
     let info = app.globalData.wxInfo;
     this.setData({wxInfo:info})
     this.setData({ userId: app.globalData.HEADER.uid })
-    //console.log(this.data.userId)
+    console.log(this.data.userId)
   },
   onReady: function () {
   // 页面渲染完成
@@ -31,8 +31,8 @@ Page({
           method: "POST",
           header: res.data,
           success: (res)=> {
-            //console.log(res)
-            //console.log(that.data.userId)
+            console.log(res)
+            
           }
         });
       }

@@ -83,11 +83,12 @@
 
 <view class="footerm">
   <button class="makeMoney" bindtap="makeMOney"  open-type="share">
-    <image src="../../../images/app2.0/tixian@2x.png"></image>
+  <image src="../../../images/app2.0/liwu@2x.png"></image>
+    
     <text>赚礼金</text>
   </button>
   <button class="getCash" bindtap="getBash">
-    <image src="../../../images/app2.0/liwu@2x.png"></image>
+    <image src="../../../images/app2.0/tixian@2x.png"></image>
     <text>提现</text>
   </button>
 </view>

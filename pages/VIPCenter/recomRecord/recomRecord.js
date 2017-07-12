@@ -21,8 +21,8 @@ Page({
       method: "POST",
       header: getApp().globalData.HEADER,
       data: {
-        //referrerId: this.data.userId,
-        referrerId:18981,
+        referrerId: this.data.userId,
+        //referrerId:18981,
         referrerType: "USER",
         pageNo: 1,
         pageSize: 100,
