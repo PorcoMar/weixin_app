@@ -7,6 +7,12 @@ Page({
     userInfo: null
   },
   onLoad:function(options){
+      
+  },
+  onReady:function(){
+    // 页面渲染完成
+  },
+  onShow:function(){
     //获取用户信息
     var token = app.globalData.HEADER.token;
     var uid = app.globalData.HEADER.uid;
@@ -18,7 +24,7 @@ Page({
         this.setData({ wxInfo: app.globalData.wxInfo });
         wx.getStorage({
           key: "HEADER",
-          success:(res)=> {
+          success: (res) => {
             console.log("------get header success-------");
             //获取用户信息
             getApp().globalData.HEADER = res.data;
@@ -26,7 +32,7 @@ Page({
               url: HOST + "/user/info",
               method: 'POST',
               header: res.data,
-              success: (res)=> {
+              success: (res) => {
                 console.log(res)
                 if (res.data.code == "0") {
                   let datnn = res.data.result;
@@ -36,7 +42,7 @@ Page({
                     shopName: datnn.shopName,
                     shopLogo: datnn.shopLogo
                   })
-                  this.setData({ userInfo: res.data.result});
+                  this.setData({ userInfo: res.data.result });
                 }
               }
             })
@@ -49,16 +55,11 @@ Page({
           showCancel: false
         });
       };
-    } else{
+    } else {
       wx.navigateTo({
         url: '../personal/bindPhone/bindPhone',
       })
-    }   
-  },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
+    } 
   },
   onHide:function(){
     // 页面隐藏
