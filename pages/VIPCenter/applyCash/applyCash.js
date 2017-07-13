@@ -44,13 +44,19 @@ Page({
       },
       success:(res)=> {
         console.log(res)
-        if(!res.data.result){
+        let datn = res.data.result;
+        if (!datn){
           this.setData({
              allMoney: 0,
              placehold:0
            })
         }else{
-          this.setData({ allMoney: res.data.result.canAmount })
+          if (!datn.canAmount){
+            this.setData({ allMoney: 0, placehold: 0 })
+          }else{
+            this.setData({ allMoney: res.data.result.canAmount })
+          }
+          
         }
        
       }

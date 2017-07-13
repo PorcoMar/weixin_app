@@ -41,14 +41,14 @@ console.log(this.data.userId)
             orderCount:0,
             pastAmount:0
           })
-        }else{
-          this.setData({
-            canAmount: util.toMoney(datan.canAmount),
-            totalAmount: util.toMoney(datan.totalAmount),
-            subUserCount: datan.subUserCount,
-            orderCount: datan.orderCount,
-            pastAmount: util.toMoney(datan.pastAmount)
-          })
+        } else{
+          datan.canAmount ? this.setData({ canAmount: util.toMoney(datan.canAmount) }) : this.setData({ canAmount: 0 })
+          datan.totalAmount ? this.setData({ totalAmount: util.toMoney(datan.totalAmount) }) : this.setData({ totalAmount: 0 })
+          datan.subUserCount ? this.setData({ subUserCount: datan.subUserCount }) : this.setData({ subUserCount: 0 })
+          datan.orderCount ? this.setData({ orderCount: datan.orderCount }) : this.setData({ orderCount: 0 })
+          datan.pastAmount ? this.setData({ pastAmount: datan.pastAmount }) : this.setData({ pastAmount: 0 })
+          console.log(this.data.canAmount, this.data.totalAmount)
+          console.log(this.data.subUserCount, this.data.orderCount, this.data.pastAmount)
         }
 
       }
