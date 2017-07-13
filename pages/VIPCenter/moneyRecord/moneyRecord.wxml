@@ -3,7 +3,7 @@
 <view class="banner_head">
   <text>{{canAmount}}</text>
   <text>可提总礼金(元)</text>
-  <text>预计总礼金: {{totalAmount}}</text>
+  <text>预计总礼金: {{waitAmount}}</text>
 </view>
 
 <view class="moneyRecord">礼金记录</view>

@@ -30,8 +30,9 @@
     "pages/VIPCenter/applyCash/applyCash",
     "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
     "pages/VIPCenter/applyCashRecord/applyCashRecord",
-    "pages/VIPCenter/recomRecord/recomRecord",
-    "pages/VIPCenter/moneyRecord/moneyRecord"
+    "pages/VIPCenter/moneyRecord/moneyRecord",
+    "pages/VIPCenter/recomRecord/recomRecord"
+    
   ],
   "window": {
     "enablePullDownRefresh": false,

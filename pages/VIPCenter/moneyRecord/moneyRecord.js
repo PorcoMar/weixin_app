@@ -67,16 +67,14 @@ Page({
       success: (res) => {
         console.log(res)
         let datn = res.data.result;
-        if(!res.data.result){
+        if (!datn){
           this.setData({
             canAmount: 0,
-            totalAmount: 0,
+            waitAmount: 0,
           })
         }else{
-          this.setData({
-            canAmount: util.toMoney(datn.canAmount),
-            totalAmount: util.toMoney(datn.totalAmount),
-          })
+          datn.canAmount ? this.setData({ canAmount: util.toMoney(datn.canAmount) }) : this.setData({ canAmount: 0 })
+          datn.waitAmount ? this.setData({ waitAmount: util.toMoney(datn.waitAmount) }) : this.setData({ waitAmount: 0 })
         }
         
       }
