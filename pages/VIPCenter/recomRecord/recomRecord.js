@@ -26,8 +26,8 @@ Page({
       method: 'POST',
       //data: { cat: 1, shopId: 10, pageNo: this.data.pageNo, pageSize: 10 },
       data:{
-        //referrerId: this.data.userId,
-        referrerId:18981,
+        referrerId: this.data.userId,
+        //referrerId:18981,
          referrerType: "USER",
          pageSize:10,
          pageNo: this.data.pageNo
