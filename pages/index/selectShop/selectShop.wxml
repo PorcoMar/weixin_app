@@ -1,7 +1,7 @@
 <!--pages/index/selectShop/selectShop.wxml-->
 <view class="container">
     <view class="shop-header">
-        <image class="logo" src="../../../images/app2.0/fulogo.png" wx:if="{{!shop.logo}}"></image>
+        <image class="logo" src="../../../images/app2.0/logo@3x.png" wx:if="{{!shop.logo}}"></image>
         <!--<image class="logo" src="{{shop.logo}}" wx:if="{{shop.logo}}"></image>-->
         <text class="shopName">亦蓁母婴</text>
         <view class="changeShop" bindtap="changeCity">
