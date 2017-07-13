@@ -56,7 +56,7 @@ Page({
       if (this.data.firstLoad) { // 第一次加载请求数据
         let _params = {
           userId: uid,
-          currentStatus: 'UNUSED',
+          status: 'UNUSED',
           pageNo: 1,
           pageSize: this.data.pageSize
         }
