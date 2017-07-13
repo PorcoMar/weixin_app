@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/VIPCenter/applyCash/applyCash",
     "pages/index/index",
     "pages/index/selectShop/selectShop",
     "pages/index/selectCity/selectCity",
@@ -27,7 +27,7 @@
     "pages/VIPCenter/shareGift/shareGift",
     "pages/VIPCenter/recomGiftAfter/recomGiftAfter",
     "pages/VIPCenter/getGift/getGift",
-    "pages/VIPCenter/applyCash/applyCash",
+    
     "pages/VIPCenter/recomGiftBefore/recomGiftBefore",
     "pages/VIPCenter/applyCashRecord/applyCashRecord",
     "pages/VIPCenter/recomRecord/recomRecord",

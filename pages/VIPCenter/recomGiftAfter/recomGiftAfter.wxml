@@ -4,7 +4,7 @@
   <view class="float_header">
   <view class="step">
   <text>预计礼金</text>
-  <text>¥{{canAmount}}</text>
+  <text>¥{{waitAmount}}</text>
   </view>
   <view class="step">
       <image class="userImg" src="{{wxInfo.avatarUrl}}"></image>
@@ -12,7 +12,7 @@
   </view>
   <view class="step">
     <text>可提礼金</text>
-    <text>¥{{totalAmount}}</text>
+    <text>¥{{canAmount}}</text>
   </view>
   </view>
 </view>

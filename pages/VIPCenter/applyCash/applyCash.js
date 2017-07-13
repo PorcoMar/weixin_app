@@ -54,7 +54,10 @@ Page({
           if (!datn.canAmount){
             this.setData({ allMoney: 0, placehold: 0 })
           }else{
-            this.setData({ allMoney: res.data.result.canAmount })
+            this.setData({ 
+              allMoney: res.data.result.canAmount,
+              placehold: res.data.result.canAmount
+             })
           }
           
         }

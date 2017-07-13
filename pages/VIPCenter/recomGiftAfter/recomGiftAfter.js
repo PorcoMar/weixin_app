@@ -36,19 +36,19 @@ console.log(this.data.userId)
         if(!datan){
           this.setData({
             canAmount:0,
-            totalAmount:0,
+            waitAmount:0,
             subUserCount:0,
             orderCount:0,
             pastAmount:0
           })
         } else{
           datan.canAmount ? this.setData({ canAmount: util.toMoney(datan.canAmount) }) : this.setData({ canAmount: 0 })
-          datan.totalAmount ? this.setData({ totalAmount: util.toMoney(datan.totalAmount) }) : this.setData({ totalAmount: 0 })
+          datan.waitAmount ? this.setData({ waitAmount: util.toMoney(datan.waitAmount) }) : this.setData({ waitAmount: 0 })
           datan.subUserCount ? this.setData({ subUserCount: datan.subUserCount }) : this.setData({ subUserCount: 0 })
           datan.orderCount ? this.setData({ orderCount: datan.orderCount }) : this.setData({ orderCount: 0 })
           datan.pastAmount ? this.setData({ pastAmount: datan.pastAmount }) : this.setData({ pastAmount: 0 })
-          console.log(this.data.canAmount, this.data.totalAmount)
-          console.log(this.data.subUserCount, this.data.orderCount, this.data.pastAmount)
+          //console.log(this.data.canAmount, this.data.waitAmount)
+          //console.log(this.data.subUserCount, this.data.orderCount, this.data.pastAmount)
         }
 
       }
