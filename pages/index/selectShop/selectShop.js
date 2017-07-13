@@ -11,15 +11,19 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var location = app.globalData.location;
+    var location = app.globalData.location || {city:"上海市"};
     this.setData({ cityName:location.city });
     console.log("--shoplist onload--",location)
     // var city = {city: '上海市'};
     this.setData({
       options: options
     })
-    var shopId = app.globalData.shop.id;
-    // console.log(shopId);
+    if (app.globalData.shop){
+      var shopId = app.globalData.shop.id
+    }else {
+      var shopId = 0;
+    }
+    console.log(shopId);
     var that = this;
 
     if (options.limitcat) { // 当从优惠券查看门店进入的情况下请求/shop/supportShopByCat
@@ -57,7 +61,7 @@ Page({
         }
       })
     } else {
-      // console.log(HOST,city);
+      console.log(HOST,location);
       wx.request({
         url: HOST + "/shop/list",
         data: location,
@@ -111,7 +115,9 @@ Page({
       }
     };
     this.setData({ shopList: shopList });
+    console.log("shopList",shopList);
     var shopId = this.data.shopList[id].id;
+    console.log("shopId",shopId);
     getApp().globalData.shopId = shopId;
 
     wx.switchTab({

@@ -26,6 +26,43 @@ Page({
       });
       var fail = function (data) {
         console.log(data);
+        wx.navigateTo({
+          url: './selectShop/selectShop',
+        })
+      //   //获取地理位置信息
+      //   wx.getLocation({
+      //     type:"wgs84",
+      //     success:function(res){
+      //       var location = {
+      //         lat:res.latitude,
+      //         lng:res.longitude,
+      //         city:'上海市'
+      //       };
+      //       console.log(HOST, location, app.globalData.cityInfo);
+      //       //获取门店信息
+      //       wx.request({
+      //         url: HOST + "/shop/detail",
+      //         data: location,
+      //         method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      //         header:HEADER,
+      //         success: function(res){
+      //           console.log(res.data);
+      //             if(res.data.code == "0"){
+      //                 res.data.result.distance = (res.data.result.distance/1000).toFixed(1) || 0;
+      //                 app.globalData.shop = res.data.result;
+      //                 app.globalData.location = location;
+      //                 that.setData({shop:app.globalData.shop});
+      //             };
+      //         } ,
+      //         fail: function(res){
+      //           console.log(res);
+      //         } ,
+      //         complete:function(data){
+      //             console.log("data",data);
+      //         }
+      //       })
+      //   }
+      //  })
       };
       var success = function (data) {
         //返回数据内，已经包含经纬度  
@@ -36,9 +73,6 @@ Page({
           lat: wxMarkerData[0].latitude,
           lng: wxMarkerData[0].longitude,
           city: data.originalData.result.addressComponent.city || '上海市'
-          // city: '上海市'
-          // lat: 121.48,
-          // lng: 31.22
         }
         console.log("location",location);
         wx.request({
@@ -62,55 +96,12 @@ Page({
             console.log(data);
           }
         })
-        //把所有数据放在初始化data内  
-        // console.log("city", data.originalData.result.addressComponent.city, wxMarkerData[0].latitude, wxMarkerData[0].longitude);
-        // app.globalData.cityInfo = data.originalData.result.addressComponent.city;
-        // that.setData({
-        //   markers: wxMarkerData,
-        //   latitude: wxMarkerData[0].latitude,
-        //   longitude: wxMarkerData[0].longitude,
-        //   address: wxMarkerData[0].address,
-          // cityInfo: data.originalData.result.addressComponent
-        // });
       }
       // 发起regeocoding检索请求   
       BMap.regeocoding({
         fail: fail,
         success: success
       });   
-      // //获取地理位置信息
-      //  wx.getLocation({
-      //    type:"wgs84",
-      //    success:function(res){
-      //      var location = {
-      //        lat:res.latitude,
-      //        lng:res.longitude
-      //      };
-      //      console.log(HOST, location, app.globalData.cityInfo);
-      //      //获取门店信息
-      //      wx.request({
-      //        url: HOST + "/shop/detail",
-      //        data: location,
-      //        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      //        header:HEADER,
-      //        success: function(res){
-      //          console.log(res.data);
-      //           if(res.data.code == "0"){
-      //                res.data.result.distance = (res.data.result.distance/1000).toFixed(1) || 0;
-      //                app.globalData.shop = res.data.result;
-      //                app.globalData.location = location;
-      //                that.setData({shop:app.globalData.shop});
-      //           };
-      //        } ,
-      //        fail: function(res){
-      //          console.log(res);
-      //        } ,
-      //        complete:function(data){
-      //           console.log("data",data);
-      //        }
-      //      })
-      //    }
-      //  })
     }else{
       this.setData({shop:app.globalData.shop});
     }
@@ -118,18 +109,25 @@ Page({
   onShow:function(){
     var that = this;
     var shopId = getApp().globalData.shopId;
+    console.log(shopId);
     if(shopId){
-      var lat = getApp().globalData.location.lat;
-      var lng = getApp().globalData.location.lng;
+      var location = {};
+      location.shopId = shopId;
+
+      if (getApp().globalData.location){
+        if (getApp().globalData.location.lat){
+          location.lat = getApp().globalData.location.lat;
+          location.lng = getApp().globalData.location.lng;
+        }
+      }
+      // var lat = getApp().globalData.location.lat;
+      // var lng = getApp().globalData.location.lng;
+      console.log("location",location);
       wx.request({
         url:HOST + "/shop/detail",
         method:"POST",
         header:getApp().globalData.HEADER,
-        data:{
-          shopId:shopId,
-          lat:lat,
-          lng:lng
-          },
+        data:location,
         success:function(res){
           console.log(res);
           if(res.data["code"] == "0"){

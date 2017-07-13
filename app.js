@@ -154,6 +154,17 @@ App({
       //   return status;
     }
   },
+  //转换预约状态名
+  formateReserveStatus:function(status){
+      if(status == 'CANCEL'){
+          return('已取消');
+      }else if(status == 'PAY'){
+          return('已结算');
+      }else {
+          return("已过期");
+          //   return status;
+      }
+  },
   // 倒计时转换
   formateSecond:function(value) {
    var theTime = parseInt(value);// 秒

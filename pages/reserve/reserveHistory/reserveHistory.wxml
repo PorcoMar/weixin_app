@@ -12,7 +12,7 @@
           <view class="itemheader">
             <image class="itemLogo" src="../../../images/app2.0/dianpu@3x.png"></image>
             <text class="shopName">{{item.shopName}}</text>
-            <text class="remainTime">{{item.status=='CANCEL'?'已取消':'已过期'}}</text>
+            <text class="remainTime">{{item.status}}</text>
           </view>
           <view class="itembody">
               <view class="reserveTime">

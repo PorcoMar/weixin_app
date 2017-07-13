@@ -18,7 +18,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     //获取当前所处的位置
-    var location = app.globalData.location;
+    var location = app.globalData.location || {city:"上海市"};
     this.setData({ cityName: location.city });
     //获取所有的城市列表
     wx.request({
@@ -100,10 +100,16 @@ Page({
   changeCity:function(e){
     // console.log(e);
     var city = e.currentTarget.dataset.city;
+    console.log(city,app.globalData.location);
     this.setData({
       cityName: city
     });
-    app.globalData.location.city = city;
+    if (app.globalData.location){
+      app.globalData.location.city = city;
+    }else {
+      app.globalData.location = {city:city};
+    }
+    
     wx.redirectTo({
       url: '../selectShop/selectShop',
     })

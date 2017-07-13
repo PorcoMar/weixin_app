@@ -44,9 +44,11 @@ Page({
               item["modifiedTime"] = app.formateTime(item["modifiedTime"]);
               item["endTime"] = app.showTime(item["reserveTime"]);
               item["reserveTime"] = app.formateNormalTime(item["reserveTime"]);
+              item["status"] = app.formateReserveStatus(item.status);
             })
             that.setData({
               historyList: historyList,
+              totalRecords: res.data.result.page.totalRecords
             });
           } else {
             console.log(res.data.errorMsg);
@@ -105,7 +107,7 @@ Page({
     var userId = app.globalData.HEADER.uid;
     var sellerId = 1;
     var that = this;
-    if (that.data.historyList.length == (that.data.pageNo * 10)) {
+    if (that.data.historyList.length < that.data.totalRecords) {
       console.log('加载更多');
       var pageNo = that.data.pageNo + 1;
       // var cat=that.data.cat
@@ -139,6 +141,8 @@ Page({
               item["modifiedTime"] = app.formateTime(item["modifiedTime"]);
               item["endTime"] = app.showTime(item["reserveTime"]);
               item["reserveTime"] = app.formateNormalTime(item["reserveTime"]);
+              // console.log(item.status);
+              item["status"] = app.formateReserveStatus(item["status"]);
             })
 
             that.setData({
@@ -210,9 +214,11 @@ Page({
                                   item["modifiedTime"] = app.formateTime(item["modifiedTime"]);
                                   item["endTime"] = app.showTime(item["reserveTime"]);
                                   item["reserveTime"] = app.formateNormalTime(item["reserveTime"]);
+                                  item["status"] = app.formateReserveStatus(item.status);
                               })
                               that.setData({
                                   historyList: historyList,
+                                  totalRecords: res.data.result.page.totalRecords
                               });
                           } else {
                               console.log(res.data.errorMsg);

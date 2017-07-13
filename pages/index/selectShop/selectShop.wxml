@@ -22,7 +22,7 @@
                      <image src="../../../images/homePage/address@2x.png" style="width:24rpx;height:24rpx;"></image>
                      <!--<text class="shop-address-info">{{item.address}}</text>-->
                      <text class="shop-address-info">{{item.address}}</text>
-                     <text class="shop-distance">{{item.distance/1000}}km</text>
+                     <text class="shop-distance">{{item.distance/1000 || 0}}km</text>
                 </view>
             </view>
             <image class="selected" src="../../../images/homePage/biaoji@2x.png" wx:if="{{item.selected}}"></image>
